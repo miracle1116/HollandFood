@@ -1,0 +1,12 @@
+/* Color of side NavBar List */
+.navIcon, .navList {
+  color: #7994F5;
+}
+
+.sideBar {
+  background-color: #EAF9FF;
+}
+
+.sidebar-heading {
+  color: #000F45;
+}
