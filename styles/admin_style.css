@@ -10,3 +10,13 @@
 .sidebar-heading {
   color: #000F45;
 }
+
+.adminBg {
+  background-color: #000F45;
+}
+
+.btn-admin {
+  color: #000F45;
+  background-color: #EAF9FF;
+  border-color: #EAF9FF
+}
