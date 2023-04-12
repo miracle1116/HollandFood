@@ -68,8 +68,8 @@ form.sign-in-form {
 
 .input-field {
   max-width: 380px;
-  width: 100%;
-  background-color: #f0f0f0;
+  width: 80%;
+  background-color: #ffffff;
   margin: 10px 0;
   height: 55px;
   border-radius: 55px;
@@ -77,12 +77,14 @@ form.sign-in-form {
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
   position: relative;
+  border: 2px solid #f4b386;
+
 }
 
 .input-field i {
   text-align: center;
   line-height: 55px;
-  color: #acacac;
+  color: #f4b386 ;
   transition: 0.5s;
   font-size: 1.1rem;
 }
@@ -98,7 +100,7 @@ form.sign-in-form {
 }
 
 .input-field input::placeholder {
-  color: #aaa;
+  color: #f4b386;
   font-weight: 500;
 }
 
@@ -139,16 +141,17 @@ form.sign-in-form {
   outline: none;
   height: 49px;
   border-radius: 49px;
-  color: #fff;
+  color: #fe724c;
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px 0;
   cursor: pointer;
   transition: 0.5s;
+  
 }
 
 .btn:hover {
-  background-color: #4d84e2;
+  background-color: #f83701;
 }
 .panels-container {
   position: absolute;
@@ -168,17 +171,15 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: url("/HollandFood/images/user_login_background.png");
-  background-repeat: repeat;
-  background-size: auto;
-  opacity: 0.7;
+  /* background-image: url("/HollandFood/images/user_login_background.png"); */
+  background-image: linear-gradient(-45deg, #fe724c 0%, #fe7264 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
 }
 
 .image {
-  width: 100%;
+  width: 90%;
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
 }
@@ -211,22 +212,27 @@ form.sign-in-form {
 .panel h3 {
   font-weight: 600;
   line-height: 1;
-  font-size: 1.5rem;
+  font-size: 2.0rem;
+
 }
 
 .panel p {
-  font-size: 0.95rem;
+  font-size: 1.0rem;
+  font-style: italic;
   padding: 0.7rem 0;
 }
 
 .btn.transparent {
   margin: 0;
-  background: none;
-  border: 2px solid #fff;
-  width: 130px;
+  background: white;
+  border: 2px solid #fe724c;
+  width: 180px;
   height: 41px;
   font-weight: 600;
   font-size: 0.8rem;
+  color: #fe724c;
+  margin-top: 5%;
+  /* margin-top: 50%;  if use image background */
 }
 
 .right-panel .image,
@@ -312,19 +318,27 @@ form.sign-in-form {
   }
 
   .image {
-    width: 200px;
+    width: 160px;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.6s;
   }
 
-  .panel .content {
-    padding-right: 15%;
+  .panel .content2 {
+    padding-left: 5%;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.8s;
+    padding-bottom: 20%;
+  }
+
+  .panel .content3 {
+    padding-left: 5%;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.8s;
+    padding-top: 5%;
   }
 
   .panel h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .panel p {
@@ -374,6 +388,9 @@ form.sign-in-form {
     top: 5%;
     transform: translate(-50%, 0);
   }
+
+
+
 }
 
 @media (max-width: 570px) {
@@ -385,7 +402,7 @@ form.sign-in-form {
     display: none;
   }
   .panel .content {
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 0.5rem 3rem 4rem ;
   }
   .container {
     padding: 1.5rem;
@@ -400,4 +417,41 @@ form.sign-in-form {
     bottom: 28%;
     left: 50%;
   }
+
+
+
 }
+
+.signup-sub,
+.login-sub{
+    color: white;
+    background-color: #fe724c;
+    max-width: 380px;
+    width: 90%;
+    height: 55px;
+    margin-top: 5%;
+}
+
+.forgot-password{
+    font-style: italic ;
+    font-size: 0.9rem;
+    color: #444;
+    text-decoration: underline;
+
+
+}
+
+.username-input{
+  margin-top: 4%;
+}
+.panel .content2{
+  margin-top: 15%;
+  margin-right: 25%;
+}
+.panel .content3{
+  margin-top: 15%;
+  margin-right: 25%;
+}
+
+
+
