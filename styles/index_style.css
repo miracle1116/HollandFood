@@ -1,3 +1,7 @@
+* {
+  font-family: 'Montserrat';
+}
+
 /* Color of the links BEFORE scroll */
 .navbar-scroll .nav-link,
 .navbar-scroll .navbar-toggler .fa-bars {
@@ -20,3 +24,42 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.navbar-light .navbar-nav .nav-link{
+  color: white;
+  font-size: 18px;
+  padding: 10px 35px 35px 10px;
+
+}
+
+.navbar-light .navbar-brand{
+  color: white;
+  font-size: 20px;
+  padding: 10px 35px 35px 10px;
+  
+}
+
+.navbar {
+  text-shadow: 2px 2px 4px #000000;
+  margin-top: 50px;
+}
+
+.btn{
+  background-color: #FE724C;
+  color: white;
+  border-radius: 30px;
+  margin-top: 0px;
+  width: 150px;
+  box-shadow: #000000;
+
+}
+
+header{
+  height: 100vh;
+  min-height: 400px;
+  background-size: cover;
+  background-image: url('../images/index_img.jpg');
+  filter: brightness(50%);
+}
+
+
