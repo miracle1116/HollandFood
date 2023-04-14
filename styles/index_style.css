@@ -54,12 +54,20 @@
 
 }
 
-header{
+.bg-img {
   height: 100vh;
-  min-height: 400px;
-  background-size: cover;
-  background-image: url('../images/index_img.jpg');
-  filter: brightness(50%);
+  width: 100vw;
+  object-fit: cover;
+  filter: brightness(0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
+.header-text{
+  color: #fff;
+  text-shadow: 2px 2px 4px #000000;
+  text-align: justify;
+}
 
