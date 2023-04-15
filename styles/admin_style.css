@@ -75,3 +75,36 @@ i{
   padding-left: 930px;
 }
 
+.reservation{
+  background-color: white;
+  color: #000F45;
+}
+
+.waitlist{
+  background-color: white;
+  color: #7994F5;
+}
+
+.searchIcon{
+  border-style: none;
+  background-color: #EAF9FF;
+
+}
+
+.outer{
+  position: relative;
+}
+
+.rectangle{
+  position: absolute;
+  width: 50px;
+}
+
+.T2{
+  position: absolute;
+  width: 25px;
+  top: 0;
+  left: 0;
+  margin-top: 18px;
+  margin-left: 25px;
+}
