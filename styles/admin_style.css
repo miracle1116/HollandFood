@@ -75,3 +75,49 @@ i{
   padding-left: 930px;
 }
 
+.reservation{
+  background-color: white;
+  color: #000F45;
+}
+
+.waitlist{
+  background-color: white;
+  color: #7994F5;
+}
+
+.searchIcon{
+  border-style: none;
+  background-color: #EAF9FF;
+
+}
+
+.outer{
+  position: relative;
+  margin-top: 10px;
+}
+
+.rectangle{
+  position: absolute;
+  width: 50px;
+}
+
+.T2{
+  position: absolute;
+  width: 25px;
+  top: 0;
+  left: 0;
+  margin-top: 18px;
+  margin-left: 25px;
+}
+
+.cover-customer{
+  background-color: #CEE2F3;
+  border-radius: 20px;
+}
+
+.button{
+  width: 80px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
