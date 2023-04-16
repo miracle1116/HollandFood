@@ -1,6 +1,20 @@
-/* Color of side NavBar List */
-.navIcon, .navList {
-  color: hsl(227, 86%, 72%);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/*set font style*/
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navList {
+  color: #7994F5;
+}
+
+.navList:hover {
+  color: #000F45;
+}
+
+nav ul .active{
+  color: #000F45;
 }
 
 .sideBar {
