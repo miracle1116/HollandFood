@@ -2,9 +2,14 @@
   display: none;
 }
 
-.cover-customer{
-  padding: 5px 0px 0px 20px;
-  background-color: #CEE2F3;
+.cover-section{
+  margin: 15px 0;
+  transition:1s;
+}
+
+.cover-customer, .cover-section:hover{
+  padding: 15px 0px 5px 20px;
+  background: #CEE2F3;
   border-radius: 20px;
 }
 
@@ -31,4 +36,33 @@
 .searchIcon {
   margin-left: -50px;
   background-color: transparent;
+}
+
+.reservation, .waitlist{
+  background-color: white;
+  color: #7994F5;
+  height: 50px;
+  font-weight: 500;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.selectedReservation, .selectedWaitlist{
+  background-color: white;
+  color: #000F45;
+  height: 50px;
+  font-weight: 500;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.reservation:hover, .waitlist:hover{
+  color: #000F45;
+}
+
+.dateTime{
+  float: right;
+  width: 250px;
+  margin: 25px 25px;
+  color: white;
 }
