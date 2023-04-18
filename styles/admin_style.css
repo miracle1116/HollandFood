@@ -9,6 +9,10 @@
   color: #7994F5;
 }
 
+.navIcon{
+  background-color: transparent;
+}
+
 .navList:hover {
   color: #000F45;
 }
@@ -122,11 +126,6 @@ i{
   left: 0;
   margin-top: 18px;
   margin-left: 25px;
-}
-
-.cover-customer{
-  background-color: #CEE2F3;
-  border-radius: 20px;
 }
 
 .button{
