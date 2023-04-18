@@ -1,0 +1,146 @@
+* {
+    font-family: 'Montserrat';
+  }
+
+/* Color of the links BEFORE scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler .fa-bars {
+  color: #fff;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler .fa-bars {
+  color: #4f4f4f;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scrolled {
+  background-color: #fff;
+}
+
+/* An optional height of the navbar AFTER scroll */
+.navbar.navbar-scroll.navbar-scrolled {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+  color: black;
+  font-size: 18px;
+  padding: 0px 35px 0px 10px;
+
+}
+
+.navbar-light .navbar-brand{
+  color: black;
+  font-size: 20px;
+  padding: 0px 35px 0px 10px;
+  
+}
+
+
+.bg-img {
+    height: 40vh;
+    width: 100vw;
+    object-fit: cover;
+    filter: brightness(0.7);
+    position: absolute;
+    top: 1;
+    left: 1px;
+    object-position: 25% 15%; 
+
+  }
+
+body{
+    background-color: #130D25;
+
+
+}
+
+.profile-con{
+    position:absolute;
+    background: transparent;
+    z-index: 3;
+
+
+}
+
+
+.menu-item{
+    position: relative;
+}
+
+.profile-con img{
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 160px;
+  margin-left: 16px;
+  margin-top: 20px;
+}
+
+
+
+
+.save-btn{
+    width: 100px;
+    margin-left: 70px;
+    color: white;
+    background-color: #fe724c;
+    border-color: #fe724c;
+    
+}
+
+.save-btn:hover{
+    color: #f83701;
+    border: 1px solid;
+    background-color: white;
+    border-color: #fe724c;
+}
+
+.save-btn:visited{
+    color: #f83701;
+    border: 1px solid;
+    background-color: white;
+    border-color: #fe724c;
+}
+
+@media (max-width: 570px) {
+    .save-btn{
+        margin-left: 0px;
+        margin-top: 30px;
+        width: 80px;
+    }
+}
+
+@media (max-width: 992px) {
+    .save-btn{
+        margin-left: none;
+        width: 80px;
+    }
+
+    .save-box{
+        padding-right: 30px;
+    }
+}
+
+.profile-box{
+    background-color: rgba(43, 136, 61, 0.5);
+    margin-top: 110px;
+    border-radius: 30px;
+    position:absolute;
+    justify-content: center;  
+    
+}
+
+
+
+
+.form-box{
+  position: relative;
+  margin-top: 90px;
+  
+  
+}

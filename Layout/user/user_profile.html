@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <!-- Bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+    <!-- external css stylesheet -->
+    <link rel="stylesheet" href="/styles/user_profile.css">
+
+    <!-- Include Bootsrap JavaScript plugin -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+
+
+</head>
+<body>
+    <header class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="index.html"><img src="/images/holland_food_icon.png" width="35px" />
+            Holland Food</a>
+          <!-- hamburger icon when screen size become small -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-stream navbar-toggler-icon"></i>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+              </li>
+  
+              <li class="nav-item active">
+                <a class="nav-link" href="#menu">About Us</a>
+              </li>
+  
+              <li class="nav-item active">
+                <a class="nav-link" href="#music">Menu</a>
+              </li>
+  
+              <li class="nav-item active">
+                <a class="nav-link active" href="#jobs">Book Now</a>
+              </li>
+  
+            
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbar-list-4">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="/images/profile-icon.png" width="40" height="40" class="rounded-circle">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Dashboard</a>
+                      <a class="dropdown-item" href="#">Edit Profile</a>
+                      <a class="dropdown-item" href="#">Log Out</a>
+                    </div>
+                  </li>   
+                </ul>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    
+    <div class="d-flex container-fluid profile-back justify-content-center">
+        <img class="bg-img " src="/images/user_login_background.png" alt="Background Image">
+        <div class=" container justify-content-center profile-con">
+          <img src="/images/profile-icon-blue.png " class="mx-auto d-block">
+        </div>
+        <div class="container justify-content-center bg-light profile-box w-50 mb-5">
+            
+            
+            <div class="justify-content-center container form-box">
+                <form class="form">
+                    <div class="row justify-content-center" >
+                        <div class="form-group col-lg-5 col-sm-10 mt-3 ">
+                            <label class="fw-bold" for="firstname">First Name</label>
+                            <input type="text" class="form-control" id="firstname"  placeholder="John">
+                        </div>
+
+                        <div class="form-group  col-lg-5 col-sm-10 mt-3">
+                            <label class="fw-bold" for="lastname">Last Name</label>
+                            <input type="text" class="form-control" id="lastname"  placeholder="Wick">
+                        </div>                       
+                    </div>
+
+                    <div class="row justify-content-center" >
+                        <div class="col-lg-5 col-sm-10 mt-3">
+                            <label class="fw-bold" for="date">Birth Date</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="date" aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-5 col-sm-10 mt-3">
+                            <label class="fw-bold" for="gender">Gender</label>
+                            <select id="gender" class="form-control form-select">
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>                       `
+                    </div>
+                    <div class="row justify-content-center" >
+                        <div class="form-group col-sm-10 mt-3">
+                            <label class="fw-bold" for="contactnumber">Contact Number</label>
+                            <input type="text" class="form-control" id="contactnumber"  placeholder="0123456789">
+                        </div>
+
+                        <div class="form-group col-sm-10 mt-3">
+                            <label class="fw-bold" for="email">Email</label>
+                            <input type="email" class="form-control" id="email"  placeholder="example@gamil.com">
+                        </div>
+
+                        <div class="form-group col-sm-10 mt-3">
+                            <label class="fw-bold" for="password">Password</label>
+                            <input type="text" class="form-control" id="password"  placeholder="123456789">
+                        </div>    
+
+                        <div class="form-group col-sm-10 mt-3">
+                            <label class="fw-bold" for="confirmpassword">Confirm Password</label>
+                            <input type="text" class="form-control" id="confirmpassword"  placeholder="123456789">
+                        </div>                   
+                    </div>
+
+                    <div class="container row justify-content-center  mt-5 pb-3">
+                        <div class="col col-lg-4 col-md-5 col-sm-5 ">
+                            <button id="deleteBtn" class="rounded-pill btn btn-md  btn-outline-danger" type="submit">Delete Account</button>
+                        </div>
+                        <div class="col col-lg-2 ">
+
+                        </div>
+                        
+                        <div class="col col-lg-3 col-md-5 col-sm-5 save-box ">
+                            <button id="submitBtn" class="rounded-pill btn btn-md btn-outline-success save-btn " type="submit">Save</button>
+                        </div>
+                    </div>
+
+    
+                </form>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+      
+    
+</body>
+</html>
