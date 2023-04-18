@@ -9,6 +9,10 @@
   color: #7994F5;
 }
 
+.navIcon{
+  background-color: transparent;
+}
+
 .navList:hover {
   color: #000F45;
 }
