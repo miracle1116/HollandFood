@@ -1,0 +1,19 @@
+.hide{
+  display: none;
+}
+
+.cover-customer{
+  padding: 5px 0px 0px 20px;
+  background-color: #CEE2F3;
+  border-radius: 20px;
+}
+
+.section-title h5{
+  background-color: #7994F5;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 55px;
+  color: white ;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
