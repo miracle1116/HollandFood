@@ -127,11 +127,12 @@ body{
 }
 
 .profile-box{
-    background-color: rgba(43, 136, 61, 0.5);
+    background-color:white;
     margin-top: 110px;
     border-radius: 30px;
     position:absolute;
     justify-content: center;  
+    padding-bottom: 20px;
     
 }
 
@@ -141,6 +142,11 @@ body{
 .form-box{
   position: relative;
   margin-top: 90px;
+  background-color: #fff;
   
   
+}
+
+.input{
+  border: 1.5px solid #FBE2D1;
 }
