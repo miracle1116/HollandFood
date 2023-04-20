@@ -1,0 +1,75 @@
+* {
+    font-family: 'Montserrat';
+}
+
+/* To hide vertical scrollbar */
+body {
+    overflow-x: hidden;
+}
+
+/* Color of the links BEFORE scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler .fa-bars {
+    color: #fff;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler .fa-bars {
+    color: #4f4f4f;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scrolled {
+    background-color: #fff;
+}
+
+/* An optional height of the navbar AFTER scroll */
+.navbar.navbar-scroll.navbar-scrolled {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    font-size: 18px;
+    padding: 10px 35px 35px 10px;
+
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+    font-size: 20px;
+    padding: 10px 35px 35px 10px;
+
+}
+
+.navbar {
+    text-shadow: 2px 2px 4px #000000;
+    padding-top: 50px;
+}
+
+.btn {
+    background-color: #FE724C;
+    color: white;
+    border-radius: 30px;
+    margin-top: 0px;
+    width: 150px;
+    box-shadow: #000000;
+
+}
+
+.header-text {
+    color: #fff;
+    text-shadow: 2px 2px 4px #000000;
+    width: 1000px;
+    text-align: justify;
+    padding-top: 250px;
+}
+
+header{
+    height: 100vh;
+    min-height: 400px;
+    background-size: cover;
+    background-image: url(../images/banner-img.jpg);
+}
