@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>User Login</title>
-    <link rel="stylesheet" href="../../styles/userLogin_style.css" />
+    <title>Admin Holland Food</title>
+    <link rel="stylesheet" href="../../styles/admin_style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -19,12 +19,10 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
-
   </head>
 
   <body>
-    <div class="userLoginBg container-fluid">
+    <div class="adminBg container-fluid">
       <div class="row vh-100">
         <div class="col-4 p-0 m-0 position-relative">
           <img class="h-100 img-fluid" src="../../images/login_image.png" />
@@ -33,21 +31,16 @@
           >
             <div class="Holland fs-1">Holland Food</div>
             <div class="desc fst-italic">Life is dull without good food.</div>
-            <div>
-            <button type="button" class="btn-user-signup btn-lg w-80">            
-              Sign Up
-            </button>
-            </div>          
           </div>
         </div>
 
         <div
-          class="rounded-start w-55 col-8 bg-gradient text-black text-center d-flex flex-column justify-content-center"
+          class="rounded-start w-55 col-8 bg-gradient text-white text-center d-flex flex-column justify-content-center"
           id="right_side"
         >
           <div>
-            <div class="fs-1"><h1>Hello Again!</h1></div>
-            <div>Welcome Back</div>
+            <div class="fs-1"><h1>Welcome Back!</h1></div>
+            <div>As Admin</div>
             <form action="#" method="POST">
               <!--user input 1 (email)-->
               <div class="input-group mt-3 mb-3 pt-3 justify-content-center">
@@ -95,13 +88,7 @@
                 </div>
               </div>
 
-              <button type="button" class="btn-user-login btn-lg w-25">
-                Sign In
-              </button>
-              <div>
-                <a href = "mailto:" target = "_blank">Forgot Password</a>
-              
-            </div>
+              <a class="nav-link" href="admin_viewTable.html"><button type="button" class="btn-admin btn-lg w-25">Sign In</button></a>
             </form>
           </div>
         </div>

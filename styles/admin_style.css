@@ -9,6 +9,10 @@
   color: #7994F5;
 }
 
+.navIcon{
+  background-color: transparent;
+}
+
 .navList:hover {
   color: #000F45;
 }
@@ -39,12 +43,32 @@ nav ul .active{
   color: #000F45;
 }
 
-.menu_con1{
-  background-color: #91A5EB;
+.menu_con{
+  background: #A2B3BC;
+  width: 120px;
+  border-radius: 20px;
+  transition: 1s;
+  padding: 0 20px;
+  margin: 15px 15px;
 }
 
-.menu_con{
-  background-color: #A2B3BC;
+.menu_con:hover{
+  transform: scale(1.1);
+  background: #91A5EB;
+  color:#EAF9FF;
+  box-shadow: 2px 2px 2px #EAF9FF;
+}
+
+.showMore{
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  padding: 3px 0 0 0;
+  margin: 10px auto;
 }
 
 i{
@@ -77,11 +101,19 @@ i{
 
 .border_menu{
   position: relative;
-  height: 220px;
+  height: 240px;
   width: 190px;
   background-color: #EAF9FF;
   top: 20;
   border-radius: 20px;
+  margin-bottom: 20px;
+
+}
+
+.border_menu:hover{
+  color: #EAF9FF;
+  background: #7994F5;
+  box-shadow: 0 0 10px #7994F5, 0 0 10px #7994F5, 0 0 40px #7994F5;
 }
 
 .add_icon{
@@ -89,15 +121,24 @@ i{
   padding-left: 930px;
 }
 
-.reservation{
-  background-color: white;
-  color: #000F45;
+.container {
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100px;
+  display: flex;
 }
 
-.waitlist{
-  background-color: white;
-  color: #7994F5;
+div .addBtn {
+  color: #EAF9FF;
+  font-size: 60px;
+  background: transparent;
+  justify-content: flex-end;
+  float: right;
+  margin: 15px 20px;
+  display: flex;
 }
+
+
 
 .searchIcon{
   border-style: none;
@@ -122,11 +163,6 @@ i{
   left: 0;
   margin-top: 18px;
   margin-left: 25px;
-}
-
-.cover-customer{
-  background-color: #CEE2F3;
-  border-radius: 20px;
 }
 
 .button{

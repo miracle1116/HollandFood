@@ -15,6 +15,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../../styles/admin_style.css" />
+    <link rel="stylesheet" href="../../styles/adminViewTable_style.css" />
+
 
     <title>Admin Holland Food</title>
   </head>
@@ -38,7 +40,7 @@
                 <li class="nav-item mt-3">
                   <a href="admin_viewTable.html" class="nav-link">
                     <div class="navList">
-                      <i class="fs-4 bi-table text-black"></i>
+                      <i class="navIcon fs-4 bi-table text-black"></i>
                       <span class="ms-1 d-none d-sm-inline text-black">Table</span>
                     </div>
                   </a>
@@ -46,7 +48,7 @@
                 <li class="nav-item">
                   <a href="admin_menu.html" class="nav-link">
                     <div class="navList">
-                      <i class="fs-4 bi-menu-button-wide"></i>
+                      <i class="navIcon fs-4 bi-menu-button-wide"></i>
                       <span class="ms-1 d-none d-sm-inline">Menu</span>
                     </div>
                   </a>
@@ -54,15 +56,15 @@
                 <li class="nav-item">
                   <a href="admin_manageUserAcc.html" class="nav-link">
                     <div class="navList">
-                      <i class="fs-4 bi-people"></i>
+                      <i class="navIcon fs-4 bi-people"></i>
                       <span class="ms-1 d-none d-sm-inline">Users</span>
                     </div>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="admin_login.html" class="nav-link">
                     <div class="navList">
-                      <i class="fs-4 bi-box-arrow-left"></i>
+                      <i class="navIcon fs-4 bi-box-arrow-left"></i>
                       <span class="ms-1 d-none d-sm-inline">Sign out</span>
                     </div>
                   </a>
@@ -77,26 +79,50 @@
          <!--2nd column Table-->
         <div class="adminBg col-md-7 ">
 
+          <div class="dateTime">
+            <input
+            type="datetime-local" 
+            id="datetime" 
+            name="datetime"
+            class="form-control"
+            />
+          </div>
+          
         </div>
+
+
 
         <!--3rd Column-->
         <div class="sideBar col-md-3">
           <div class="row border-bottom">
-            <div class="reservation col-sm d-flex flex-column align-items-center">RESERVATION<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-9-circle-fill mb-2" viewBox="0 0 16 16">
-              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.223 4.146c2.104 0 3.123-1.464 3.123-4.3 0-3.147-1.459-4.014-2.97-4.014-1.63 0-2.871 1.02-2.871 2.73 0 1.706 1.171 2.667 2.566 2.667 1.06 0 1.7-.557 1.934-1.184h.076c.047 1.67-.475 3.023-1.834 3.023-.71 0-1.149-.363-1.248-.72H5.258c.094.908.926 1.798 2.52 1.798Zm.118-3.972c.808 0 1.535-.528 1.535-1.594s-.668-1.676-1.56-1.676c-.838 0-1.517.616-1.517 1.659 0 1.072.708 1.61 1.54 1.61Z"/>
-            </svg></div>
+            <div class="col reservation align-items-center">
+              RESERVATION
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-9-circle-fill mb-2" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.223 4.146c2.104 0 3.123-1.464 3.123-4.3 0-3.147-1.459-4.014-2.97-4.014-1.63 0-2.871 1.02-2.871 2.73 0 1.706 1.171 2.667 2.566 2.667 1.06 0 1.7-.557 1.934-1.184h.076c.047 1.67-.475 3.023-1.834 3.023-.71 0-1.149-.363-1.248-.72H5.258c.094.908.926 1.798 2.52 1.798Zm.118-3.972c.808 0 1.535-.528 1.535-1.594s-.668-1.676-1.56-1.676c-.838 0-1.517.616-1.517 1.659 0 1.072.708 1.61 1.54 1.61Z"/>
+              </svg>
+            </div>
 
-            <div class="waitlist col-sm d-flex flex-column align-items-center">WAITLIST <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-9-circle-fill mb-2" viewBox="0 0 16 16">
-              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.223 4.146c2.104 0 3.123-1.464 3.123-4.3 0-3.147-1.459-4.014-2.97-4.014-1.63 0-2.871 1.02-2.871 2.73 0 1.706 1.171 2.667 2.566 2.667 1.06 0 1.7-.557 1.934-1.184h.076c.047 1.67-.475 3.023-1.834 3.023-.71 0-1.149-.363-1.248-.72H5.258c.094.908.926 1.798 2.52 1.798Zm.118-3.972c.808 0 1.535-.528 1.535-1.594s-.668-1.676-1.56-1.676c-.838 0-1.517.616-1.517 1.659 0 1.072.708 1.61 1.54 1.61Z"/>
-            </svg></div>
+
+            <div class="col waitlist align-items-center">
+              WAITLIST <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-9-circle-fill mb-2" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.223 4.146c2.104 0 3.123-1.464 3.123-4.3 0-3.147-1.459-4.014-2.97-4.014-1.63 0-2.871 1.02-2.871 2.73 0 1.706 1.171 2.667 2.566 2.667 1.06 0 1.7-.557 1.934-1.184h.076c.047 1.67-.475 3.023-1.834 3.023-.71 0-1.149-.363-1.248-.72H5.258c.094.908.926 1.798 2.52 1.798Zm.118-3.972c.808 0 1.535-.528 1.535-1.594s-.668-1.676-1.56-1.676c-.838 0-1.517.616-1.517 1.659 0 1.072.708 1.61 1.54 1.61Z"/>
+              </svg>
+            </div>
+
+            
           </div>
 
           <br>
+
           <div class="row ms-3 mb-4">
             <div class="search-container">
               <form action="/action_page.php">
-                <input type="text" placeholder="Search..." name="search">
-                <button class="searchIcon"><i class="bi bi-search"></i></button>
+
+                <div class="search">
+                  <input type="search" class="search-click" name="search" placeholder="Search here..." />
+                  <button class="searchIcon"><i class="bi bi-search"></i></button>
+                </div>
+
               </form>
             </div>
           </div>
@@ -105,32 +131,97 @@
             <div><h5><strong>10.00 am</strong></h5></div>
           </div>
 
-          <div class="row mt-3 ms-1">
-            <div class="outer col-sm">
-              <img class="rectangle" src="../../images/rectangle_tableLabel.png">
-              <img class="T2" src="../../images/T2.png">
+          <section class="cover-section container">
+            <section class="section-title">
+              <div class="row">
+                <div class="col-sm-3">
+                  <h5>T2</h5>
+                </div>
+                <div class="col-sm pt-3 ps-4 fw-bold">
+                  Shu Ying
+                </div>
+                <div class="col-sm p-3">
+                  2 persons
+                </div>
+              </div>
+          </section>
+          <section class="section-content hide">
+            <div class="row mt-3 ms-1">
+              Menu : <br>
+              1. Lorem ipsum dolor sit amet<br>
+              2. Lorem ipsum dolor sit amet<br>
+              3. Lorem ipsum dolor sit amet<br>
+              4. Lorem ipsum dolor sit amet<br>
             </div>
-            <div class="col-sm pt-3 ps-0 fw-bold">
+            <div class="row d-inline ms-5">
+              <button class="button bg-danger text-white">Cancel</button>
+              <button class="button bg-success text-white">Arrived</button>
+            </div>
+          </section>
+        </section>
+
+
+        <section class="cover-section container">
+          <section class="section-title">
+            <div class="row">
+              <div class="col-sm-3">
+                <h5>T2</h5>
+              </div>
+              <div class="col-sm pt-3 ps-4 fw-bold">
+                Shu Ying
+              </div>
+              <div class="col-sm p-3">
+                2 persons
+              </div>
+            </div>
+        </section>
+        <section class="section-content hide">
+          <div class="row mt-3 ms-1">
+            Menu : <br>
+            1. Lorem ipsum dolor sit amet<br>
+            2. Lorem ipsum dolor sit amet<br>
+            3. Lorem ipsum dolor sit amet<br>
+            4. Lorem ipsum dolor sit amet<br>
+          </div>
+          <div class="row d-inline ms-5">
+            <button class="button bg-danger text-white">Cancel</button>
+            <button class="button bg-success text-white">Arrived</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="cover-section container">
+        <section class="section-title">
+          <div class="row">
+            <div class="col-sm-3">
+              <h5>T2</h5>
+            </div>
+            <div class="col-sm pt-3 ps-4 fw-bold">
               Shu Ying
             </div>
             <div class="col-sm p-3">
               2 persons
             </div>
           </div>
+      </section>
+      <section class="section-content hide">
+        <div class="row mt-3 ms-1">
+          Menu : <br>
+          1. Lorem ipsum dolor sit amet<br>
+          2. Lorem ipsum dolor sit amet<br>
+          3. Lorem ipsum dolor sit amet<br>
+          4. Lorem ipsum dolor sit amet<br>
+        </div>
+        <div class="row d-inline ms-5">
+          <button class="button bg-danger text-white">Cancel</button>
+          <button class="button bg-success text-white">Arrived</button>
+        </div>
+      </section>
+    </section>
 
-            <div class="row mt-3 ms-1">
-              <div class="outer col-sm">
-                <img class="rectangle" src="../../images/rectangle_tableLabel.png">
-                <img class="T2" src="../../images/T2.png">
-              </div>
-              <div class="col-sm pt-3 ps-0 fw-bold">
-                Shu Ying
-              </div>
-              <div class="col-sm p-3">
-                2 persons
-              </div>
-            </div>  
 
+
+<!--
               <div class="row mt-3 ms-1">
                 <div class="outer col-sm">
                   <img class="rectangle" src="../../images/rectangle_tableLabel.png">
@@ -143,18 +234,20 @@
                   2 persons
                 </div>
               </div>
+-->
+
 
           </div>
           
+
         </div>
-
-
 
     <!-- Include Bootstrap JavaScript plugin -->
     <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
+  <script src="../../script/adminViewTable.js"></script>
+
 </body>
 </html>
