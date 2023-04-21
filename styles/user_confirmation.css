@@ -4,6 +4,7 @@
 
 body{
     background-color: #130D25;
+    padding-bottom: 20px;
 }
 
 /* Color of the links BEFORE scroll */
@@ -44,11 +45,6 @@ body{
 }
 
 
-* {
-    margin: 0;
-    padding: 0
-}
-  
 html {
     height: 100%
 }
@@ -140,5 +136,47 @@ h2{
 }
 
 .icon {
-    font-size: 1.8rem; /* Change this value to adjust the size */
+    font-size: 1.7rem; /* Change this value to adjust the size */
+    color: #fe724c;
   }
+
+.ordered-food{
+    font-size: 12px;
+}
+
+.line-break{
+    color: #fe724c;
+    padding: 0px 10px 0px 10px;
+    margin-top: 10px;
+}
+
+.input-border{
+    border-color: #FBE2D1;
+}
+.div-border{
+    border:1px #FBE2D1 solid;
+}
+
+.bg-white{
+    background: #ffffff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .start-button {
+    order: 1;
+  }
+  
+  .end-button {
+    order: 2;
+  }
+
+.button-shape{
+    border-radius: 20px;
+    background-color: #fe724c;
+    color: white;
+    padding: 5px 20px 5px 20px;
+}
