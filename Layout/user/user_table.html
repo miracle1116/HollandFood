@@ -129,17 +129,17 @@
             <!-- Table row -->
             <div class="col-11 col-lg-11 ">
                 <div class=" row justify-content-center">
-                    <div class="rounded-5 col-4 col-sm-4 col-md-3 col-lg-3 table-all me-2 me-lg-3">
+                    <div class="rounded-5 col-4 col-sm-4 col-md-4 col-lg-3 table-all me-2 me-lg-3 d-flex justify-content-center">
                         <p>T1</p>
                     </div>
                     <div class="col-1 col-lg-1 me-2 me-lg-3">
                     </div>
-                    <div class="rounded-5 col-2 col-lg-1 table-all me-2 me-lg-3">
+                    <div class="rounded-5 col-2 col-sm-2 col-md-2 col-lg-1 table-all me-2 me-lg-3 d-flex justify-content-center">
                         <p>T2</p>
                     </div>
                     <div class="col-1 col-lg-1 me-2 me-lg-3">
                     </div>
-                    <div class="rounded-5 col-3 col-lg-2 table-all">
+                    <div class="rounded-5 col-3 col-sm-3 col-md-3 col-lg-2 table-all d-flex justify-content-center">
                         <p>T3</p>
                     </div>
                 </div>
@@ -148,18 +148,18 @@
 
             <div class="col-11 col-lg-11 mt-5">
                 <div class=" row justify-content-center">
-                    <div class="rounded-5 col-2 col-lg-1 table-all me-2 me-lg-3">
+                    <div class="rounded-5 col-2 col-sm-2 col-md-2 col-lg-1 table-all me-2 me-lg-3 d-flex justify-content-center">
                         <p>T4</p>
                     </div>
                     <div class="col-1 col-lg-1 me-2 me-lg-3">
                     </div>
-                    <div class="rounded-5 col-3 col-lg-2 table-all me-2 me-lg-3">
+                    <div class="rounded-5 col-3 col-sm-3 col-md-3 col-lg-2 table-all me-2 me-lg-3 d-flex justify-content-center">
                         <p>T5</p>
                     </div>
                     <div class="col-1 col-lg-1 me-2 me-lg-3">
                     </div>
                     
-                    <div class="rounded-5 col-4 col-sm-4 col-md-3 col-lg-3 table-all ">
+                    <div class="rounded-5 col-4 col-sm-4 col-md-4 col-lg-3 table-all d-flex justify-content-center ">
                         <p>T6</p>
                     </div>
                 </div>
@@ -168,18 +168,18 @@
 
             <div class="col-11 col-lg-11 mt-5">
                 <div class=" row justify-content-center">
-                    <div class="rounded-5 col-3 col-lg-2 table-all me-2 me-lg-3">
+                    <div class="rounded-5 col-3 col-sm-3 col-md-3 col-lg-2 table-all me-2 me-lg-3 d-flex justify-content-center">
                         <p>T7</p>
                     </div>
                     <div class="col-1 col-lg-1 me-2 me-lg-3">
                     </div>
                     
-                    <div class="rounded-5 col-4 col-sm-4 col-md-3 col-lg-3 table-all me-2 me-lg-3">
+                    <div class="rounded-5 col-4 col-sm-4 col-md-4 col-lg-3 table-all me-2 me-lg-3 d-flex justify-content-center">
                         <p>T8</p>
                     </div>
                     <div class="col-1 col-lg-1 me-2 me-lg-3">
                     </div>
-                    <div class="rounded-5 col-2 col-lg-1 table-all ">
+                    <div class="rounded-5 col-2 col-sm-2 col-md-2 col-lg-1 table-all d-flex justify-content-center">
                         <p>T9</p>
                     </div>
                     
@@ -214,7 +214,7 @@
             <div class="col-11 col-lg-11 mt-5">
                 <p class="label mt-2" id="selectedTable" style="display: inline-block;">Selected Table ID:</p>
                 <div class="button-container" style="display: inline-block; float: right; padding-left: 10px;">
-                  <button type="submit" class="end-button button-shape">Next</button>
+                  <button type="submit" onclick="location.href = 'user_menu.html';" class="end-button button-shape">Next</button>
                 </div>
             </div>
 
@@ -230,7 +230,7 @@
         const tableDivs = document.querySelectorAll('.table-all');
         const selectedTable = document.getElementById('selectedTable');
         // customize the array here
-        const borderColors = [1, 1, 0, 0, 1, 0, 0, 1, 0];
+        const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
     
         tableDivs.forEach((div, index) => {
             if (borderColors[index] === 1) {

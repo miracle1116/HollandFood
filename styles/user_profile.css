@@ -150,3 +150,13 @@ body{
 .input{
   border: 1.5px solid #FBE2D1;
 }
+
+#tick {
+  color: green;
+  display: none;
+}
+
+#error{
+  font-size: small;
+  color: red;
+}
