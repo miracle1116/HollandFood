@@ -51,9 +51,7 @@ body {
 .container {
   justify-content: space-between;
   flex-direction: column;
-  height: 100px;
   display: flex;
-  border: 2px solid red;
 }
 
 div .addBtn {
