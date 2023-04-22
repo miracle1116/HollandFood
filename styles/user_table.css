@@ -205,3 +205,44 @@ h2{
   .end-button {
     margin-left: auto;
   }
+
+
+.available {
+    border: 8px solid green;
+  }
+
+.unavailable {
+    border: 8px solid red;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.selected{
+    border: 8px solid #fe724c;
+    transform: scale(1.1);  
+    box-shadow:  0 0 3px orange, 0 0 7px orange, 0 0 12px orange;
+}
+
+.table-label-unavailable{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    display: inline-block;
+}
+
+.table-label-available{
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    display: inline-block;
+}
+
+.table-label-selected{
+    width: 20px;
+    height: 20px;
+    background-color: #fe724c;
+    display: inline-block;
+}

@@ -115,7 +115,7 @@
                     <input type="number" class="form-control input input-border" id="noOfPax"  placeholder="0">
                 </div>
     
-                <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2  ">
+                <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
                     <button id="searchBtn" class="rounded-pill button-shape mt-4" type="submit">Search</button>
                 </div> 
             </div>
@@ -166,36 +166,89 @@
 
             </div>
 
-
             <div class="col-11 col-lg-11 mt-5">
                 <div class=" row justify-content-center">
                     <div class="rounded-pill col-2 col-lg-2 table-all">
-                        <p>T5</p>
+                        <p>T7</p>
                     </div>
                     <div class="col-1 col-lg-1 me-4">
                     </div>
                     
                     <div class="rounded-pill col-3 col-lg-3 table-all me-4">
-                        <p>T6</p>
+                        <p>T8</p>
                     </div>
                     <div class="col-1 col-lg-1 me-4">
                     </div>
                     <div class="rounded-pill col-1 col-lg-1 table-all me-4">
-                        <p>T4</p>
+                        <p>T9</p>
                     </div>
                     
                 </div>
 
             </div>
+
+            <!-- Table label -->
+            <div class="col-11 col-lg-11 mt-5 pt-5">
+                <div class="row"> 
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 justify-content-center ">
+                        <div class="square rounded table-label-unavailable">
+                        </div>
+                        <span class="label ms-1" style="font-size: 11px; display: inline-block; ">Unavailable</span>
+                    </div>
+
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 justify-content-center ">
+                        <div class="square rounded table-label-available">
+                        </div>
+                        <span class="label ms-1" style="font-size: 11px; display: inline-block; ">Available</span>
+                    </div>
+
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 justify-content-center ">
+                        <div class="square rounded table-label-selected">
+                        </div>
+                        <span class="label ms-1" style="font-size: 11px; display: inline-block; ">Selected</span>
+                    </div>  
+
+                </div>
+            </div>
+
+            <div class="col-11 col-lg-11 mt-5">
+                <p class="label mt-2" id="selectedTable" style="display: inline-block;">Selected Table ID:</p>
+                <div class="button-container" style="display: inline-block; float: right; padding-left: 10px;">
+                  <button type="submit" class="end-button button-shape">Next</button>
+                </div>
+            </div>
+
+        
             
         </div>
 
-        <div class="button-container mt-3 px-5">
 
-            <button type="submit" class="end-button button-shape">Next</button>
-        </div>
         
     </div>
+    
+    <script>
+        const tableDivs = document.querySelectorAll('.table-all');
+        const selectedTable = document.getElementById('selectedTable');
+        // customize the array here
+        const borderColors = [1, 1, 0, 0, 1, 0, 0, 1, 0];
+    
+        tableDivs.forEach((div, index) => {
+            if (borderColors[index] === 1) {
+                div.classList.add('unavailable','disabled');
+            }else if (borderColors[index] === 0){
+                div.classList.add('available');
+            }
+            div.addEventListener('click', () => {
+                // Remove 'selected' class from all divs
+                tableDivs.forEach((div) => {
+                    div.classList.remove('selected');
+                });
+                // Add 'selected' class to clicked div
+                div.classList.add('selected');
+                selectedTable.textContent = `Selected Table ID: ${div.textContent}`;
+            });
+        });
+    </script>
 
 </body>
 </html>
