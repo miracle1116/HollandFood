@@ -3,12 +3,13 @@
 }
 
 .cover-section{
-  margin: 15px 0;
+  margin: 0;
   transition:1s;
 }
 
+
 .cover-customer, .cover-section:hover{
-  padding: 15px 0px 5px 20px;
+  padding: 10px 0px 0px 20px;
   background: #CEE2F3;
   border-radius: 20px;
 }
@@ -23,19 +24,38 @@
   font-weight: 500;
 }
 
+.search{
+  position: relative;
+  align-items: center;
+}
+
 .search .search-click {
   outline: none;
   border-radius: 55px;
   border: 2px solid #7994F5;
+  width: 100%;
   width: 300px;
   height: 5px;
-  margin: 10px 0;
+  margin: auto;
   padding: 22px;
 }
 
-.searchIcon {
-  margin-left: -50px;
+.search-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search .searchIcon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+  margin: auto;
   background-color: transparent;
+  border-style: none;
+  cursor: pointer;
 }
 
 .reservation, .waitlist{
@@ -45,6 +65,7 @@
   font-weight: 500;
   text-align: center;
   padding: 12px 0;
+  cursor: pointer;
 }
 
 .selectedReservation, .selectedWaitlist{
@@ -54,15 +75,156 @@
   font-weight: 500;
   text-align: center;
   padding: 12px 0;
+  cursor: pointer;
 }
 
 .reservation:hover, .waitlist:hover{
   color: #000F45;
+  cursor: pointer;
 }
 
 .dateTime{
   float: right;
-  width: 250px;
-  margin: 25px 25px;
+  margin: 30px 30px 0px 25px;
   color: white;
 }
+
+.row {
+  white-space: nowrap;
+}
+
+.col-sm {
+  display: inline-block;
+  width: 33.33%;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+}
+
+
+/*slide out right bar when screen size become smaller*/
+.slideOutIcon{
+  background-color: #91A5EB;
+  color: #000F45;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #EAF9FF;
+  color: #000F45;
+  transition: right 0.5s ease-in-out;
+}
+
+.sidebar-toggle {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: -32px;
+  width: 30px;
+  height: 200px;
+  border-radius: 30px 0 0 30px;
+  background-color: #91A5EB;
+  color: #000F45;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: left 0.5s ease-in-out;
+}
+
+.sidebar-open {
+  right: 0;
+}
+
+.sidebar-toggle-open {
+  left: 250px;
+}
+
+@media (max-width: 1200px) {
+  .rightBar{
+    display: none;
+  }
+
+  .sidebar-toggle{
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar{
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title .col-sm {
+    display: inline-block;
+    align-items: center;
+  }
+
+  .section-title{
+    font-size: 0.9rem;
+  }
+
+}
+
+/*
+.table{
+  background-color: #EAF9FF;
+  width: 200px;
+  height: 100px;
+  border-radius: 30px;
+  margin:120px 20px 20px 25px;
+}
+
+.table .table_NUM{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 75px;
+}
+*/
+
+.table-container {
+  max-width: 600px;
+  margin: 150px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.table {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: white;
+  border: 10px solid #54CA94;
+  color: #000F45;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.table#t1,.table#t6,.table#t8{
+  width: 200px;
+}
+
+.table#t3,.table#t5,.table#t7{
+  width: 150px;
+}
+
+.table.checkedIn {
+  border: 10px solid #EC7905;
+}
+
+.table.reserved {
+  border: 10px solid #FFC145;
+}
+

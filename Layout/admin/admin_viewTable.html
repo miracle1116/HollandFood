@@ -77,9 +77,9 @@
         <!-- sidebar end -->
 
          <!--2nd column Table-->
-        <div class="adminBg col-md-7 ">
+        <div class="col-sm-7 col-md-7 col-7">
 
-          <div class="dateTime">
+          <div class="dateTime col-lg-3 col-sm-3 col-md-3 col-3 ">
             <input
             type="datetime-local" 
             id="datetime" 
@@ -87,21 +87,53 @@
             class="form-control"
             />
           </div>
+
+<!--
+          <div class="row">
+            <div class="table">
+              <div class="table_NUM">T1</div>
+            </div>
+            
+          </div>
+-->
+        
+          <div class="table-container">
+            <div class="table checkedIn" id="t1">T1</div>
+            <div class="table reserved" id="t2">T2</div>
+            <div class="table" id="t3">T3</div>
+            <div class="table" id="t4">T4</div>
+            <div class="table" id="t5">T5</div>
+            <div class="table checkedIn" id="t6">T6</div>
+            <div class="table reserved" id="t7">T7</div>
+            <div class="table" id="t8">T8</div>
+            <div class="table" id="t9">T9</div>
+          </div>
+      
           
         </div>
 
 
 
         <!--3rd Column-->
-        <div class="sideBar col-md-3">
-          <div class="row border-bottom">
-            <div class="col reservation align-items-center">
+        <!--arrow icon when screen size become small-->
+        <div class="sidebar">
+          <button class="sidebar-toggle" onclick="toggleSidebar()">
+            <i class="slideOutIcon fs-4 bi-caret-left-fill"></i>
+          </button>
+          <div class="sidebar-content"></div>
+        </div>
+
+        
+
+        <div class="container-fluid rightBar col-md-3 col-sm-3 col-3">
+        
+          <div class="row flex-row border-bottom">
+            <div class="col reservation selectedReservation align-items-center">
               RESERVATION
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-9-circle-fill mb-2" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.223 4.146c2.104 0 3.123-1.464 3.123-4.3 0-3.147-1.459-4.014-2.97-4.014-1.63 0-2.871 1.02-2.871 2.73 0 1.706 1.171 2.667 2.566 2.667 1.06 0 1.7-.557 1.934-1.184h.076c.047 1.67-.475 3.023-1.834 3.023-.71 0-1.149-.363-1.248-.72H5.258c.094.908.926 1.798 2.52 1.798Zm.118-3.972c.808 0 1.535-.528 1.535-1.594s-.668-1.676-1.56-1.676c-.838 0-1.517.616-1.517 1.659 0 1.072.708 1.61 1.54 1.61Z"/>
               </svg>
             </div>
-
 
             <div class="col waitlist align-items-center">
               WAITLIST <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-9-circle-fill mb-2" viewBox="0 0 16 16">
@@ -114,7 +146,7 @@
 
           <br>
 
-          <div class="row ms-3 mb-4">
+          <div class="row mb-4">
             <div class="search-container">
               <form action="/action_page.php">
 
@@ -125,16 +157,17 @@
 
               </form>
             </div>
+
           </div>
 
           <div class="row ms-1">
             <div><h5><strong>10.00 am</strong></h5></div>
           </div>
-
+        <div id="reserve" class="reserveWaitTab">
           <section class="cover-section container">
             <section class="section-title">
               <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm">
                   <h5>T2</h5>
                 </div>
                 <div class="col-sm pt-3 ps-4 fw-bold">
@@ -146,7 +179,7 @@
               </div>
           </section>
           <section class="section-content hide">
-            <div class="row mt-3 ms-1">
+            <div class="row mt-1 ms-2">
               Menu : <br>
               1. Lorem ipsum dolor sit amet<br>
               2. Lorem ipsum dolor sit amet<br>
@@ -164,7 +197,7 @@
         <section class="cover-section container">
           <section class="section-title">
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm">
                 <h5>T2</h5>
               </div>
               <div class="col-sm pt-3 ps-4 fw-bold">
@@ -193,7 +226,7 @@
       <section class="cover-section container">
         <section class="section-title">
           <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm">
               <h5>T2</h5>
             </div>
             <div class="col-sm pt-3 ps-4 fw-bold">
@@ -218,7 +251,70 @@
         </div>
       </section>
     </section>
+  </div>
 
+
+
+  <div id="waitList" class="reserveWaitTab" style="display:none">
+    <section class="cover-section container">
+      <section class="section-title">
+        <div class="row">
+          <div class="col-sm">
+            <h5>T2</h5>
+          </div>
+          <div class="col-sm pt-3 ps-4 fw-bold">
+            Jaslene
+          </div>
+          <div class="col-sm p-3">
+            2 persons
+          </div>
+        </div>
+    </section>
+    <section class="section-content hide">
+      <div class="row mt-3 ms-1">
+        Menu : <br>
+        1. Lorem ipsum dolor sit amet<br>
+        2. Lorem ipsum dolor sit amet<br>
+        3. Lorem ipsum dolor sit amet<br>
+        4. Lorem ipsum dolor sit amet<br>
+      </div>
+      <div class="row d-inline ms-5">
+        <button class="button bg-danger text-white">Cancel</button>
+        <button class="button bg-success text-white">Arrived</button>
+      </div>
+    </section>
+  </section>
+
+
+  <section class="cover-section container">
+    <section class="section-title">
+      <div class="row">
+        <div class="col-sm">
+          <h5>T2</h5>
+        </div>
+        <div class="col-sm pt-3 ps-4 fw-bold">
+          Jaslene
+        </div>
+        <div class="col-sm p-3">
+          2 persons
+        </div>
+      </div>
+  </section>
+  <section class="section-content hide">
+    <div class="row mt-3 ms-1">
+      Menu : <br>
+      1. Lorem ipsum dolor sit amet<br>
+      2. Lorem ipsum dolor sit amet<br>
+      3. Lorem ipsum dolor sit amet<br>
+      4. Lorem ipsum dolor sit amet<br>
+    </div>
+    <div class="row d-inline ms-5">
+      <button class="button bg-danger text-white">Cancel</button>
+      <button class="button bg-success text-white">Arrived</button>
+    </div>
+  </section>
+</section>
+</div>
 
 
 <!--
