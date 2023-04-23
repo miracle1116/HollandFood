@@ -74,15 +74,23 @@ function toggleSidebar() {
 
 //table
 const tables = document.querySelectorAll('.table');
+const tableNo = document.querySelectorAll('.table-label');
+let reservedNum=0,checkedInNum=0,freeNum=0;
 
 tables.forEach(table => {
   if (table.classList.contains('reserved')) {
     table.textContent += " Reserved";
+    reservedNum++;
   }else if (table.classList.contains('checkedIn')) {
     table.textContent += " Checked-In";
+    checkedInNum++;
   }else{
     table.textContent += " Free";
+    freeNum++;
   }
-
 });
+
+tableNo[0].textContent = "Free: "+freeNum;
+tableNo[1].textContent = "Reserved: "+reservedNum;
+tableNo[2].textContent = "Checked-in: "+checkedInNum;
 
