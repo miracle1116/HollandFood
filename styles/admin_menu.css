@@ -1,13 +1,22 @@
-.menu_con{
+.menu-category-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  margin-left: 70px;
+}
+
+.menu{
   background: #A2B3BC;
-  width: 120px;
+  flex: 0 0 auto; /* Disable flex-grow and flex-shrink */
+  width: 120px; /* Set a fixed width for each item */
   border-radius: 20px;
   transition: 1s;
   padding: 0 20px;
   margin: 15px 15px;
+  text-align: center;
+  justify-content: center;
 }
 
-.menu_con:hover{
+.menu:hover{
   transform: scale(1.1);
   background: #91A5EB;
   color:#EAF9FF;
@@ -75,4 +84,15 @@ i{
 .add_icon{
   color: white;
   padding-left: 930px;
+}
+
+  /* for custom scrollbar for webkit browser*/
+  ::-webkit-scrollbar {
+    width: 6px;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }

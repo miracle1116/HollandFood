@@ -1,6 +1,6 @@
-$(document).ready(function () {
-  $("#accountTable").DataTable();
-});
+// $(document).ready(function () {
+//   $("#accountTable").DataTable();
+// });
 
 // $(function () {
 //   $("tr").on("click", function () {

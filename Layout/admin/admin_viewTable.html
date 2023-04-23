@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../../styles/adminViewTable_style.css" />
 
 
-    <title>Admin Holland Food</title>
+    <title>Admin Table</title>
   </head>
 
   <body>
@@ -37,11 +37,11 @@
             </div>
             <nav>
               <ul class="nav nav-pills flex-column mb-sm-auto mb-0 ps-4 align-items-center align-items-sm-start" id="menu">
-                <li class="nav-item mt-3">
+                <li class="nav-item">
                   <a href="admin_viewTable.html" class="nav-link">
                     <div class="navList">
                       <i class="navIcon fs-4 bi-table text-black"></i>
-                      <span class="ms-1 d-none d-sm-inline text-black">Table</span>
+                      <span class="ms-1 d-none d-sm-inline text-black">Tables</span>
                     </div>
                   </a>
                 </li>
@@ -77,7 +77,7 @@
         <!-- sidebar end -->
 
          <!--2nd column Table-->
-        <div class="col-sm-7 col-md-7 col-7">
+        <div class="container col-sm-7 col-md-7 col-7">
 
           <div class="dateTime col-lg-3 col-sm-3 col-md-3 col-3 ">
             <input
@@ -107,7 +107,36 @@
             <div class="table reserved" id="t7">T7</div>
             <div class="table" id="t8">T8</div>
             <div class="table" id="t9">T9</div>
+
+
+            <!-- Table label -->
+            <div class="col-11 col-lg-11 mt-5 pt-5">
+              <div class="row"> 
+                <div class="col-md-4 col-lg-3 justify-content-center ">
+                    <div class="square rounded table-label-free">
+                    </div>
+                    <span class="table-label ms-1">Free :</span>
+                </div>
+                  
+
+                <div class="col-md-4 col-lg-3 justify-content-center ">
+                    <div class="square rounded table-label-reserved">
+                    </div>
+                    <span class="table-label ms-1">Reserved :</span>
+                </div>
+
+                <div class="col-md-4 col-lg-3 justify-content-center ">
+                    <div class="square rounded table-label-checkedIn">
+                    </div>
+                    <span class="table-label ms-1">Checked-in :</span>
+                </div>  
+
+              </div>
+            </div>
           </div>
+
+
+      
       
           
         </div>
@@ -180,11 +209,11 @@
           </section>
           <section class="section-content hide">
             <div class="row mt-1 ms-2">
-              Menu : <br>
-              1. Lorem ipsum dolor sit amet<br>
-              2. Lorem ipsum dolor sit amet<br>
-              3. Lorem ipsum dolor sit amet<br>
-              4. Lorem ipsum dolor sit amet<br>
+              Pre-ordered Items : <br>
+              1. Spaghetti Bolognese<br>
+              2. Tiramisu<br>
+              3. Chicken Caesar Salad<br>
+              4. Chocolate Cake<br>
             </div>
             <div class="row d-inline ms-5">
               <button class="button bg-danger text-white">Cancel</button>

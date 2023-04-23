@@ -228,3 +228,30 @@
   border: 10px solid #FFC145;
 }
 
+.table-label{
+  font-size: 11px; 
+  display: inline-block; 
+  color: white;
+}
+
+.table-label-free{
+  width: 20px;
+  height: 20px;
+  background-color: #54CA94;
+  display: inline-block;
+}
+
+.table-label-reserved{
+  width: 20px;
+  height: 20px;
+  background-color:#FFC145;
+  display: inline-block;
+}
+
+.table-label-checkedIn{
+  width: 20px;
+  height: 20px;
+  background-color: #EC7905;
+  display: inline-block;
+}
+
