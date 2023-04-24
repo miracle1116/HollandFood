@@ -1,22 +1,18 @@
-let sectionContent = document.querySelector(".section-content");
-let sectionTitle = document.querySelector(".section-title");
-let sectionBg = document.querySelector(".cover-section");
+let sectionContents = document.querySelectorAll(".section-content");
+let sectionTitles = document.querySelectorAll(".section-title");
+let sectionBgs = document.querySelectorAll(".cover-section");
 
-sectionTitle.addEventListener("click",function(){
-    sectionContent.classList.toggle("hide");
-    sectionBg.classList.toggle("cover-customer");
-});
+// sectionTitle.addEventListener("click",function(){
+//     sectionContent.classList.toggle("hide");
+//     sectionBg.classList.toggle("cover-customer");
+// });
 
-/*
-let x=0;
-sectionTitles.forEach(title => {
-    title.addEventListener('click', () => {
-        sectionContent[x].classList.toggle("hide");
-        sectionBg[x].classList.toggle("cover-customer");
-        x++;
-    });
+for(let x=0;x<sectionTitles.length;x++){
+  sectionTitles[x].addEventListener("click",function(){
+    sectionContents[x].classList.toggle("hide");
+    sectionBgs[x].classList.toggle("cover-customer");
   });
-*/
+}
 
 let reserve = document.querySelector(".reservation");
 let wait = document.querySelector(".waitlist");
