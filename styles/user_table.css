@@ -192,7 +192,7 @@ h2{
 .table-all{
     background-color: white;
     border: #fe724c solid 8px;
-    height: 80px;
+    height: 100px;
 
 }
 
@@ -208,11 +208,11 @@ h2{
 
 
 .available {
-    border: 8px solid green;
+    border: 12px solid green;
   }
 
 .unavailable {
-    border: 8px solid red;
+    border: 12px solid red;
 }
 
 .disabled {
@@ -221,7 +221,7 @@ h2{
 }
 
 .selected{
-    border: 8px solid #fe724c;
+    border: 12px solid #fe724c;
     transform: scale(1.1);  
     box-shadow:  0 0 3px orange, 0 0 7px orange, 0 0 12px orange;
 }
