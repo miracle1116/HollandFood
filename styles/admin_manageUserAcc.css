@@ -42,8 +42,6 @@ h1{
     border-bottom: solid 1px rgba(255,255,255,0.1);
   }
   
-  
-  /* demo styles */
   body{
     background: -webkit-linear-gradient(left, #000F45, #00071F);
     background: linear-gradient(to right, #000F45, #00071F);
@@ -51,5 +49,19 @@ h1{
 
   section{
     margin: 5px;
+  }
+
+  .editBtn, .deleteBtn{
+    cursor: pointer;
+  }
+
+  .modal-header {
+    background: #7994F5;
+    color: #fff;
+  }
+  
+  .required:after {
+    content: "*";
+    color: red;
   }
   

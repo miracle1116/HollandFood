@@ -95,6 +95,26 @@ body {
   margin-bottom: 15px;
 }
 
+.primary-btn:hover {
+  color: white;
+  background-color: #000F45;
+}
+
+.primary-btn{
+  color: white;
+  background-color: #445FBB;
+  
+}
+
+.secondary-btn:hover {
+  background-color: #EAF9FF;
+}
+
+.secondary-btn{
+  color: #445FBB;
+  border: 1px solid #445FBB;
+  background-color: transparent;
+}
 
 /* for custom scrollbar for webkit browser*/
 ::-webkit-scrollbar {
