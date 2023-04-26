@@ -456,4 +456,7 @@ form.sign-in-form {
 }
 
 
-
+.error{
+  font-size: small;
+  color: red;
+}

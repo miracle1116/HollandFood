@@ -24,6 +24,7 @@
 
 </head>
 <body>
+
   <header class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <div class="container">
@@ -73,7 +74,15 @@
     <div class="d-flex container-fluid profile-back justify-content-center">
         <img class="bg-img " src="/images/user_login_background.png" alt="Background Image">
         <div class=" container justify-content-center profile-con">
-          <img src="/images/profile-icon-blue.png " class="mx-auto d-block">
+            <div>
+                <div class="container justify-content-center text-center profile-con position-relative">
+                    <div>
+                        <img src="/images/profile-icon-blue.png" id="profile-image" class="mx-auto profile-image">
+                        <i class="bi bi-pencil-square position-absolute bottom-0 icon" id="edit-icon"></i>
+                      </div>
+                  </div>
+            </div>
+          
         </div>
         <div class="container justify-content-center  profile-box w-50 mb-5">
             
@@ -142,7 +151,7 @@
                         </div>
                         
                         <div class="col col-lg-3 col-md-5 col-sm-5 save-box ">
-                            <button id="submitBtn" class="rounded-pill btn btn-md btn-outline-success save-btn " type="submit">Save</button>
+                            <button id="submitBtn" class="rounded-pill btn btn-md save-btn " type="submit">Save</button>
                         </div>
                     </div>
 

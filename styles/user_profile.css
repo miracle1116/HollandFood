@@ -102,9 +102,8 @@ body{
 
 .save-btn:visited{
     color: #f83701;
-    border: 1px solid;
+    border: 1px  #fe724c solid;
     background-color: white;
-    border-color: #fe724c;
 }
 
 @media (max-width: 570px) {
@@ -148,7 +147,7 @@ body{
 }
 
 .input{
-  border: 1.5px solid #FBE2D1;
+  border: 2.0px solid #FBE2D1;
 }
 
 #tick {
@@ -159,4 +158,15 @@ body{
 #error{
   font-size: small;
   color: red;
+}
+
+.icon{
+  color: #fe724c;
+}
+
+
+.profile-image {
+  border-radius: 50%;
+  width: 170px; /* adjust the width and height to fit your layout */
+  height: 170px;
 }

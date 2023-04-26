@@ -157,6 +157,7 @@
   .sidebar{
     display: none;
   }
+  
 }
 
 @media (max-width: 600px) {
