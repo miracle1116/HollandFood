@@ -238,7 +238,7 @@ html {
     position: relative;
     height: 240px;
     width: 190px;
-    background-color: #EAF9FF;
+    background-color: #FFF0DE;
     top: 20;
     border-radius: 20px;
     margin-bottom: 20px;
@@ -247,8 +247,8 @@ html {
   
   .border_menu:hover{
     color: #EAF9FF;
-    background: #7994F5;
-    box-shadow: 0 0 10px #7994F5, 0 0 10px #7994F5, 0 0 40px #7994F5;
+    background: #fe724c;
+    box-shadow: 0 0 10px #fe724c, 0 0 10px #fe724c, 0 0 40px #fe724c;
   }
   
   #menucard{
@@ -256,6 +256,7 @@ html {
     overflow-y: auto; 
     width: 100%;
     overflow-x: hidden; /* Hide horizontal scrollbar */
+    color: #000000;
   }
 
   #mycart{
@@ -271,7 +272,7 @@ html {
     position: relative;
     height: 110px;
     width: 337px;
-    background-color: #7994F5;
+    background-color: #fe724c;
     top: 20;
     border-radius: 60px;
     margin-top: 30px;
@@ -304,7 +305,12 @@ html {
 
   .menucart-itemname{
     font-size: large;
+    margin-top: 5px;
 
+  }
+
+  .content{
+    margin-top: 5px;
   }
 
   .qt, .qt-plus, .qt-minus {
@@ -314,7 +320,7 @@ html {
   
   .qt {
     font-size: 19px;
-    line-height: 80px;
+    line-height: 42px;
     width: 30px;
     text-align: center;
   }
@@ -341,28 +347,56 @@ html {
   
   .qt-plus {
     line-height: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   
   .qt-minus {
     line-height: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
  
-  /* #remove{
+  #remove{
     text-align: right;
-    vertical-align: top;
+    margin-top: 0px;
+    margin-right: 14px;
 
-  } */
+  }
 
+  .menucart-itemname{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .foodname{
+    font-size: medium;
+  }
   
   .price{
-    font-size: large;
+    font-size: medium;
+    margin-right: 25px;
   }
 
-  .footer{
-    background-color: #EAF9FF;
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
   }
+  
+  .start-button {
+    order: 1;
+  }
+  
+  .end-button {
+    order: 2;
+  }
+
+.button-shape{
+    border-radius: 20px;
+    background-color: #fe724c;
+    color: white;
+    padding: 5px 20px 5px 20px;
+}
+
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {   
