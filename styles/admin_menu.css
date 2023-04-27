@@ -2,6 +2,7 @@
   display: flex;
   overflow-x: auto; /* Enable horizontal scrolling */
   margin-left: 70px;
+  
 }
 
 .menu-item-container {
