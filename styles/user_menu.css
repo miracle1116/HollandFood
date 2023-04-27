@@ -244,7 +244,6 @@ html {
     top: 20;
     border-radius: 20px;
     margin-bottom: 20px;
-  
   }
   
   .border_menu:hover{
@@ -261,9 +260,23 @@ html {
     height: 700px; 
     overflow-y: auto; 
     width: 100%;
-    overflow-x: auto; /* Hide horizontal scrollbar */
+    overflow-x: hidden;
     color: #000000;
-    
+    overflow-y: scroll;
+  }
+
+  #menucard::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  #menucard::-webkit-scrollbar-track {
+    background-color:  #130D25;
+    border-radius: 100px;
+  }
+  
+  #menucard::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 100px;
   }
 
   #mycart{
