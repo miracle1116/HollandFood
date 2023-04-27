@@ -65,43 +65,20 @@
     color: red;
   }
 
-  
-/* 
-  .search{
-    position: relative;
-    align-items: center;
-  }
-  
-  .search .search-click {
-    outline: none;
-    border-radius: 55px;
-    border: 2px solid #7994F5;
-    width: 100%;
-    width: 300px;
-    height: 5px;
-    margin: auto;
-    padding: 22px;
-  }
-  
-  .search-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-  }
-  
-  .search .searchIcon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 20px;
-    margin: auto;
-    background-color: transparent;
-    border-style: none;
-    cursor: pointer;
-  } */
-
   .search-container, div .form-group{
     color: #fff;
+    white-space: nowrap;
+    margin: 10px 5px;
+  }
+
+  .entries{
+    border-radius: 55px;
+    border: 2px solid #7994F5;
+    padding: 6px 10px;
+  }
+
+  .search-click{
+    border-radius: 55px;
+    border: 2px solid #7994F5;
+    padding: 6px 20px;
   }
