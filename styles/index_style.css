@@ -5,6 +5,7 @@
 /* To hide vertical scrollbar */
 body {
   overflow-x: hidden;
+  background-color: #130D25;
 }
 
 /* Color of the links BEFORE scroll */
@@ -49,21 +50,32 @@ body {
   padding-top: 50px;
 }
 
-.btn {
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.btn-sign-up {
   background-color: #FE724C;
   color: white;
   border-radius: 30px;
   margin-top: 0px;
   width: 150px;
-  box-shadow: #000000;
+  border: none;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  text-align: center;
 
+}
+
+.btn-sign-up:hover {
+  background-color: #f83701;
 }
 
 header {
   height: 100vh;
   background-image: url('../images/banner-img.jpg');
   background-size: cover;
-  
+
 }
 
 .header-text {
@@ -74,3 +86,211 @@ header {
   text-align: justify;
 }
 
+/* About Us */
+.about-us-container {
+  max-width: 750px;
+  height: 350px;
+  margin: 50px 100px 100px 50px;
+  align-items: center;
+  border-radius: 20px;
+
+}
+
+.about-us-img {
+  border-radius: 20px 0px 0px 20px;
+  border: transparent;
+  /*margin-left: 0px;
+  padding-left: 0px; */
+  object-fit: cover;
+}
+
+.card-body {
+  margin: 70px 30px 0px 20px;
+  text-align: justify;
+
+}
+
+.bullet {
+  position: absolute;
+  top: 85px;
+}
+
+.card-title {
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+.card-text {
+  margin-left: 20px;
+}
+
+/* Menu */
+
+.main-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu-info {
+  padding-left: 200px;
+}
+
+.food-icon {
+  position: absolute;
+  left: 60px;
+}
+
+.dish-name {
+  font-size: 50px;
+}
+
+
+.menu-card {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 200px;
+  background: #fff;
+  border-radius: 15px 50px;
+  padding: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 50px 100px 50px 100px;
+  transition: all 0.4s;
+}
+
+.menu-card:hover{
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+/* .menu-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 36%;
+  width: 100%;
+  background: #101A24;
+  padding-bottom: 20px;
+} */
+
+.menu-image {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+
+.menu-img {
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.menu-name {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.menu-details {
+  font-size: 10px;
+}
+
+.carousell-swiper {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.slide-container {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.slide-container::-webkit-scrollbar {
+  display: none;
+}
+
+.pre-btn,
+.nxt-btn {
+  border: none;
+  width: 10vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #130D25 100%);
+  cursor: pointer;
+  z-index: 8;
+}
+
+.pre-btn {
+  left: 0;
+  transform: rotate(180deg);
+
+}
+
+.nxt-btn {
+  right: 0;
+
+}
+
+.pre-btn img,
+.nxt-btn img {
+  opacity: 0.2;
+}
+
+.pre-btn:hover img,
+.nxt-btn:hover img {
+  opacity: 1;
+}
+
+/* Book Now */
+.book-now {
+  height: 650px;
+  background-image: url(../images/book-now.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.txt-book-now {
+  color: #fff;
+  padding: 10px;
+}
+
+.reservation {
+  font-family: 'Italianno';
+  font-size: 80px;
+}
+
+.book-a-table {
+  font-size: 80px;
+
+}
+
+.btn-book-now {
+  border-radius: 30px;
+  border: 2px solid white;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 10px 20px 10px 20px;
+}
+
+/* Footer */
+.txt-footer {
+  font-size: 12px;
+}
