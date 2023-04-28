@@ -87,7 +87,7 @@ header {
 }
 
 /* About Us */
-.about-us-container {
+/* .about-us-container {
   max-width: 750px;
   height: 350px;
   margin: 50px 100px 100px 50px;
@@ -99,12 +99,10 @@ header {
 .about-us-img {
   border-radius: 20px 0px 0px 20px;
   border: transparent;
-  /*margin-left: 0px;
-  padding-left: 0px; */
   object-fit: cover;
-}
+} */
 
-.card-body {
+/* .card-body {
   margin: 70px 30px 0px 20px;
   text-align: justify;
 
@@ -122,7 +120,49 @@ header {
 
 .card-text {
   margin-left: 20px;
+} */
+
+#aboutUs {
+  margin-top: 200px;
 }
+
+.about-us-card {
+  background-color: #fff;
+  height: 500px;
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: auto;
+}
+
+.img-about-us {
+  border-radius: 30px 0 0 30px;
+}
+
+.txt-about-us {
+  padding: 60px;
+}
+
+.bullet {
+  position: absolute;
+}
+
+.card-title {
+  font-size: 30px;
+  margin-bottom: 40px;
+  margin-left: 30px;
+}
+
+.card-info {
+  font-size: 20px;
+  text-align: justify;
+  margin-left: 30px;
+}
+
+
 
 /* Menu */
 
@@ -161,7 +201,7 @@ header {
   transition: all 0.4s;
 }
 
-.menu-card:hover{
+.menu-card:hover {
   transform: scale(1.15);
   cursor: pointer;
 }
