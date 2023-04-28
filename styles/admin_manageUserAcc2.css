@@ -1,0 +1,46 @@
+.icon{
+    color: white;
+}
+
+.bg-color{
+    background-color: #000F45;
+}
+
+#accountTable{
+    color: white;
+}
+
+label{
+    color: white;
+}
+
+.sorting{
+    color: white;
+}
+
+
+
+/* Normal sorting arrow opacity */
+table.dataTable thead .sorting:before {
+    opacity: 0.7;
+  }
+  
+  /* Hovered sorting arrow opacity */
+  table.dataTable thead .sorting:hover:before {
+    opacity: 0.7;
+  }
+  
+  /* Ascending sorting arrow opacity */
+  table.dataTable thead .sorting_asc:before {
+    opacity: 0.5;
+  }
+  
+  /* Hovered ascending sorting arrow opacity */
+  table.dataTable thead .sorting_asc:hover:before {
+    opacity: 0.7;
+  }
+
+   /* Hovered ascending sorting arrow opacity */
+   table.dataTable thead .sorting_asc:hover:after {
+    opacity: 0.5;
+  }

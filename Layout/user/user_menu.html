@@ -20,6 +20,7 @@
 
     <!-- Include Bootsrap JavaScript plugin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
@@ -139,248 +140,208 @@
 
     </div> -->
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center p-5">
         <div class="leftcolumn">
-          <div class="card" style="background-color: black">
-            <div class="menu_con col-2 justify-content-center">
-                <div class="container-fluid mt-3 p-1">
+          <div class="row justify-content-center" style="background-color: #130D25">
+            <!-- Menu Category -->
+            <div class="menu_con col-2 justify-content-center " data-category="all">
+              <div class="container-fluid mt-3 p-1 pb-2">
+                <img src="../../images/all_food.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
+                <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                  All
+                </p>
+                <div class="showMore text-center">
+                  <a href="#">
+                    <i class="bi bi-caret-right text-white"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu_con col-2 justify-content-center " data-category="pizza">
+                <div class="container-fluid mt-3 p-1 pb-2">
                   <img src="../../images/pizza_icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
-                  <p class="text-center fs-4 border-bottom border-3 fw-bold mb-4 pb-4">
+                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
                     Pizza
                   </p>
-                  <div class="showMore"><a href="#"><i class="bi bi-caret-right text-black"></i></a></div>
+                  <div class="showMore text-center">
+                    <a href="#">
+                      <i class="bi bi-caret-right text-white"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="menu_con col-2 justify-content-center" data-category="fruits">
+                <div class="container-fluid mt-3 p-1 pb-2">
+                  <img src="../../images/Fruits icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
+                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                    Fruits
+                  </p>
+                  <div class="showMore text-center">
+                    <a href="#">
+                      <i class="bi bi-caret-right text-white"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="menu_con col-2 justify-content-center" data-category="snacks">
+                <div class="container-fluid mt-3 p-1 pb-2">
+                  <img src="../../images/Snacks icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
+                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                    Snacks
+                  </p>
+                  <div class="showMore text-center">
+                    <a href="#">
+                      <i class="bi bi-caret-right text-white"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="menu_con col-2 justify-content-center" data-category="spaghetti">
+                <div class="container-fluid mt-3 p-1 pb-2">
+                  <img src="../../images/spaghetti.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
+                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                    Spaghetti
+                  </p>
+                  <div class="showMore text-center">
+                    <a href="#">
+                      <i class="bi bi-caret-right text-white"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="menu_con col-2 justify-content-center" data-category="drink">
+                <div class="container-fluid mt-3 p-1 pb-2">
+                  <img src="../../images/Coke icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
+                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                    Drink
+                  </p>
+                  <div class="showMore text-center">
+                    <a href="#">
+                      <i class="bi bi-caret-right text-white"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           
           <div id="menucard">
-          <div class="card" style="height:1000px">
-            <div class="row d-flex mt-5 ms-2">
-            <div class="col-2 ms-5 me-4 my-3">
-                <div class="menu-item container-fluid shadow-lg bg-body">
+          <div class="card" style="height:1000px; background-color: #130D25">
+            <div class="row mt-5 ms-2 ">
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-5 me-lg-4  me-md-4 me-sm-4" data-category="pizza">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img
+                  src="../../images/pizza_icon.png"
+                  class="menu-item rounded-circle shadow-lg bg-body"
+                />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Mushroom Pizza</div>
+                  <div class="ingredient">Mushroom, Chicken</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM10.29</p>
+                    <span>
+                      <i class="bi bi-plus-circle-fill add-icon me-3"></i>
+                    </span>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-5 me-lg-4  me-md-4 me-sm-4"data-category="fruits">
+                <div class="menu-item container-fluid shadow-lg bg-body ms-3">
                   <img
                     src="../../images/spaghetti_icon.png"
                     class="menu-item rounded-circle shadow-lg bg-body"
                   />
                 </div>
                 <div class="border_menu">
-                  <div class="menu-item-desc container-fluid">
-                    <div class="fw-bold">Spaghetti</div>
-                    <div>Tomatoes, Chicken</div>
-                    <div class="price">
-                      $7.29
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-trash ms-5"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
-                        />
-                        <path
-                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-pencil-fill ms-2"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                        />
-                      </svg>
+                  <div class="menu-item-desc ps-4 container-fluid">
+                    <div class="fw-bold">Fruit Salad</div>
+                    <div class="ingredient">Apple, Pineapple</div>
+                    <div class="mt-4 price">
+                      <p class="m-0">RM7.29</p>
+                      <span>
+                        <i class="bi bi-plus-circle-fill add-icon me-3"></i>
+                      </span>
+                    
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="col-2 ms-5 me-4 my-3">
-                <div class="menu-item container-fluid shadow-lg bg-body">
-                  <img
-                    src="../../images/spaghetti_icon.png"
-                    class="menu-item rounded-circle shadow-lg bg-body"
-                  />
-                </div>
-                <div class="border_menu">
-                  <div class="menu-item-desc container-fluid">
-                    <div class="fw-bold">Spaghetti</div>
-                    <div>Tomatoes, Chicken</div>
-                    <div class="price">
-                      $7.29
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-trash ms-5"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
-                        />
-                        <path
-                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-pencil-fill ms-2"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-2 ms-5 me-4 my-3">
-                <div class="menu-item container-fluid shadow-lg bg-body">
-                  <img
-                    src="../../images/spaghetti_icon.png"
-                    class="menu-item rounded-circle shadow-lg bg-body"
-                  />
-                </div>
-                <div class="border_menu">
-                  <div class="menu-item-desc container-fluid">
-                    <div class="fw-bold">Spaghetti</div>
-                    <div>Tomatoes, Chicken</div>
-                    <div class="price">
-                      $7.29
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-trash ms-5"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
-                        />
-                        <path
-                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-pencil-fill ms-2"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-2 ms-5 me-4 my-3">
-                <div class="menu-item container-fluid shadow-lg bg-body">
-                  <img
-                    src="../../images/spaghetti_icon.png"
-                    class="menu-item rounded-circle shadow-lg bg-body"
-                  />
-                </div>
-                <div class="border_menu">
-                  <div class="menu-item-desc container-fluid">
-                    <div class="fw-bold">Spaghetti</div>
-                    <div>Tomatoes, Chicken</div>
-                    <div class="price">
-                      $7.29
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-trash ms-5"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
-                        />
-                        <path
-                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-pencil-fill ms-2"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               
-              <div class="col-2 ms-5 me-4 my-3">
-                <div class="menu-item container-fluid shadow-lg bg-body">
+              <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-5 me-lg-4  me-md-4 me-sm-4" data-category="veggies">
+                <div class="menu-item container-fluid shadow-lg bg-body ms-3">
                   <img
                     src="../../images/spaghetti_icon.png"
                     class="menu-item rounded-circle shadow-lg bg-body"
                   />
                 </div>
                 <div class="border_menu">
-                  <div class="menu-item-desc container-fluid">
-                    <div class="fw-bold">Spaghetti</div>
-                    <div>Tomatoes, Chicken</div>
-                    <div class="price">
-                      $7.29
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-trash ms-5"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
-                        />
-                        <path
-                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-pencil-fill ms-2"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                        />
-                      </svg>
+                  <div class="menu-item-desc ps-4 container-fluid">
+                    <div class="fw-bold">Taco Bowl</div>
+                    <div class="ingredient">Chickpea, Vegetable</div>
+                    <div class="mt-4 price">
+                      <p class="m-0">RM5.29</p>
+                      <span>
+                        <i class="bi bi-plus-circle-fill add-icon me-3"></i>
+                      </span>
+                    
                     </div>
                   </div>
                 </div>
-              </div>            
+              </div>
+
+              <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-5 me-lg-4  me-md-4 me-sm-4" data-category="snacks">
+                <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                  <img
+                    src="../../images/spaghetti_icon.png"
+                    class="menu-item rounded-circle shadow-lg bg-body"
+                  />
+                </div>
+                <div class="border_menu">
+                  <div class="menu-item-desc ps-4 container-fluid">
+                    <div class="fw-bold">Hash Browns</div>
+                    <div class="ingredient">Potato</div>
+                    <div class="mt-4 price">
+                      <p class="m-0">RM1.29</p>
+                      <span>
+                        <i class="bi bi-plus-circle-fill add-icon me-3"></i>
+                      </span>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-5 me-lg-4  me-md-4 me-sm-4" data-category="drink">
+                <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                  <img
+                    src="../../images/spaghetti_icon.png"
+                    class="menu-item rounded-circle shadow-lg bg-body"
+                  />
+                </div>
+                <div class="border_menu">
+                  <div class="menu-item-desc ps-4 container-fluid">
+                    <div class="fw-bold">Cocktail</div>
+                    <div class="ingredient">Lemon, Soda</div>
+                    <div class="mt-4 price">
+                      <p class="m-0">RM3.29</p>
+                      <span>
+                        <i class="bi bi-plus-circle-fill add-icon me-3"></i>
+                      </span>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
           </div>
@@ -389,12 +350,13 @@
         
         
 
-        <div class="rightcolumn rounded-4">
+        <div class="rightcolumn rounded-4 justify-content-center ">
             <div class="container" id="mycart">
             <h2>My Cart</h2>
             </div>
             <hr>
 
+            <!-- Cart item -->
             <div class="col-2 ms-8 me-4 my-3">
               <div class="menucart-item container-fluid shadow-lg bg-body">
                 <img
@@ -404,17 +366,17 @@
               </div>
               <div class="border_menucart">
                 <div class="menucart-item-desc container-fluid">
-                  <div class="menucart-itemname fw-bold">
+                  <div class="menucart-itemname fw-bold ">
                     <h1 class="foodname">
-                      Pizza
+                      Pizza <br>
                     </h1>
-                    <h2 class="price">
-                      RM <br>
-                      53.99
+                    <h2 class="price ms-5">
+                      RM 53.99<br>
+
                     </h2>
                   </div>
 
-                  <footer class="content">
+                  <div class="content">
 					
                     <span class="qt-minus">-</span>
                     <span class="qt">1</span>
@@ -423,13 +385,17 @@
                     <div class="col  d-flex justify-content-end align-items-start">
                       <div id="remove">
                         <button class="btn" id="remove" ><i class="fa fa-trash" style="font-size: 22px;"></i></button>
-                        </div>
+                      </div>
                     </div>
-                  </footer>
+                  </div>
 
                 </div>
               </div>
             </div>
+            <!-- Cart item end -->
+
+
+            
 
 
         </div>
@@ -437,9 +403,12 @@
     </div>
 
     <div class="button-container mt-3 px-5">
-      <button class="start-button button-shape">Previous</button>
-      <button type="next" class="end-button button-shape">Next</button>
+      <button class="start-button button-shape" onclick="location.href = 'user_table.html';" >Previous</button>
+      <button type="submit" onclick="location.href = 'user_confirmation.html';" class="end-button button-shape">Next</button>
   </div>
+
+
+  <script src="/script/userMenu.js"></script>
 
 
 

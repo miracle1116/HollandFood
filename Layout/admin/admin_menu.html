@@ -25,7 +25,7 @@
   <body>
     <!-- Sidebar -->
     <div class="container-fluid">
-      <div class="row">
+      <div class="row vh-100">
         <!--1st column-->
         <div class="sideBar col-auto col-md-2 px-sm-2 px-0">
           <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -83,8 +83,9 @@
         <div class="col-10 col-lg-10 col-sm-10 col-md-10 py-3">
 
           <!--Top part of menu, row 1-->
-          <div class="menu-category-container">
-            <div class="row justify-content-center mt-2" style="display: flex; flex-wrap: nowrap;">
+        <div class="row">
+          <div class="menu-category-container col">
+            <div class="row justify-content-around mt-2" style="display: flex; flex-wrap: nowrap;">
 
               <div class="menu col-2">
                 <div class="container-fluid mt-3 p-1">
@@ -93,6 +94,16 @@
                     Pizza
                   </p>
                   <div class="showMore"><a href="#"><i class="bi bi-caret-right text-black"></i></a></div>
+
+                  <div class="dropdown">
+                    <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-three-dots-vertical text-black"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                      <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                      <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
@@ -103,6 +114,16 @@
                     Pizza
                   </p>
                   <div class="showMore"><a href="#"><i class="bi bi-caret-right text-black"></i></a></div>
+
+                  <div class="dropdown">
+                    <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-three-dots-vertical text-black"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                      <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                      <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
@@ -113,6 +134,16 @@
                     Pizza
                   </p>
                   <div class="showMore"><a href="#"><i class="bi bi-caret-right text-black"></i></a></div>
+
+                  <div class="dropdown">
+                    <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-three-dots-vertical text-black"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                      <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                      <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
@@ -123,6 +154,16 @@
                     Pizza
                   </p>
                   <div class="showMore"><a href="#"><i class="bi bi-caret-right text-black"></i></a></div>
+
+                  <div class="dropdown">
+                    <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-three-dots-vertical text-black"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                      <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                      <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
@@ -133,16 +174,40 @@
                     Pizza
                   </p>
                   <div class="showMore"><a href="#"><i class="bi bi-caret-right text-black"></i></a></div>
+
+                  <div class="dropdown">
+                    <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-three-dots-vertical text-black"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                      <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                      <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
+
+              
+
+              <div class="col-2">
+                <i class="addCategoryBtn bi bi-plus-circle-fill"></i>
+              </div>
+          
+      
             </div>
           </div>
+
+  
+
+
+
+        </div>
 
 
             
           <!--middle part, row 2-->
-          <div class="menu-item-container row d-flex mt-5 ms-2">
+          <div class="menu-item-container row d-flex justify-content-around mt-5 ms-2">
     
             <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3" >
               <div class="menu-item container-fluid shadow-lg bg-body">
@@ -395,6 +460,14 @@
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
+                                  <label for="menu-category" class="form-label required">Menu Category</label>
+                                  <select name="menu-category" id="menu-category" class="form-select">
+                                      <option value="Pizza">Pizza</option>
+                                      <option value="Fruits" selected>Fruits</option>
+                                      <option value="Snacks">Snacks</option>
+                                  </select>
+                                </div>
+                                <div class="mb-3">
                                     <label class="form-label required">Name</label>
                                     <input type="text" class="form-control">
                                 </div>
@@ -427,6 +500,34 @@
             </div>
         </div>
 
+        <!--Edit Menu Category Modal-->
+        <div class="container mt-5">
+          <div class="modal" id="edit-category-modal">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Edit Menu Category</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      
+                      <div class="modal-body">
+                          <form>
+                              <div class="mb-3">
+                                  <label class="form-label required">Menu Category Name</label>
+                                  <input type="text" class="form-control">
+                              </div>
+                          </form>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn primary-btn">Save changes</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
 
         <!--Add Menu Item Modal-->
         <div class="container mt-5">
@@ -440,6 +541,15 @@
                       
                       <div class="modal-body">
                           <form>
+                            <div class="mb-3">
+                              <label for="menu-category" class="form-label required">Menu Category</label>
+                              <select name="menu-category" id="menu-category" class="form-select">
+                                  <option value="Pizza">Pizza</option>
+                                  <option value="Fruits" selected>Fruits</option>
+                                  <option value="Snacks">Snacks</option>
+                              </select>
+                            </div>
+
                               <div class="mb-3">
                                   <label class="form-label required">Name</label>
                                   <input type="text" class="form-control">
@@ -473,6 +583,34 @@
           </div>
       </div>
 
+      <!--Add Menu Category Modal-->
+      <div class="container mt-5">
+        <div class="modal" id="add-category-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Menu Category</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label class="form-label required">Menu Category Name</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn primary-btn">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
       <!--Delete Menu Item Modal-->
@@ -494,17 +632,34 @@
         </div>
       </div>
 
+      <!--Delete Menu Category Modal-->
+      <div class="modal" id="delete-category-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Delete This Menu Category?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>This category will be permanantly deleted.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
 
             
           </div>
 
           <div>
-            <i class="addBtn bi bi-plus-circle-fill"></i>
+            <i class="addItemBtn bi bi-plus-circle-fill"></i>
           </div>
 
-
-        </div>
       </div>
     </div>
 

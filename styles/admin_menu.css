@@ -2,6 +2,7 @@
   display: flex;
   overflow-x: auto; /* Enable horizontal scrolling */
   margin-left: 70px;
+  
 }
 
 .menu-item-container {
@@ -24,7 +25,28 @@
 
 
 
+
+.dropdown {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dropdown-menu {
+  min-width: auto !important;
+  font-size: small;
+}
+
+.dropdownToggle i{
+  background-color: transparent;
+  margin: 7px;
+}
+
+
+
 .menu{
+  position: relative;
   background: #A2B3BC;
   flex: 0 0 auto; /* Disable flex-grow and flex-shrink */
   width: 120px; /* Set a fixed width for each item */
@@ -41,6 +63,7 @@
   background: #91A5EB;
   color:#EAF9FF;
   box-shadow: 2px 2px 2px #EAF9FF;
+  cursor: pointer;
 }
 
 .showMore{
@@ -116,7 +139,19 @@ i{
   cursor: pointer;
 }
 
-div .addBtn {
+div .addCategoryBtn{
+  color: #EAF9FF;
+  height: 60px;
+  width: 60px;
+  font-size: 60px;
+  background: transparent;
+  justify-content: center;
+  margin: 15px 20px;
+  display: flex;
+  transition: box-shadow .3s;
+}
+
+div .addItemBtn {
   color: #EAF9FF;
   height: 60px;
   width: 60px;
@@ -129,7 +164,7 @@ div .addBtn {
   transition: box-shadow .3s;
 }
 
-.addBtn:hover{
+.addCategoryBtn:hover, .addItemBtn:hover{
   box-shadow: 0px 0px 10px 1px white;
   cursor: pointer;
 }

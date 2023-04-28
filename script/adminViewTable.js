@@ -1,34 +1,39 @@
-let sectionContents = document.querySelectorAll(".section-content");
-let sectionTitles = document.querySelectorAll(".section-title");
-let sectionBgs = document.querySelectorAll(".cover-section");
+function sidebarFunction(){
+  let sectionContents = document.querySelectorAll(".section-content");
+  let sectionTitles = document.querySelectorAll(".section-title");
+  let sectionBgs = document.querySelectorAll(".cover-section");
 
-// sectionTitle.addEventListener("click",function(){
-//     sectionContent.classList.toggle("hide");
-//     sectionBg.classList.toggle("cover-customer");
-// });
+  // sectionTitle.addEventListener("click",function(){
+  //     sectionContent.classList.toggle("hide");
+  //     sectionBg.classList.toggle("cover-customer");
+  // });
 
-for(let x=0;x<sectionTitles.length;x++){
-  sectionTitles[x].addEventListener("click",function(){
-    sectionContents[x].classList.toggle("hide");
-    sectionBgs[x].classList.toggle("cover-customer");
+  for(let x=0;x<sectionTitles.length;x++){
+    sectionTitles[x].addEventListener("click",function(){
+      sectionContents[x].classList.toggle("hide");
+      sectionBgs[x].classList.toggle("cover-customer");
+    });
+  }
+
+  let reserve = document.querySelector(".reservation");
+  let wait = document.querySelector(".waitlist");
+
+  reserve.addEventListener("click",function(){
+      reserve.classList.add("selectedReservation");
+      wait.classList.remove("selectedWaitlist");
+      reserveWait("reserve");
+      
+  });
+
+  wait.addEventListener("click",function(){
+      wait.classList.add("selectedWaitlist");
+      reserve.classList.remove("selectedReservation");
+      reserveWait("waitList");
   });
 }
 
-let reserve = document.querySelector(".reservation");
-let wait = document.querySelector(".waitlist");
-
-reserve.addEventListener("click",function(){
-    reserve.classList.add("selectedReservation");
-    wait.classList.remove("selectedWaitlist");
-    reserveWait("reserve");
-    
-});
-
-wait.addEventListener("click",function(){
-    wait.classList.add("selectedWaitlist");
-    reserve.classList.remove("selectedReservation");
-    reserveWait("waitList");
-});
+// initialize the listener
+sidebarFunction();
 
 function reserveWait(reservewait) {
     var i;
@@ -46,6 +51,7 @@ function toggleSidebar() {
     var sidebarContent = document.querySelector(".sidebar-content");
     var rightBar = document.querySelector(".rightBar");
     sidebarContent.innerHTML = rightBar.innerHTML;
+    sidebarFunction();
   
     if (sidebar.classList.contains("sidebar-open")) {
       sidebar.classList.remove("sidebar-open");
@@ -89,4 +95,3 @@ tables.forEach(table => {
 tableNo[0].textContent = "Free: "+freeNum;
 tableNo[1].textContent = "Reserved: "+reservedNum;
 tableNo[2].textContent = "Checked-in: "+checkedInNum;
-

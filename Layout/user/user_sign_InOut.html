@@ -16,69 +16,45 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
+          <!-- Sign in form -->
           <form action="#" class="sign-in-form">
             <h2 class="title">Hello Again!</h2>
             <h4>Welcome Back</h4>
             <div class="input-field username-input">
               <i class="fa fa-envelope"></i>
-              <input type="text" placeholder="Username" />
+              <input type="email" id="email" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id="password" placeholder="Password" />
             </div>
-            <input type="submit" value="Login" class="btn login-sub solid" />
+            <span id="error" class="error"></span> 
+            <input type="submit" value="Login" class="btn login-sub solid" onclick="validateForm(event)"/>
             <a><p class="forgot-password">Forgot Password</p></a>
-            <!-- <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div> -->
           </form>
+
+          <!-- Sign up form -->
           <form action="#" class="sign-up-form">
             <h2 class="title">Create Your Account</h2>
             <h4>As a Foodie</h4>
             <div class="input-field username-input">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" id="username" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" id="email-signup" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id="password-signup" placeholder="Password" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Confirm Password" />
+              <input type="password" id = "confirmPassword" placeholder="Confirm Password" />
             </div>
-            <input type="submit" class="btn signup-sub" value="Sign up" />
-            <!-- <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div> -->
+            <span id="error-signup" class="error"></span> 
+            <input type="submit" class="btn signup-sub" value="Sign up" onclick="validateSignUpForm(event)"  />
           </form>
         </div>
       </div>
