@@ -334,3 +334,8 @@ header {
 .txt-footer {
   font-size: 12px;
 }
+
+#admin-login{
+  text-decoration: underline;
+  cursor: pointer;
+}
