@@ -35,7 +35,7 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
         '<div class="menucart-item-desc container-fluid">' +
         '<div class="menucart-itemname fw-bold">' +
         '<h1 class="foodname">' + name + '</h1>' +
-        '<h2 class="price">RM<br>' + price + '</h2>' +
+        '<h2 class="price ms-5">' + price + '</h2>' +
         '</div>' +
         '<div class="content">' +
         '<span class="qt-minus">-</span>' +

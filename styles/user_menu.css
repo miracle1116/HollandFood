@@ -263,8 +263,8 @@ html {
 
   .border_menucart{
     position: relative;
-    height: 110px;
-    width: 320px; /* original 337px */
+    height: 90px;
+    width: 280px; /* original 337px */
     background-color: #fe724c;
     top: 20;
     border-radius: 60px;
@@ -287,6 +287,7 @@ html {
 
   .menucart-item{
     position: absolute; /* original : relative */
+    
   }
 
   .menucart-item img{
@@ -294,7 +295,7 @@ html {
     top: 0;
     left: 0;
     z-index: 2;
-    width: 110px;
+    width: 90px;
     /* margin-right: 60px; */
 
   }
@@ -304,12 +305,12 @@ html {
     z-index: 1;
     margin-top: 20px;
     padding-top: 10px;
-    padding-left: 105px;
+    padding-left: 80px;
     
   }
 
   .menucart-itemname{
-    position: absolute; /* add by wen wei 28/4 5:40pm */
+    position: absolute;/* add wen wei 28/4 5:40pm */
     font-size: large;
     margin-top: 5px;
 
@@ -335,20 +336,20 @@ html {
   } */
 
   .qt {
-    font-size: 19px;
+    font-size: 17px;
     line-height: 42px;
     width: 30px;
     text-align: center;
     margin-top: 10px;
-    top: 58px;
+    top: 35px;
     left: 133px; 
   }
   
   .qt-plus, .qt-minus {
     background: #fcfcfc;
     border: none;
-    font-size: 25px; /* ori 20px */
-    font-weight: 300;
+    font-size: 20px; /* ori 20px */
+    font-weight: 100;
     height: 160%; /*ori 100% */ 
     padding: 0 5px;
     -webkit-transition: background .2s linear;
@@ -386,14 +387,14 @@ html {
   .qt-plus {
     line-height: 25px; 
     margin-top: 10px;
-    top: 65px;
+    top: 45px;
     left: 170px; 
   }
   
   .qt-minus {
     line-height: 20px;
     margin-top: 10px;
-    top: 65px;
+    top: 45px;
     left: 105px;
     width: 6.5%; 
     padding-left: 6.5px;
@@ -401,16 +402,17 @@ html {
  
   #remove{
     position: absolute;
-    top: 36px;
+    top: 25px;
     left: 105px;
-    width: 6.5%; 
-    padding-left: 30px;
+    width: 3.5%; 
+    padding-left: 20px;
 
   }
 
   .menucart-itemname{
     display: flex;
     justify-content: space-between;
+    
   }
 
   .foodname{
