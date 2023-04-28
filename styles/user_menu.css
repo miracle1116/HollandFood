@@ -46,30 +46,15 @@ body{
   
 }
 
-
-/* * {
-    margin: 0;
-    padding: 0
-} */
-  
 html {
     height: 100%
 }
   
-
 #form {
     text-align: center;
     position: relative;
     margin-top: 20px
 }
-  
-
-/* .finish {
-    text-align: center
-} */
-  
-
-
   
 #progressbar {
     margin-bottom: 30px;
@@ -140,21 +125,6 @@ html {
     background-color: #fe724c
 }
 
-/* .icon {
-    font-size: 1.8rem; /* Change this value to adjust the size */
- 
-
-/* @media screen and (max-width: 800px) {
-    #leftcolumn, .rightcolumn {   
-      width: 100%;
-      padding: 0;
-    }
-  }
-
-#leftcolumn{
-        float: left;
-        width: 75%;      
-} */
 
 * {
     box-sizing: border-box;
@@ -171,11 +141,14 @@ html {
   .rightcolumn {
     float: left;
     width: 25%;
+    min-height: 250px;
     padding-left: 20px;
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(21px);
     border-radius: 24px;
+
   }
+
   
   /* Fake image */
   .fakeimg {
@@ -291,18 +264,29 @@ html {
   .border_menucart{
     position: relative;
     height: 110px;
-    width: 337px;
+    width: 320px; /* original 337px */
     background-color: #fe724c;
     top: 20;
     border-radius: 60px;
     margin-top: 30px;
     margin-bottom: 20px;
-    margin-left: 20px;
+    margin-left: 20px;  
+
+    /* the following part is done by wen wei */
+    /* can refer */
+
+    /* position: absolute; 
+    top: 20; 
+    right: 10px; 
+    min-width: 87%; 
+    height: 110px; 
+    border-radius: 60px;
+    background-color: #fe724c; */
   
   }
 
   .menucart-item{
-    position: relative;
+    position: absolute; /* original : relative */
   }
 
   .menucart-item img{
@@ -325,6 +309,7 @@ html {
   }
 
   .menucart-itemname{
+    position: absolute; /* add by wen wei 28/4 5:40pm */
     font-size: large;
     margin-top: 5px;
 
@@ -335,23 +320,36 @@ html {
   }
 
   .qt, .qt-plus, .qt-minus {
+    position: absolute; /* add wen wei 28/4 5:40pm */
     display: block;
-    float: left;
+    /* float: left; */ /* commented by wen wei 28/4 5:40pm */
   }
   
+  /* vv original code vv */
+
+  /* .qt {
+    font-size: 19px;
+    line-height: 42px;
+    width: 30px;
+    text-align: center;
+  } */
+
   .qt {
     font-size: 19px;
     line-height: 42px;
     width: 30px;
     text-align: center;
+    margin-top: 10px;
+    top: 58px;
+    left: 133px; 
   }
   
   .qt-plus, .qt-minus {
     background: #fcfcfc;
     border: none;
-    font-size: 20px;
+    font-size: 25px; /* ori 20px */
     font-weight: 300;
-    height: 100%;
+    height: 160%; /*ori 100% */ 
     padding: 0 5px;
     -webkit-transition: background .2s linear;
     -moz-transition: background .2s linear;
@@ -366,7 +364,9 @@ html {
     cursor: pointer;
   }
   
-  .qt-plus {
+  /* original code */
+  
+  /* .qt-plus {
     line-height: 20px;
     margin-top: 10px;
   }
@@ -380,6 +380,31 @@ html {
     text-align: right;
     margin-top: 0px;
     margin-right: 14px;
+
+  } */
+
+  .qt-plus {
+    line-height: 25px; 
+    margin-top: 10px;
+    top: 65px;
+    left: 170px; 
+  }
+  
+  .qt-minus {
+    line-height: 20px;
+    margin-top: 10px;
+    top: 65px;
+    left: 105px;
+    width: 6.5%; 
+    padding-left: 6.5px;
+  }
+ 
+  #remove{
+    position: absolute;
+    top: 36px;
+    left: 105px;
+    width: 6.5%; 
+    padding-left: 30px;
 
   }
 
@@ -428,7 +453,7 @@ html {
 }
 
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1400px /* ori 992px */) {
     .leftcolumn, .rightcolumn {   
       width: 100%;
       padding: 0;
