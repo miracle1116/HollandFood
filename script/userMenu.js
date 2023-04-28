@@ -19,11 +19,11 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
 
 
  $(document).ready(function() {
-    $('.add-icon').click(function() {
+    $('#menucard .col-4').click(function() {
       // get the menu item name, price and image source
-      var name = $(this).closest('.menu-item-desc').find('.fw-bold').text().trim();
-      var price = $(this).closest('.menu-item-desc').find('.price').children('p').text().trim();
-      var imageSrc = $(this).closest('.col-4').find('.menu-item img').attr('src');
+      var name = $(this).find('.fw-bold').text().trim();
+      var price = $(this).find('.price').children('p').text().trim();
+      var imageSrc = $(this).find('.menu-item img').attr('src');
       console.log(imageSrc);   
   
       // create a new menu cart item and add it to the cart
