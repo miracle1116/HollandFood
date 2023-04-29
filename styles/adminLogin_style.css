@@ -7,6 +7,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.error{
+  font-size: small;
+  color: red;
+}
+
 .container {
   position: relative;
   width: 100%;
