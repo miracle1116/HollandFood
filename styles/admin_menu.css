@@ -1,12 +1,29 @@
 .menu-category-container {
   display: flex;
-  flex-wrap: nowrap;
   overflow-x: auto; /* Enable horizontal scrolling */
-  margin-left: 30px;
-  justify-content: space-between;
+  /* margin-left: 30px; */
 }
 
-div.scrollmenu {
+.menu-category.container{
+  justify-content: center;
+  align-items: center;
+}
+
+div .addCategoryBtn{
+  color: #EAF9FF;
+  height: 40px;
+  width: 40px;
+  font-size: 40px;
+  background: transparent;
+  justify-content: center;
+  margin: 15px;
+  display: flex;
+  transition: box-shadow .3s;
+
+
+}
+
+/* div.scrollmenu {
   background-color: #333;
   overflow: auto;
   white-space: nowrap;
@@ -18,7 +35,7 @@ div.scrollmenu .menu {
   text-align: center;
   padding: 14px;
   text-decoration: none;
-}
+} */
 
 
 .menu-item-container {
@@ -30,7 +47,7 @@ div.scrollmenu .menu {
 
 .menu-card {
   flex-basis: 10px;
-  margin: 20px;
+  margin: 10px;
 }
 
 @media (max-width: 1000px) {
@@ -39,24 +56,6 @@ div.scrollmenu .menu {
   }
 
 }
-
-
-/* 
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;} */
-
-
-
 
 
 .dropdown {
@@ -78,7 +77,18 @@ div.scrollmenu .menu {
 
 
 
-.menu{
+.price{
+  font-size: medium;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ingredient{
+  font-size: small;
+}
+
+.menu_con{
   position: relative;
   background: #A2B3BC;
   flex: 0 0 auto; /* Disable flex-grow and flex-shrink */
@@ -91,7 +101,7 @@ div.scrollmenu .menu {
   justify-content: center;
 }
 
-.menu:hover{
+.menu_con:hover{
   transform: scale(1.1);
   background: #91A5EB;
   color:#EAF9FF;
@@ -170,18 +180,6 @@ i{
 
 .editBtn, .deleteBtn{
   cursor: pointer;
-}
-
-div .addCategoryBtn{
-  color: #EAF9FF;
-  height: 60px;
-  width: 60px;
-  font-size: 60px;
-  background: transparent;
-  justify-content: center;
-  margin: 15px 20px;
-  display: flex;
-  transition: box-shadow .3s;
 }
 
 div .addItemBtn {

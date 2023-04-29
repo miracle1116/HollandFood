@@ -44,3 +44,23 @@ deleteDropDowns.forEach(deleteDropDown => {
 addCategoryBtn.addEventListener("click",function(){
     addCategoryModal.show();
 });
+
+// menu category filter
+const menuItems = document.querySelectorAll('.menu-card');
+const categoryButtons = document.querySelectorAll('.menu_con');
+
+categoryButtons.forEach(item => {
+item.addEventListener('click', () => {
+    const category = item.dataset.category;
+
+    menuItems.forEach(item => {
+    if (category === 'all') {
+    item.style.display = 'block';
+    } else if (item.dataset.category === category) {
+    item.style.display = 'block';
+    } else {
+    item.style.display = 'none';
+    }
+    });
+});
+});

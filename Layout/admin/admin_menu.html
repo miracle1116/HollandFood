@@ -94,258 +94,169 @@
         <!-- sidebar end -->
 
         <!--2nd column, 2 rows-->
-        <div class="col-10 col-10 py-3">
+        <div class="col-10 col-xl-10 col-lg-10 col-sm-10 col-md-10 py-3">
+
           <!--Top part of menu, row 1-->
-          <div class="row">
-            <div class="menu-category-container col-9">
-              <div class="row d-flex flex-nowrap align-content-between mt-2">
-                <div class="menu col-2">
-                  <div class="container-fluid mt-3 p-1">
-                    <img
-                      src="../../images/pizza_icon.png"
-                      class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"
-                    />
-                    <p
-                      class="text-center fs-4 border-bottom border-3 fw-bold mb-4 pb-4"
-                    >
+        <div class="menu-category container row">
+
+          <div class="menu-category-container col-9">
+            <div class="row justify-content-center d-flex flex-nowrap mt-2">
+              
+               <!-- Menu Category -->
+               <div class="menu_con col-2 justify-content-center " data-category="all">
+                <div class="container-fluid mt-3 p-1 pb-2">
+                  <img src="../../images/all_food.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="width: 65px;"/>
+                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                    All
+                  </p>
+                  <div class="showMore text-center">
+                    <a href="#">
+                      <i class="bi bi-caret-right text-black"></i>
+                    </a>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-three-dots-vertical text-black"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                      <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                      <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="menu_con col-2 justify-content-center " data-category="pizza">
+                  <div class="container-fluid mt-3 p-1 pb-2">
+                    <img src="../../images/pizza_icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="width: 65px;"/>
+                    <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
                       Pizza
                     </p>
-                    <div class="showMore">
-                      <a href="#"
-                        ><i class="bi bi-caret-right text-black"></i
-                      ></a>
+                    <div class="showMore text-center">
+                      <a href="#">
+                        <i class="bi bi-caret-right text-black"></i>
+                      </a>
                     </div>
-
                     <div class="dropdown">
-                      <a
-                        class="dropdownToggle"
-                        href="#"
-                        role="button"
-                        id="menuCardDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
+                      <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-three-dots-vertical text-black"></i>
                       </a>
-                      <ul
-                        class="dropdown-menu dropdown-menu-end"
-                        aria-labelledby="menuCardDropdown"
-                      >
-                        <li>
-                          <a class="dropdown-item dropdown-edit" href="#"
-                            >Edit</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item dropdown-delete" href="#"
-                            >Delete</a
-                          >
-                        </li>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                        <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                        <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
                       </ul>
                     </div>
                   </div>
                 </div>
-
-                <div class="menu col-2">
-                  <div class="container-fluid mt-3 p-1">
-                    <img
-                      src="../../images/pizza_icon.png"
-                      class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"
-                    />
-                    <p
-                      class="text-center fs-4 border-bottom border-3 fw-bold mb-4 pb-4"
-                    >
-                      Pizza
+  
+                <div class="menu_con col-2 justify-content-center" data-category="fruits">
+                  <div class="container-fluid mt-3 p-1 pb-2">
+                    <img src="../../images/Fruits icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="width: 65px;"/>
+                    <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                      Fruits
                     </p>
-                    <div class="showMore">
-                      <a href="#"
-                        ><i class="bi bi-caret-right text-black"></i
-                      ></a>
+                    <div class="showMore text-center">
+                      <a href="#">
+                        <i class="bi bi-caret-right text-black"></i>
+                      </a>
                     </div>
-
                     <div class="dropdown">
-                      <a
-                        class="dropdownToggle"
-                        href="#"
-                        role="button"
-                        id="menuCardDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
+                      <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-three-dots-vertical text-black"></i>
                       </a>
-                      <ul
-                        class="dropdown-menu dropdown-menu-end"
-                        aria-labelledby="menuCardDropdown"
-                      >
-                        <li>
-                          <a class="dropdown-item dropdown-edit" href="#"
-                            >Edit</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item dropdown-delete" href="#"
-                            >Delete</a
-                          >
-                        </li>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                        <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                        <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
                       </ul>
                     </div>
                   </div>
                 </div>
-
-                <div class="menu col-2">
-                  <div class="container-fluid mt-3 p-1">
-                    <img
-                      src="../../images/pizza_icon.png"
-                      class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"
-                    />
-                    <p
-                      class="text-center fs-4 border-bottom border-3 fw-bold mb-4 pb-4"
-                    >
-                      Pizza
+              
+                <div class="menu_con col-2 justify-content-center" data-category="snacks">
+                  <div class="container-fluid mt-3 p-1 pb-2">
+                    <img src="../../images/Snacks icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="width: 65px;"/>
+                    <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                      Snacks
                     </p>
-                    <div class="showMore">
-                      <a href="#"
-                        ><i class="bi bi-caret-right text-black"></i
-                      ></a>
+                    <div class="showMore text-center">
+                      <a href="#">
+                        <i class="bi bi-caret-right text-black"></i>
+                      </a>
                     </div>
-
                     <div class="dropdown">
-                      <a
-                        class="dropdownToggle"
-                        href="#"
-                        role="button"
-                        id="menuCardDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
+                      <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-three-dots-vertical text-black"></i>
                       </a>
-                      <ul
-                        class="dropdown-menu dropdown-menu-end"
-                        aria-labelledby="menuCardDropdown"
-                      >
-                        <li>
-                          <a class="dropdown-item dropdown-edit" href="#"
-                            >Edit</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item dropdown-delete" href="#"
-                            >Delete</a
-                          >
-                        </li>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                        <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                        <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
                       </ul>
                     </div>
                   </div>
                 </div>
-
-                <div class="menu col-2">
-                  <div class="container-fluid mt-3 p-1">
-                    <img
-                      src="../../images/pizza_icon.png"
-                      class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"
-                    />
-                    <p
-                      class="text-center fs-4 border-bottom border-3 fw-bold mb-4 pb-4"
-                    >
-                      Pizza
+  
+                <div class="menu_con col-2 justify-content-center" data-category="spaghetti">
+                  <div class="container-fluid mt-3 p-1 pb-2">
+                    <img src="../../images/spaghetti.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="width: 65px;"/>
+                    <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                      Spaghetti
                     </p>
-                    <div class="showMore">
-                      <a href="#"
-                        ><i class="bi bi-caret-right text-black"></i
-                      ></a>
+                    <div class="showMore text-center">
+                      <a href="#">
+                        <i class="bi bi-caret-right text-black"></i>
+                      </a>
                     </div>
-
                     <div class="dropdown">
-                      <a
-                        class="dropdownToggle"
-                        href="#"
-                        role="button"
-                        id="menuCardDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
+                      <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-three-dots-vertical text-black"></i>
                       </a>
-                      <ul
-                        class="dropdown-menu dropdown-menu-end"
-                        aria-labelledby="menuCardDropdown"
-                      >
-                        <li>
-                          <a class="dropdown-item dropdown-edit" href="#"
-                            >Edit</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item dropdown-delete" href="#"
-                            >Delete</a
-                          >
-                        </li>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                        <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                        <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
                       </ul>
                     </div>
                   </div>
                 </div>
-
-                <div class="menu col-2">
-                  <div class="container-fluid mt-3 p-1">
-                    <img
-                      src="../../images/pizza_icon.png"
-                      class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"
-                    />
-                    <p
-                      class="text-center fs-4 border-bottom border-3 fw-bold mb-4 pb-4"
-                    >
-                      Pizza
+  
+                <div class="menu_con col-2 justify-content-center" data-category="drink">
+                  <div class="container-fluid mt-3 p-1 pb-2">
+                    <img src="../../images/Coke icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="width: 65px;"/>
+                    <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+                      Drink
                     </p>
-                    <div class="showMore">
-                      <a href="#"
-                        ><i class="bi bi-caret-right text-black"></i
-                      ></a>
+                    <div class="showMore text-center">
+                      <a href="#">
+                        <i class="bi bi-caret-right text-black"></i>
+                      </a>
                     </div>
-
                     <div class="dropdown">
-                      <a
-                        class="dropdownToggle"
-                        href="#"
-                        role="button"
-                        id="menuCardDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
+                      <a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-three-dots-vertical text-black"></i>
                       </a>
-                      <ul
-                        class="dropdown-menu dropdown-menu-end"
-                        aria-labelledby="menuCardDropdown"
-                      >
-                        <li>
-                          <a class="dropdown-item dropdown-edit" href="#"
-                            >Edit</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item dropdown-delete" href="#"
-                            >Delete</a
-                          >
-                        </li>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">
+                        <li><a class="dropdown-item dropdown-edit" href="#">Edit</a></li>
+                        <li><a class="dropdown-item dropdown-delete" href="#">Delete</a></li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="col-1 align-self-center mx-auto">
+            
+            <div class="col-1 align-items-center">
               <i class="addCategoryBtn bi bi-plus-circle-fill"></i>
             </div>
+
           </div>
 
-          <!--middle part, row 2-->
-          <div
-            class="menu-item-container row d-flex justify-content-around mt-5 ms-2"
-          >
-            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3">
+          
+      
+  
+            
+          <!--Menu Item-->
+          <div class="menu-item-container row d-flex justify-content-around mt-5 ms-2">
+    
+            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3" data-category="pizza">
               <div class="menu-item container-fluid shadow-lg bg-body">
                 <img
                   src="../../images/spaghetti_icon.png"
@@ -354,16 +265,16 @@
               </div>
               <div class="border_menu">
                 <div class="menu-item-desc container-fluid">
-                  <div class="fw-bold">Spaghetti</div>
-                  <div>Tomatoes, Chicken</div>
-                  <div class="price">
-                    $7.29
+                  <div class="fw-bold">Mushroom Pizza</div>
+                  <div class="ingredient">Mushroom, Chicken</div>
+                  <div class="mt-4 price">
+                    RM10.29
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="deleteBtn bi bi-trash ms-5"
+                      class="deleteBtn bi bi-trash ms-auto"
                       viewBox="0 0 16 16"
                     >
                       <path
@@ -373,7 +284,7 @@
                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
                       />
                     </svg>
-
+                    
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -391,7 +302,8 @@
               </div>
             </div>
 
-            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3">
+
+            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3" data-category="fruits">
               <div class="menu-item container-fluid shadow-lg bg-body">
                 <img
                   src="../../images/spaghetti_icon.png"
@@ -400,16 +312,16 @@
               </div>
               <div class="border_menu">
                 <div class="menu-item-desc container-fluid">
-                  <div class="fw-bold">Spaghetti</div>
-                  <div>Tomatoes, Chicken</div>
-                  <div class="price">
-                    $7.29
+                  <div class="fw-bold">Fruit Salad</div>
+                  <div class="ingredient">Apple, Pineapple</div>
+                  <div class="mt-4 price">
+                    RM7.29
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="deleteBtn bi bi-trash ms-5"
+                      class="deleteBtn bi bi-trash ms-auto"
                       viewBox="0 0 16 16"
                     >
                       <path
@@ -419,7 +331,7 @@
                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
                       />
                     </svg>
-
+                    
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -437,7 +349,7 @@
               </div>
             </div>
 
-            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3">
+            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3" data-category="veggies">
               <div class="menu-item container-fluid shadow-lg bg-body">
                 <img
                   src="../../images/spaghetti_icon.png"
@@ -446,16 +358,16 @@
               </div>
               <div class="border_menu">
                 <div class="menu-item-desc container-fluid">
-                  <div class="fw-bold">Spaghetti</div>
-                  <div>Tomatoes, Chicken</div>
-                  <div class="price">
-                    $7.29
+                  <div class="fw-bold">Taco Bowl</div>
+                  <div class="ingredient">Chickpea, Vegetable</div>
+                  <div class="mt-4 price">
+                    RM7.29
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="deleteBtn bi bi-trash ms-5"
+                      class="deleteBtn bi bi-trash ms-auto"
                       viewBox="0 0 16 16"
                     >
                       <path
@@ -465,7 +377,7 @@
                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
                       />
                     </svg>
-
+                    
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -483,7 +395,8 @@
               </div>
             </div>
 
-            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3">
+
+            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3" data-category="snacks">
               <div class="menu-item container-fluid shadow-lg bg-body">
                 <img
                   src="../../images/spaghetti_icon.png"
@@ -492,16 +405,16 @@
               </div>
               <div class="border_menu">
                 <div class="menu-item-desc container-fluid">
-                  <div class="fw-bold">Spaghetti</div>
-                  <div>Tomatoes, Chicken</div>
-                  <div class="price">
-                    $7.29
+                  <div class="fw-bold">Hash Browns</div>
+                  <div class="ingredient">Potato</div>
+                  <div class="mt-4 price">
+                    RM7.29
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="deleteBtn bi bi-trash ms-5"
+                      class="deleteBtn bi bi-trash ms-auto"
                       viewBox="0 0 16 16"
                     >
                       <path
@@ -511,7 +424,7 @@
                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
                       />
                     </svg>
-
+                    
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -529,7 +442,7 @@
               </div>
             </div>
 
-            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3">
+            <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3" data-category="drink">
               <div class="menu-item container-fluid shadow-lg bg-body">
                 <img
                   src="../../images/spaghetti_icon.png"
@@ -538,16 +451,16 @@
               </div>
               <div class="border_menu">
                 <div class="menu-item-desc container-fluid">
-                  <div class="fw-bold">Spaghetti</div>
-                  <div>Tomatoes, Chicken</div>
-                  <div class="price">
-                    $7.29
+                  <div class="fw-bold">Cocktail</div>
+                  <div class="ingredient">Lemon, Soda</div>
+                  <div class="mt-4 price">
+                    RM7.29
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="deleteBtn bi bi-trash ms-5"
+                      class="deleteBtn bi bi-trash ms-auto"
                       viewBox="0 0 16 16"
                     >
                       <path
@@ -557,7 +470,7 @@
                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
                       />
                     </svg>
-
+                    
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -574,321 +487,248 @@
                 </div>
               </div>
             </div>
-          </div>
+
+            
+
+
+           
+
+
+            
+
+
 
           <!--Edit Menu Item Modal-->
           <div class="container mt-5">
             <div class="modal" id="edit-item-modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Edit Menu Item</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edit Menu Item</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                  <label for="menu-category" class="form-label required">Menu Category</label>
+                                  <select name="menu-category" id="menu-category" class="form-select">
+                                      <option value="Pizza">Pizza</option>
+                                      <option value="Fruits" selected>Fruits</option>
+                                      <option value="Snacks">Snacks</option>
+                                  </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label required">Name</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label required">Price</label>
+                                    <input type="number" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="upload-photo" class="form-label required">Upload Image</label>
+                                  <input
+                                  type="file" 
+                                  id="upload-photo" 
+                                  name="upload-photo"
+                                  class="form-control"
+                                  />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label required">Ingredient</label>
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                            </form>
+                        </div>
 
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label for="menu-category" class="form-label required"
-                          >Menu Category</label
-                        >
-                        <select
-                          name="menu-category"
-                          id="menu-category"
-                          class="form-select"
-                        >
-                          <option value="Pizza">Pizza</option>
-                          <option value="Fruits" selected>Fruits</option>
-                          <option value="Snacks">Snacks</option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label required">Name</label>
-                        <input type="text" class="form-control" />
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label required">Price</label>
-                        <input type="number" class="form-control" />
-                      </div>
-                      <div class="mb-3">
-                        <label for="upload-photo" class="form-label required"
-                          >Upload Image</label
-                        >
-                        <input
-                          type="file"
-                          id="upload-photo"
-                          name="upload-photo"
-                          class="form-control"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label required">Ingredient</label>
-                        <textarea class="form-control"></textarea>
-                      </div>
-                    </form>
-                  </div>
-
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn secondary-btn"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="button" class="btn primary-btn">
-                      Save changes
-                    </button>
-                  </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn primary-btn">Save changes</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
 
-          <!--Edit Menu Category Modal-->
-          <div class="container mt-5">
-            <div class="modal" id="edit-category-modal">
+        <!--Edit Menu Category Modal-->
+        <div class="container mt-5">
+          <div class="modal" id="edit-category-modal">
               <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Edit Menu Category</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
-
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label class="form-label required"
-                          >Menu Category Name</label
-                        >
-                        <input type="text" class="form-control" />
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Edit Menu Category</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                       </div>
-                      <div class="mb-3">
-                        <label for="upload-photo" class="form-label required"
-                          >Upload Image</label
-                        >
-                        <input
-                          type="file"
-                          id="upload-photo"
-                          name="upload-photo"
-                          class="form-control"
-                        />
+                      
+                      <div class="modal-body">
+                          <form>
+                              <div class="mb-3">
+                                  <label class="form-label required">Menu Category Name</label>
+                                  <input type="text" class="form-control">
+                              </div>
+                              <div class="mb-3">
+                                <label for="upload-photo" class="form-label required">Upload Image</label>
+                                <input
+                                type="file" 
+                                id="upload-photo" 
+                                name="upload-photo"
+                                class="form-control"
+                                />
+                              </div>
+                          </form>
                       </div>
-                    </form>
-                  </div>
 
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn secondary-btn"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="button" class="btn primary-btn">
-                      Save changes
-                    </button>
+                      <div class="modal-footer">
+                        <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn primary-btn">Save changes</button>
+                      </div>
                   </div>
-                </div>
               </div>
-            </div>
           </div>
+      </div>
 
-          <!--Add Menu Item Modal-->
-          <div class="container mt-5">
-            <div class="modal" id="add-item-modal">
+
+        <!--Add Menu Item Modal-->
+        <div class="container mt-5">
+          <div class="modal" id="add-item-modal">
               <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Add Menu Item</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Add Menu Item</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      
+                      <div class="modal-body">
+                          <form>
+                            <div class="mb-3">
+                              <label for="menu-category" class="form-label required">Menu Category</label>
+                              <select name="menu-category" id="menu-category" class="form-select">
+                                  <option value="Pizza">Pizza</option>
+                                  <option value="Fruits" selected>Fruits</option>
+                                  <option value="Snacks">Snacks</option>
+                              </select>
+                            </div>
 
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label for="menu-category" class="form-label required"
-                          >Menu Category</label
-                        >
-                        <select
-                          name="menu-category"
-                          id="menu-category"
-                          class="form-select"
-                        >
-                          <option value="Pizza">Pizza</option>
-                          <option value="Fruits" selected>Fruits</option>
-                          <option value="Snacks">Snacks</option>
-                        </select>
+                              <div class="mb-3">
+                                  <label class="form-label required">Name</label>
+                                  <input type="text" class="form-control">
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label required">Price</label>
+                                  <input type="number" class="form-control">
+                              </div>
+                              <div class="mb-3">
+                                <label for="upload-photo" class="form-label required">Upload Image</label>
+                                <input
+                                type="file" 
+                                id="upload-photo" 
+                                name="upload-photo"
+                                class="form-control"
+                                />
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label required">Ingredient</label>
+                                  <textarea class="form-control"></textarea>
+                              </div>
+                          </form>
                       </div>
 
-                      <div class="mb-3">
-                        <label class="form-label required">Name</label>
-                        <input type="text" class="form-control" />
+                      <div class="modal-footer">
+                        <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn primary-btn">Add</button>
                       </div>
-                      <div class="mb-3">
-                        <label class="form-label required">Price</label>
-                        <input type="number" class="form-control" />
-                      </div>
-                      <div class="mb-3">
-                        <label for="upload-photo" class="form-label required"
-                          >Upload Image</label
-                        >
-                        <input
-                          type="file"
-                          id="upload-photo"
-                          name="upload-photo"
-                          class="form-control"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label required">Ingredient</label>
-                        <textarea class="form-control"></textarea>
-                      </div>
-                    </form>
                   </div>
-
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn secondary-btn"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="button" class="btn primary-btn">Add</button>
-                  </div>
-                </div>
               </div>
-            </div>
           </div>
+      </div>
 
-          <!--Add Menu Category Modal-->
-          <div class="container mt-5">
-            <div class="modal" id="add-category-modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Add Menu Category</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
-
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label class="form-label required"
-                          >Menu Category Name</label
-                        >
-                        <input type="text" class="form-control" />
-                      </div>
-                      <div class="mb-3">
-                        <label for="upload-photo" class="form-label required"
-                          >Upload Image</label
-                        >
-                        <input
-                          type="file"
-                          id="upload-photo"
-                          name="upload-photo"
-                          class="form-control"
-                        />
-                      </div>
-                    </form>
-                  </div>
-
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn secondary-btn"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="button" class="btn primary-btn">Add</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!--Delete Menu Item Modal-->
-          <div class="modal" id="delete-item-modal">
+      <!--Add Menu Category Modal-->
+      <div class="container mt-5">
+        <div class="modal" id="add-category-modal">
             <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Delete This Item?</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <p>This item will be permanantly deleted.</p>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn secondary-btn"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-danger">Delete</button>
-                </div>
-              </div>
-            </div>
-          </div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Menu Category</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label class="form-label required">Menu Category Name</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <div class="mb-3">
+                            <label for="upload-photo" class="form-label required">Upload Image</label>
+                            <input
+                            type="file" 
+                            id="upload-photo" 
+                            name="upload-photo"
+                            class="form-control"
+                            />
+                          </div>
+                        </form>
+                    </div>
 
-          <!--Delete Menu Category Modal-->
-          <div class="modal" id="delete-category-modal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Delete This Menu Category?</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+                    <div class="modal-footer">
+                      <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn primary-btn">Add</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                  <p>This category will be permanantly deleted.</p>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn secondary-btn"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-danger">Delete</button>
-                </div>
-              </div>
+            </div>
+        </div>
+    </div>
+
+
+
+      <!--Delete Menu Item Modal-->
+      <div class="modal" id="delete-item-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Delete This Item?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>This item will be permanantly deleted.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger">Delete</button>
             </div>
           </div>
         </div>
+      </div>
 
-        <div>
-          <i class="addItemBtn bi bi-plus-circle-fill"></i>
+      <!--Delete Menu Category Modal-->
+      <div class="modal" id="delete-category-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Delete This Menu Category?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>This category will be permanantly deleted.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+          </div>
         </div>
+      </div>
+
+
+
+            
+          </div>
+
+          <div>
+            <i class="addItemBtn bi bi-plus-circle-fill"></i>
+          </div>
+
       </div>
     </div>
 
