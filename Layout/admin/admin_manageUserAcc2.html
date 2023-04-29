@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../../styles/admin_style.css" />
     <link rel="stylesheet" href="../../styles/admin_manageUserAcc2.css" />
     <!--DataTable-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"/>
     <title>Admin Users</title>
   </head>
@@ -24,7 +24,7 @@
   <body>
     <!-- Sidebar -->
     <div class="container-fluid">
-      <div class="row">
+      <div class="row vh-100">
         <!--1st column-->
         <div class="sideBar col-auto col-md-2 px-sm-2 px-0">
           <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -37,7 +37,7 @@
             </div>
             <nav>
               <ul class="nav nav-pills flex-column mb-sm-auto mb-0 ps-4 align-items-center align-items-sm-start" id="menu">
-                <li class="nav-item mt-3">
+                <li class="nav-item">
                   <a href="admin_viewTable.html" class="nav-link">
                     <div class="navList">
                       <i class="navIcon fs-4 bi-table"></i>
@@ -77,12 +77,8 @@
         <!-- sidebar end -->
 
 
-        
-
-
-
         <!--dataTable-->
-        <div class="container col-xl-10 py-3 bg-color">
+        <div class="container-fluid col-xl-10 py-3 bg-color">
           <div class="row">
             <table id="accountTable" class="table" style="width:100%">
               <thead>
@@ -108,7 +104,7 @@
                       <td>2011-04-25</td>
                       <td>$320,800</td>
                       <td>System Architect</td>
-                      <td><i class="fs-4 bi-pencil-square" width="20px"></i>&nbsp; <i class="fs-4 bi-trash"></i></td>
+                      <td><i class="editBtn fs-4 bi-pencil-square" width="20px"></i>&nbsp; <i class="deleteBtn fs-4 bi-trash"></i></td>
                   </tr>
                       <td><img src="../../images/profilePic.png" width="50px" /></td>
                       <td>Support Engineer</td>
@@ -118,7 +114,7 @@
                       <td>2009-07-07</td>
                       <td>$87,500</td>
                       <td>Support Engineer</td>
-                      <td><i class="fs-4 bi-pencil-square" width="20px"></i>&nbsp; <i class="fs-4 bi-trash"></i></td>
+                      <td><i class="editBtn fs-4 bi-pencil-square" width="20px"></i>&nbsp; <i class="deleteBtn fs-4 bi-trash"></i></td>
                   </tr>
                   <tr>
                       <td><img src="../../images/profilePic.png" width="50px" /></td>
@@ -129,7 +125,7 @@
                       <td>2012-04-09</td>
                       <td>$138,575</td>
                       <td>Serge Baldwin</td>
-                      <td><i class="fs-4 bi-pencil-square" width="20px"></i>&nbsp; <i class="fs-4 bi-trash"></i></td>
+                      <td><i class="editBtn fs-4 bi-pencil-square" width="20px"></i>&nbsp; <i class="deleteBtn fs-4 bi-trash"></i></td>
                   </tr>
                   <tr>
                       <td><img src="../../images/profilePic.png" width="50px" /></td>
@@ -140,7 +136,7 @@
                       <td>2010-01-04</td>
                       <td>$125,250</td>
                       <td>Zenaida Frank</td>
-                      <td><i class="fs-4 bi-pencil-square"  width="20px"></i>&nbsp; <i class="fs-4 bi-trash"></i></td>
+                      <td><i class="editBtn fs-4 bi-pencil-square"  width="20px"></i>&nbsp; <i class="deleteBtn fs-4 bi-trash"></i></td>
                   </tr>
               </tbody>
           </table>
@@ -148,6 +144,155 @@
         </div>
         <!--dataTable End-->
         
+        <!--Edit User Acc Modal-->
+        <div class="container mt-5">
+          <div class="modal" id="edit-acc-modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Edit User Account</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                  <form class="form">
+                    <div class="row">
+                      <div class="form-group col-lg-6 col-sm-12 mb-3">
+                        <label class="form-label text-black" for="firstname"
+                          >First Name</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control input"
+                          id="firstname"
+                          placeholder="John"
+                        />
+                      </div>
+
+                      <div class="form-group col-lg-6 col-sm-12 mb-3">
+                        <label class="form-label text-black" for="lastname"
+                          >Last Name</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control input"
+                          id="lastname"
+                          placeholder="Wick"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-6 col-sm-12 mb-3">
+                        <label class="form-label" for="date">Birth Date</label>
+                        <div class="input-group">
+                          <input
+                            type="date"
+                            class="form-control input"
+                            id="date"
+                            aria-describedby="emailHelp"
+                            placeholder="Enter email"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-group col-lg-6 col-sm-12 mb-3">
+                        <label class="form-label text-black" for="gender"
+                          >Gender</label
+                        >
+                        <select
+                          id="gender"
+                          class="form-control form-select input"
+                        >
+                          <option>Male</option>
+                          <option>Female</option>
+                        </select>
+                      </div>
+                      `
+                    </div>
+                    <div class="row">
+                      <div class="form-group mb-3">
+                        <label
+                          class="form-label required text-black"
+                          for="contactnumber"
+                          >Contact Number</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control input"
+                          id="contactnumber"
+                          placeholder="0123456789"
+                        />
+                      </div>
+
+                      <div class="form-group mb-3">
+                        <label
+                          class="form-label required text-black"
+                          for="email"
+                          >Email</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control input"
+                          id="email"
+                          placeholder="example@gmail.com"
+                        />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn secondary-btn"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn primary-btn">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Delete User Acc Modal-->
+        <div class="modal" id="delete-acc-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Delete This Account?</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>This account will be permanantly deleted.</p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn secondary-btn"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-danger">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 

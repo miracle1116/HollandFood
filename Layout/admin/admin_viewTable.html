@@ -10,13 +10,14 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous" />
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="../../styles/admin_style.css" />
     <link rel="stylesheet" href="../../styles/adminViewTable_style.css" />
-
 
     <title>Admin Table</title>
   </head>
@@ -27,21 +28,29 @@
       <div class="row vh-100">
         <!--1st column-->
         <div class="sideBar col-auto col-md-2 px-sm-2 px-0">
-          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+          <div
+            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+          >
             <div class="mx-auto d-block pt-4">
               <img src="../../images/holland_food_icon.png" width="120px" />
             </div>
             <div
-              class="sidebar-heading mx-auto d-block py-2 primary-text fs-4 fw-bold border-bottom">
+              class="sidebar-heading mx-auto d-block py-2 primary-text fs-4 fw-bold border-bottom"
+            >
               <i class="fas fa-user-secret me-2"></i>Holland Food
             </div>
             <nav>
-              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 ps-4 align-items-center align-items-sm-start" id="menu">
+              <ul
+                class="nav nav-pills flex-column mb-sm-auto mb-0 ps-4 align-items-center align-items-sm-start"
+                id="menu"
+              >
                 <li class="nav-item">
                   <a href="admin_viewTable.html" class="nav-link">
                     <div class="navList">
                       <i class="navIcon fs-4 bi-table text-black"></i>
-                      <span class="ms-1 d-none d-sm-inline text-black">Tables</span>
+                      <span class="ms-1 d-none d-sm-inline text-black"
+                        >Tables</span
+                      >
                     </div>
                   </a>
                 </li>
@@ -54,7 +63,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="admin_manageUserAcc.html" class="nav-link">
+                  <a href="admin_manageUserAcc2.html" class="nav-link">
                     <div class="navList">
                       <i class="navIcon fs-4 bi-people"></i>
                       <span class="ms-1 d-none d-sm-inline">Users</span>
@@ -71,43 +80,45 @@
                 </li>
               </ul>
             </nav>
-            
           </div>
         </div>
         <!-- sidebar end -->
 
-         <!--2nd column Table-->
+        <!--2nd column Table-->
         <div class="container col-sm-7 col-md-7 col-7">
-
           <!-- search bar -->
           <form>
-
             <div class="search-dateTime row justify-content-center">
-                <div class="col">
-                    <label class="label" for="date">Select Date:</label>
-                    <div class="input-group">
-                        <input type="date" class="form-control input" id="date" aria-describedby="emailHelp" placeholder="Enter email">
-                    </div>
+              <div class="col">
+                <label class="label" for="date">Select Date:</label>
+                <div class="input-group">
+                  <input
+                    type="date"
+                    class="form-control input"
+                    id="date"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                  />
                 </div>
-    
-                <div class="form-group col">
-                    <label class="label" for="time">Select Time:</label>
-                    <select id="time" class="form-control form-select input">
-                        <option>9:00-10:00</option>
-                        <option>10:00-11:00</option>
-                        <option>11:00-12:00</option>
-                        <option>12:00-13:00</option>
-                        <option>13:00-14:00</option>
-                        <option>14:00-15:00</option>
-                    </select>
-                </div>
-    
-                <!-- <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
+              </div>
+
+              <div class="form-group col">
+                <label class="label" for="time">Select Time:</label>
+                <select id="time" class="form-control form-select input">
+                  <option>9:00-10:00</option>
+                  <option>10:00-11:00</option>
+                  <option>11:00-12:00</option>
+                  <option>12:00-13:00</option>
+                  <option>13:00-14:00</option>
+                  <option>14:00-15:00</option>
+                </select>
+              </div>
+
+              <!-- <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
                 <button id="searchBtn" class="rounded-pill button-shape mt-4" type="submit">Search</button>
                 </div>   -->
             </div>
-        </form>
-
+          </form>
 
           <!-- <div class="dateTime col-lg-3 col-sm-3 col-md-3 col-3 ">
             <input
@@ -118,7 +129,7 @@
             />
           </div> -->
 
-<!--
+          <!--
           <div class="row">
             <div class="table">
               <div class="table_NUM">T1</div>
@@ -126,7 +137,7 @@
             
           </div>
 -->
-        
+
           <div class="table-container">
             <div class="table checkedIn" id="t1">T1</div>
             <div class="table reserved" id="t2">T2</div>
@@ -138,40 +149,27 @@
             <div class="table" id="t8">T8</div>
             <div class="table" id="t9">T9</div>
 
-
             <!-- Table label -->
             <div class="col-11 col-lg-11 mt-5 pt-5">
-              <div class="row"> 
-                <div class="col-md-4 col-lg-3 justify-content-center ">
-                    <div class="square rounded table-label-free">
-                    </div>
-                    <span class="table-label ms-1">Free :</span>
-                </div>
-                  
-
-                <div class="col-md-4 col-lg-3 justify-content-center ">
-                    <div class="square rounded table-label-reserved">
-                    </div>
-                    <span class="table-label ms-1">Reserved :</span>
+              <div class="row">
+                <div class="col-md-4 col-lg-3 justify-content-center">
+                  <div class="square rounded table-label-free"></div>
+                  <span class="table-label ms-1">Free :</span>
                 </div>
 
-                <div class="col-md-4 col-lg-3 justify-content-center ">
-                    <div class="square rounded table-label-checkedIn">
-                    </div>
-                    <span class="table-label ms-1">Checked-in :</span>
-                </div>  
+                <div class="col-md-4 col-lg-3 justify-content-center">
+                  <div class="square rounded table-label-reserved"></div>
+                  <span class="table-label ms-1">Reserved :</span>
+                </div>
 
+                <div class="col-md-4 col-lg-3 justify-content-center">
+                  <div class="square rounded table-label-checkedIn"></div>
+                  <span class="table-label ms-1">Checked-in :</span>
+                </div>
               </div>
             </div>
           </div>
-
-
-      
-      
-          
         </div>
-
-
 
         <!--3rd Column-->
         <!--arrow icon when screen size become small-->
@@ -183,185 +181,184 @@
           <!--onClick no function-->
         </div>
 
-        
-
-        <div 
-        class="container-fluid rightBar col-md-3 col-sm-3 col-3">
-        
+        <div class="container-fluid rightBar col-md-3 col-sm-3 col-3">
           <div class="row flex-row border-bottom">
             <div class="col reservation selectedReservation align-items-center">
               RESERVATION
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-9-circle-fill mb-2" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.223 4.146c2.104 0 3.123-1.464 3.123-4.3 0-3.147-1.459-4.014-2.97-4.014-1.63 0-2.871 1.02-2.871 2.73 0 1.706 1.171 2.667 2.566 2.667 1.06 0 1.7-.557 1.934-1.184h.076c.047 1.67-.475 3.023-1.834 3.023-.71 0-1.149-.363-1.248-.72H5.258c.094.908.926 1.798 2.52 1.798Zm.118-3.972c.808 0 1.535-.528 1.535-1.594s-.668-1.676-1.56-1.676c-.838 0-1.517.616-1.517 1.659 0 1.072.708 1.61 1.54 1.61Z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-9-circle-fill mb-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.223 4.146c2.104 0 3.123-1.464 3.123-4.3 0-3.147-1.459-4.014-2.97-4.014-1.63 0-2.871 1.02-2.871 2.73 0 1.706 1.171 2.667 2.566 2.667 1.06 0 1.7-.557 1.934-1.184h.076c.047 1.67-.475 3.023-1.834 3.023-.71 0-1.149-.363-1.248-.72H5.258c.094.908.926 1.798 2.52 1.798Zm.118-3.972c.808 0 1.535-.528 1.535-1.594s-.668-1.676-1.56-1.676c-.838 0-1.517.616-1.517 1.659 0 1.072.708 1.61 1.54 1.61Z"
+                />
               </svg>
             </div>
 
             <div class="col waitlist align-items-center">
-              WAITLIST <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-9-circle-fill mb-2" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.223 4.146c2.104 0 3.123-1.464 3.123-4.3 0-3.147-1.459-4.014-2.97-4.014-1.63 0-2.871 1.02-2.871 2.73 0 1.706 1.171 2.667 2.566 2.667 1.06 0 1.7-.557 1.934-1.184h.076c.047 1.67-.475 3.023-1.834 3.023-.71 0-1.149-.363-1.248-.72H5.258c.094.908.926 1.798 2.52 1.798Zm.118-3.972c.808 0 1.535-.528 1.535-1.594s-.668-1.676-1.56-1.676c-.838 0-1.517.616-1.517 1.659 0 1.072.708 1.61 1.54 1.61Z"/>
+              WAITLIST
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-9-circle-fill mb-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.223 4.146c2.104 0 3.123-1.464 3.123-4.3 0-3.147-1.459-4.014-2.97-4.014-1.63 0-2.871 1.02-2.871 2.73 0 1.706 1.171 2.667 2.566 2.667 1.06 0 1.7-.557 1.934-1.184h.076c.047 1.67-.475 3.023-1.834 3.023-.71 0-1.149-.363-1.248-.72H5.258c.094.908.926 1.798 2.52 1.798Zm.118-3.972c.808 0 1.535-.528 1.535-1.594s-.668-1.676-1.56-1.676c-.838 0-1.517.616-1.517 1.659 0 1.072.708 1.61 1.54 1.61Z"
+                />
               </svg>
             </div>
           </div>
 
-          <br>
+          <br />
 
           <div class="row mb-4">
             <div class="search-container">
               <form action="/action_page.php">
-
                 <div class="search">
-                  <input type="search" class="form-control search-click input" name="search" placeholder="Search here..." />
-                  <button class="searchIcon"><i class="bi bi-search"></i></button>
+                  <input
+                    type="search"
+                    class="form-control search-click input"
+                    name="search"
+                    placeholder="Search here..."
+                  />
+                  <button class="searchIcon">
+                    <i class="bi bi-search"></i>
+                  </button>
                 </div>
-
               </form>
             </div>
-
           </div>
 
           <div class="row ms-1">
-            <div><h5><strong>10.00 am</strong></h5></div>
+            <div>
+              <h5><strong>10.00 am</strong></h5>
+            </div>
           </div>
 
-
-        <!--Reservation tab-->
-        <div id="reserve" class="reserveWaitTab">
-
-          <section class="cover-section container">
-            <section class="section-title">
-              <div class="row">
-                <div class="col-sm">
-                  <h5>T1</h5>
+          <!--Reservation tab-->
+          <div id="reserve" class="reserveWaitTab">
+            <section class="cover-section container">
+              <section class="section-title">
+                <div class="row">
+                  <div class="col-sm">
+                    <h5>T1</h5>
+                  </div>
+                  <div class="col-sm pt-3 ps-4 fw-bold">Shu Ying</div>
+                  <div class="col-sm p-3">2 persons</div>
                 </div>
-                <div class="col-sm pt-3 ps-4 fw-bold">
-                  Shu Ying
+              </section>
+              <section class="section-content hide">
+                <div class="row mt-1 ms-2">
+                  Pre-ordered Items : <br />
+                  <ol>
+                    <li>Spaghetti Bolognese</li>
+                    <li>Tiramisu</li>
+                    <li>Milk</li>
+                    <li>Chocolate Cake</li>
+                  </ol>
                 </div>
-                <div class="col-sm p-3">
-                  2 persons
+                <div class="row d-inline ms-5">
+                  <button class="button bg-danger text-white">Cancel</button>
+                  <button class="button bg-success text-white">Arrived</button>
                 </div>
-              </div>
+              </section>
             </section>
-            <section class="section-content hide">
-              <div class="row mt-1 ms-2">
-                Pre-ordered Items : <br>
-                <ol>
-                  <li>Spaghetti Bolognese</li>
-                  <li>Tiramisu</li>
-                  <li>Milk</li>
-                  <li>Chocolate Cake</li>
-                </ol>
-              </div>
-              <div class="row d-inline ms-5">
-                <button class="button bg-danger text-white">Cancel</button>
-                <button class="button bg-success text-white">Arrived</button>
-              </div>
-            </section>
-          </section>
 
-          <section class="cover-section container">
-            <section class="section-title">
-              <div class="row">
-                <div class="col-sm">
-                  <h5>T2</h5>
+            <section class="cover-section container">
+              <section class="section-title">
+                <div class="row">
+                  <div class="col-sm">
+                    <h5>T2</h5>
+                  </div>
+                  <div class="col-sm pt-3 ps-4 fw-bold">Shu Ying</div>
+                  <div class="col-sm p-3">5 persons</div>
                 </div>
-                <div class="col-sm pt-3 ps-4 fw-bold">
-                  Shu Ying
+              </section>
+              <section class="section-content hide">
+                <div class="row mt-1 ms-2">
+                  Pre-ordered Items : <br />
+                  <ol>
+                    <li>Milk</li>
+                    <li>Tea</li>
+                  </ol>
                 </div>
-                <div class="col-sm p-3">
-                  5 persons
+                <div class="row d-inline ms-5">
+                  <button class="button bg-danger text-white">Cancel</button>
+                  <button class="button bg-success text-white">Arrived</button>
                 </div>
-              </div>
-          </section>
-          <section class="section-content hide">
-            <div class="row mt-1 ms-2">
-              Pre-ordered Items : <br>
-              <ol>
-                <li>Milk</li>
-                <li>Tea</li>
-              </ol>
-            </div>
-            <div class="row d-inline ms-5">
-              <button class="button bg-danger text-white">Cancel</button>
-              <button class="button bg-success text-white">Arrived</button>
-            </div>
-          </section>
-        </section>
-        
+              </section>
+            </section>
+          </div>
+
+          <!--Waitlist tab-->
+          <div id="waitList" class="reserveWaitTab" style="display: none">
+            <section class="cover-section container">
+              <section class="section-title">
+                <div class="row">
+                  <div class="col-sm">
+                    <h5>T1</h5>
+                  </div>
+                  <div class="col-sm pt-3 ps-4 fw-bold">Jaslene</div>
+                  <div class="col-sm p-3">2 persons</div>
+                </div>
+              </section>
+              <section class="section-content hide">
+                <div class="row mt-1 ms-2">
+                  Pre-ordered Items : <br />
+                  <ol>
+                    <li>Spaghetti Bolognese</li>
+                    <li>Spaghetti Bolognese</li>
+                    <li>Spaghetti Bolognese</li>
+                  </ol>
+                </div>
+                <div class="row d-inline ms-5">
+                  <button class="button bg-danger text-white">Decline</button>
+                  <button class="button bg-success text-white">Accept</button>
+                </div>
+              </section>
+            </section>
+
+            <section class="cover-section container">
+              <section class="section-title">
+                <div class="row">
+                  <div class="col-sm">
+                    <h5>T2</h5>
+                  </div>
+                  <div class="col-sm pt-3 ps-4 fw-bold">Jaslene</div>
+                  <div class="col-sm p-3">5 persons</div>
+                </div>
+              </section>
+              <section class="section-content hide">
+                <div class="row mt-1 ms-2">
+                  Pre-ordered Items : <br />
+                  <ol>
+                    <li>Coffee</li>
+                  </ol>
+                </div>
+                <div class="row d-inline ms-5">
+                  <button class="button bg-danger text-white">Decline</button>
+                  <button class="button bg-success text-white">Accept</button>
+                </div>
+              </section>
+            </section>
+          </div>
+        </div>
       </div>
-
-
-      <!--Waitlist tab-->
-      <div id="waitList" class="reserveWaitTab" style="display:none">
-        <section class="cover-section container">
-          <section class="section-title">
-            <div class="row">
-              <div class="col-sm">
-                <h5>T1</h5>
-              </div>
-              <div class="col-sm pt-3 ps-4 fw-bold">
-                Jaslene
-              </div>
-              <div class="col-sm p-3">
-                2 persons
-              </div>
-            </div>
-        </section>
-        <section class="section-content hide">
-          <div class="row mt-1 ms-2">
-            Pre-ordered Items : <br>
-            <ol>
-              <li>Spaghetti Bolognese</li>
-              <li>Spaghetti Bolognese</li>
-              <li>Spaghetti Bolognese</li>
-            </ol>
-          </div>
-          <div class="row d-inline ms-5">
-            <button class="button bg-danger text-white"> Decline</button>
-            <button class="button bg-success text-white">Accept</button>
-          </div>
-        </section>
-      </section>
-
-      <section class="cover-section container">
-        <section class="section-title">
-          <div class="row">
-            <div class="col-sm">
-              <h5>T2</h5>
-            </div>
-            <div class="col-sm pt-3 ps-4 fw-bold">
-              Jaslene
-            </div>
-            <div class="col-sm p-3">
-              5 persons
-            </div>
-          </div>
-      </section>
-      <section class="section-content hide">
-        <div class="row mt-1 ms-2">
-          Pre-ordered Items : <br>
-          <ol>
-            <li>Coffee</li>
-          </ol>
-        </div>
-        <div class="row d-inline ms-5">
-          <button class="button bg-danger text-white"> Decline</button>
-          <button class="button bg-success text-white">Accept</button>
-        </div>
-      </section>
-    </section>
-    </div> 
-
-  </div>
-            
-</div>        
-</div>
+    </div>
 
     <!-- Include Bootstrap JavaScript plugin -->
     <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-  <script src="../../script/adminViewTable.js"></script>
-
-</body>
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../../script/adminViewTable.js"></script>
+  </body>
 </html>

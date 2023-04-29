@@ -18,6 +18,9 @@ label{
     color: white;
 }
 
+.editBtn, .deleteBtn{
+  cursor: pointer;
+}
 
 
 /* Normal sorting arrow opacity */
