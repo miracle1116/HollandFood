@@ -20,13 +20,14 @@
             <h4>As Admin</h4>
             <div class="input-field username-input">
               <i class="fa fa-envelope"></i>
-              <input type="text" placeholder="Username" />
+              <input type="email" id="email" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id="password" placeholder="Password" />
             </div>
-            <input type="submit" value="Login" class="btn login-sub solid" />
+            <span id="error" class="error"></span> 
+            <input type="submit" value="Login" class="btn login-sub solid" onclick="validateForm(event)"/>
             <a><p class="forgot-password">Forgot Password</p></a>
             <!-- <div class="social-media">
               <a href="#" class="social-icon">
@@ -61,5 +62,6 @@
       </div>
     </div>
 
+    <script src="/script/adminLogin.js"></script>
   </body>
 </html>
