@@ -1,9 +1,25 @@
 .menu-category-container {
   display: flex;
+  flex-wrap: nowrap;
   overflow-x: auto; /* Enable horizontal scrolling */
-  margin-left: 70px;
-  
+  margin-left: 30px;
+  justify-content: space-between;
 }
+
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu .menu {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
 
 .menu-item-container {
   display: flex;
@@ -21,9 +37,8 @@
   .menu-card {
     flex-basis: calc(33.33%);
   }
+
 }
-
-
 
 
 .dropdown {
