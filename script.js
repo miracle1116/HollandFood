@@ -39,12 +39,14 @@ menuCards.forEach((card) => {
     const dishInfo = menuContainer.querySelector('.dish-info');
 
     // add a transition effect to the element changes
-    dishName.style.transition = 'all 0.5s';
-    dishInfo.style.transition = 'all 0.5s';
+    dishName.style.transition = 'transform 0.5s';
+    dishInfo.style.transition = 'transform 0.5s';
     menuImage.style.transition = 'transform 0.5s';
 
     // slide out the old image
     menuImage.style.transform = 'translateX(-100%)';
+    dishInfo.style.transform = 'translateY(100%)';
+    dishName.style.transform = 'translateY(-100%)';
 
     setTimeout(() => {
       // change the elements in the menu container
@@ -55,6 +57,8 @@ menuCards.forEach((card) => {
 
       // slide in the new image
       menuImage.style.transform = 'translateX(0%)';
+      dishInfo.style.transform = 'translateY(0%)';
+      dishName.style.transform = 'translateY(0%)';
     }, 300);
   });
 
@@ -63,12 +67,14 @@ menuCards.forEach((card) => {
     const dishName = menuContainer.querySelector('.dish-name');
     const dishInfo = menuContainer.querySelector('.dish-info');
 
-    dishName.style.transition = 'all 0.5s';
-    dishInfo.style.transition = 'all 0.5s';
+    dishName.style.transition = 'transform 0.5s';
+    dishInfo.style.transition = 'transform 0.5s';
     menuImage.style.transition = 'transform 0.5s';
 
     // slide out the new image
     menuImage.style.transform = 'translateX(-100%)';
+    dishInfo.style.transform = 'translateY(100%)';
+    dishName.style.transform = 'translateY(-100%)';
 
     setTimeout(() => {
       // reset the values of the elements in the menu container to their original values
@@ -78,6 +84,8 @@ menuCards.forEach((card) => {
 
       // slide in the original image
       menuImage.style.transform = 'translateX(0%)';
+      dishInfo.style.transform = 'translateY(0%)';
+      dishName.style.transform = 'translateY(0%)';
     }, 300);
   });
 });
