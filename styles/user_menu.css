@@ -134,7 +134,8 @@ html {
 /* Left column */
 .leftcolumn {   
     float: left;
-    width: 71%;
+    /* width: 71%; ori*/
+    width: 90%;
   }
   
   /* Right column */
@@ -286,7 +287,7 @@ html {
   }
 
   .menucart-item{
-    position: absolute; /* original : relative */
+    position: relative; /* original : relative */
     
   }
 
@@ -417,6 +418,7 @@ html {
 
   .foodname{
     font-size: medium;
+    width: 100px;
   }
   
   .price{
@@ -475,4 +477,58 @@ html {
   overflow-x:auto; /* Enable horizontal scrolling */
   /* margin-left: 30px; */
   min-width:auto;
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -345px;
+  width: 345px;
+  height: 100%;
+  background-color: #FFF0DE;
+  color: #000F45;
+  transition: right 0.5s ease-in-out;
+  z-index: 2;
+
+}
+
+.sidebar-toggle {
+  display: block;
+  position: absolute;
+  top: 90px;
+  left: -32px;
+  width: 30px;
+  height: 200px;
+  border-radius: 30px 0 0 30px;
+  background-color: #FFF0DE;
+  color: #fe724c;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: left 0.5s ease-in-out;
+}
+
+.sidebar-open {
+  right: 0;
+}
+
+.sidebar-toggle-open {
+  left: 250px;
+}
+
+.cart-items-count{
+  position: absolute;
+  right: 20px;
+  top: 35px;
+  border-radius: 100%;
+  background-color: red;
+  width: 25px;
+  height: 25px;
+  color: white;
+}
+
+.my-cart {
+  max-height: 650px;
+  overflow-y: scroll;
 }
