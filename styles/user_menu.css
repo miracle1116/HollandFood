@@ -470,4 +470,9 @@ html {
     }
   }
   
-
+.category-div{
+  display: flex;
+  overflow-x:auto; /* Enable horizontal scrolling */
+  /* margin-left: 30px; */
+  min-width:auto;
+}

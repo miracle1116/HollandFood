@@ -27,7 +27,7 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
       console.log(imageSrc);   
   
       // create a new menu cart item and add it to the cart
-      var menuItem = '<div class="col-2 ms-8 me-4 my-3">' +
+      var menuItem = '<div class="col-2 ms-3 me-4 my-3">' +
         '<div class="menucart-item container-fluid shadow-lg bg-body">' +
         '<img src="' + imageSrc + '" class="menucart-item rounded-circle shadow-lg bg-body">' +
         '</div>' +
