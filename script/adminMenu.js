@@ -5,15 +5,58 @@ const editBtns = document.querySelectorAll(".editBtn");
 const addItemBtn = document.querySelector(".addItemBtn");
 const deleteBtns = document.querySelectorAll(".deleteBtn");
 
-editBtns.forEach((editBtn) => {
-  editBtn.addEventListener("click", function () {
-    editModal.show();
+editBtns.forEach(editBtn => {
+  editBtn.addEventListener("click",function(){
+      const menuItem = editBtn.closest('.menu-card');
+
+      const name = document.querySelector('#edit-item-modal .item-name');
+      name.value = menuItem.querySelector('.item-name').textContent;
+
+      const price = document.querySelector('#edit-item-modal .price');
+      price.value = removeSpaces((menuItem.querySelector('.price').textContent).replace(/RM/,''));
+
+      const ingredient = document.querySelector('#edit-item-modal .ingredient');
+      ingredient.value = menuItem.querySelector('.ingredient').textContent;
+
+      // Get the category
+      const category = menuItem.dataset.category;
+      console.log(category);
+      // Get the select element
+      const selectElement = document.querySelector('#edit-item-modal #menu-category');
+      // Loop through each option in the select element
+      for (let i = 0; i < selectElement.options.length; i++) {
+        const option = selectElement.options[i];
+        option.selected = false;
+        // Check if the option's value matches the category
+        if (option.value == category) {
+          // Set the option as selected
+          option.selected = true;
+          break;
+        }
+      }
+
+      editModal.show();
   });
 });
 
-deleteBtns.forEach((deleteBtn) => {
-  deleteBtn.addEventListener("click", function () {
-    deleteModal.show();
+deleteBtns.forEach(deleteBtn => {
+  deleteBtn.addEventListener("click",function(){
+      // Get a reference to the menu item to be deleted
+      const menuItem = deleteBtn.closest('.menu-card');
+      deleteModal.show();
+
+      // Get the delete button inside the modal
+      const deleteItemModalBtn = document.querySelector('#delete-item-modal .btn-danger');
+
+      // Add a click event listener to the delete button inside the modal
+      deleteItemModalBtn.addEventListener('click', () => {
+      // Delete the menu item
+      console.log('Deleting menu item...');
+      menuItem.remove();
+      // Hide the delete item modal
+      deleteModal.hide();
+      });
+
   });
 });
 
@@ -28,15 +71,86 @@ const editDropDowns = document.querySelectorAll(".dropdown-edit");
 const addCategoryBtn = document.querySelector(".addCategoryBtn");
 const deleteDropDowns = document.querySelectorAll(".dropdown-delete");
 
-editDropDowns.forEach((editDropDown) => {
-  editDropDown.addEventListener("click", function () {
-    editCategoryModal.show();
+editDropDowns.forEach(editDropDown => {
+  editDropDown.addEventListener("click",function(){
+      const menuItem = editDropDown.closest('.menu_con');
+
+      // Get the category name from the menuItem and set it in the modal
+      const name = document.querySelector('#edit-category-modal .category-name');
+      name.value = removeSpaces(menuItem.querySelector('.category-name').textContent);
+  
+      // Get the image source from the menuItem and set it in the modal
+      // const img = menuItem.querySelector('img');
+      const img = menuItem.querySelector('img');
+
+      const image = document.querySelector('#edit-category-modal .image-name');
+      console.log(img)
+      // image.value = String(img);
+
+
+      editCategoryModal.show();
+      
+      // Get the delete button inside the modal
+      const saveBtn = document.querySelector('#edit-category-modal .primary-btn');
+
+      // Add a click event listener to the save button inside the modal
+      saveBtn.addEventListener('click', () => {
+        // Create a file input element
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+
+        // Add an event listener to the file input element
+        fileInput.addEventListener('change', () => {
+          // Get the selected file from the file input element
+          const selectedFile = fileInput.files[0];
+
+          // Create a new FileReader object
+          const reader = new FileReader();
+
+          // Add an event listener to the FileReader object
+          reader.addEventListener('load', () => {
+            // Set the profile image source to the loaded image
+            img.src = reader.result;
+          });
+
+            // Read the selected file as a data URL
+            reader.readAsDataURL(selectedFile);
+        });
+
+        // Click the file input element to open the file dialog box
+        fileInput.click();
+
+
+        // Hide the edit category modal
+        editCategoryModal.hide();
+      });
+
+      
   });
 });
 
-deleteDropDowns.forEach((deleteDropDown) => {
-  deleteDropDown.addEventListener("click", function () {
-    deleteCategoryModal.show();
+//remove spaces of string ;)
+function removeSpaces(string) {
+  return string.split(' ').join('');
+}
+
+deleteDropDowns.forEach(deleteDropDown => {
+  deleteDropDown.addEventListener("click",function(){
+      // Get a reference to the menu category to be deleted
+      const menuCategory = deleteDropDown.closest('.menu_con');
+      deleteCategoryModal.show();
+
+      // Get the delete button inside the modal
+      const deleteCategoryModalBtn = document.querySelector('#delete-category-modal .btn-danger');
+
+      // Add a click event listener to the delete button inside the modal
+      deleteCategoryModalBtn.addEventListener('click', () => {
+      // Delete the menu item
+      console.log('Deleting menu category...');
+      menuCategory.remove();
+      // Hide the delete item modal
+      deleteCategoryModal.hide();
+      });
   });
 });
 
@@ -100,24 +214,6 @@ addBtn.addEventListener("click", function () {
   });
 });
 
-// const menuItems = document.querySelectorAll("category_card");
-// const categoryButtons = document.querySelectorAll(".menu");
-
-// categoryButtons.forEach((item) => {
-//   item.addEventListener("click", () => {
-//     const category = item.dataset.category;
-
-//     menuItems.forEach((item) => {
-//       if (category === "all") {
-//         item.style.display = "block";
-//       } else if (item.dataset.category === category) {
-//         item.style.display = "block";
-//       } else {
-//         item.style.display = "none";
-//       }
-//     });
-//   });
-// });
 
 // $(document).ready(function () {
 //   $(".addCategoryBtn").click(function () {
@@ -153,3 +249,27 @@ addBtn.addEventListener("click", function () {
 //     });
 //   });
 // });
+
+
+
+
+
+// menu category filter
+const menuItems = document.querySelectorAll('.menu-card');
+const categoryButtons = document.querySelectorAll('.menu_con');
+
+categoryButtons.forEach(item => {
+  item.addEventListener('click', () => {
+    const category = item.dataset.category;
+
+    menuItems.forEach(item => {
+    if (category === 'all') {
+    item.style.display = 'block';
+    } else if (item.dataset.category === category) {
+    item.style.display = 'block';
+    } else {
+    item.style.display = 'none';
+    }
+    });
+  });
+});
