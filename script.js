@@ -18,7 +18,7 @@ productContainers.forEach((item, i) => {
 
 // get the menu container, all menu cards, and the menu image
 const menuContainer = document.querySelector('.menu-container');
-const menuCards = document.querySelectorAll('.menu-card');
+const menuCards = document.querySelectorAll('.menu-outer');
 const menuImage = menuContainer.querySelector('.food-icon');
 
 // add event listeners to each menu card
