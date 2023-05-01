@@ -13,7 +13,7 @@ editBtns.forEach(editBtn => {
       name.value = menuItem.querySelector('.item-name').textContent;
 
       const price = document.querySelector('#edit-item-modal .price');
-      price.value = removeSpaces((menuItem.querySelector('.price').textContent).replace(/RM/,''));
+      price.value = (menuItem.querySelector('.price').textContent).replace(/RM/,'').trim();
 
       const ingredient = document.querySelector('#edit-item-modal .ingredient');
       ingredient.value = menuItem.querySelector('.ingredient').textContent;
@@ -36,6 +36,44 @@ editBtns.forEach(editBtn => {
       }
 
       editModal.show();
+
+       // Get the image source from the menuItem and set it in the modal
+      const imageInput = document.querySelector('#edit-item-modal .image-name')
+      const menuItemImg = menuItem.querySelector('img');
+      console.log(imageInput)
+      
+      // Get the saveChanges button inside the modal
+      const saveBtn = document.querySelector('#edit-item-modal .primary-btn');
+
+      saveBtn.addEventListener('click', () => {
+        //FOR UPLOAD IMAGES
+        //problem here kot:( but nvm la 
+        //Get the selected file from the image input element
+        const selectedFile = imageInput.files[0];
+        console.log(selectedFile)
+
+        if (selectedFile) {
+          // Create a new FileReader object
+          const reader = new FileReader();
+          // Add an event listener to the FileReader object
+          reader.addEventListener('load', () => {
+            // Set the image source in the menu item
+            menuItemImg.src = reader.result;
+          });
+          // Read the selected file as a data URL
+          reader.readAsDataURL(selectedFile);
+        }
+
+        menuItem.querySelector('.item-name').textContent = name.value;
+        menuItem.querySelector('.ingredient').textContent = ingredient.value;
+        menuItem.querySelector('.price').textContent = "RM"+price.value;
+
+        // Hide the edit category modal
+        editModal.hide();
+      });
+
+    
+
   });
 });
 
@@ -71,68 +109,58 @@ const editDropDowns = document.querySelectorAll(".dropdown-edit");
 const addCategoryBtn = document.querySelector(".addCategoryBtn");
 const deleteDropDowns = document.querySelectorAll(".dropdown-delete");
 
+
 editDropDowns.forEach(editDropDown => {
   editDropDown.addEventListener("click",function(){
-      const menuItem = editDropDown.closest('.menu_con');
+    const menuItem = editDropDown.closest('.menu_con');
 
-      // Get the category name from the menuItem and set it in the modal
-      const name = document.querySelector('#edit-category-modal .category-name');
-      name.value = removeSpaces(menuItem.querySelector('.category-name').textContent);
-  
-      // Get the image source from the menuItem and set it in the modal
-      // const img = menuItem.querySelector('img');
-      const img = menuItem.querySelector('img');
+    // Get the category name from the menuItem and set it in the modal
+    const name = document.querySelector('#edit-category-modal .category-name');
+    name.value = menuItem.querySelector('.category-name').textContent.trim();
 
-      const image = document.querySelector('#edit-category-modal .image-name');
-      console.log(img)
-      // image.value = String(img);
+    // Get the image source from the menuItem and set it in the modal
+    const imageInput = document.querySelector('#edit-category-modal .image-name')
+    const menuItemImg = menuItem.querySelector('img');
+    
+    console.log(menuItemImg.src)
+    console.log(imageInput)
 
 
-      editCategoryModal.show();
-      
-      // Get the delete button inside the modal
-      const saveBtn = document.querySelector('#edit-category-modal .primary-btn');
+    editCategoryModal.show();
+    
+    // Get the saveChanges button inside the modal
+    const saveBtn = document.querySelector('#edit-category-modal .primary-btn');
 
-      // Add a click event listener to the save button inside the modal
-      saveBtn.addEventListener('click', () => {
-        // Create a file input element
-        const fileInput = document.createElement('input');
-        fileInput.type = 'file';
+    saveBtn.addEventListener('click', () => {
+      //FOR UPLOAD IMAGES
+      //problem here kot:( but nvm la 
+      //Get the selected file from the image input element
+      const selectedFile = imageInput.files[0];
+      console.log(selectedFile)
 
-        // Add an event listener to the file input element
-        fileInput.addEventListener('change', () => {
-          // Get the selected file from the file input element
-          const selectedFile = fileInput.files[0];
-
-          // Create a new FileReader object
-          const reader = new FileReader();
-
-          // Add an event listener to the FileReader object
-          reader.addEventListener('load', () => {
-            // Set the profile image source to the loaded image
-            img.src = reader.result;
-          });
-
-            // Read the selected file as a data URL
-            reader.readAsDataURL(selectedFile);
+      if (selectedFile) {
+        // Create a new FileReader object
+        const reader = new FileReader();
+        // Add an event listener to the FileReader object
+        reader.addEventListener('load', () => {
+          // Set the image source in the menu item
+          menuItemImg.src = reader.result;
         });
+        // Read the selected file as a data URL
+        reader.readAsDataURL(selectedFile);
+      }
 
-        // Click the file input element to open the file dialog box
-        fileInput.click();
+      menuItem.querySelector('.category-name').textContent = name.value;
 
+      // Hide the edit category modal
+      editCategoryModal.hide();
+    });
 
-        // Hide the edit category modal
-        editCategoryModal.hide();
-      });
-
-      
   });
-});
 
-//remove spaces of string ;)
-function removeSpaces(string) {
-  return string.split(' ').join('');
-}
+});
+      
+  
 
 deleteDropDowns.forEach(deleteDropDown => {
   deleteDropDown.addEventListener("click",function(){

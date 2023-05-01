@@ -77,7 +77,7 @@ div.scrollmenu .menu {
 
 
 
-.price{
+.prBtns{
   font-size: medium;
   display: flex;
   justify-content: space-between;
@@ -139,6 +139,7 @@ i{
   left: 0;
   z-index: 2;
   width: 160px;
+  height: 160px;
   margin-left: 16px;
   margin-top: 20px;
 }
