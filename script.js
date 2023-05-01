@@ -1,3 +1,4 @@
+// slider
 const productContainers = [...document.querySelectorAll('.slide-container')];
 const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
 const preBtn = [...document.querySelectorAll('.pre-btn')];
@@ -23,6 +24,7 @@ const menuImage = menuContainer.querySelector('.food-icon');
 
 // add event listeners to each menu card
 menuCards.forEach((card) => {
+  // const originalRank = menuContainer.querySelector('.dish-rank').textContent;
   const originalName = menuContainer.querySelector('.dish-name').textContent;
   const originalInfo = menuContainer.querySelector('.dish-info').textContent;
   const originalImage = menuImage.getAttribute('src');
@@ -34,7 +36,7 @@ menuCards.forEach((card) => {
     const image = card.querySelector('.menu-img').getAttribute('src');
 
     // get the elements in the menu container that need to change
-    const dishRank = menuContainer.querySelector('.dish-rank');
+    // const dishRank = menuContainer.querySelector('.dish-rank');
     const dishName = menuContainer.querySelector('.dish-name');
     const dishInfo = menuContainer.querySelector('.dish-info');
 
@@ -50,7 +52,7 @@ menuCards.forEach((card) => {
 
     setTimeout(() => {
       // change the elements in the menu container
-      dishRank.textContent = '';
+      // dishRank.textContent = '';
       dishName.textContent = name;
       dishInfo.textContent = details;
       menuImage.setAttribute('src', image);
@@ -78,6 +80,7 @@ menuCards.forEach((card) => {
 
     setTimeout(() => {
       // reset the values of the elements in the menu container to their original values
+      // dishRank.textContent = originalRank;
       dishName.textContent = originalName;
       dishInfo.textContent = originalInfo;
       menuImage.setAttribute('src', originalImage);
