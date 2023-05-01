@@ -103,7 +103,55 @@ deleteBtns.forEach((deleteBtn) => {
 
 addItemBtn.addEventListener("click", function () {
   addModal.show();
+
+  // when the "Add" button in the modal is clicked
+  const addBtn = document.querySelector("#add-item-modal .primary-btn");
+  addBtn.addEventListener("click", function () {
+    // get the menu item name and image source
+    // var itemCategory = document.querySelector("#add-item-modal #menu-category").value;
+    var itemName = document.querySelector(".itemName").value;
+    var itemPrice = document.querySelector(".item-price").value;
+    var imageInput = document.querySelector("#categoryPhotoInput").getAttribute("src");
+    var itemIngredient = document.querySelector(".item-ingredient").value;
+   
+    // create a new menu item card
+    var menuItem =
+    '<div class="menu-item-container row d-flex justify-content-around mt-5 ms-2">'+
+    '<div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3" data-category="pizza">'+
+      '<div class="menu-item container-fluid shadow-lg bg-body">'+
+        '<img src="'+imageInput+'" class="menu-item rounded-circle shadow-lg bg-body" />'+
+      '</div>'+
+      '<div class="border_menu">'+
+        '<div class="menu-item-desc container-fluid">'+
+          '<div class="item-name fw-bold">'+itemName+'</div>'+
+          '<div class="ingredient">'+itemIngredient+'</div>'+
+          '<div class="mt-4 prBtns">'+
+            '<div class="price"> RM'+itemPrice+'</div>'+
+            '<div>'+
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="deleteBtn bi bi-trash ms-auto" viewBox="0 0 16 16">'+
+                '<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>'+
+                '<path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>'+
+              '</svg>'+
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="editBtn bi bi-pencil-fill ms-2" viewBox="0 0 16 16">'+
+              '<path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>'+
+              '</svg>'+
+            '</div>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+      
+
+    // add the new menu item card to the end of the container
+    document.querySelector(".menu-item-container").insertAdjacentHTML("beforeend", menuItem);
+
+    // hide the modal
+    addModal.hide();
+    
+  });
 });
+
+
 
 const editCategoryModal = new bootstrap.Modal("#edit-category-modal");
 const addCategoryModal = new bootstrap.Modal("#add-category-modal");
@@ -183,29 +231,36 @@ deleteDropDowns.forEach((deleteDropDown) => {
   });
 });
 
+
 //ADD CATEGORY
 addCategoryBtn.addEventListener("click", function () {
   addCategoryModal.show();
-});
-// when the "Add" button in the modal is clicked
-const addBtn = document.querySelector("#add-category-modal .primary-btn");
-addBtn.addEventListener("click", function () {
-  // get the menu item name and image source
-  var name = document.querySelector(".categoryName").value;
-  var imageSrc = document
-    .querySelector("#categoryPhotoPreview")
-    .getAttribute("src");
 
-  // create a new menu cart item and add it to the cart
-  var menuItem =
-    // '<div class="menu-category container row" style="justify-content: center; align-items: center;">' +
-    // '<div class="menu-category-container col-9" style=" display: flex; overflow-x: auto;">' +
-    // '<div class="row justify-content-center d-flex flex-nowrap mt-2">' +
+  // when the "Add" button in the modal is clicked
+  const addBtn = document.querySelector("#add-category-modal .primary-btn");
+  addBtn.addEventListener("click", function () {
+    // get the menu item name and image source
+    var name = document.querySelector(".categoryName").value;
+    var imageInput = document.querySelector("#categoryPhotoInput").getAttribute("src");
+
+    // update the image preview when a file is selected (NO FUNCTION)
+    // const categoryPhotoInput = document.querySelector("#categoryPhotoInput");
+    // const file = categoryPhotoInput.files[0];
+    // if(file){
+    //   const reader = new FileReader();
+    //   reader.addEventListener("load", function () {
+    //     categoryPhotoInput.setAttribute("src", reader.result);
+    //   });
+    //   reader.readAsDataURL(file);
+    // }
+
+    // create a new menu category card
+    var menuCategory =
     '<div class="menu_con col-2 justify-content-center">' +
     '<div class="container-fluid mt-3 p-1 pb-2">' +
     '<img src="' +
-    imageSrc +
-    '" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="width: 65px;" ' +
+    imageInput +
+    '" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;" ' +
     "/>" +
     '<p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">' +
     name +
@@ -221,62 +276,17 @@ addBtn.addEventListener("click", function () {
     '<li><a class="dropdown-item dropdown-delete" href="#">Delete</a>' +
     "</li></ul></div></div></div>";
 
-  // add the new menu cart item to the cart
-  document
-    .querySelector(".menu-category-container")
-    .insertAdjacentHTML("beforeend", menuItem);
+    // add the new menu category card to the end of the container
+    document.querySelector(".menu-category-container").insertAdjacentHTML("beforeend", menuCategory);
 
-  // hide the modal
-  addCategoryModal.hide();
+    // hide the modal
+    addCategoryModal.hide();
 
-  // update the image preview when a file is selected
-  const categoryPhotoInput = document.querySelector("#categoryPhotoInput");
-  categoryPhotoInput.addEventListener("change", function (event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.addEventListener("load", function () {
-      document
-        .querySelector("#categoryPhotoPreview")
-        .setAttribute("src", reader.result);
-    });
-    reader.readAsDataURL(file);
   });
+  
 });
 
-// $(document).ready(function () {
-//   $(".addCategoryBtn").click(function () {
-//     // get the menu item name and image source
-//     var name = $(this).find(".categoryName").text().trim();
-//     var imageSrc = $(this).find(".categoryPhoto").attr("src");
-//     console.log(imageSrc);
 
-//     // create a new menu cart item and add it to the cart
-//     var menuItem =
-//       '<div class="menu col-2">' +
-//       '<div class="container-fluid mt-3 p-1">' +
-//       '<img src="' +
-//       imageSrc +
-//       '" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"' +
-//       "/>" +
-//       '<p class="text-center fs-4 border-bottom border-3 fw-bold mb-4 pb-4">' +
-//       name +
-//       "</p>" +
-//       '<div class="showMore"><a href="#"><i class="bi bi-caret-right text-black"></i></a></div>' +
-//       '<div class="dropdown"><a class="dropdownToggle" href="#" role="button" id="menuCardDropdown" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-three-dots-vertical text-black"></i> </a>' +
-//       '<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCardDropdown">' +
-//       '<li><a class="dropdown-item dropdown-edit" href="#"> Edit </a></li>' +
-//       '<li><a class="dropdown-item dropdown-delete" href="#">Delete</a>' +
-//       "</li></ul></div></div></div>";
-
-//     // add the new menu cart item to the cart
-//     $(".menu-category-container").append(menuItem);
-
-//     $(document).on("click", "#add-category-modal .btn-close", function () {
-//       // add the new menu cart item to the cart
-//       $(".menu-category-container").add(menuItem);
-//     });
-//   });
-// });
 
 // menu category filter
 const menuItems = document.querySelectorAll(".menu-card");
