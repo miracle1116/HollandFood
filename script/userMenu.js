@@ -28,8 +28,8 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
   
       // create a new menu cart item and add it to the cart
       var menuItem = '<div class="menu-in-cart my-3">' +
-        '<div class="menucart-item container-fluid shadow-lg bg-body">' +
-        '<img src="' + imageSrc + '" class="menucart-item rounded-circle shadow-lg bg-body">' +
+        '<div class="menucart-item container-fluid bg-body">' +
+        '<img src="' + imageSrc + '" class="menucart-item rounded-circle bg-body">' +
         '</div>' +
         '<div class="border_menucart">' +
         '<div class="menucart-item-desc container-fluid">' +

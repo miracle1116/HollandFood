@@ -255,6 +255,7 @@ html {
 
   #mycart{
     padding-top: 20px;
+    
   }
 
   #mycart h2{
@@ -327,7 +328,7 @@ html {
     /* float: left; */ /* commented by wen wei 28/4 5:40pm */
   }
   
-  /* vv original code vv */
+  /* original code  */
 
   /* .qt {
     font-size: 19px;
@@ -361,8 +362,8 @@ html {
   }
   
   .qt-plus:hover, .qt-minus:hover {
-    background: #53b5aa;
-    color: #fff;
+    background: gray;
+    color: white;
     cursor: pointer;
   }
   
@@ -486,7 +487,7 @@ html {
   right: -345px;
   width: 345px;
   height: 100%;
-  background-color: #FFF0DE;
+  background-color: #FFF0DE ;
   color: #000F45;
   transition: right 0.5s ease-in-out;
   z-index: 2;
@@ -501,7 +502,7 @@ html {
   width: 30px;
   height: 200px;
   border-radius: 30px 0 0 30px;
-  background-color: #FFF0DE;
+  background-color: white;
   color: #fe724c;
   border: none;
   outline: none;
@@ -531,4 +532,19 @@ html {
 .my-cart {
   max-height: 650px;
   overflow-y: scroll;
+  padding-bottom: 40px;
+}
+
+.my-cart::-webkit-scrollbar {
+  width: 9px;
+}
+
+.my-cart::-webkit-scrollbar-track {
+  background-color:  #FFF0DE;
+  border-radius: 100px;
+}
+
+.my-cart::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius: 100px;
 }
