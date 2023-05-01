@@ -71,19 +71,30 @@ body {
   background-color: #f83701;
 }
 
+/* header */
+
 header {
   height: 100vh;
-  background-image: url('../images/banner-img.jpg');
+  background-image: url('../images/banner-2-img.png');
   background-size: cover;
 
 }
 
 .header-text {
   color: #fff;
-  text-shadow: 2px 2px 4px #000000;
-  width: 1000px;
-  margin-top: 100px;
+  margin-top: 120px;
   text-align: justify;
+}
+
+.header-text h1{
+  font-size: 70px;
+  padding-bottom:  50px;
+  font-weight: 900;
+}
+
+.header-text h3 {
+  font-size: 30px;
+  font-weight: lighter;
 }
 
 /* About Us */
@@ -178,7 +189,7 @@ header {
 
 .food-icon {
   position: absolute;
-  left: 60px;
+  left: 225px;
 }
 
 .dish-name {
@@ -187,7 +198,7 @@ header {
 
 
 .menu-card {
-  height: 270px;/*change yq ori 400*/
+  height: 350px;/*change yq ori 400 -> 270*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -252,7 +263,7 @@ header {
 
 .menu-name {
   font-size: 15px;
-  margin-top: 10px;
+  margin-top: 24px;
 }
 
 .menu-details {
@@ -268,7 +279,7 @@ header {
 .slide-container {
   display: flex;
   flex-direction: row;
-  padding: 20px;
+  padding: 60px;
   overflow-x: auto;
   scroll-behavior: smooth;
 }
