@@ -102,28 +102,24 @@ sidebarToggle.addEventListener('click', function() {
 
 function updateSidebarToggle() {
   var reserveWaitCount = document.querySelectorAll(".section-title").length;
-  document.querySelector(".sidebar-toggle .reserve-wait-count").textContent =
-    reserveWaitCount;
+  document.querySelector(".sidebar-toggle .reserve-wait-count").textContent = reserveWaitCount;
 }
 
 updateSidebarToggle();
 
-function updateReserveToggle() {
-  var ReserveCount = document.querySelectorAll(
-    "#reserve .section-title"
-  ).length;
-  document.querySelector(".reservation .reserve-count").textContent =
-    ReserveCount;
+function updateReserve() {
+  var reserveCount = document.querySelectorAll("#reserve .section-title").length;
+  document.querySelector(".reservation .reserve-count").textContent = reserveCount;
 }
 
-updateReserveToggle();
+updateReserve();
 
-function updateWaitlistToggle() {
-  var WaitCount = document.querySelectorAll("#waitList .section-title").length;
-  document.querySelector(".waitlist .wait-count").textContent = WaitCount;
+function updateWaitlist() {
+  var waitCount = document.querySelectorAll("#waitList .section-title").length;
+  document.querySelector(".waitlist .wait-count").textContent = waitCount;
 }
 
-updateWaitlistToggle();
+updateWaitlist();
 
 //table
 const tables = document.querySelectorAll(".table");
