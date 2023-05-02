@@ -105,7 +105,7 @@
                <!-- Menu Category -->
                <div class="menu_con col-2 justify-content-center " data-category="all">
                 <div class="container-fluid mt-3 p-1 pb-2">
-                  <img src="../../images/all_food.png" id="categoryPhotoInput" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
+                  <img src="../../images/all_food.png" id="categocategoryPhotoPreview" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
                   <p class="category-name text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
                     All
                   </p>
@@ -128,7 +128,7 @@
   
               <div class="menu_con col-2 justify-content-center " data-category="pizza">
                   <div class="container-fluid mt-3 p-1 pb-2">
-                    <img src="../../images/pizza_icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
+                    <img src="../../images/pizza_icon.png" id="categoryPhotoPreview" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
                     <p class="category-name text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
                       Pizza
                     </p>
@@ -151,7 +151,7 @@
   
                 <div class="menu_con col-2 justify-content-center" data-category="fruits">
                   <div class="container-fluid mt-3 p-1 pb-2">
-                    <img src="../../images/Fruits icon.png" class="lign-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
+                    <img src="../../images/Fruits icon.png" id="categoryPhotoPreview" class="lign-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
                     <p class="category-name text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
                       Fruits
                     </p>
@@ -174,7 +174,7 @@
               
                 <div class="menu_con col-2 justify-content-center" data-category="snacks">
                   <div class="container-fluid mt-3 p-1 pb-2">
-                    <img src="../../images/Snacks icon.png"  class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
+                    <img src="../../images/Snacks icon.png" id="categoryPhotoPreview" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
                     <p class="category-name text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
                       Snacks
                     </p>
@@ -197,7 +197,7 @@
   
                 <div class="menu_con col-2 justify-content-center" data-category="spaghetti">
                   <div class="container-fluid mt-3 p-1 pb-2">
-                    <img src="../../images/spaghetti.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
+                    <img src="../../images/spaghetti.png" id="categoryPhotoPreview" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
                     <p class="category-name text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
                       Spaghetti
                     </p>
@@ -220,7 +220,7 @@
   
                 <div class="menu_con col-2 justify-content-center" data-category="drink">
                   <div class="container-fluid mt-3 p-1 pb-2">
-                    <img src="../../images/Coke icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
+                    <img src="../../images/Coke icon.png" id="categoryPhotoPreview" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;"/>
                     <p class="category-name text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
                       Drink
                     </p>
@@ -357,7 +357,7 @@
             <div class="menu-card col-2 col-lg-2 col-sm-2 col-md-2 me-4 my-3" data-category="fruits">
               <div class="menu-item container-fluid shadow-lg bg-body">
                 <img
-                  src="../../images/salad-icon.png"
+                  src="../../images/vege.png"
                   class="menu-item rounded-circle shadow-lg bg-body"
                 />
               </div>
@@ -546,13 +546,14 @@
                 </div>
               </div>
             </div>
+
             
-          </div>
 
-          <div>
-            <i class="addItemBtn bi bi-plus-circle-fill"></i>
-          </div>
 
+           
+
+
+            
 
 
 
@@ -676,11 +677,11 @@
 
                               <div class="mb-3">
                                   <label class="form-label required">Name</label>
-                                  <input type="text" class="form-control itemName">
+                                  <input type="text" class="form-control">
                               </div>
                               <div class="mb-3">
                                   <label class="form-label required">Price(RM)</label>
-                                  <input type="text" class="form-control item-price">
+                                  <input type="text" class="form-control">
                               </div>
                               <div class="mb-3">
                                 <label for="upload-photo" class="form-label required">Upload Image</label>
@@ -688,12 +689,12 @@
                                 type="file" 
                                 id="upload-photo" 
                                 name="upload-photo"
-                                class="form-control item-image"
+                                class="form-control"
                                 />
                               </div>
                               <div class="mb-3">
                                   <label class="form-label required">Ingredient</label>
-                                  <textarea class="form-control item-ingredient"></textarea>
+                                  <textarea class="form-control"></textarea>
                               </div>
                           </form>
                       </div>
@@ -785,6 +786,15 @@
           </div>
         </div>
       </div>
+
+
+
+            
+          </div>
+
+          <div>
+            <i class="addItemBtn bi bi-plus-circle-fill"></i>
+          </div>
 
       </div>
     </div>
