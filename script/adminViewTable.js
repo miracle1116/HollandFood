@@ -43,33 +43,62 @@ function reserveWait(reservewait) {
   document.getElementById(reservewait).style.display = "block";
 }
 
-function toggleSidebar() {
-  var sidebar = document.querySelector(".sidebar");
-  var sidebarToggle = document.querySelector(".sidebar-toggle");
-  var sidebarContent = document.querySelector(".sidebar-content");
-  var rightBar = document.querySelector(".rightBar");
-  sidebarContent.innerHTML = rightBar.innerHTML;
-  sidebarFunction();
 
+var sidebarToggle = document.querySelector(".sidebar-toggle");
+var sidebar = document.querySelector(".rightBar");
+
+
+sidebarToggle.addEventListener('click', function() {
   if (sidebar.classList.contains("sidebar-open")) {
-    sidebar.classList.remove("sidebar-open");
+    sidebar.style.right="-300px";
     sidebarToggle.classList.remove("sidebar-toggle-open");
     sidebarToggle.style.display = "block";
+    console.log(1111234);
   } else {
-    sidebar.classList.add("sidebar-open");
+    sidebar.style.right="0px";
     sidebarToggle.classList.add("sidebar-toggle-open");
     sidebarToggle.style.display = "none";
-
-    // add event listener to close sidebar when clicking outside of the container
-    window.addEventListener("click", function (event) {
-      if (!sidebar.contains(event.target)) {
-        sidebar.classList.remove("sidebar-open");
-        sidebarToggle.classList.remove("sidebar-toggle-open");
-        sidebarToggle.style.display = "block";
-      }
-    });
+    console.log(1111);
   }
-}
+
+        // add event listener to close sidebar when clicking outside of the container
+        window.addEventListener("click", function(event) {
+          if (!sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
+          sidebar.style.right="-300px";
+          sidebarToggle.classList.remove("sidebar-toggle-open");
+          sidebarToggle.style.display = "block";
+          console.log(11222);
+          }
+      });
+});
+
+// function toggleSidebar() {
+//   var sidebar = document.querySelector(".sidebar");
+//   var sidebarToggle = document.querySelector(".sidebar-toggle");
+//   var sidebarContent = document.querySelector(".sidebar-content");
+//   var rightBar = document.querySelector(".rightBar");
+//   sidebarContent.innerHTML = rightBar.innerHTML;
+//   sidebarFunction();
+
+//   if (sidebar.classList.contains("sidebar-open")) {
+//     sidebar.classList.remove("sidebar-open");
+//     sidebarToggle.classList.remove("sidebar-toggle-open");
+//     sidebarToggle.style.display = "block";
+//   } else {
+//     sidebar.classList.add("sidebar-open");
+//     sidebarToggle.classList.add("sidebar-toggle-open");
+//     sidebarToggle.style.display = "none";
+
+//     // add event listener to close sidebar when clicking outside of the container
+//     window.addEventListener("click", function (event) {
+//       if (!sidebar.contains(event.target)) {
+//         sidebar.classList.remove("sidebar-open");
+//         sidebarToggle.classList.remove("sidebar-toggle-open");
+//         sidebarToggle.style.display = "block";
+//       }
+//     });
+//   }
+// }
 
 function updateSidebarToggle() {
   var reserveWaitCount = document.querySelectorAll(".section-title").length;
