@@ -150,6 +150,41 @@
   left: 250px;
 }
 
+.reserve-wait-count{
+  position: absolute;
+  right: 20px;
+  top: 35px;
+  border-radius: 100%;
+  background-color: red;
+  width: 25px;
+  height: 25px;
+  color: white;
+}
+
+.reserve-count{
+  position: absolute;
+  align-items: center;
+  margin-left: 5px;
+  top: 10px;
+  border-radius: 100%;
+  background-color: red;
+  width: 25px;
+  height: 25px;
+  color: white;
+}
+
+.wait-count{
+  position: absolute;
+  align-items: center;
+  margin-left: 5px;
+  top: 10px;
+  border-radius: 100%;
+  background-color: red;
+  width: 25px;
+  height: 25px;
+  color: white;
+}
+
 @media (max-width: 1200px) {
   .rightBar{
     display: none;
@@ -262,4 +297,16 @@
   height: 20px;
   background-color: #EC7905;
   display: inline-block;
+}
+
+#reserve button{
+  border-radius: 15px;
+  border:none;
+  margin: 10px 3px;
+}
+
+#waitList button{
+  border-radius: 15px;
+  border:none;
+  margin: 10px 3px;
 }
