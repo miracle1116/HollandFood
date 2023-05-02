@@ -25,6 +25,14 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
       var price = $(this).find('.price').children('p').text().trim();
       var imageSrc = $(this).find('.menu-item img').attr('src');
       console.log(imageSrc);   
+
+       // check if the item already exists in the cart
+      var existingItem = $('.my-cart').find('.foodname:contains("' + name + '")').closest('.menu-in-cart');
+      if (existingItem.length) {
+        // increase the quantity of the existing item
+        var quantity = parseInt(existingItem.find('.qt').text());
+        existingItem.find('.qt').text(quantity + 1);
+      } else {
   
       // create a new menu cart item and add it to the cart
       var menuItem = '<div class="menu-in-cart my-3">' +
@@ -53,6 +61,7 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
   
       // add the new menu cart item to the cart
       $('.my-cart').append(menuItem);
+      }
       event.stopPropagation();
       updateSidebarToggle();
   
@@ -60,6 +69,7 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
       var cartCount = parseInt($('.cart-count').text());
       $('.cart-count').text(cartCount + 1);
     });
+  
   
     // remove item from the cart
     $(document).on('click', '.btn#remove', function() {
