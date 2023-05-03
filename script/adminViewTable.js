@@ -144,3 +144,16 @@ tables.forEach((table) => {
 tableNo[0].textContent = "Free: " + freeNum;
 tableNo[1].textContent = "Reserved: " + reservedNum;
 tableNo[2].textContent = "Checked-in: " + checkedInNum;
+
+// More details
+const details = document.querySelectorAll("#viewAllDetails");
+const viewDetailsModal = new bootstrap.Modal("#view-details-modal");
+
+details.forEach((detail) => {
+  detail.addEventListener("click", () => {
+    viewDetailsModal.show();
+  });
+});
+
+
+

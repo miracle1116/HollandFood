@@ -13,7 +13,7 @@ body{
 
 .table-container .row{
   overflow-x: auto;
-  /* margin: 0 1px; */
+  margin: 0 1px;
 }
 
 #accountTable, label,.sorting, .icon{
