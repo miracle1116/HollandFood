@@ -1,184 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu: Explore More</title>
 
-    <!-- Bootstrap css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu: Explore More</title>
+
+  <!-- Bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
-    <!-- Bootstrap icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- external css stylesheet -->
-    <link rel="stylesheet" href="/styles/user_menu.css">
+  <!-- external css stylesheet -->
+  <link rel="stylesheet" href="/styles/user_menu.css">
 
-    <!-- Include Bootsrap JavaScript plugin -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Include Bootsrap JavaScript plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- external font -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 </head>
+
 <body>
-    <style>
-    .btn-sign-up {
-        background-color: #FE724C;
-        color: white;
-        border-radius: 30px;
-        margin-top: 0px;
-        width: 150px;
-        border: none;
-        font-size: 15px;
-        padding: 10px 20px 10px 20px;
-        text-align: center;
-      
-      }
-    .btn-sign-up:hover {
-     background-color: #f83701;
+  <style>
+    * {
+      font-family: 'Montserrat';
     }
-    </style>
+
+    .btn-sign-up {
+      background-color: #FE724C;
+      color: white;
+      border-radius: 30px;
+      margin-top: 0px;
+      width: 150px;
+      border: none;
+      font-size: 15px;
+      padding: 10px 20px 10px 20px;
+      text-align: center;
+
+    }
+
+    .btn-sign-up:hover {
+      background-color: #f83701;
+    }
+  </style>
 
   <header class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html"><img src="/images/holland_food_icon.png" width="35px" />
-                Holland Food</a>
-            <!-- hamburger icon when screen size become small -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-stream navbar-toggler-icon"></i>
-            </button>
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html"><img src="/images/holland_food_icon.png" width="35px" />
+          Holland Food</a>
+        <!-- hamburger icon when screen size become small -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-stream navbar-toggler-icon"></i>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
-                    </li>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link active" aria-current="page" href="#home">Home</a>
+            </li>
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#menu">About Us</a>
-                    </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#menu">About Us</a>
+            </li>
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#music">Menu</a>
-                    </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#music">Menu</a>
+            </li>
 
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="#jobs">Book Now</a>
-                    </li>
+            <li class="nav-item active">
+              <a class="nav-link active" href="#jobs">Book Now</a>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="Layout/user/user_sign_InOut.html"><button class="btn-sign-up">SIGN
-                            UP</button></a>
-                      </li>
-                </ul>
-            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="Layout/user/user_sign_InOut.html"><button class="btn-sign-up">SIGN
+                  UP</button></a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
-</header>
+  </header>
 
-    <div class="row justify-content-center p-5 ">
-        <div class="leftcolumn">
-          <div class="row justify-content-center category-div" style="background-color: #130D25">
-            <!-- Menu Category -->
-            <div class="menu_con col-2 justify-content-center " data-category="all">
-              <div class="container-fluid mt-3 p-1 pb-2">
-                <img src="../../images/all_food.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
-                <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
-                  All
-                </p>
-                <div class="showMore text-center">
-                  <a href="#">
-                    <i class="bi bi-caret-right text-white"></i>
-                  </a>
-                </div>
-              </div>
+  <div class="row justify-content-center p-5 ">
+    <div class="leftcolumn">
+      <div class="row justify-content-center category-div" style="background-color: #130D25">
+        <!-- Menu Category -->
+        <div class="menu_con col-2 justify-content-center " data-category="all">
+          <div class="container-fluid mt-3 p-1 pb-2">
+            <img src="../../images/all_food.png"
+              class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" />
+            <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+              All
+            </p>
+            <div class="showMore text-center">
+              <a href="#">
+                <i class="bi bi-caret-right text-white"></i>
+              </a>
             </div>
+          </div>
+        </div>
 
-            <div class="menu_con col-2 justify-content-center " data-category="pizza">
-                <div class="container-fluid mt-3 p-1 pb-2">
-                  <img src="../../images/pizza_icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
-                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
-                    Pizza
-                  </p>
-                  <div class="showMore text-center">
-                    <a href="#">
-                      <i class="bi bi-caret-right text-white"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="menu_con col-2 justify-content-center" data-category="fruits">
-                <div class="container-fluid mt-3 p-1 pb-2">
-                  <img src="../../images/Fruits icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
-                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
-                    Fruits
-                  </p>
-                  <div class="showMore text-center">
-                    <a href="#">
-                      <i class="bi bi-caret-right text-white"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            
-              <div class="menu_con col-2 justify-content-center" data-category="snacks">
-                <div class="container-fluid mt-3 p-1 pb-2">
-                  <img src="../../images/Snacks icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
-                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
-                    Snacks
-                  </p>
-                  <div class="showMore text-center">
-                    <a href="#">
-                      <i class="bi bi-caret-right text-white"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="menu_con col-2 justify-content-center" data-category="spaghetti">
-                <div class="container-fluid mt-3 p-1 pb-2">
-                  <img src="../../images/spaghetti.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
-                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
-                    Spaghetti
-                  </p>
-                  <div class="showMore text-center">
-                    <a href="#">
-                      <i class="bi bi-caret-right text-white"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="menu_con col-2 justify-content-center" data-category="drink">
-                <div class="container-fluid mt-3 p-1 pb-2">
-                  <img src="../../images/Coke icon.png" class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4"/>
-                  <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
-                    Drink
-                  </p>
-                  <div class="showMore text-center">
-                    <a href="#">
-                      <i class="bi bi-caret-right text-white"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
+        <div class="menu_con col-2 justify-content-center " data-category="pizza">
+          <div class="container-fluid mt-3 p-1 pb-2">
+            <img src="../../images/pizza_icon.png"
+              class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" />
+            <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+              Pizza
+            </p>
+            <div class="showMore text-center">
+              <a href="#">
+                <i class="bi bi-caret-right text-white"></i>
+              </a>
             </div>
-          
-          <div id="menucard">
-          <div class="card" style="height:1000px; background-color: #130D25">
-            <div class="row mt-5 justify-content-around pe-3 ">
+          </div>
+        </div>
 
-            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4" data-category="pizza">
+        <div class="menu_con col-2 justify-content-center" data-category="fruits">
+          <div class="container-fluid mt-3 p-1 pb-2">
+            <img src="../../images/Fruits icon.png"
+              class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" />
+            <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+              Fruits
+            </p>
+            <div class="showMore text-center">
+              <a href="#">
+                <i class="bi bi-caret-right text-white"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu_con col-2 justify-content-center" data-category="snacks">
+          <div class="container-fluid mt-3 p-1 pb-2">
+            <img src="../../images/Snacks icon.png"
+              class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" />
+            <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+              Snacks
+            </p>
+            <div class="showMore text-center">
+              <a href="#">
+                <i class="bi bi-caret-right text-white"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu_con col-2 justify-content-center" data-category="spaghetti">
+          <div class="container-fluid mt-3 p-1 pb-2">
+            <img src="../../images/spaghetti.png"
+              class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" />
+            <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+              Spaghetti
+            </p>
+            <div class="showMore text-center">
+              <a href="#">
+                <i class="bi bi-caret-right text-white"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu_con col-2 justify-content-center" data-category="drink">
+          <div class="container-fluid mt-3 p-1 pb-2">
+            <img src="../../images/Coke icon.png"
+              class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" />
+            <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
+              Drink
+            </p>
+            <div class="showMore text-center">
+              <a href="#">
+                <i class="bi bi-caret-right text-white"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="menucard">
+        <div class="card" style="height:1000px; background-color: #130D25">
+          <div class="row mt-5 justify-content-around pe-3 ">
+
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="pizza">
               <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-                <img
-                  src="../../images/pizza_icon.png"
-                  class="menu-item rounded-circle shadow-lg bg-body"
-                />
+                <img src="../../images/pizza_icon.png" class="menu-item rounded-circle shadow-lg bg-body" />
               </div>
               <div class="border_menu">
                 <div class="menu-item-desc ps-4 container-fluid">
@@ -189,111 +205,103 @@
                     <span>
                       <i class="bi bi-plus-circle-fill add-icon me-3"></i>
                     </span>
-                  
+
                   </div>
                 </div>
               </div>
             </div>
 
-            
 
-              <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"data-category="fruits">
-                <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-                  <img
-                    src="../../images/spaghetti_icon.png"
-                    class="menu-item rounded-circle shadow-lg bg-body"
-                  />
-                </div>
-                <div class="border_menu">
-                  <div class="menu-item-desc ps-4 container-fluid">
-                    <div class="fw-bold">Fruit Salad</div>
-                    <div class="ingredient">Apple, Pineapple</div>
-                    <div class="mt-4 price">
-                      <p class="m-0">RM7.29</p>
-                      <span>
-                        <i class="bi bi-plus-circle-fill add-icon me-3"></i>
-                      </span>
-                    
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4" data-category="veggies">
-                <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-                  <img
-                    src="../../images/spaghetti_icon.png"
-                    class="menu-item rounded-circle shadow-lg bg-body"
-                  />
-                </div>
-                <div class="border_menu">
-                  <div class="menu-item-desc ps-4 container-fluid">
-                    <div class="fw-bold">Taco Bowl</div>
-                    <div class="ingredient">Chickpea, Vegetable</div>
-                    <div class="mt-4 price">
-                      <p class="m-0">RM5.29</p>
-                      <span>
-                        <i class="bi bi-plus-circle-fill add-icon me-3"></i>
-                      </span>
-                    
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4" data-category="snacks">
-                <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-                  <img
-                    src="../../images/spaghetti_icon.png"
-                    class="menu-item rounded-circle shadow-lg bg-body"
-                  />
-                </div>
-                <div class="border_menu">
-                  <div class="menu-item-desc ps-4 container-fluid">
-                    <div class="fw-bold">Hash Browns</div>
-                    <div class="ingredient">Potato</div>
-                    <div class="mt-4 price">
-                      <p class="m-0">RM1.29</p>
-                      <span>
-                        <i class="bi bi-plus-circle-fill add-icon me-3"></i>
-                      </span>
-                    
-                    </div>
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="fruits">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/spaghetti_icon.png" class="menu-item rounded-circle shadow-lg bg-body" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Fruit Salad</div>
+                  <div class="ingredient">Apple, Pineapple</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM7.29</p>
+                    <span>
+                      <i class="bi bi-plus-circle-fill add-icon me-3"></i>
+                    </span>
+
                   </div>
                 </div>
               </div>
-              
-              <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4" data-category="drink">
-                <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-                  <img
-                    src="../../images/spaghetti_icon.png"
-                    class="menu-item rounded-circle shadow-lg bg-body"
-                  />
-                </div>
-                <div class="border_menu">
-                  <div class="menu-item-desc ps-4 container-fluid">
-                    <div class="fw-bold">Cocktail</div>
-                    <div class="ingredient">Lemon, Soda</div>
-                    <div class="mt-4 price">
-                      <p class="m-0">RM3.29</p>
-                      <span>
-                        <i class="bi bi-plus-circle-fill add-icon me-3"></i>
-                      </span>
-                    
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-      
             </div>
-          </div>
-          </div>
-        </div>  
 
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="veggies">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/spaghetti_icon.png" class="menu-item rounded-circle shadow-lg bg-body" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Taco Bowl</div>
+                  <div class="ingredient">Chickpea, Vegetable</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM5.29</p>
+                    <span>
+                      <i class="bi bi-plus-circle-fill add-icon me-3"></i>
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="snacks">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/spaghetti_icon.png" class="menu-item rounded-circle shadow-lg bg-body" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Hash Browns</div>
+                  <div class="ingredient">Potato</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM1.29</p>
+                    <span>
+                      <i class="bi bi-plus-circle-fill add-icon me-3"></i>
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="drink">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/spaghetti_icon.png" class="menu-item rounded-circle shadow-lg bg-body" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Cocktail</div>
+                  <div class="ingredient">Lemon, Soda</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM3.29</p>
+                    <span>
+                      <i class="bi bi-plus-circle-fill add-icon me-3"></i>
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
         </div>
-      
+      </div>
     </div>
+
+  </div>
+
+  </div>
 
 
 
@@ -302,4 +310,5 @@
 
 
 </body>
+
 </html>
