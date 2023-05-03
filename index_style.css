@@ -86,9 +86,9 @@ header {
   text-align: justify;
 }
 
-.header-text h1{
+.header-text h1 {
   font-size: 70px;
-  padding-bottom:  50px;
+  padding-bottom: 50px;
   font-weight: 900;
 }
 
@@ -97,41 +97,43 @@ header {
   font-weight: lighter;
 }
 
+/* RESPONSIVE RULES */
+
+@media screen and (max-width: 1080px) {
+
+  .header-text h1 {
+    font-size: 50px;
+    margin: 30px;
+  }
+
+  .header-text h3 {
+    font-size: 30px;
+    margin: 30px;
+  }
+
+
+
+}
+
+@media screen and (max-width: 844px) {
+
+  .header-text h1 {
+    font-size: 50px;
+    margin: 20px;
+    text-align: center;
+  }
+
+  .header-text h3 {
+    display: none;
+  }
+
+  header {
+    height: 90vh;
+  }
+
+}
+
 /* About Us */
-/* .about-us-container {
-  max-width: 750px;
-  height: 350px;
-  margin: 50px 100px 100px 50px;
-  align-items: center;
-  border-radius: 20px;
-
-}
-
-.about-us-img {
-  border-radius: 20px 0px 0px 20px;
-  border: transparent;
-  object-fit: cover;
-} */
-
-/* .card-body {
-  margin: 70px 30px 0px 20px;
-  text-align: justify;
-
-}
-
-.bullet {
-  position: absolute;
-  top: 85px;
-}
-
-.card-title {
-  margin-left: 20px;
-  font-size: 30px;
-}
-
-.card-text {
-  margin-left: 20px;
-} */
 
 #aboutUs {
   margin-top: 200px;
@@ -173,9 +175,56 @@ header {
   margin-left: 30px;
 }
 
+/* RESPONSIVE RULES */
 
+@media screen and (max-width: 1134px) {
+  .img-about-us {
+    display: none;
+  }
+
+  .card-info {
+    font-size: 20px;
+
+  }
+
+}
+
+
+@media screen and (max-width: 713px) {
+  #aboutUs {
+    margin-top: 100px;
+  }
+
+  .about-us-card {
+    height: 550px;
+  }
+
+  .img-about-us {
+    display: none;
+  }
+
+  .card-info {
+    font-size: 18px;
+
+  }
+
+
+}
+
+@media screen and (max-width: 572px) {
+  .card-info {
+    font-size: 15px;
+
+  }
+
+
+}
 
 /* Menu */
+
+#menu {
+  position: relative;
+}
 
 .main-info {
   display: flex;
@@ -184,7 +233,21 @@ header {
 }
 
 .menu-info {
+  margin-top: 140px;
   padding-left: 200px;
+}
+
+.menu-title h5 {
+  position: absolute;
+  right: 110px;
+  top: 80px;
+  font-size: 30px;
+}
+
+.bullet-menu {
+  position: absolute;
+  right: 80px;
+  top: 80px;
 }
 
 .food-icon {
@@ -198,25 +261,29 @@ header {
 
 
 .menu-card {
-  height: 350px;/*change yq ori 400 -> 270*/
+  height: 350px;
+  /*change yq ori 400 -> 270*/
   display: flex;
   flex-direction: column;
   align-items: center;
   /* max-width: 200px; */
-  width: 200px; /*change yq*/
+  width: 200px;
+  /*change yq*/
   background: #fff;
   border-radius: 15px 50px;
   padding: 25px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   position: relative;
-  margin: 85px 100px 50px 100px; /*change yq*/
+  margin: 85px 100px 50px 100px;
+  /*change yq*/
   transition: all 0.4s;
   padding-top: 50px;
 
 }
 
-.menu-outer{
-  align-items: center; /*change yq*/
+.menu-outer {
+  align-items: center;
+  /*change yq*/
   position: relative;
   transition: all 0.4s;
   width: 300px;
@@ -228,28 +295,15 @@ header {
   cursor: pointer;
 }
 
-/* .menu-card:hover {
-  transform: scale(1.15);
-  cursor: pointer;
-} */
-
-/* .menu-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 36%;
-  width: 100%;
-  background: #101A24;
-  padding-bottom: 20px;
-} */
 
 .menu-image {
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  position: absolute;  /*change yq*/
-  margin-left: 120px; /*change yq*/
+  position: absolute;
+  /*change yq*/
+  margin-left: 120px;
+  /*change yq*/
   z-index: 1;
 }
 
@@ -273,13 +327,13 @@ header {
 .carousell-swiper {
   position: relative;
   overflow: hidden;
-  padding: 20px;
+  padding: 10px;
 }
 
 .slide-container {
   display: flex;
   flex-direction: row;
-  padding: 60px;
+  padding: 50px;
   overflow-x: auto;
   scroll-behavior: smooth;
 }
@@ -324,6 +378,98 @@ header {
   opacity: 1;
 }
 
+.menu-more a {
+  position: absolute;
+  font-size: 15px;
+  color: floralwhite;
+  font-weight: bold;
+  bottom: 55px;
+  right: 200px;
+  text-decoration: none;
+}
+
+.menu-more:hover {
+  cursor: pointer;
+}
+
+.more-menu-icon {
+  position: absolute;
+  bottom: 56px;
+  right: 170px;
+}
+
+/* RESPONSIVE RULES */
+
+@media screen and (max-width: 1445px) {
+  .menu-info {
+    margin: 20px;
+    margin-top: 140px;
+    padding: 50px;
+
+  }
+
+}
+
+@media screen and (max-width: 1150px) {
+
+  .food-icon {
+    display: none;
+  }
+
+  .img-subtract {
+    display: none;
+  }
+
+  .menu-info {
+    margin: 130px 160px 0px 160px;
+    padding: 50px;
+
+  }
+
+}
+
+@media screen and (max-width: 980px) {
+  .menu-info {
+    margin: 130px 160px 0px 160px;
+    padding: 50px;
+
+  }
+
+}
+
+@media screen and (max-width: 844px) {
+
+  #menu{
+    margin-top: 40px;
+  }
+  .menu-info {
+    display: none;
+
+  }
+
+  .slide-container {
+    margin-top: 50px;
+  }
+
+  .menu-title h5 {
+    font-size: 25px;
+    top: 30px;
+  }
+
+  .bullet-menu {
+    top: 30px;
+  }
+
+  .menu-more a{
+    bottom: 40px;
+  }
+
+  .more-menu-icon{
+    bottom: 40px;
+  }
+
+}
+
 /* Book Now */
 .book-now {
   height: 650px;
@@ -360,13 +506,52 @@ header {
   padding: 10px 20px 10px 20px;
 }
 
+@media screen and (max-width: 844px) {
+  .book-now {
+    text-align: center;
+  }
+
+  .reservation {
+    font-family: 'Italianno';
+    font-size: 50px;
+  }
+
+  .book-a-table {
+    font-size: 50px;
+
+  }
+
+}
+
+@media screen and (max-width: 1111px) {
+  .book-now {
+    text-align: center;
+  }
+
+  .reservation {
+    font-family: 'Italianno';
+    font-size: 50px;
+  }
+
+  .book-a-table {
+    font-size: 50px;
+
+  }
+
+}
+
 /* Footer */
 .txt-footer {
   font-size: 12px;
 }
 
-#admin-login{
+#admin-login {
   text-decoration: underline;
   cursor: pointer;
 }
 
+@media screen and (max-width: 844px) {
+  footer {
+    margin: 10px;
+  }
+}
