@@ -839,140 +839,155 @@
 
 
           <!--Edit Menu Item Modal-->
-          <div class="container mt-5">
-            <div class="modal" id="edit-item-modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Edit Menu Item</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                  </div>
-
-                  <div class="modal-body">
-                    <form>
+<div class="container mt-5">
+  <div class="modal" id="edit-item-modal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Edit Menu Item</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              
+              <div class="modal-body">
+                  <form>
                       <div class="mb-3">
                         <label for="menu-category" class="form-label required">Menu Category</label>
                         <select name="menu-category" id="menu-category" class="form-select">
                           <option value="-" selected>-</option>
                           <option value="pizza">Pizza</option>
-                          <option value="fruits">Fruits</option>
+                          <option value="fruits" >Fruits</option>
                           <option value="snacks">Snacks</option>
                           <option value="spaghetti">Spaghetti</option>
                           <option value="drink">Drink</option>
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label class="form-label required">Name</label>
-                        <input type="text" class="form-control item-name">
+                          <label class="form-label required">Name</label>
+                          <input type="text" class="form-control itemName">
                       </div>
                       <div class="mb-3">
-                        <label class="form-label required">Price(RM)</label>
-                        <input type="text" class="form-control price">
+                          <label class="form-label required">Price(RM)</label>
+                          <input type="text" class="form-control price">
                       </div>
                       <div class="mb-3">
                         <label for="upload-photo" class="form-label required">Upload Image</label>
-                        <input type="file" id="upload-photo" name="upload-photo" class="form-control image-name" />
+                        <input
+                        type="file" 
+                        id="upload-photo" 
+                        name="upload-photo"
+                        class="form-control image-name"
+                        />
                       </div>
                       <div class="mb-3">
-                        <label class="form-label required">Ingredient</label>
-                        <textarea class="form-control ingredient"></textarea>
+                          <label class="form-label required">Ingredient</label>
+                          <textarea class="form-control ingredient"></textarea>
                       </div>
-                    </form>
-                  </div>
-
-                  <div class="modal-footer">
-                    <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn primary-btn">Save changes</button>
-                  </div>
-                </div>
+                  </form>
               </div>
-            </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn primary-btn">Save changes</button>
+              </div>
           </div>
+      </div>
+  </div>
+</div>
 
-          <!--Edit Menu Category Modal-->
-          <div class="container mt-5">
-            <div class="modal" id="edit-category-modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Edit Menu Category</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                  </div>
-
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
+<!--Edit Menu Category Modal-->
+<div class="container mt-5">
+<div class="modal" id="edit-category-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Menu Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
                         <label class="form-label required">Menu Category Name</label>
                         <input type="text" class="form-control category-name">
-                      </div>
-                      <div class="mb-3">
-                        <label for="upload-photo" class="form-label required">Upload Image</label>
-                        <input type="file" id="upload-photo" name="upload-photo" class="form-control image-name" />
-                      </div>
-                    </form>
-                  </div>
-
-                  <div class="modal-footer">
-                    <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn primary-btn">Save changes</button>
-                  </div>
-                </div>
-              </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="upload-photo" class="form-label required">Upload Image</label>
+                      <input
+                      type="file" 
+                      id="upload-photo" 
+                      name="upload-photo"
+                      class="form-control image-name"
+                      />
+                    </div>
+                </form>
             </div>
-          </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn primary-btn">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 
-          <!--Add Menu Item Modal-->
-          <div class="container mt-5">
-            <div class="modal" id="add-item-modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Add Menu Item</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+<!--Add Menu Item Modal-->
+<div class="container mt-5">
+<div class="modal" id="add-item-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Menu Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            
+            <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="menu-category" class="form-label required">Menu Category</label>
+                    <select name="menu-category" id="menu-category" class="form-select">
+                      <option value="-" selected>-</option>
+                      <option value="pizza">Pizza</option>
+                      <option value="fruits" >Fruits</option>
+                      <option value="snacks">Snacks</option>
+                      <option value="spaghetti">Spaghetti</option>
+                      <option value="drink">Drink</option>
+                    </select>
                   </div>
 
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label for="menu-category" class="form-label required">Menu Category</label>
-                        <select name="menu-category" id="menu-category" class="form-select">
-                          <option value="-" selected>-</option>
-                          <option value="pizza">Pizza</option>
-                          <option value="fruits">Fruits</option>
-                          <option value="snacks">Snacks</option>
-                          <option value="spaghetti">Spaghetti</option>
-                          <option value="drink">Drink</option>
-                        </select>
-                      </div>
-
-                      <div class="mb-3">
+                    <div class="mb-3">
                         <label class="form-label required">Name</label>
-                        <input type="text" class="form-control">
-                      </div>
-                      <div class="mb-3">
+                        <input type="text" class="form-control addItemName">
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label required">Price(RM)</label>
-                        <input type="text" class="form-control">
-                      </div>
-                      <div class="mb-3">
-                        <label for="upload-photo" class="form-label required">Upload Image</label>
-                        <input type="file" id="upload-photo" name="upload-photo" class="form-control" />
-                      </div>
-                      <div class="mb-3">
+                        <input type="text" class="form-control addPrice">
+                    </div>
+                    <div class="mb-3">
+                      <label for="upload-photo" class="form-label required">Upload Image</label>
+                      <input
+                      type="file" 
+                      id="upload-photo" 
+                      name="upload-photo"
+                      class="form-control"
+                      />
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label required">Ingredient</label>
-                        <textarea class="form-control"></textarea>
-                      </div>
-                    </form>
-                  </div>
-
-                  <div class="modal-footer">
-                    <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn primary-btn">Add</button>
-                  </div>
-                </div>
-              </div>
+                        <textarea class="form-control addIngredient"></textarea>
+                    </div>
+                </form>
             </div>
-          </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn primary-btn">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
           <!--Add Menu Category Modal-->
           <div class="container mt-5">

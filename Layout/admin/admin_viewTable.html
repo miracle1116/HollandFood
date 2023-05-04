@@ -115,12 +115,13 @@
               <div class="form-group col">
                 <label class="label" for="time">Select Time:</label>
                 <select id="time" class="form-control form-select input">
-                  <option>9:00-10:00</option>
-                  <option>10:00-11:00</option>
-                  <option>11:00-12:00</option>
-                  <option>12:00-13:00</option>
-                  <option>13:00-14:00</option>
-                  <option>14:00-15:00</option>
+                  <option value="">-</option>
+                  <option value="9:00-10:00">9:00-10:00</option>
+                  <option value="10:00-11:00">10:00-11:00</option>
+                  <option value="11:00-12:00">11:00-12:00</option>
+                  <option value="12:00-13:00">12:00-13:00</option>
+                  <option value="13:00-14:00">13:00-14:00</option>
+                  <option value="14:00-15:00">14:00-15:00</option>
                 </select>
               </div>
 
@@ -225,7 +226,7 @@
 
           <div class="row ms-1">
             <div>
-              <h5><strong>9:00-10:00</strong></h5>
+              <h5><strong id="selected-time"></strong></h5>
             </div>
           </div>
 
