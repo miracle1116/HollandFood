@@ -1,8 +1,8 @@
 * {
     font-family: 'Montserrat';
-  }
+}
 
-body{
+body {
     background-color: #130D25;
     padding-bottom: 20px;
 }
@@ -10,72 +10,95 @@ body{
 /* Color of the links BEFORE scroll */
 .navbar-scroll .nav-link,
 .navbar-scroll .navbar-toggler .fa-bars {
-  color: #fff;
+    color: #fff;
 }
 
 /* Color of the links AFTER scroll */
 .navbar-scrolled .nav-link,
 .navbar-scrolled .navbar-toggler .fa-bars {
-  color: #4f4f4f;
+    color: #4f4f4f;
 }
 
 /* Color of the navbar AFTER scroll */
 .navbar-scrolled {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 /* An optional height of the navbar AFTER scroll */
 .navbar.navbar-scroll.navbar-scrolled {
-  padding-top: 5px;
-  padding-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
-.navbar-light .navbar-nav .nav-link{
-  color: black;
-  font-size: 18px;
-  padding: 0px 35px 0px 10px;
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    font-size: 18px;
+    padding: 10px 0px 0px 0px;
+    margin: 20px;
+    text-shadow: 1px 1px 8px white;
 
 }
 
-.navbar-light .navbar-brand{
-  color: black;
-  font-size: 20px;
-  padding: 0px 35px 0px 10px;
-  
+.navbar-light .navbar-brand {
+    color: white;
+    font-size: 20px;
+    padding: 0px 35px 0px 10px;
+    text-shadow: 1px 1px 8px white;
+
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link-underline::after {
+    content: "";
+    position: absolute;
+    background-color: #FE724C;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.nav-link-underline:hover::after {
+    width: 100%;
 }
 
 
 html {
     height: 100%
 }
-  
-h2{
+
+h2 {
     color: #2F8D46;
 }
+
 #form {
     text-align: center;
     position: relative;
     margin-top: 20px
 }
-  
+
 
 .finish {
     text-align: center
 }
-  
 
 
-  
+
+
 #progressbar {
     margin-bottom: 30px;
     overflow: hidden;
     color: lightgrey
 }
-  
+
 #progressbar .active {
     color: #fe724c
 }
-  
+
 #progressbar li {
     list-style-type: none;
     font-size: 15px;
@@ -84,19 +107,19 @@ h2{
     position: relative;
     font-weight: 400
 }
-  
+
 #progressbar #step1:before {
     content: "1"
 }
-  
+
 #progressbar #step2:before {
     content: "2"
 }
-  
+
 #progressbar #step3:before {
     content: "3"
 }
-  
+
 
 #progressbar li:before {
     width: 50px;
@@ -110,7 +133,7 @@ h2{
     margin: 0 auto 10px auto;
     padding: 2px
 }
-  
+
 #progressbar li:after {
     content: '';
     width: 100%;
@@ -121,75 +144,77 @@ h2{
     top: 25px;
     z-index: -1
 }
-  
+
 #progressbar li.active:before,
 #progressbar li.active:after {
     background: #fe724c
 }
-  
+
 .progress {
     height: 20px
 }
-  
+
 .progress-bar {
     background-color: #fe724c
 }
 
 .icon {
-    font-size: 1.7rem; /* Change this value to adjust the size */
+    font-size: 1.7rem;
+    /* Change this value to adjust the size */
     color: #fe724c;
-  }
+}
 
-.ordered-food{
+.ordered-food {
     font-size: 12px;
 }
 
-.line-break{
+.line-break {
     color: #fe724c;
     padding: 0px 10px 0px 10px;
     margin-top: 10px;
 }
 
-.input-border{
+.input-border {
     border-color: #FBE2D1;
 }
-.div-border{
-    border:1px #FBE2D1 solid;
+
+.div-border {
+    border: 1px #FBE2D1 solid;
 }
 
-.bg-white{
+.bg-white {
     background: #ffffff;
 }
 
 .button-container {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .start-button {
-    order: 1;
-  }
-  
-  .end-button {
-    order: 2;
-  }
+}
 
-.button-shape{
+.start-button {
+    order: 1;
+}
+
+.end-button {
+    order: 2;
+}
+
+.button-shape {
     border-radius: 20px;
     background-color: #fe724c;
     color: white;
     padding: 5px 20px 5px 20px;
 }
 
-.button-shape:hover{
+.button-shape:hover {
     background-color: orangered;
 }
 
-.label{
+.label {
     color: white;
 }
 
-.table-all{
+.table-all {
     background-color: white;
     border: #fe724c solid 8px;
     height: 100px;
@@ -199,17 +224,17 @@ h2{
 .button-container {
     display: flex;
     justify-content: space-between;
-  }
+}
 
-  
-  .end-button {
+
+.end-button {
     margin-left: auto;
-  }
+}
 
 
 .available {
     border: 12px solid green;
-  }
+}
 
 .unavailable {
     border: 12px solid rgb(190, 28, 28);
@@ -220,27 +245,27 @@ h2{
     pointer-events: none;
 }
 
-.selected{
+.selected {
     border: 12px solid #fe724c;
-    transform: scale(1.1);  
-    box-shadow:  0 0 3px orange, 0 0 7px orange, 0 0 12px orange;
+    transform: scale(1.1);
+    box-shadow: 0 0 3px orange, 0 0 7px orange, 0 0 12px orange;
 }
 
-.table-label-unavailable{
+.table-label-unavailable {
     width: 20px;
     height: 20px;
     background-color: rgb(190, 28, 28);
     display: inline-block;
 }
 
-.table-label-available{
+.table-label-available {
     width: 20px;
     height: 20px;
     background-color: green;
     display: inline-block;
 }
 
-.table-label-selected{
+.table-label-selected {
     width: 20px;
     height: 20px;
     background-color: #fe724c;
