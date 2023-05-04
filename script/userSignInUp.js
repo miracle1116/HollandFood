@@ -25,7 +25,7 @@ function validateForm(event) {
   }else if (password===""){
     error.innerText = 'Password is required field';
   } else {
-    window.location.href = "/index.html";
+    window.location.href = "/index2.html";
   }
 }
 
