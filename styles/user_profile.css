@@ -2,42 +2,64 @@
     font-family: 'Montserrat';
   }
 
-/* Color of the links BEFORE scroll */
-.navbar-scroll .nav-link,
-.navbar-scroll .navbar-toggler .fa-bars {
-  color: #fff;
-}
-
-/* Color of the links AFTER scroll */
-.navbar-scrolled .nav-link,
-.navbar-scrolled .navbar-toggler .fa-bars {
-  color: #4f4f4f;
-}
-
-/* Color of the navbar AFTER scroll */
-.navbar-scrolled {
-  background-color: #fff;
-}
-
-/* An optional height of the navbar AFTER scroll */
-.navbar.navbar-scroll.navbar-scrolled {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.navbar-light .navbar-nav .nav-link{
-  color: black;
-  font-size: 18px;
-  padding: 0px 35px 0px 10px;
-
-}
-
-.navbar-light .navbar-brand{
-  color: black;
-  font-size: 20px;
-  padding: 0px 35px 0px 10px;
+  * Color of the links BEFORE scroll */
+  .navbar-scroll .nav-link,
+  .navbar-scroll .navbar-toggler .fa-bars {
+      color: #fff;
+  }
   
-}
+  /* Color of the links AFTER scroll */
+  .navbar-scrolled .nav-link,
+  .navbar-scrolled .navbar-toggler .fa-bars {
+      color: #4f4f4f;
+  }
+  
+  /* Color of the navbar AFTER scroll */
+  .navbar-scrolled {
+      background-color: #fff;
+  }
+  
+  /* An optional height of the navbar AFTER scroll */
+  .navbar.navbar-scroll.navbar-scrolled {
+      padding-top: 5px;
+      padding-bottom: 5px;
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+      color: white;
+      font-size: 18px;
+      padding: 10px 0px 0px 0px;
+      margin: 20px;
+      text-shadow: 1px 1px 8px white;
+  
+  }
+  
+  .navbar-light .navbar-brand {
+      color: white;
+      font-size: 20px;
+      padding: 0px 35px 0px 10px;
+      text-shadow: 1px 1px 8px white;
+  
+  }
+  
+  .nav-link {
+      position: relative;
+  }
+  
+  .nav-link-underline::after {
+      content: "";
+      position: absolute;
+      background-color: #FE724C;
+      height: 3px;
+      width: 0;
+      left: 0;
+      bottom: -10px;
+      transition: 0.3s;
+  }
+  
+  .nav-link-underline:hover::after {
+      width: 100%;
+  }
 
 
 .bg-img {
