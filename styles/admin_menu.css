@@ -130,7 +130,7 @@ i{
 
 .menu-item{
   position: relative;
-
+  justify-content: center;
 }
 
 .menu-item img{
