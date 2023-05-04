@@ -157,4 +157,10 @@ details.forEach((detail) => {
 });
 
 
+const timeSelect = document.querySelector('#time');
+const selectedTime = document.querySelector('#selected-time');
 
+timeSelect.addEventListener('change', (event) => {
+  const selectedOption = event.target.value;
+  selectedTime.textContent = selectedOption;
+});
