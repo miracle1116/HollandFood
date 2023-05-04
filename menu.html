@@ -35,6 +35,46 @@
       font-family: 'Montserrat';
     }
 
+    .navbar{
+      padding-top: 50px;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      color: white;
+      font-size: 18px;
+      padding: 10px 0px 0px 0px;
+      margin: 20px;
+      text-shadow: 1px 1px 8px white;
+
+    }
+
+    .navbar-light .navbar-brand {
+      color: white;
+      font-size: 20px;
+      padding: 0px 35px 0px 10px;
+      text-shadow: 1px 1px 8px white;
+
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link-underline::after {
+      content: "";
+      position: absolute;
+      background-color: #FE724C;
+      height: 3px;
+      width: 0;
+      left: 0;
+      bottom: -10px;
+      transition: 0.3s;
+    }
+
+    .nav-link-underline:hover::after {
+      width: 100%;
+    }
+
     .btn-sign-up {
       background-color: #FE724C;
       color: white;
@@ -53,7 +93,7 @@
     }
   </style>
 
-  <header class="bg-light">
+  <header>
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
       <div class="container">
         <a class="navbar-brand fw-bold" href="index.html"><img src="/images/holland_food_icon.png" width="35px" />
@@ -67,23 +107,24 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-              <a class="nav-link active" aria-current="page" href="index.html#home">Home</a>
+              <a class="nav-link active nav-link-underline" aria-current="page" href="index.html#home">Home</a>
             </li>
 
             <li class="nav-item active">
-              <a class="nav-link" href="index.html#aboutUs">About Us</a>
+              <a class="nav-link nav-link-underline" href="index.html#aboutUs">About Us</a>
             </li>
 
             <li class="nav-item active">
-              <a class="nav-link" href="index.html#menu">Menu</a>
+              <a class="nav-link nav-link-underline" href="index.html#menu">Menu</a>
             </li>
 
             <li class="nav-item active">
-              <a class="nav-link active" href="index.html#bookNow">Book Now</a>
+              <a class="nav-link active nav-link-underline" href="index.html#bookNow">Book Now</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="Layout/user/user_sign_InOut.html"><button class="btn-sign-up">SIGN
+              <a class="nav-link" href="Layout/user/user_sign_InOut.html"><button
+                  class="btn-sign-up">SIGN
                   UP</button></a>
             </li>
           </ul>
@@ -98,8 +139,8 @@
         <!-- Menu Category -->
         <div class="menu_con col-2 justify-content-center " data-category="all">
           <div class="container-fluid mt-3 p-1 pb-2">
-            <img src="images/all-category.png"
-              class="align-items-center w-3 rounded mx-auto d-block mb-4" height="64px" width="64px"/>
+            <img src="images/all-category.png" class="align-items-center w-3 rounded mx-auto d-block mb-4" height="64px"
+              width="64px" />
             <p class="text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
               All
             </p>
@@ -215,106 +256,106 @@
           <div class="row mt-5 justify-content-around pe-3 ">
 
             <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
-            data-category="beverage">
-            <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-              <img src="../../images/drinks-latte.png" class="menu-item" />
-            </div>
-            <div class="border_menu">
-              <div class="menu-item-desc ps-4 container-fluid">
-                <div class="fw-bold">Latte</div>
-                <div class="ingredient">Coffee, Milk</div>
-                <div class="mt-4 price">
-                  <p class="m-0">RM9.50</p>
+              data-category="beverage">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/drinks-latte.png" class="menu-item" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Latte</div>
+                  <div class="ingredient">Coffee, Milk</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM9.50</p>
 
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
-          data-category="beverage">
-          <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-            <img src="../../images/drinks-lemonade.png" class="menu-item" width="30px" />
-          </div>
-          <div class="border_menu">
-            <div class="menu-item-desc ps-4 container-fluid">
-              <div class="fw-bold">Lemonade</div>
-              <div class="ingredient">Raspberry, Soda</div>
-              <div class="mt-4 price">
-                <p class="m-0">RM7.00</p>
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="beverage">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/drinks-lemonade.png" class="menu-item" width="30px" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Lemonade</div>
+                  <div class="ingredient">Raspberry, Soda</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM7.00</p>
 
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
-        data-category="beverage">
-        <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-          <img src="../../images/drinks-iceLemonTea.png" class="menu-item" />
-        </div>
-        <div class="border_menu">
-          <div class="menu-item-desc ps-4 container-fluid">
-            <div class="fw-bold">Ice Lemon Tea</div>
-            <div class="ingredient">Lemon, Tea</div>
-            <div class="mt-4 price">
-              <p class="m-0">RM6.50</p>
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="beverage">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/drinks-iceLemonTea.png" class="menu-item" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Ice Lemon Tea</div>
+                  <div class="ingredient">Lemon, Tea</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM6.50</p>
 
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
-      data-category="spaghetti">
-      <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-        <img src="../../images/spaghetti-aglio_e_olio.png" class="menu-item rounded-circle" />
-      </div>
-      <div class="border_menu">
-        <div class="menu-item-desc ps-4 container-fluid">
-          <div class="fw-bold">Aglio e Olio</div>
-          <div class="ingredient">Shrimp</div>
-          <div class="mt-4 price">
-            <p class="m-0">RM20.50</p>
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="spaghetti">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/spaghetti-aglio_e_olio.png" class="menu-item rounded-circle" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Aglio e Olio</div>
+                  <div class="ingredient">Shrimp</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM20.50</p>
 
-          </div>
-        </div>
-      </div>
-    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
-      data-category="spaghetti">
-      <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-        <img src="../../images/spaghetti-tomato_chicken_pasta.png" class="menu-item rounded-circle" />
-      </div>
-      <div class="border_menu">
-        <div class="menu-item-desc ps-4 container-fluid">
-          <div class="fw-bold">Chicken Pasta</div>
-          <div class="ingredient">Chicken, Tomato</div>
-          <div class="mt-4 price">
-            <p class="m-0">RM18.50</p>
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="spaghetti">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/spaghetti-tomato_chicken_pasta.png" class="menu-item rounded-circle" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Chicken Pasta</div>
+                  <div class="ingredient">Chicken, Tomato</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM18.50</p>
 
-          </div>
-        </div>
-      </div>
-    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
-    data-category="spaghetti">
-    <div class="menu-item container-fluid shadow-lg bg-body ms-3">
-      <img src="../../images/spaghetti-Vegan_Carbonara.png" class="menu-item rounded-circle" />
-    </div>
-    <div class="border_menu">
-      <div class="menu-item-desc ps-4 container-fluid">
-        <div class="fw-bold">Vegan Carbonara</div>
-        <div class="ingredient">vegetables</div>
-        <div class="mt-4 price">
-          <p class="m-0">RM16.50</p>
+            <div class="col-4 col-xl-2 col-lg-3 col-md-3 col-sm-4 ms-lg-1 my-3 me-3 me-xl-1 me-lg-2 me-md-4 me-sm-4"
+              data-category="spaghetti">
+              <div class="menu-item container-fluid shadow-lg bg-body ms-3">
+                <img src="../../images/spaghetti-Vegan_Carbonara.png" class="menu-item rounded-circle" />
+              </div>
+              <div class="border_menu">
+                <div class="menu-item-desc ps-4 container-fluid">
+                  <div class="fw-bold">Vegan Carbonara</div>
+                  <div class="ingredient">vegetables</div>
+                  <div class="mt-4 price">
+                    <p class="m-0">RM16.50</p>
 
-        </div>
-      </div>
-    </div>
-  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
           </div>
