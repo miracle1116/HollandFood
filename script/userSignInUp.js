@@ -46,6 +46,7 @@ function validateSignUpForm(event) {
     if(password!=confirmPassword){
       error.innerText = 'Password not same';
     }else{
+      alert("Your account is successfully created !");
       container.classList.remove("sign-up-mode");
     }
   }
