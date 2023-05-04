@@ -233,11 +233,11 @@ h2 {
 
 
 .available {
-    border: 12px solid green;
+    border: 10px solid #54CA94;
 }
 
 .unavailable {
-    border: 12px solid rgb(190, 28, 28);
+    border: 10px solid rgb(190, 28, 28);
 }
 
 .disabled {
@@ -246,7 +246,7 @@ h2 {
 }
 
 .selected {
-    border: 12px solid #fe724c;
+    border: 10px solid #fe724c;
     transform: scale(1.1);
     box-shadow: 0 0 3px orange, 0 0 7px orange, 0 0 12px orange;
 }
@@ -261,7 +261,7 @@ h2 {
 .table-label-available {
     width: 20px;
     height: 20px;
-    background-color: green;
+    background-color: #54CA94;
     display: inline-block;
 }
 
