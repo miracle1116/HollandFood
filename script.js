@@ -1,19 +1,44 @@
+//animation on scroll
+$(window).scroll(function () {
+  $(".animation").each(function () {
+    var position = $(this).offset().top;
+    var windowHeight = $(window).height();
+    if (position < $(window).scrollTop() + windowHeight) {
+      $(this).addClass("show");
+    }
+  });
+});
+
+//animation on load
+$(document).ready(function () {
+  $('.animation-on-load').each(function (i) {
+    setTimeout(function () {
+      $('.animation-on-load').eq(i).css({
+        'opacity': '1',
+        'transform': 'translateY(0)'
+      });
+    }, 100 * (i + 1));
+  });
+});
+
+
+
 // slider
 const productContainers = [...document.querySelectorAll('.slide-container')];
 const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
 const preBtn = [...document.querySelectorAll('.pre-btn')];
 
 productContainers.forEach((item, i) => {
-    let containerDimensions = item.getBoundingClientRect();
-    let containerWidth = containerDimensions.width;
+  let containerDimensions = item.getBoundingClientRect();
+  let containerWidth = containerDimensions.width;
 
-    nxtBtn[i].addEventListener('click', () => {
-        item.scrollLeft += containerWidth;
-    })
+  nxtBtn[i].addEventListener('click', () => {
+    item.scrollLeft += containerWidth;
+  })
 
-    preBtn[i].addEventListener('click', () => {
-        item.scrollLeft -= containerWidth;
-    })
+  preBtn[i].addEventListener('click', () => {
+    item.scrollLeft -= containerWidth;
+  })
 })
 
 
