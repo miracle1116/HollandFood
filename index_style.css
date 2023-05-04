@@ -92,7 +92,7 @@ body {
   position: relative;
 }
 
-.nav-link::after {
+.nav-link-underline::after {
   content: "";
   position: absolute;
   background-color: #FE724C;
@@ -103,7 +103,7 @@ body {
   transition: 0.3s;
 }
 
-.nav-link:hover::after {
+.nav-link-underline:hover::after {
   width: 100%;
 }
 
