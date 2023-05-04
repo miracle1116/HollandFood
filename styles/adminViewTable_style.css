@@ -1,3 +1,4 @@
+
 .hide{
   display: none;
 }
@@ -310,16 +311,6 @@
   padding: 5px 70px 5px 15px;
 }
 
-
-
-#viewAllDetails {
-  font-size: 15px;
-  color: #7994F5;
-  font-style: italic;
-  cursor: pointer;
-}
-
-.bi-chevron-right{
-  font-size: small;
-  font-style: italic;
+.modal .modal-header{
+  background: #7994F5;
 }

@@ -43,33 +43,34 @@ function reserveWait(reservewait) {
   document.getElementById(reservewait).style.display = "block";
 }
 
-
 var sidebarToggle = document.querySelector(".sidebar-toggle");
 var sidebar = document.querySelector(".rightBar");
 
-
-sidebarToggle.addEventListener('click', function() {
+sidebarToggle.addEventListener("click", function () {
   if (sidebar.classList.contains("sidebar-open")) {
-    sidebar.style.right="-300px";
+    sidebar.style.right = "-300px";
     sidebarToggle.classList.remove("sidebar-toggle-open");
     sidebarToggle.style.display = "block";
     console.log(1111234);
   } else {
-    sidebar.style.right="0px";
+    sidebar.style.right = "0px";
     sidebarToggle.classList.add("sidebar-toggle-open");
     sidebarToggle.style.display = "none";
     console.log(1111);
   }
 
-        // add event listener to close sidebar when clicking outside of the container
-        window.addEventListener("click", function(event) {
-          if (!sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
-          sidebar.style.right="-300px";
-          sidebarToggle.classList.remove("sidebar-toggle-open");
-          sidebarToggle.style.display = "block";
-          console.log(11222);
-          }
-      });
+  // add event listener to close sidebar when clicking outside of the container
+  window.addEventListener("click", function (event) {
+    if (
+      !sidebar.contains(event.target) &&
+      !sidebarToggle.contains(event.target)
+    ) {
+      sidebar.style.right = "-300px";
+      sidebarToggle.classList.remove("sidebar-toggle-open");
+      sidebarToggle.style.display = "block";
+      console.log(11222);
+    }
+  });
 });
 
 // function toggleSidebar() {
@@ -102,14 +103,18 @@ sidebarToggle.addEventListener('click', function() {
 
 function updateSidebarToggle() {
   var reserveWaitCount = document.querySelectorAll(".section-title").length;
-  document.querySelector(".sidebar-toggle .reserve-wait-count").textContent = reserveWaitCount;
+  document.querySelector(".sidebar-toggle .reserve-wait-count").textContent =
+    reserveWaitCount;
 }
 
 updateSidebarToggle();
 
 function updateReserve() {
-  var reserveCount = document.querySelectorAll("#reserve .section-title").length;
-  document.querySelector(".reservation .reserve-count").textContent = reserveCount;
+  var reserveCount = document.querySelectorAll(
+    "#reserve .section-title"
+  ).length;
+  document.querySelector(".reservation .reserve-count").textContent =
+    reserveCount;
 }
 
 updateReserve();
@@ -145,15 +150,44 @@ tableNo[0].textContent = "Free: " + freeNum;
 tableNo[1].textContent = "Reserved: " + reservedNum;
 tableNo[2].textContent = "Checked-in: " + checkedInNum;
 
-// More details
-const details = document.querySelectorAll("#viewAllDetails");
-const viewDetailsModal = new bootstrap.Modal("#view-details-modal");
+// const viewDetailsModal = new bootstrap.Modal("view-details-modal");
+// const viewDetails = document.querySelectorAll(".viewDetails_link");
 
-details.forEach((detail) => {
-  detail.addEventListener("click", () => {
-    viewDetailsModal.show();
-  });
-});
+// viewDetails.addEventListener("click", function () {
+//   viewDetailsModal.show();
+// });
 
+// viewDetails.forEach((viewDetails_link) => {
+//   viewDetails_link.addEventListener("click", function () {
+//     const userDetails = viewDetails_link.closest(".cover-section");
 
+//     const location = document.querySelector("#view-user-details #location");
+//     location.value = userDetails.querySelector(
+//       "#location .location"
+//     ).textContent;
 
+//     const date = document.querySelector("#view-user-details #date");
+//     date.value = userDetails.querySelector("#date .date").textContent;
+
+//     const time = document.querySelector("#view-user-details #time");
+//     time.value = userDetails.querySelector("#time .time").textContent;
+
+//     const tableNo = document.querySelector("#view-details-modal #tableNo");
+//     tableNo.value = userDetails.querySelector(".tableNo").textContent;
+
+//     const noOfPax = document.querySelector("#view-details-modal #noOfPax");
+//     noOfPax.value = userDetails.querySelector(".noOfPax").textContent;
+
+//     const orderedFood = document.querySelector(
+//       "#view-details-modal #ordered-food"
+//     );
+//     orderedFood.value = userDetails.querySelector(
+//       "#reserve .preordered"
+//     ).textContent;
+
+//     const note = document.querySelector("#view-user-details #note");
+//     note.value = userDetails.querySelector(".note").textContent;
+
+//     viewDetailsModal.show();
+//   });
+// });

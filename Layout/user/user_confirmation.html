@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +106,7 @@
 
                 <div class="form-group mt-3">
                     <label class="fw-bold" for="email">Email</label>
-                    <input type="email" class="form-control input input-border" id="email"  placeholder="example@gmail.com">
+                    <input type="email" class="form-control input input-border" id="email"  placeholder="example@gamil.com">
                 </div>
 
                 <div class="form-group mt-3 mb-5">
@@ -118,7 +119,8 @@
 
         </div>
 
-        <div class="col-10 col-lg-6 col-md-6 col-sm-10 justify-content-center bg-light ms-lg-5 ms-sm-0 ms-md-5 mt-sm-3 mt-md-0 mt-lg-0 mt-3 rounded-5 pb-3 py-3" >
+        <div class="col-10 col-lg-6 col-md-6 col-sm-10 justify-content-center bg-light ms-lg-5 ms-sm-0 ms-md-5 mt-sm-3 mt-md-0 mt-lg-0 mt-3 rounded-5 pb-3 py-3" 
+            id="view-user-details">
            
             <div class="container ms-3 mt-lg-3 mt-md-2 mt-sm-1">
                 <div class=" justify-content-center ">
@@ -126,7 +128,7 @@
                         <span><i class="bi bi-geo-alt-fill icon"></i></span>
                     </div>
                     <div class="ms-3"  style="display: inline-block;">
-                        <p class=""><strong>Holland Food</strong></br><small>Kolej Kediaman Kinabalu, University of Malaya</small></p>
+                        <p class=""><strong>Holland Food</strong></br><small class="location" id="location">Kolej Kediaman Kinabalu, University of Malaya</small></p>
                     </div>
                 </div>
             </div>
@@ -137,7 +139,7 @@
                         <span><i class="bi bi-calendar-fill icon"></i></span>
                     </div>
                     <div class="ms-3"  style="display: inline-block;">
-                        <p class=""><strong>Date:</strong></br><small>21 - 04 - 2023</small></p>
+                        <p class=""><strong>Date:</strong></br><small class="date" id="date">21 - 04 - 2023</small></p>
                     </div>
                 </div>
 
@@ -146,7 +148,7 @@
                         <span><i class="bi bi-clock-fill icon"></i></span>
                     </div>
                     <div class="ms-3"  style="display: inline-block;">
-                        <p class=""><strong>Time:</strong></br><small>8:00am - 9:00am</small></p>
+                        <p class=""><strong>Time:</strong></br><small class="time" id="time">8:00am - 9:00am</small></p>
                     </div>
                 </div>
 
@@ -157,7 +159,7 @@
                     <div class="" style="display: inline-block;">
                         <span><i class="icon" ><img src="/images/coffee-table 1.png" width="35px"> </i></span>
                     </div>
-                    <div class="ms-2"  style="display: inline-block;">
+                    <div class="tableNo ms-2"  style="display: inline-block;">
                         <p class=""><strong>Table No:</strong><small> 5</small></p>
                     </div>
                 </div>
@@ -167,7 +169,7 @@
                         <span><i class="bi bi-person-fill icon"></i></span>
                     </div>
                     <div class="ms-3"  style="display: inline-block;">
-                        <p class=""><strong>No of Pax:</strong><small> 6</small></p>
+                        <p class=""><strong>No of Pax:</strong><small class="noOfPax"> 6</small></p>
                     </div>
                 </div>
 
@@ -232,7 +234,7 @@
                     <div class="" style="display: inline-block;">
                         <span><i class="icon" ><img src="/images/note.png" width="25px"></i></span>
                     </div>
-                    <div class="ms-3"  style="display: inline-block;">
+                    <div class="note ms-3"  style="display: inline-block;">
                         <p class=""><strong>Note: </strong></p>
                     </div>
                     <form>
