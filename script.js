@@ -17,7 +17,7 @@ $(document).ready(function () {
         'opacity': '1',
         'transform': 'translateY(0)'
       });
-    }, 100 * (i + 1));
+    }, 400 * (i + 1));
   });
 });
 
