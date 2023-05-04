@@ -332,6 +332,7 @@ form.sign-in-form {
     font-size: 0.9rem;
     color: #444;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .username-input{
