@@ -238,7 +238,7 @@ h2 {
 }
 
 .unavailable {
-    border: 12px solid #EC7905;
+    border: 12px solid rgb(195, 51, 51);
 }
 
 .disabled {
@@ -247,7 +247,7 @@ h2 {
 }
 
 .selected {
-    border: 12px solid #FFC145;
+    border: 12px solid #EC7905;
     transform: scale(1.1);
     box-shadow: 0 0 3px #FFC145, 0 0 7px #FFC145, 0 0 12px #FFC145;
 }
@@ -255,7 +255,7 @@ h2 {
 .table-label-unavailable {
     width: 20px;
     height: 20px;
-    background-color: #EC7905;
+    background-color: rgb(195, 51, 51);
     display: inline-block;
 }
 
@@ -272,6 +272,6 @@ h2 {
 .table-label-selected {
     width: 20px;
     height: 20px;
-    background-color: #FFC145;
+    background-color: #EC7905;
     display: inline-block;
 }
