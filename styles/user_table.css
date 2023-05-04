@@ -212,11 +212,11 @@ h2{
   }
 
 .unavailable {
-    border: 12px solid red;
+    border: 12px solid rgb(190, 28, 28);
 }
 
 .disabled {
-    opacity: 0.5;
+    opacity: 0.8;
     pointer-events: none;
 }
 
@@ -229,7 +229,7 @@ h2{
 .table-label-unavailable{
     width: 20px;
     height: 20px;
-    background-color: red;
+    background-color: rgb(190, 28, 28);
     display: inline-block;
 }
 
