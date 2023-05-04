@@ -48,6 +48,7 @@ div.scrollmenu .menu {
 .menu-card {
   flex-basis: 10px;
   margin: 10px;
+  cursor: pointer;
 }
 
 @media (max-width: 1000px) {

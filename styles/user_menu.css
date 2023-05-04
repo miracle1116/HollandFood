@@ -193,10 +193,12 @@ html {
     background: #fe724c;
     color:#f1f1f1;
     box-shadow: 2px 2px 2px #f1f1f1;
+    cursor: pointer;
   }
 
   .menu-item{
     position: relative;
+    cursor: pointer;
   }
   
   .menu-item img{
@@ -225,6 +227,7 @@ html {
     top: 20;
     border-radius: 20px;
     margin-bottom: 20px;
+    cursor: pointer;
   }
   
   .border_menu:hover{
