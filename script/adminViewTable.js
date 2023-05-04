@@ -150,6 +150,7 @@ const details = document.querySelectorAll("#viewAllDetails");
 const viewDetailsModal = new bootstrap.Modal("#view-details-modal");
 
 details.forEach((detail) => {
+
   detail.addEventListener("click", () => {
     viewDetailsModal.show();
   });
