@@ -33,7 +33,7 @@ body{
 }
 
 .navbar-light .navbar-nav .nav-link{
-  color: black;
+  color: white;
   font-size: 18px;
   padding: 0px 35px 0px 10px;
 
@@ -548,4 +548,7 @@ html {
 .my-cart::-webkit-scrollbar-thumb {
   background-color: lightgray;
   border-radius: 100px;
+}
+.navbar-custom{
+  background-color: transparent;
 }
