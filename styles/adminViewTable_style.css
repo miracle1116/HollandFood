@@ -180,13 +180,12 @@
   }
 
   .rightBar{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: -300px;
     width: 300px;
     height: 100%;
     transition: right 0.5s ease-in-out;
-
   }
 
   .sidebar-toggle{
@@ -194,7 +193,6 @@
     transition: left 0.5s ease-in-out;
   }
 }
-
 
 @media (min-width: 1200px) {
   .sidebar{
