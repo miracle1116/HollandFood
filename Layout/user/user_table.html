@@ -294,7 +294,8 @@
 
     <script>
         const tableDivs = document.querySelectorAll('.table-all');
-        const selectedTable = document.getElementById('selectedTable');
+        const selectedTables = [];
+        // const selectedTable = document.getElementById('selectedTable');
         // customize the array here
         const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
 
@@ -305,13 +306,23 @@
                 div.classList.add('available');
             }
             div.addEventListener('click', () => {
-                // Remove 'selected' class from all divs
-                tableDivs.forEach((div) => {
-                    div.classList.remove('selected');
-                });
-                // Add 'selected' class to clicked div
-                div.classList.add('selected');
-                selectedTable.textContent = `Selected Table ID: ${div.textContent}`;
+                if (selectedTables.includes(div.textContent)) {
+                // If the table is already selected, remove it from the array and UI
+                    const index = selectedTables.indexOf(div.textContent);
+                    if (index > -1) {
+                    selectedTables.splice(index, 1);
+                    }
+                div.classList.remove('selected');
+                } else if (!div.classList.contains('unavailable')) {
+                // If the table is not selected and is not unavailable, add it to the array and UI
+                    selectedTables.push(div.textContent);
+                    div.classList.add('selected');
+                }
+                // Update the UI with the selected table IDs
+            const selectedTablesElement = document.getElementById('selectedTable');
+            selectedTable.textContent = `Selected Table IDs: ${selectedTables.join(',')}`;
+        
+
             });
         });
 
@@ -324,6 +335,39 @@
 
 
     </script>
+
+<!-- <script>
+    const tableDivs = document.querySelectorAll('.table-all');
+    const selectedTable = document.getElementById('selectedTable');
+    // customize the array here
+    const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
+
+    tableDivs.forEach((div, index) => {
+        if (borderColors[index] === 1) {
+            div.classList.add('unavailable', 'disabled');
+        } else if (borderColors[index] === 0) {
+            div.classList.add('available');
+        }
+        div.addEventListener('click', () => {
+            // Remove 'selected' class from all divs
+            tableDivs.forEach((div) => {
+                div.classList.remove('selected');
+            });
+            // Add 'selected' class to clicked div
+            div.classList.add('selected');
+            selectedTable.textContent = `Selected Table ID: ${div.textContent}`;
+        });
+    });
+
+    var modalLogout = new bootstrap.Modal("#logout-modal");
+    var logoutButton = document.getElementById('logoutBtn');
+    logoutButton.addEventListener("click", function () {
+    console.log(1);
+    modalLogout.show();
+     });
+
+
+</script> -->
 
 </body>
 
