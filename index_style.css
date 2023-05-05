@@ -107,6 +107,10 @@ body {
   width: 100%;
 }
 
+.dropdown-item{
+  text-shadow: none;
+}
+
 /* header */
 
 header {
