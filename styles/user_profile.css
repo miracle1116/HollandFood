@@ -63,7 +63,7 @@
 
 
 .bg-img {
-    height: 40vh;
+    height: 50vh;
     width: 100vw;
     object-fit: cover;
     filter: brightness(0.7);
@@ -76,7 +76,7 @@
 
 body{
     background-color: #130D25;
-
+    overflow-x: hidden;
 
 }
 
@@ -102,9 +102,6 @@ body{
   margin-left: 16px;
   margin-top: 20px;
 }
-
-
-
 
 .save-btn{
     width: 100px;
@@ -157,15 +154,16 @@ body{
     
 }
 
-
-
-
 .form-box{
   position: relative;
   margin-top: 90px;
   background-color: #fff;
   
-  
+}
+
+.input::placeholder {
+    opacity: 0.7;
+    color: grey;
 }
 
 .input{
@@ -186,13 +184,15 @@ body{
   color: #fe724c;
 }
 
+#edit-icon:hover{
+    cursor: pointer;
+}
 
 .profile-image {
   border-radius: 50%;
   width: 170px; /* adjust the width and height to fit your layout */
   height: 170px;
 }
-
 
 .modal-confirm {		
 	color: #636363;
