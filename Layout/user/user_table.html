@@ -306,16 +306,18 @@
                 div.classList.add('available');
             }
             div.addEventListener('click', () => {
-                if (selectedTables.includes(div.textContent)) {
+                const strongElement = div.querySelector('strong');
+                const tableId = strongElement.textContent;
+                if (selectedTables.includes(tableId)) {
                 // If the table is already selected, remove it from the array and UI
-                    const index = selectedTables.indexOf(div.textContent);
+                    const index = selectedTables.indexOf(tableId);
                     if (index > -1) {
                     selectedTables.splice(index, 1);
                     }
                 div.classList.remove('selected');
                 } else if (!div.classList.contains('unavailable')) {
                 // If the table is not selected and is not unavailable, add it to the array and UI
-                    selectedTables.push(div.textContent);
+                    selectedTables.push(tableId);
                     div.classList.add('selected');
                 }
                 // Update the UI with the selected table IDs
