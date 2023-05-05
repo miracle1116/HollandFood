@@ -95,7 +95,7 @@ div.scrollmenu .menu {
   flex: 0 0 auto; /* Disable flex-grow and flex-shrink */
   width: 120px; /* Set a fixed width for each item */
   border-radius: 20px;
-  transition: 1s;
+  transition: 0.3s;
   padding: 0 20px;
   margin: 15px 15px;
   text-align: center;

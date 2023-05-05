@@ -265,7 +265,7 @@ h2 {
     background-color: #54CA94;
     display: inline-block;
 }
-.table-available:hover{
+.available:hover{
     transform: scale(1.1);
 }
 
