@@ -64,3 +64,20 @@ password.addEventListener('input', () => {
     // Click the file input element to open the file dialog box
     fileInput.click();
   });
+
+  var modalSubmit = new bootstrap.Modal("#submit-modal");
+  var submitButton = document.getElementById('submitBtn');
+
+
+  submitButton.addEventListener("click", function () {
+      console.log(1);
+      modalSubmit.show();
+  });
+
+  
+  var modalDelete = new bootstrap.Modal("#delete-modal");
+  var deleteButton = document.getElementById('deleteBtn');
+  deleteButton.addEventListener("click", function () {
+      console.log(1);
+      modalDelete.show();
+  });
