@@ -304,6 +304,6 @@ body{
 	border: none;
 }
 .modal-confirm .btn2:hover, .modal-confirm .btn2:focus {
-	background:red;
+	background:orangered;
 	outline: none;
 }
