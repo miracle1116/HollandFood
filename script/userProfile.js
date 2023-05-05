@@ -83,7 +83,9 @@ password.addEventListener('input', () => {
       modalDelete.show();
   });
 
-  var closeBtn= document.querySelector(".close-icon");
-  closeBtn.addEventListener('click',function(){
-    console.log(12);
+  var modalLogout = new bootstrap.Modal("#logout-modal");
+  var logoutButton = document.getElementById('logoutBtn');
+  logoutButton.addEventListener("click", function () {
+      console.log(1);
+      modalLogout.show();
   });

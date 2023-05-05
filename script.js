@@ -117,3 +117,12 @@ menuCards.forEach((card) => {
     }, 300);
   });
 });
+
+
+// logout modal
+var modalLogout = new bootstrap.Modal("#logout-modal");
+var logoutButton = document.getElementById('logoutBtn');
+logoutButton.addEventListener("click", function () {
+    console.log(1);
+    modalLogout.show();
+});
