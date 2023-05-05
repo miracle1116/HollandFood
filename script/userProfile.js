@@ -1,3 +1,4 @@
+
 const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirmpassword');
 const tick = document.getElementById('tick');
@@ -74,10 +75,15 @@ password.addEventListener('input', () => {
       modalSubmit.show();
   });
 
-  
+
   var modalDelete = new bootstrap.Modal("#delete-modal");
   var deleteButton = document.getElementById('deleteBtn');
   deleteButton.addEventListener("click", function () {
       console.log(1);
       modalDelete.show();
+  });
+
+  var closeBtn= document.querySelector(".close-icon");
+  closeBtn.addEventListener('click',function(){
+    console.log(12);
   });

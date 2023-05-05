@@ -208,6 +208,7 @@ h2{
 	color: #636363;
 	width: 325px;
 	font-size: 14px;
+  position: relative;
 }
 .modal-confirm .modal-content {
 	padding: 20px;
@@ -279,3 +280,4 @@ h2{
 	display: inline-block;
 	margin: 100px auto;
 }
+
