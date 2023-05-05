@@ -5,6 +5,7 @@
 body{
     background-color: #130D25;
     padding-bottom: 20px;
+    overflow-x: hidden;
 }
 
 /* Color of the links BEFORE scroll */
@@ -160,6 +161,11 @@ h2{
 .icon {
     font-size: 1.7rem; /* Change this value to adjust the size */
     color: #fe724c;
+  }
+
+  .input::placeholder{
+    opacity: 0.7;
+    color: grey;
   }
 
 .ordered-food{
