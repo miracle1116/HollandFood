@@ -1,15 +1,13 @@
 <?php 
-$DBHost= 'localhost';
-$DBName = 'lab9';
-$DBUserName= 'root';
-$DBPassword = '';
+$host = "localhost";
+$database = "holland-food";
+$user = "root";
+$pass = "";
 
-try {
-    $conn = new PDO("mysql:host=$DBHost;dbname=lab9", $DBUserName, $DBPassword);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-  } catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-  }
+$conn = mysqli_connect($host, $user, $pass, $database);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 ?>
