@@ -7,10 +7,8 @@
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/styles/user_sign_InOut.css" />
-    
-
-    <title>Sign in & Sign up Form</title>
+    <link rel="stylesheet"  href="../../styles/user_sign_InOut.css" />
+    <title>Sign in s& Sign up Form</title>
   </head>
   <body>
     <div class="container">
@@ -34,7 +32,7 @@
           </form>
 
           <!-- Sign up form -->
-          <form action="/auth/register" method="POST" class="sign-up-form">
+          <form action="signup.php" method="POST" class="sign-up-form">
             <h2 class="title">Create Your Account</h2>
             <h4>As a Foodie</h4>
             <div class="input-field username-input">
@@ -54,7 +52,7 @@
               <input type="password" id = "confirmPassword" name="passwordConfirm" placeholder="Confirm Password" />
             </div>
             <span id="error-signup" class="error"></span> 
-            <button type="submit" class="btn signup-sub">Sign Up</button>
+            <button type="submit" name="submit" class="btn signup-sub">Sign Up</button>
           </form>
         </div>
       </div>
@@ -71,7 +69,7 @@
               Sign up
             </button>
           </div>
-          <img src="/images/login-img.png" class="image" alt="" />
+          <img src="../../images/login-img.png" class="image" alt="" />
         </div>
         <div class="panel right-panel">
           <div class="content content3">
@@ -83,12 +81,10 @@
               Sign in
             </button>
           </div>
-          <img src="/images/login-img3.png" class="image" alt="" />
+          <img src="../../images/login-img3.png" class="image" alt="" />
         </div>
       </div>
     </div>
-    <script>
-    </script>
-    <script src="/script/userSignInUp.js"></script>
+    <script src="../../script/userSignInUp.js"></script>
   </body>
 </html>
