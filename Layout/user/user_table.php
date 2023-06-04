@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
     <!-- external css stylesheet -->
-    <link rel="stylesheet" href="/styles/user_table.css">
-    <link rel="stylesheet" href="/styles/user_progress.css">
-    <link rel="stylesheet" href="/styles/user_all_style.css">
+    <link rel="stylesheet" href="../..//styles/user_table.css">
+    <link rel="stylesheet" href="../..//styles/user_progress.css">
+    <link rel="stylesheet" href="../..//styles/user_all_style.css">
 
     <!-- Include Bootsrap JavaScript plugin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -98,12 +98,12 @@
 
     <div class="mt-5 container justify-content-center">
         <!-- search bar -->
-        <form>
+        <form action="../../backend/user/selectTable.php" method="POST">
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-sm-3 col-md-3 col-3 ">
                     <label class="fw-bold label" for="date">Select Date:</label>
                     <div class="input-group">
-                        <input type="date" class="form-control input" id="date" aria-describedby="emailHelp"
+                        <input type="date" name="date" class="form-control input" id="date" aria-describedby="emailHelp"
                             placeholder="Enter email">
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                 </div>
 
                 <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
-                    <button id="searchBtn" class="rounded-pill button-shape mt-4" type="submit">Search</button>
+                    <button id="searchBtn" name="search"class="rounded-pill button-shape mt-4" type="submit">Search</button>
                 </div>
             </div>
         </form>
