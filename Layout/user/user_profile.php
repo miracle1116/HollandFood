@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
     <!-- external css stylesheet -->
-    <link rel="stylesheet" href="/styles/user_profile.css">
+    <link rel="stylesheet" href="../..//styles/user_profile.css">
 
 
     <!-- Include Bootsrap JavaScript plugin -->
@@ -32,7 +37,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="/index2.html"><img src="/images/holland_food_icon.png"
+                <a class="navbar-brand fw-bold" href="../../index.php"><img src="../../images/holland_food_icon.png"
                         width="35px" />
                     Holland Food</a>
                 <!-- hamburger icon when screen size become small -->
@@ -44,31 +49,39 @@
                 <div class="collapse navbar-collapse " id="navbarText">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mt-3">
                         <li class="nav-item active">
-                            <a class="nav-link active nav-link-underline" aria-current="page" href="/index2.html#home">Home</a>
+                            <a class="nav-link active nav-link-underline" aria-current="page" href="../../index.php#home">Home</a>
                         </li>
     
                         <li class="nav-item active">
-                            <a class="nav-link nav-link-underline" href="/index2.html#aboutUs">About Us</a>
+                            <a class="nav-link nav-link-underline" href="../../index.php#aboutUs">About Us</a>
                         </li>
     
                         <li class="nav-item active">
-                            <a class="nav-link nav-link-underline" href="/index2.html#menu">Menu</a>
+                            <a class="nav-link nav-link-underline" href="../../index.php#menu">Menu</a>
                         </li>
     
                         <li class="nav-item active">
-                            <a class="nav-link active nav-link-underline" href="/index2.html#bookNow">Book Now</a>
+                            <a class="nav-link active nav-link-underline" href="../../index.php#bookNow">Book Now</a>
                         </li>
     
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="/images/profile-icon.png" width="40" height="40" class="rounded-circle">
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/Layout/user/user_profile.html">Edit Profile</a>
-                                <a id="logoutBtn" class="dropdown-item" >Log Out</a>
-                              </div>
-                        </li>
+                        <?php
+                            if(isset($_SESSION["userID"])){
+                                echo"<li class='nav-item dropdown'>
+                                <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button'
+                                data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                <img src='../../images/profile-icon.png' width='40' height='40' class='rounded-circle'>
+                                </a>
+                                <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
+                                <a class='dropdown-item' href='Layout/user/user_profile.php'>Edit Profile</a>
+                                <a href='../../backend/user/logout.php' id='logoutBtn' class='dropdown-item' >Log Out</a>
+                                </div>
+                            </li>";
+                            }else{
+                                echo"<li class='nav-item'>
+                                <a class='nav-link' href='user_sign_InOut.php'><button class='btn-sign-up'>LOGIN</button></a>
+                            </li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -77,20 +90,18 @@
     
     
     <div class="d-flex container-fluid profile-back justify-content-center">
-        <img class="bg-img " src="/images/user_login_background.png" alt="Background Image">
+        <img class="bg-img " src="../../images/user_login_background.png" alt="Background Image">
         <div class=" container justify-content-center profile-con">
             <div>
                 <div class="container justify-content-center text-center profile-con position-relative">
                     <div>
-                        <img src="/images/profile-icon-blue.png" id="profile-image" class="mx-auto profile-image">
+                        <img src="../../images/profile-icon-blue.png" id="profile-image" class="mx-auto profile-image">
                         <i class="bi bi-pencil-square position-absolute bottom-0 icon" id="edit-icon"></i>
                       </div>
                   </div>
             </div>  
         </div>
         <div class="container justify-content-center  profile-box w-50 mb-5">
-            
-            
             <div class="justify-content-center container form-box">
                 <form class="form">
                     <div class="row justify-content-center" >

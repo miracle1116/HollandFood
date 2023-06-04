@@ -43,7 +43,7 @@
     <!-- nav bar -->
     <nav id="home" class="navbar navbar-expand-lg navbar-light animation-on-load">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="/index.html"><img src="images/holland_food_icon.png" width="35px" />
+        <a class="navbar-brand fw-bold" href="index.php"><img src="images/holland_food_icon.png" width="35px" />
           Holland Food</a>
         <!-- hamburger icon when screen size become small -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -77,7 +77,7 @@
                   <img src='images/profile-icon.png' width='40' height='40' class='rounded-circle'>
                 </a>
                 <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
-                  <a class='dropdown-item' href='/Layout/user/user_profile.html'>Edit Profile</a>
+                  <a class='dropdown-item' href='Layout/user/user_profile.php'>Edit Profile</a>
                   <a href='backend/user/logout.php' id='logoutBtn' class='dropdown-item' >Log Out</a>
                 </div>
               </li>";
