@@ -1,7 +1,7 @@
 <?php
 
 function emptyInputSignUp($name,$email, $password, $passwordConfirm){
-    $result;
+    $result= true;
     if(empty($name)|| empty($email)||empty($password)||empty($passwordConfirm)){
         $result = true;
     }else{
@@ -12,7 +12,7 @@ function emptyInputSignUp($name,$email, $password, $passwordConfirm){
 }
 
 function invalidEmail($email){
-    $result;
+    $result= true;
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $result = true;
     }else{
@@ -23,7 +23,7 @@ function invalidEmail($email){
 }
 
 function pwdMatch($password,$passwordConfirm){
-    $result;
+    $result= true;
     if($password!=$passwordConfirm){
         $result = true;
     }else{
