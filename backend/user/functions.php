@@ -37,7 +37,7 @@ function userExists($conn, $email){
     $sql = "SELECT * FROM users WHERE userEmail=?;";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: user_sign_InOut.php?error=stmt");
+        header("location: ../../Layout/user/user_sign_InOut.php?error=stmtfailed");
         exit();
     }
 
@@ -59,7 +59,7 @@ function createUser($conn, $name, $email, $password){
     $sql = "INSERT INTO users (userFirstName, userLastName, userEmail, userPassword, userContactNo, userBirthDate, userGender, userProfilePic) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: user_sign_InOut.php?error=stmtfailed");
+        header("location: ../../Layout/user/user_sign_InOut.php?error=stmtfailed");
         exit();
     }
 
@@ -69,6 +69,41 @@ function createUser($conn, $name, $email, $password){
     mysqli_stmt_bind_param($stmt, "ssssssss", $name, $dash, $email, $hashedPwd, $dash, $dash, $dash, $profilePic);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: user_sign_InOut.php?error=none");
+    header("location: ../../Layout/user/user_sign_InOut.php?error=none");
     exit();
 }
+
+function emptyInputLogin($email,$password){
+    $result= true;
+    if(empty($email)||empty($password)){
+        $result = true;
+    }else{
+        $result = false;
+    }
+
+    return $result;
+}
+
+function loginUser($conn, $email, $password){
+   $userExists = userExists($conn, $email);
+
+   if($userExists ===false){
+    header("location: ../../Layout/user/user_sign_InOut.php?error=userNotExists");
+    exit();
+   }
+   $hashedPwd = $userExists['userPassword'];
+   $checkPassword = password_verify($password,$hashedPwd);
+
+   if($checkPassword===false){
+    header("location: ../../Layout/user/user_sign_InOut.php?error=wrongpassword");
+    exit();
+   }
+   else if($checkPassword===true){
+    session_start();
+    $_SESSION["userID"]= $userExists["userID"];
+    $_SESSION["userName"]= $userExists["userFirstName"];
+    header("location: ../../index.php");
+    exit();
+   }
+}
+

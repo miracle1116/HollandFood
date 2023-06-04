@@ -1,5 +1,7 @@
 <!-- NO FIXED TOP -->
-
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,9 +69,25 @@
               <a class="nav-link nav-link-underline" href="#bookNow">Book Now</a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="/login"><button class="btn-sign-up">LOGIN</button></a>
-            </li>
+            <?php
+              if(isset($_SESSION["userID"])){
+                echo"<li class='nav-item dropdown'>
+                <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button'
+                  data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                  <img src='images/profile-icon.png' width='40' height='40' class='rounded-circle'>
+                </a>
+                <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
+                  <a class='dropdown-item' href='/Layout/user/user_profile.html'>Edit Profile</a>
+                  <a href='backend/user/logout.php' id='logoutBtn' class='dropdown-item' >Log Out</a>
+                </div>
+              </li>";
+              }else{
+                echo"<li class='nav-item'>
+                <a class='nav-link' href='Layout/user/user_sign_InOut.php'><button class='btn-sign-up'>LOGIN</button></a>
+              </li>";
+              }
+            ?>
+
           </ul>
         </div>
       </div>

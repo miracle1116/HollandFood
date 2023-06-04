@@ -15,7 +15,7 @@
       <div class="forms-container">
         <div class="signin-signup">
           <!-- Sign in form -->
-          <form action="/auth/login" method="POST" class="sign-in-form">
+          <form action="../../backend/user/login.php" method="POST" class="sign-in-form">
             <h2 class="title">Hello Again!</h2>
             <h4>Welcome Back</h4>
             <div class="input-field username-input">
@@ -26,13 +26,25 @@
               <i class="fas fa-lock"></i>
               <input type="password" id="password" name="password" placeholder="Password" />
             </div>
-            <span id="error" class="error"></span> 
-            <input type="submit" value="Login" class="btn login-sub solid"/>
+            <?php
+            if(isset($_GET["error"])){
+              if($_GET["error"]=="emptylogininput"){
+                echo "<p style=\"color: red;\">Fill in all fields!</p>";
+              }
+              else if($_GET["error"]=="userNotExists"){
+                echo "<p style=\"color: red;\">The email have not registered!</p>";
+              }
+              else if($_GET["error"]=="wrongpassword"){
+                echo "<p style=\"color: red;\">Please re-enter your password!</p>";
+              }
+            }
+            ?>
+            <input type="submit" name="submit" value="Login" class="btn login-sub solid"/>
             <a><p class="forgot-password">Forgot Password</p></a>
           </form>
 
           <!-- Sign up form -->
-          <form action="signup.php" method="POST" class="sign-up-form">
+          <form action="../../backend/user/signup.php" method="POST" class="sign-up-form" >
             <h2 class="title">Create Your Account</h2>
             <h4>As a Foodie</h4>
             <div class="input-field username-input">
@@ -51,6 +63,25 @@
               <i class="fas fa-lock"></i>
               <input type="password" id = "confirmPassword" name="passwordConfirm" placeholder="Confirm Password" />
             </div>
+            <?php
+            if(isset($_GET["error"])){
+              if($_GET["error"]=="emptyinput"){
+                echo "<p style=\"color: red;\">Fill in all fields!</p>";
+              }
+              else if($_GET["error"]=="emailused"){
+                echo "<p style=\"color: red;\">The email is used!</p>";
+              }
+              else if($_GET["error"]=="passworddonotmatch"){
+                echo "<p style=\"color: red;\">Password do not match!</p>";
+              }
+              else if($_GET["error"]=="stmtfailed"){
+                echo "<p style=\"color: red;\">Something went wrong!</p>";
+              }
+              else if($_GET["error"]=="none"){
+                echo "<p style=\"color: red;\">You have signed up!</p>";
+              }
+            }
+            ?>
             <span id="error-signup" class="error"></span> 
             <button type="submit" name="submit" class="btn signup-sub">Sign Up</button>
           </form>

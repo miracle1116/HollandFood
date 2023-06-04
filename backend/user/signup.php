@@ -22,19 +22,19 @@
         $passwordConfirm =$_POST["passwordConfirm"];
 
         if(emptyInputSignUp($name,$email, $password, $passwordConfirm)!==false){
-            header("location: user_sign_InOut.php?error=emptyinput");
+            header("location: ../../Layout/user/user_sign_InOut.php?error=emptyinput");
             exit();
         }
         if(invalidEmail($email)!==false){
-            header("location: user_sign_InOut.php?error=invalidEmail");
+            header("location: ../../Layout/user/user_sign_InOut.php?error=invalidEmail");
             exit();
         }
         if(pwdMatch($password,$passwordConfirm)!==false){
-            header("location: user_sign_InOut.php?error=passworddonotmatch");
+            header("location: ../../Layout/user/user_sign_InOut.php?error=passworddonotmatch");
             exit();
         }
         if(userExists($conn, $email)!==false){
-            header("location: user_sign_InOut.php?error=emailused");
+            header("location: ../../Layout/user/user_sign_InOut.php?error=emailused");
             exit();
         }
 
@@ -43,7 +43,7 @@
 
 
     }else{
-        header("location: user_sign_InOut.php");
+        header("location: ../../Layout/user/user_sign_InOut.php");
     }
 
 ?>
