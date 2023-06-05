@@ -24,7 +24,6 @@ if(isset($_POST["submit"])){
     }
 
     loginUser($conn, $email, $password);
-    echo"dfsd";
 }
 else{
     header("location: ../../Layout/user/user_sign_InOut.php");
