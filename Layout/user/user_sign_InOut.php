@@ -29,13 +29,13 @@
             <?php
             if(isset($_GET["error"])){
               if($_GET["error"]=="emptylogininput"){
-                echo "<p style=\"color: red;\">Fill in all fields!</p>";
+                echo "<p style=\"color: red; font-size: small;\">Fill in all fields!</p>";
               }
               else if($_GET["error"]=="userNotExists"){
-                echo "<p style=\"color: red;\">The email have not registered!</p>";
+                echo "<p style=\"color: red; font-size: small;\">The email have not registered!</p>";
               }
               else if($_GET["error"]=="wrongpassword"){
-                echo "<p style=\"color: red;\">Please re-enter your password!</p>";
+                echo "<p style=\"color: red; font-size: small;\">Please re-enter your password!</p>";
               }
             }
             ?>
