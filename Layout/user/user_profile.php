@@ -75,7 +75,7 @@ session_start();
                                 </a>
                                 <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
                                 <a class='dropdown-item' href='user_profile.php'>Edit Profile</a>
-                                <a  id='logoutBtn' class='dropdown-item' >Log Out</a>
+                                <a id='logoutBtn' class='dropdown-item' >Log Out</a>
                                 </div>
                             </li>";
                             }else{
@@ -243,7 +243,7 @@ session_start();
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
                     <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'index.php';">Cancel</button>
-                    <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = 'backend/user/logout.php';">Confirm</button>
+                    <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = '../../backend/user/logout.php';">Confirm</button>
                 </div>
             </div>
         </div>
@@ -270,6 +270,14 @@ session_start();
     //   }
     
     ?>
+    <script>
+        var modalLogout = new bootstrap.Modal("#logout-modal");
+        var logoutButton = document.getElementById('logoutBtn');
+        logoutButton.addEventListener("click", function () {
+            console.log(1);
+            modalLogout.show();
+        });
+  </script>
     <script type="text/javascript" src="../../script/userProfile.js"></script>
 
       
