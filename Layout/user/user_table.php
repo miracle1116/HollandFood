@@ -296,7 +296,7 @@
         const searchBtn = document.getElementById("searchBtn");
 
         searchBtn.addEventListener("click", function(event) {
-        event.preventDefault(); // prevent page from reloading
+        //event.preventDefault(); // prevent page from reloading
         // Your search code goes here
         });
         const tableDivs = document.querySelectorAll('.table-all');
