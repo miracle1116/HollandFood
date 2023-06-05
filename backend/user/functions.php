@@ -66,7 +66,7 @@ function createUser($conn, $name, $email, $password){
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
     $dash='-';
     $date = 'yyyy-mm-dd';
-    $profilePic = 'images/profilePic.png';
+    $profilePic = '../../images/profilePic.png';
     mysqli_stmt_bind_param($stmt, "ssssssss", $name, $dash, $email, $hashedPwd, $dash, $date, $dash, $profilePic);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
