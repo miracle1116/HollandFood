@@ -166,7 +166,7 @@ session_start();
                     <!-- idk why this cannot put inside the form -->
                     <div class="container row justify-content-center  mt-5 pb-3">
                         <div class="col col-lg-4 col-md-5 col-sm-5 ">
-                            <button id="deleteBtn" class="rounded-pill btn btn-md  btn-outline-danger">Delete Account</button>
+                            <button type="button" id="deleteBtn" class="rounded-pill btn btn-md  btn-outline-danger">Delete Account</button>
                         </div>
                         <div class="col col-lg-2 ">
 
@@ -222,8 +222,8 @@ session_start();
                     <p class="text-center">You are deleting your account.</p>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
-                    <button id="btn-cancel" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'user_profile.html';">Cancel</button>
-                    <button id="okBtn" class="btn2 btn-success btn-block p-2" data-dismiss="modal" onclick="location.href = '/index.html';">Confirm</button>
+                    <button id="btn-cancel" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'user_profile.php';">Cancel</button>
+                    <button id="okBtn" class="btn2 btn-success btn-block p-2" data-dismiss="modal" onclick="location.href = '../../backend/user/deleteUser.php';">Confirm</button>
                 </div>
             </div>
         </div>
@@ -242,7 +242,7 @@ session_start();
                     <p class="text-center">You are loging out your account!</p>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
-                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'index.php';">Cancel</button>
+                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'user_profile.php';">Cancel</button>
                     <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = '../../backend/user/logout.php';">Confirm</button>
                 </div>
             </div>
@@ -277,9 +277,49 @@ session_start();
             console.log(1);
             modalLogout.show();
         });
+
+        var modalDelete = new bootstrap.Modal("#delete-modal");
+        var deleteButton = document.getElementById('deleteBtn');
+        deleteButton.addEventListener("click", function () {
+            console.log(1);
+            modalDelete.show();
+        });
+
   </script>
     <script type="text/javascript" src="../../script/userProfile.js"></script>
 
+<?php
+session_start();
+if(!isset($_SESSION["userID"])){
+  echo" <div id=\"authorized-modal\" class=\"modal fade\" data-backdrop=\"static\" data-keyboard=\"false\">
+  <div class=\"modal-dialog modal-confirm\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <div class=\"icon-box2\">
+          <i class=\"bi bi-x-lg\"></i>
+        </div>
+        <h4 class=\"modal-title w-100\">Unauthorized Access!</h4>
+      </div>
+      <div class=\"modal-body\">
+        <p class=\"text-center\">Please Login</p>
+      </div>
+      <div class=\"modal-footer\">
+        <button id=\"okBtn\" class=\"btn2 btn-success btn-block p-2\" onclick=\"redirectToLogin()\">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var modalAuthorized = new bootstrap.Modal(document.getElementById('authorized-modal'));
+  modalAuthorized.show();
+  
+  function redirectToLogin() {
+    location.href = 'user_sign_InOut.php';
+  }
+</script>
+";}
+
+?>
       
     
 </body>
