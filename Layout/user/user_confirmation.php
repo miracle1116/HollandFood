@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+$_SESSION["reservationDate"]= "06-06-2023";
+$_SESSION["reservationTime"]= "8:00am -9:00am";
+$_SESSION["tableNo"]= "5";
+$_SESSION["noOfPax"]= "6";
+$_SESSION["orderedFood"]= "1,2,3,4,5";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +25,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
     <!-- external css stylesheet -->
-    <link rel="stylesheet" href="/styles/user_confirmation.css">
-    <link rel="stylesheet" href="/styles/user_progress.css">
-    <link rel="stylesheet" href="/styles/user_all_style.css">
+    <link rel="stylesheet" href="../../styles/user_confirmation.css">
+    <link rel="stylesheet" href="../../styles/user_progress.css">
+    <link rel="stylesheet" href="../../styles/user_all_style.css">
 
     <!-- Include Bootsrap JavaScript plugin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -34,7 +44,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="/index2.html"><img src="/images/holland_food_icon.png"
+                <a class="navbar-brand fw-bold" href="../../index.php"><img src="../../images/holland_food_icon.png"
                         width="35px" />
                     Holland Food</a>
                 <!-- hamburger icon when screen size become small -->
@@ -46,31 +56,39 @@
                 <div class="collapse navbar-collapse " id="navbarText">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mt-3">
                         <li class="nav-item active">
-                            <a class="nav-link active nav-link-underline" aria-current="page" href="/index2.html#home">Home</a>
+                            <a class="nav-link active nav-link-underline" aria-current="page" href="../../index.php#home">Home</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link nav-link-underline" href="/index2.html#aboutUs">About Us</a>
+                            <a class="nav-link nav-link-underline" href="../../index.php#aboutUs">About Us</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link nav-link-underline" href="/index2.html#menu">Menu</a>
+                            <a class="nav-link nav-link-underline" href="../../index.php#menu">Menu</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link active nav-link-underline" href="/index2.html#bookNow">Book Now</a>
+                            <a class="nav-link active nav-link-underline" href="../../index.php#bookNow">Book Now</a>
                         </li>
 
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="/images/profile-icon.png" width="40" height="40" class="rounded-circle">
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/Layout/user/user_profile.html">Edit Profile</a>
-                                <a class="dropdown-item" id="logoutBtn">Log Out</a>
-                              </div>
-                        </li>
+                        <?php
+                            if(isset($_SESSION["userID"])){
+                                echo"<li class='nav-item dropdown'>
+                                <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button'
+                                data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                <img src='". $_SESSION['userProfilePic']."' width='40' height='40' class='rounded-circle'>
+                                </a>
+                                <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
+                                <a class='dropdown-item' href='user_profile.php'>Edit Profile</a>
+                                <a id='logoutBtn' class='dropdown-item' >Log Out</a>
+                                </div>
+                            </li>";
+                            }else{
+                                echo"<li class='nav-item'>
+                                <a class='nav-link' href='user_sign_InOut.php'><button class='btn-sign-up'>LOGIN</button></a>
+                            </li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -104,25 +122,25 @@
         <div class="col-10 col-lg-3 col-md-3 col-sm-10 justify-content-center bg-white rounded-5 p-3"
             style="height: fit-content;">
             <div class="text-center justify-content-center">
-                <img src="/images/profile-icon-blue.png " width="120px">
+                <img src="<?php echo $_SESSION['userProfilePic']?>" width="120px">
             </div>
 
             <div class="justify-content-center p-lg-5 p-md-3 p-sm-1">
                 <div class="form-group mt-3">
                     <label class="fw-bold" for="username">Name</label>
-                    <input type="text" class="form-control input input-border" id="username" placeholder="John Wick">
+                    <input type="text" class="form-control input input-border" id="username" placeholder="John Wick"  value="<?php echo $_SESSION['userFirstName']?>">
                 </div>
 
                 <div class="form-group mt-3">
                     <label class="fw-bold" for="email">Email</label>
                     <input type="email" class="form-control input input-border" id="email"
-                        placeholder="example@gmail.com">
+                        placeholder="example@gmail.com" value="<?php echo $_SESSION['userEmail']?>">
                 </div>
 
                 <div class="form-group mt-3 mb-5">
                     <label class="fw-bold" for="contactnumber">Contact Number</label>
                     <input type="text" class="form-control input input-border" id="contactnumber"
-                        placeholder="0123456789">
+                        placeholder="0123456789" value="<?php echo $_SESSION['userContactNo']?>">
                 </div>
 
 
@@ -151,7 +169,7 @@
                         <span><i class="bi bi-calendar-fill icon"></i></span>
                     </div>
                     <div class="ms-3" style="display: inline-block;">
-                        <p class=""><strong>Date:</strong></br><small>21 - 04 - 2023</small></p>
+                        <p class=""><strong>Date:</strong></br><small><?php echo $_SESSION['reservationDate']?></small></p>
                     </div>
                 </div>
 
@@ -160,7 +178,7 @@
                         <span><i class="bi bi-clock-fill icon"></i></span>
                     </div>
                     <div class="ms-3" style="display: inline-block;">
-                        <p class=""><strong>Time:</strong></br><small>8:00am - 9:00am</small></p>
+                        <p class=""><strong>Time:</strong></br><small><?php echo $_SESSION['reservationTime']?></small></p>
                     </div>
                 </div>
 
@@ -169,10 +187,10 @@
             <div class="row ms-3 mt-lg-3 mt-md-2 mt-sm-1">
                 <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center ">
                     <div class="" style="display: inline-block;">
-                        <span><i class="icon"><img src="/images/coffee-table 1.png" width="35px"> </i></span>
+                        <span><i class="icon"><img src="../../images/coffee-table 1.png" width="35px"> </i></span>
                     </div>
                     <div class="ms-2" style="display: inline-block;">
-                        <p class=""><strong>Table No:</strong><small> 5</small></p>
+                        <p class=""><strong>Table No:</strong><small> <?php echo $_SESSION['tableNo']?></small></p>
                     </div>
                 </div>
 
@@ -181,7 +199,7 @@
                         <span><i class="bi bi-person-fill icon"></i></span>
                     </div>
                     <div class="ms-3" style="display: inline-block;">
-                        <p class=""><strong>No of Pax:</strong><small> 6</small></p>
+                        <p class=""><strong>No of Pax:</strong><small> <?php echo $_SESSION['noOfPax']?></small></p>
                     </div>
                 </div>
 
@@ -190,7 +208,7 @@
             <div class="row ms-3 mt-lg-3 mt-md-2 mt-sm-1">
                 <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center ">
                     <div class="" style="display: inline-block;">
-                        <span><i class="icon"><img src="/images/eating-utensils 1.png" width="35px"> </i></span>
+                        <span><i class="icon"><img src="../../images/eating-utensils 1.png" width="35px"> </i></span>
                     </div>
                     <div class="ms-2" style="display: inline-block;">
                         <p class="strong"><strong>Ordered Food:</strong></p>
@@ -244,7 +262,7 @@
 
                 <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center mt-2 mt-sm-2 mt-md-0 mt-lg-0">
                     <div class="" style="display: inline-block;">
-                        <span><i class="icon"><img src="/images/note.png" width="25px"></i></span>
+                        <span><i class="icon"><img src="../../images/note.png" width="25px"></i></span>
                     </div>
                     <div class="ms-3" style="display: inline-block;">
                         <p class=""><strong>Note: </strong></p>
@@ -298,8 +316,8 @@
                     <p class="text-center">You are loging out your account!</p>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
-                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'user_confirmation.html';">Cancel</button>
-                    <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = '/index.html';">Confirm</button>
+                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'user_confirmation.php';">Cancel</button>
+                    <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = '../../backend/user/logout.php';">Confirm</button>
                 </div>
             </div>
         </div>
@@ -324,7 +342,39 @@
 
     </script>
 
+    <?php
+        session_start();
+        if(!isset($_SESSION["userID"])){
+        echo" <div id=\"authorized-modal\" class=\"modal fade\" data-backdrop=\"static\" data-keyboard=\"false\">
+        <div class=\"modal-dialog modal-confirm\">
+            <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <div class=\"icon-box\">
+                <i class=\"bi bi-x-lg\"></i>
+                </div>
+                <h4 class=\"modal-title w-100\">Unauthorized Access!</h4>
+            </div>
+            <div class=\"modal-body\">
+                <p class=\"text-center\">Please Login</p>
+            </div>
+            <div class=\"modal-footer\">
+                <button id=\"okBtn\" class=\"btn2 btn-success btn-block p-2\" onclick=\"redirectToLogin()\">Confirm</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <script>
+        var modalAuthorized = new bootstrap.Modal(document.getElementById('authorized-modal'));
+        modalAuthorized.show();
+        
+        function redirectToLogin() {
+            location.href = 'user_sign_InOut.php';
+        }
+        </script>
+        ";}
 
+    ?>
+      
 </body>
 
 </html>
