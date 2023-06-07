@@ -71,14 +71,15 @@
 
             <?php
               if(isset($_SESSION["userID"])){
+                $profilePic= substr($_SESSION['userProfilePic'],6);
                 echo"<li class='nav-item dropdown'>
                 <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button'
                   data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                  <img src='images/profile-icon.png' width='40' height='40' class='rounded-circle'>
+                  <img src='". $profilePic."' width='40' height='40' class='rounded-circle'>
                 </a>
                 <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
                   <a class='dropdown-item' href='Layout/user/user_profile.php'>Edit Profile</a>
-                  <a href='backend/user/logout.php' id='logoutBtn' class='dropdown-item' >Log Out</a>
+                  <a id='logoutBtn' class='dropdown-item' >Log Out</a>
                 </div>
               </li>";
               }else{
@@ -271,8 +272,14 @@
     <div class="book-now animation">
       <h5 class="txt-book-now reservation">Reservation</h5>
       <h4 class="txt-book-now book-a-table fw-bold">Book A Table</h4>
-      <button type="button" class="btn btn-outline-light btn-book-now" onclick="location.href = '/Layout/user/user_sign_InOut.html';">Book Now</button>
-
+      <?php
+        if(isset($_SESSION["userID"])){
+          echo "<button type='button' class='btn btn-outline-light btn-book-now' onclick=\"location.href = 'Layout/user/user_table.php';\">Book Now</button>";
+        } else {
+          echo "<button type='button' class='btn btn-outline-light btn-book-now' onclick=\"location.href = 'Layout/user/user_sign_InOut.php';\">Book Now</button>";
+        }
+      ?>
+        
     </div>
   </section>
 
@@ -344,6 +351,27 @@
     </div>
 
   </footer>
+
+  <div id="logout-modal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <div class="icon-box3">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </div>
+                    <h4 class="modal-title w-100">Logout</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">You are loging out your account!</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'index.php';">Cancel</button>
+                    <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = 'backend/user/logout.php';">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
   <script type="text/javascript" src="script.js"></script>
 

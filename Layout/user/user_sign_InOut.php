@@ -29,13 +29,13 @@
             <?php
             if(isset($_GET["error"])){
               if($_GET["error"]=="emptylogininput"){
-                echo "<p style=\"color: red; font-size: small;\">Fill in all fields!</p>";
+                echo "<script>alert('Fill in all fields!');</script><p style=\"color: red; font-size: small;\">Fill in all fields!</p>";
               }
               else if($_GET["error"]=="userNotExists"){
-                echo "<p style=\"color: red; font-size: small;\">The email have not registered!</p>";
+                echo "<script>alert('The user does not exists!');</script><p style=\"color: red; font-size: small;\">The email have not registered!</p>";
               }
               else if($_GET["error"]=="wrongpassword"){
-                echo "<p style=\"color: red; font-size: small;\">Please re-enter your password!</p>";
+                echo "<script>alert('Wrong password! Please Try Again.');</script><p style=\"color: red; font-size: small;\">Please re-enter your password!</p>";
               }
             }
             ?>
@@ -66,19 +66,19 @@
             <?php
             if(isset($_GET["error"])){
               if($_GET["error"]=="emptyinput"){
-                echo "<p style=\"color: red;\">Fill in all fields!</p>";
+                echo "<script>alert('Fill in all fields!');</script><p style=\"color: red;\">Fill in all fields!</p>";
               }
               else if($_GET["error"]=="emailused"){
-                echo "<p style=\"color: red;\">The email is used!</p>";
+                echo "<script>alert('The email have been used!');</script><p style=\"color: red;\">The email is used!</p>";
               }
               else if($_GET["error"]=="passworddonotmatch"){
-                echo "<p style=\"color: red;\">Password do not match!</p>";
+                echo "<script>alert('The password does not match!');</script><p style=\"color: red;\">Password do not match!</p>";
               }
               else if($_GET["error"]=="stmtfailed"){
                 echo "<p style=\"color: red;\">Something went wrong!</p>";
               }
               else if($_GET["error"]=="none"){
-                echo "<p style=\"color: red;\">You have signed up!</p>";
+                echo "<script>alert('Signup successful!');</script><p style=\"color: red;\">You have signed up!</p>";
               }
             }
             ?>

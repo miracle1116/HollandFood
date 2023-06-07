@@ -65,8 +65,9 @@ function createUser($conn, $name, $email, $password){
 
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
     $dash='-';
-    $profilePic = '/images/profilePic.png';
-    mysqli_stmt_bind_param($stmt, "ssssssss", $name, $dash, $email, $hashedPwd, $dash, $dash, $dash, $profilePic);
+    $date = 'yyyy-mm-dd';
+    $profilePic = '../../images/profilePic.png';
+    mysqli_stmt_bind_param($stmt, "ssssssss", $name, $dash, $email, $hashedPwd, $dash, $date, $dash, $profilePic);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../../Layout/user/user_sign_InOut.php?error=none");
@@ -101,7 +102,14 @@ function loginUser($conn, $email, $password){
    else if($checkPassword===true){
     session_start();
     $_SESSION["userID"]= $userExists["userID"];
-    $_SESSION["userName"]= $userExists["userFirstName"];
+    $_SESSION["userFirstName"]= $userExists["userFirstName"];
+    $_SESSION["userLastName"]= $userExists["userLastName"];
+    $_SESSION["userEmail"]= $userExists["userEmail"];
+    $_SESSION["userPassword"]= $userExists["userPassword"];
+    $_SESSION["userContactNo"]= $userExists["userContactNo"];
+    $_SESSION["userBirthDate"]= $userExists["userBirthDate"];
+    $_SESSION["userGender"]= $userExists["userGender"];
+    $_SESSION["userProfilePic"]= $userExists["userProfilePic"];
     header("location: ../../index.php");
     exit();
    }
