@@ -1,3 +1,10 @@
+<?php
+// session_start();
+// $_SESSION['data']=['0','1'];
+// $sessionData=$_SESSION['data'];
+// echo json_encode($sessionData);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +73,7 @@
                                 <img src="/images/profile-icon.png" width="40" height="40" class="rounded-circle">
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/Layout/user/user_profile.html">Edit Profile</a>
+                                <a class="dropdown-item" href="../../Layout/user/user_profile.php">Edit Profile</a>
                                 <a id="logoutBtn" class="dropdown-item" >Log Out</a>
                               </div>
                         </li>
@@ -110,13 +117,21 @@
 
                 <div class="form-group col-lg-3 col-sm-3 col-md-3 col-3 ">
                     <label class="fw-bold label" for="time">Select Time:</label>
-                    <select id="time" class="form-control form-select input">
-                        <option>9:00-10:00</option>
-                        <option>10:00-11:00</option>
-                        <option>11:00-12:00</option>
-                        <option>12:00-13:00</option>
-                        <option>13:00-14:00</option>
-                        <option>14:00-15:00</option>
+                    <select id="time" name="slot" class="form-control form-select input">
+                        <option value="1">8:00-9:00</option>
+                        <option value="2">9:00-10:00</option>
+                        <option value="3">10:00-11:00</option>
+                        <option value="4">11:00-12:00</option>
+                        <option value="5">12:00-13:00</option>
+                        <option value="6">13:00-14:00</option>
+                        <option value="7">14:00-15:00</option>
+                        <option value="8">15:00-16:00</option>
+                        <option value="9">16:00-17:00</option>
+                        <option value="10">17:00-18:00</option>
+                        <option value="11">18:00-19:00</option>
+                        <option value="12">19:00-20:00</option>
+                        <option value="13">20:00-21:00</option>
+                        <option value="14">21:00-22:00</option>
                     </select>
                 </div>
 
@@ -298,13 +313,16 @@
         searchBtn.addEventListener("click", function(event) {
         //event.preventDefault(); // prevent page from reloading
         // Your search code goes here
-        });
         const tableDivs = document.querySelectorAll('.table-all');
         const selectedTables = [];
         // const selectedTable = document.getElementById('selectedTable');
         // customize the array here
-        const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
+        var xhttp = new XMLHttpRequest();
 
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+        var borderColors = JSON.parse(this.responseText);
         tableDivs.forEach((div, index) => {
             if (borderColors[index] === 1) {
                 div.classList.add('unavailable', 'disabled');
@@ -333,6 +351,16 @@
 
             });
         });
+      }
+    };
+
+    xhttp.open("GET", "../../backend/user/selectTable.php", true);
+    xhttp.send();
+        // const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
+
+        });
+       
+
 
         var modalLogout = new bootstrap.Modal("#logout-modal");
         var logoutButton = document.getElementById('logoutBtn');
