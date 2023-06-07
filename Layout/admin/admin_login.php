@@ -27,10 +27,6 @@
               <input type="password" id="password" name="password" placeholder="Password" />
             </div>
             <?php
-            if(isset($_SESSION["login"])){
-              echo $_SESSION['login'];
-              unset ($_SESSION['login']);
-            }
             if(isset($_GET["error"])){
               if($_GET["error"]=="emptylogininput"){
                 echo "<p style=\"color: red; font-size: small;\">Fill in all fields!</p>";
