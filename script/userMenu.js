@@ -6,7 +6,7 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
       const category = item.dataset.category;
 
       menuItems.forEach(item => {
-        if (category === 'all') {
+        if (category === "All") {
         item.style.display = 'block';
         } else if (item.dataset.category === category) {
         item.style.display = 'block';
@@ -24,7 +24,8 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
       var name = $(this).find('.fw-bold').text().trim();
       var price = $(this).find('.price').children('p').text().trim();
       var imageSrc = $(this).find('.menu-item img').attr('src');
-      console.log(imageSrc);   
+      var menuID = $(this).attr('id');
+      console.log(menuID);   
 
        // check if the item already exists in the cart
       var existingItem = $('.my-cart').find('.foodname:contains("' + name + '")').closest('.menu-in-cart');

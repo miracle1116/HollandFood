@@ -272,8 +272,14 @@
     <div class="book-now animation">
       <h5 class="txt-book-now reservation">Reservation</h5>
       <h4 class="txt-book-now book-a-table fw-bold">Book A Table</h4>
-      <button type="button" class="btn btn-outline-light btn-book-now" onclick="location.href = '/Layout/user/user_sign_InOut.html';">Book Now</button>
-
+      <?php
+        if(isset($_SESSION["userID"])){
+          echo "<button type='button' class='btn btn-outline-light btn-book-now' onclick=\"location.href = 'Layout/user/user_table.php';\">Book Now</button>";
+        } else {
+          echo "<button type='button' class='btn btn-outline-light btn-book-now' onclick=\"location.href = 'Layout/user/user_sign_InOut.php';\">Book Now</button>";
+        }
+      ?>
+        
     </div>
   </section>
 
