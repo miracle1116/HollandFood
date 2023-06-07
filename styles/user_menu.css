@@ -2,6 +2,18 @@
   font-family: 'Montserrat';
 }
 
+
+.menu-category-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  /* margin-left: 30px; */
+}
+
+.menu-category.container{
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   background-color: #130D25;
 
