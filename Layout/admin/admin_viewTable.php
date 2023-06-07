@@ -237,20 +237,15 @@ include_once("../../config.php");
           </div>
 
 
-          <!--Reservation tab-->
-          <div id="reserve" class="reserveWaitTab">
-
+        <!--Reservation tab-->
+        <div id="reserve" class="reserveWaitTab">
           <form method="POST" action="admin_viewTable.php">
-
-          
           <?php
-          // Fetch and display data from the database
-          $query = "SELECT * FROM reservation";
-          $query2 = "SELECT * FROM users";
-          $result = mysqli_query($conn, $query);
-          $result2 = mysqli_query($conn, $query2);
+        // Fetch and display data from the database
+        $query = "SELECT r.*, u.userName, u.userEmail, u.userPhoneNo, u.userProfile FROM reservation r JOIN users u ON r.userID = u.userID";
+        $result = mysqli_query($conn, $query);
 
-          while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $reserveID = $row['reserveID'];
             $userID = $row['userID'];
             $reservedDate = $row['reservedDate'];
@@ -260,60 +255,58 @@ include_once("../../config.php");
             $reservedFood = $row['reservedFood'];
             $reservedNote = $row['reservedNote'];
             $status = $row['status'];
-            $userID = $row['userID'];
-          ?>
+            $userName = $row['userName'];
 
-            <section class="cover-section container">
-              <section class="section-title">
-                <div class="row">
-                  <div class="col-sm">
-                    <h5>T<?php echo $tableNo; ?></h5>
+            // Display the waitlist entry
+            ?>
+              <section class="cover-section container">
+                <section class="section-title">
+                  <div class="row">
+                    <div class="col-sm">
+                      <h5>T<?php echo $tableNo; ?></h5>
+                    </div>
+                    <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
+                    <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
                   </div>
-                  <div class="col-sm pt-3 ps-4 fw-bold">Shu Ying</div>
-                  <div class="col-sm p-3"><?php echo $paxNo;?> persons</div>
-                </div>
+                </section>
+                <section class="section-content hide">
+                  <div class="row mt-1 ms-2">
+                    Pre-ordered Items : <br />
+                    <ol>
+                      <li><?php echo $reservedFood; ?></li>
+                      <!-- <li>Tiramisu</li>
+                            <li>Milk</li>
+                            <li>Chocolate Cake</li> -->
+                    </ol>
+                  </div>
+                  <div class="details">
+                        <p class="view-details-link" data-reserveid="<?php echo $reserveID; ?>" id="viewAllDetails" a-toggle="tooltip" data-placement="bottom" title="More Details">view
+                            details&nbsp;<i class="bi bi-chevron-right"></i></p>
+                    </div>
+                  <div class="row d-flex justify-content-center ms-5">
+                    <button class="Cancel button bg-danger text-white">Cancel</button>
+                    <button class="Arrived button bg-success text-white">Arrived</button>
+                  </div>
+                </section>
+                <input type="hidden" name="reserveID" id="reserveIDInput" value="<?php echo $reserveID; ?>">
               </section>
-              <section class="section-content hide">
-                <div class="row mt-1 ms-2">
-                  Pre-ordered Items : <br />
-                  <ol>
-                    <li><?php echo $reservedFood; ?></li>
-                    <!-- <li>Tiramisu</li>
-                    <li>Milk</li>
-                    <li>Chocolate Cake</li> -->
-                  </ol>
-                </div>
-                <div class="details">
-                  <p id="viewAllDetails" name='viewAllDetails' a-toggle="tooltip" data-placement="bottom" title="More Details" data-reserveid="<?php echo $reserveID; ?>">view details&nbsp;<i class="bi bi-chevron-right"></i></p>
-                </div>
-                <div class="row d-flex justify-content-center ms-5">
-                  <button class="button bg-danger text-white">Cancel</button>
-                  <button class="button bg-success text-white">Arrived</button>
-                </div>
-              </section>
-              <input type="hidden" name="reserveID" id="reserveIDInput" value="<?php echo $reserveID; ?>">
-            </section>
-            </form>
-
-          <?php
-          } // end while loop
-          ?>
-
-          </div>
+          </form>
+        <?php
+            } // end while loop
+        ?>
+        </div>
 
 
 
-          <!--Waitlist tab-->
-          <div id="waitList" class="reserveWaitTab" style="display: none">
+         <!--Waitlist tab-->
+        <div id="waitList" class="reserveWaitTab" style="display: none">
 
-          <?php
-          // Fetch and display data from the database
-          $query = "SELECT * FROM reservation";
-          $query2 = "SELECT * FROM users";
-          $result = mysqli_query($conn, $query);
-          $result2 = mysqli_query($conn, $query2);
+        <?php
+        // Fetch and display data from the database
+        $query = "SELECT r.*, u.userName, u.userEmail, u.userPhoneNo, u.userProfile FROM reservation r JOIN users u ON r.userID = u.userID";
+        $result = mysqli_query($conn, $query);
 
-          while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $reserveID = $row['reserveID'];
             $userID = $row['userID'];
             $reservedDate = $row['reservedDate'];
@@ -323,102 +316,94 @@ include_once("../../config.php");
             $reservedFood = $row['reservedFood'];
             $reservedNote = $row['reservedNote'];
             $status = $row['status'];
+            $userName = $row['userName'];
 
-            // Fetch user data from the second query
-                while ($row2 = mysqli_fetch_assoc($result2)) {
-                  // Retrieve and store user data in variables
-                  $userID = $row2['userID'];
-                  $userEmail = $row2['userEmail'];
-                  $userName = $row2['userName'];
-                  $userPhoneNo = $row2['userPhoneNo'];
-                  $userProfile = $row2['userProfile'];
-          ?>
-
-                
-
-
+            // Display the waitlist entry
+            ?>
             <section class="cover-section container">
-              <section class="section-title">
-                <div class="row">
-                  <div class="col-sm">
-                    <h5>T4</h5>
-                  </div>
-                  <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName;?></div>
-                  <div class="col-sm p-3"><?php echo $paxNo;?>  persons</div>
-                </div>
-              </section>
-              <section class="section-content hide">
-                <div class="row mt-1 ms-2">
-                  Pre-ordered Items : <br />
-                  <ol>
-                    <li><?php echo $reservedFood;?></li>
-                  </ol>
-                </div>
-                <div class="details">
-                  <p id="viewAllDetails" a-toggle="tooltip" data-placement="bottom" title="More Details">view details&nbsp;<i class="bi bi-chevron-right"></i></p>
-                </div>
-                <div class="row d-flex justify-content-center ms-5">
-                  <button class="button bg-danger text-white">Decline</button>
-                  <button class="button bg-success text-white">Accept</button>
-                </div>
-              </section>
+                <section class="section-title">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h5>T<?php echo $tableNo; ?></h5>
+                        </div>
+                        <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
+                        <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
+                    </div>
+                </section>
+                <section class="section-content hide">
+                    <div class="row mt-1 ms-2">
+                        Pre-ordered Items:<br/>
+                        <ol>
+                            <li><?php echo $reservedFood; ?></li>
+                        </ol>
+                    </div>
+                    <div class="details">
+                    <p id="viewAllDetails" a-toggle="tooltip" data-placement="bottom" title="More Details">view
+                            details&nbsp;<i class="bi bi-chevron-right"></i></p>
+                    </div>
+                    <div class="row d-flex justify-content-center ms-5">
+                        <button class="Decline button bg-danger text-white">Decline</button>
+                        <button class="Accept button bg-success text-white">Accept</button>
+                    </div>
+                </section>
             </section>
             <?php
-                }
-          } // end while loop
-          ?>     
-    </div>
+        } // end while loop
+        ?>     
+        </div>
 
 
 
-   <!--View Details Modal-->
+  <!--View Details Modal-->
+<div class="modal" id="view-details-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Reservation Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="view-details-modal-body">
 
-        <div class="modal" id="view-details-modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Reservation Information</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>      
-                    <div class="modal-body">
-                   
-                        <form method="POST" action="admin_viewTable.php">
-                        <?php
-                            // Check if the 'reserveID' key exists in the $_POST array
-                          if (isset($_POST['reserveID'])) {
-                              // Retrieve the reserveID from the AJAX request
-                              $reserveID = $_POST['reserveID'];
+                <?php
+                // Check if the 'reserveID' key exists in the $_POST array
+                if (isset($_POST['reserveID'])) {
+                    // Retrieve the reserveID from the AJAX request
+                    $reserveID = $_POST['reserveID'];
 
-                              // Retrieve the reservation details from the database
-                              $query = "SELECT * FROM reservation, users.userID FROM reservation LEFT JOIN users ON reservation.userID = users.userID WHERE reserveID = $reserveID";
-                              $result = mysqli_query($conn, $query);
+                    // Check if the reserveID is empty or not
+                    if (!empty($reserveID)) {
+                        // Retrieve the reservation details from the database
+                        $query = "SELECT r.*, u.userName, u.userPhoneNo, u.userEmail FROM reservation r LEFT JOIN users u ON r.userID = u.userID WHERE reserveID = $reserveID";
+                        $result = mysqli_query($conn, $query);
 
-                              // Check if any rows are returned
-                              if ($result && mysqli_num_rows($result) > 0) {
-                                  // Retrieve and store data in variables
-                                  $row = mysqli_fetch_assoc($result);
-                                  // Retrieve and store the reservation details in variables
-                                  $reserveID = $row['reserveID'];
-                                  $userID = $row['userID'];
-                                  $reservedDate = $row['reservedDate'];
-                                  $reservedTime = $row['reservedTime'];
-                                  $tableNo = $row['tableNo'];
-                                  $paxNo = $row['paxNo'];
-                                  $reservedFood = $row['reservedFood'];
-                                  $reservedNote = $row['reservedNote'];
-                                  $status = $row['status'];
-                                  // Retrieve and store the user details in variables
-                                  $userID = $row['userID'];
+                        // Check if any rows are returned
+                        if ($result && mysqli_num_rows($result) > 0) {
+                            // Retrieve and store data in variables
+                            $row = mysqli_fetch_assoc($result);
+                            // Retrieve and store the reservation details in variables
+                            $reserveID = $row['reserveID'];
+                            $userID = $row['userID'];
+                            $reservedDate = $row['reservedDate'];
+                            $reservedTime = $row['reservedTime'];
+                            $tableNo = $row['tableNo'];
+                            $paxNo = $row['paxNo'];
+                            $reservedFood = $row['reservedFood'];
+                            $reservedNote = $row['reservedNote'];
+                            $status = $row['status'];
+                            // Retrieve and store the user details in variables
+                            $userName = $row['userName'];
+                            $phoneNumber = $row['userPhoneNo'];
+                            $email = $row['userEmail'];
 
-                                  // Display the reservation and waitlist information in the modal
-                                  ?>
+                            // Display the reservation and waitlist information in the modal
+                            ?>
                             <div class="text-center justify-content-center">
                                 <img src="/images/profile-icon-blue.png" width="120px">
                             </div>
-                              <div class="mt-3 d-flex align-items-center flex-column ms-10">
-                                <p><strong>Name:</strong> Shu Ying<br>
-                                    <strong>Phone Number:</strong> 011-11111111<br>
-                                    <strong>Email:</strong> ong@gmail.com</p>
+                            <div class="mt-3 d-flex align-items-center flex-column ms-10">
+                                <p><strong>Name:</strong> <?php echo $userName; ?><br>
+                                    <strong>Phone Number:</strong> <?php echo $userPhoneNo; ?><br>
+                                    <strong>Email:</strong> <?php echo $userEmail; ?></p>
                             </div>
                             <div class="row ms-3 mt-2">
                                 <div class="col justify-content-center ">
@@ -489,21 +474,24 @@ include_once("../../config.php");
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </div>
+                            <?php
+                        } else {
+                            // No reservation found with the given reserveID
+                            echo "No reservation found.";
+                        }
+                    } else {
+                        // Invalid reserveID parameter
+                        echo "Invalid reserveID parameter.";
+                    }
+                } else {
+                    // Missing reserveID parameter
+                    echo "Missing reserveID parameter.";
+                }
+                ?>
             </div>
         </div>
-        <?php
-    } else {
-        // No reservation found with the given reserveID
-        echo "No reservation found.";
-    }
-} else {
-    echo "Invalid request. Missing reserveID parameter.";
-}
-?>
-
+    </div>
+</div>
 
 
     <!-- Include Bootstrap JavaScript plugin -->
@@ -514,9 +502,9 @@ include_once("../../config.php");
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../script/adminViewTable.js"></script>
-    <script>
-    
-    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
     
   </body>
 </html>
