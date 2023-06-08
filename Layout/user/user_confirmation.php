@@ -6,6 +6,13 @@ $_SESSION["reservationTime"]= "8:00am -9:00am";
 $_SESSION["tableNo"]= "5";
 $_SESSION["noOfPax"]= "6";
 $_SESSION["orderedFood"]= "1,2,3,4,5";
+
+
+//get the cart item by session[cart][itemcode]=item quantity
+$_SESSION['cart']['1']="6";
+$_SESSION['cart']['3']="2";
+
+include_once '../../config.php';
 ?>
 
 <!DOCTYPE html>
@@ -122,25 +129,25 @@ $_SESSION["orderedFood"]= "1,2,3,4,5";
         <div class="col-10 col-lg-3 col-md-3 col-sm-10 justify-content-center bg-white rounded-5 p-3"
             style="height: fit-content;">
             <div class="text-center justify-content-center">
-                <img src="<?php echo $_SESSION['userProfilePic']?>" width="120px">
+                <img src="<?php echo $_SESSION['userProfilePic']?>" class="rounded-circle" width="120px" height="120px">
             </div>
 
             <div class="justify-content-center p-lg-5 p-md-3 p-sm-1">
                 <div class="form-group mt-3">
                     <label class="fw-bold" for="username">Name</label>
-                    <input type="text" class="form-control input input-border" id="username" placeholder="John Wick"  value="<?php echo $_SESSION['userFirstName']?>">
+                    <input type="text" class="form-control input input-border" id="username" placeholder="John Wick"  value="<?php echo $_SESSION['userFirstName']?>" disabled>
                 </div>
 
                 <div class="form-group mt-3">
                     <label class="fw-bold" for="email">Email</label>
                     <input type="email" class="form-control input input-border" id="email"
-                        placeholder="example@gmail.com" value="<?php echo $_SESSION['userEmail']?>">
+                        placeholder="example@gmail.com" value="<?php echo $_SESSION['userEmail']?>"disabled>
                 </div>
 
                 <div class="form-group mt-3 mb-5">
                     <label class="fw-bold" for="contactnumber">Contact Number</label>
                     <input type="text" class="form-control input input-border" id="contactnumber"
-                        placeholder="0123456789" value="<?php echo $_SESSION['userContactNo']?>">
+                        placeholder="0123456789" value="<?php echo $_SESSION['userContactNo']?>"disabled>
                 </div>
 
 
@@ -213,49 +220,38 @@ $_SESSION["orderedFood"]= "1,2,3,4,5";
                     <div class="ms-2" style="display: inline-block;">
                         <p class="strong"><strong>Ordered Food:</strong></p>
                     </div>
-
                     <div class="rounded  justify-content-center me-lg-2 me-md-2 me-sm-0 div-border">
-                        <!-- ordered food -->
+                    <?php
+
+                         // Accessing cart items from session
+                        $cart = $_SESSION['cart'];
+
+                        // Iterate over cart items
+                        foreach ($cart as $itemCode => $quantity) {
+                            $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                            $stmt->bind_param("i", $itemCode);
+                            $stmt->execute();
+                            $result = $stmt->get_result();
+                            $row = $result->fetch_assoc();
+                            $menuName = $row['menuName'];
+                            $menuImage = $row['menuImage'];
+
+                    ?>
+
                         <div class="justify-content-center px-2">
                             <div class="ms-3" style="display: inline-block;">
-                                <span><i class="icon"><img src="/images/spaghetti_icon.png" width="40 px"></i> </span>
+                                <span><i class="icon"><img src="../../images/<?php echo $menuImage; ?>" width="40 px"></i> </span>
                             </div>
                             <div class="ms-2 mt-1" style="display: inline-block;">
-                                <p class="h6 ordered-food"><strong>Spaghetti</strong><br><small> x 1</small></p>
+                                <p class="h6 ordered-food"><strong><?php echo $menuName; ?></strong><br><small> x <?php echo $quantity; ?></small></p>
                             </div>
                             <hr class="line-break">
                         </div>
 
-                        <div class="justify-content-center px-2">
-                            <div class="ms-3" style="display: inline-block;">
-                                <span><i class="icon"><img src="/images/spaghetti_icon.png" width="40 px"></i> </span>
-                            </div>
-                            <div class="ms-2 mt-1" style="display: inline-block;">
-                                <p class="h6 ordered-food"><strong>Spaghetti</strong><br><small> x 1</small></p>
-                            </div>
-                            <hr class="line-break">
-                        </div>
-
-                        <div class="justify-content-center px-2">
-                            <div class="ms-3" style="display: inline-block;">
-                                <span><i class="icon"><img src="/images/spaghetti_icon.png" width="40 px"></i> </span>
-                            </div>
-                            <div class="ms-2 mt-1" style="display: inline-block;">
-                                <p class="h6 ordered-food"><strong>Spaghetti</strong><br><small> x 1</small></p>
-                            </div>
-                            <hr class="line-break">
-                        </div>
-
-                        <div class="justify-content-center px-2">
-                            <div class="ms-3" style="display: inline-block;">
-                                <span><i class="icon"><img src="/images/spaghetti_icon.png" width="40 px"></i> </span>
-                            </div>
-                            <div class="ms-2 mt-1" style="display: inline-block;">
-                                <p class="h6 ordered-food"><strong>Spaghetti</strong><br><small> x 1</small></p>
-                            </div>
-                            <hr class="line-break">
-                        </div>
-
+                        <!-- close the loop -->
+                        <?php
+                        }
+                        ?>
 
                     </div>
                 </div>
