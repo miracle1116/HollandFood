@@ -1,6 +1,6 @@
 <?php 
 $host = "localhost";
-$database = "holland-food";
+$database = "admin_table";
 $user = "root";
 $pass = "";
 

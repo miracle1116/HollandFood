@@ -164,3 +164,48 @@ timeSelect.addEventListener('change', (event) => {
   const selectedOption = event.target.value;
   selectedTime.textContent = selectedOption;
 });
+
+
+// JavaScript function to handle the view details button
+function handleViewDetails(reserveID) {
+  // Send an AJAX request to retrieve the reservation details
+  $.ajax({
+    url: 'admin_viewTable.php',
+    method: 'POST',
+    data: { reserveID: reserveID },
+    success: function(response) {
+      // Display the reservation details in a modal or perform any other desired action
+      // Example: Update the modal content with the response data
+      $('#view-details-modal .modal-body').html(response);
+      $('#view-details-modal').modal('show');
+    },
+    error: function(xhr, status, error) {
+      // Handle the error case
+      console.error(error);
+    }
+  });
+}
+
+// Add event listener to each view details link
+const viewDetailsLinks = document.querySelectorAll('.view-details-link');
+viewDetailsLinks.forEach(function(link) {
+  link.addEventListener('click', function() {
+    var reserveID = this.getAttribute('data-reserveid');
+    handleViewDetails(reserveID);
+  });
+});
+
+//buttons
+const cancelBtn = document.querySelector('.cancel');
+const arrivedBtn = document.querySelector('.arrived');
+const declineBtn = document.querySelector('.decline');
+const acceptBtn = document.querySelector('.accept');
+
+
+cancelBtn.addEventListener("click",function(){
+  //delete the selected user account from the reservation table
+});
+
+
+
+
