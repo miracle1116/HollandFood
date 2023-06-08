@@ -8,9 +8,6 @@ $_SESSION["noOfPax"]= "6";
 $_SESSION["orderedFood"]= "1,2,3,4,5";
 
 
-//get the cart item by session[cart][itemcode]=item quantity
-$_SESSION['cart']['1']="6";
-$_SESSION['cart']['3']="2";
 
 include_once '../../config.php';
 ?>
@@ -274,7 +271,7 @@ include_once '../../config.php';
         </div>
     </div>
     <div class="button-container mt-3 px-5">
-        <button class="start-button button-shape" onclick="location.href = 'user_menu.html';">Previous</button>
+        <button class="start-button button-shape" onclick="location.href = 'user_menu.php';">Previous</button>
         <button type="submit" class="end-button button-shape confirm-button">Confirm</button>
     </div>
 
@@ -339,7 +336,6 @@ include_once '../../config.php';
     </script>
 
     <?php
-        session_start();
         if(!isset($_SESSION["userID"])){
         echo" <div id=\"authorized-modal\" class=\"modal fade\" data-backdrop=\"static\" data-keyboard=\"false\">
         <div class=\"modal-dialog modal-confirm\">

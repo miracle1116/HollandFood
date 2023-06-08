@@ -25,7 +25,22 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
       var price = $(this).find('.price').children('p').text().trim();
       var imageSrc = $(this).find('.menu-item img').attr('src');
       var menuID = $(this).attr('id');
-      console.log(menuID);   
+      console.log(menuID);
+
+      // Make an AJAX request to remove the item from the cart
+      $.ajax({
+        url: '../../backend/user/addToCart.php',
+        method: 'POST',
+        data: { menuID: menuID },
+        success: function(response) {
+          console.log("uhudfai");
+        },
+        error: function(xhr, status, error) {
+          // Handle the error response
+          console.error(error);
+        }
+      });
+         
 
        // check if the item already exists in the cart
       var existingItem = $('.my-cart').find('.foodname:contains("' + name + '")').closest('.menu-in-cart');
@@ -36,7 +51,7 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
       } else {
   
       // create a new menu cart item and add it to the cart
-      var menuItem = '<div class="menu-in-cart my-3">' +
+      var menuItem = '<div id="'+menuID +'"class="menu-in-cart my-3">' +
         '<div class="menucart-item container-fluid bg-body">' +
         '<img src="' + imageSrc + '" class="menucart-item rounded-circle bg-body">' +
         '</div>' +
@@ -75,24 +90,70 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
     // remove item from the cart
     $(document).on('click', '.btn#remove', function() {
       event.stopPropagation();
+      var menuID = $(this).closest('.menu-in-cart').attr('id');
       $(this).closest('.menu-in-cart').remove();
       updateSidebarToggle();
   
       // update the cart count
       var cartCount = parseInt($('.cart-count').text());
       $('.cart-count').text(cartCount - 1);
+
+      // Make an AJAX request to remove the item from the cart
+      $.ajax({
+        url: '../../backend/user/deleteMenuCart.php',
+        method: 'POST',
+        data: { menuID: menuID },
+        success: function(response) {
+          console.log("uhudfaisdasa");
+        },
+        error: function(xhr, status, error) {
+          // Handle the error response
+          console.error(error);
+        }
+      });
+
     });
   
     // increase or decrease item quantity
     $(document).on('click', '.qt-plus', function() {
       var quantity = parseInt($(this).siblings('.qt').text());
+      var menuID = $(this).closest('.menu-in-cart').attr('id');
       $(this).siblings('.qt').text(quantity + 1);
+
+      // Make an AJAX request to remove the item from the cart
+      $.ajax({
+        url: '../../backend/user/addMenuQuantity.php',
+        method: 'POST',
+        data: { menuID: menuID },
+        success: function(response) {
+          console.log("uhudfai");
+        },
+        error: function(xhr, status, error) {
+          // Handle the error response
+          console.error(error);
+        }
+      });
     });
   
     $(document).on('click', '.qt-minus', function() {
       var quantity = parseInt($(this).siblings('.qt').text());
+      var menuID = $(this).closest('.menu-in-cart').attr('id');
       if (quantity > 1) {
         $(this).siblings('.qt').text(quantity - 1);
+        
+        // Make an AJAX request to remove the item from the cart
+        $.ajax({
+          url: '../../backend/user/minusMenuQuantity.php',
+          method: 'POST',
+          data: { menuID: menuID },
+          success: function(response) {
+            console.log("uhudfai");
+          },
+          error: function(xhr, status, error) {
+            // Handle the error response
+            console.error(error);
+          }
+        });
       }
     });
   });

@@ -2,6 +2,10 @@
 // including the database connection file
 include_once("../../config.php");
 session_start();
+//get the cart item by session[cart][itemcode]=item quantity
+// $_SESSION['cart']['1']="6";
+// $_SESSION['cart']['3']="2";
+
 ?>
 
 <!DOCTYPE html>
@@ -215,18 +219,36 @@ session_start();
         <hr>
 
         <div class="my-cart">
-          <div class="menu-in-cart my-3">
+          <?php
+          // Accessing cart items from session
+          if(isset($_SESSION['cart'])){
+          $cart = $_SESSION['cart'];
+
+          // Iterate over cart items
+          foreach ($cart as $itemCode => $quantity) {
+            $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+            $stmt->bind_param("i", $itemCode);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $menuName = $row['menuName'];
+            $menuImage = $row['menuImage'];
+            $menuPrice = $row['menuPrice'];
+
+          ?>
+
+          <div id="<?php echo $itemCode; ?>" class="menu-in-cart my-3">
             <div class="menucart-item container-fluid bg-body">
-              <img src="../../images/spaghetti_icon.png" class="menucart-item rounded-circle bg-body" />
+              <img src="../../images/<?php echo $menuImage; ?>" class="menucart-item rounded-circle bg-body" />
             </div>
             <div class="border_menucart">
               <div class="menucart-item-desc container-fluid">
                 <div class="menucart-itemname fw-bold ">
                   <h1 class="foodname">
-                    Pizza <br>
+                  <?php echo $menuName; ?> <br>
                   </h1>
                   <h2 class="price ms-2">
-                    RM 53.99<br>
+                    RM <?php echo $menuPrice; ?><br>
 
                   </h2>
                 </div>
@@ -234,7 +256,7 @@ session_start();
                 <div class="content">
 
                   <span class="qt-minus">-</span>
-                  <span class="qt">1</span>
+                  <span class="qt"><?php echo $quantity; ?></span>
                   <span class="qt-plus">+</span>
 
                   <div class="col  d-flex justify-content-end align-items-start">
@@ -247,6 +269,12 @@ session_start();
               </div>
             </div>
           </div>
+
+          <!-- close the loop -->
+          <?php
+          }
+        }
+          ?>
         </div>
 
 
@@ -310,8 +338,8 @@ session_start();
   </div>
 
   <div class="button-container mt-3 px-5">
-    <button class="start-button button-shape" onclick="location.href = 'user_table.html';">Previous</button>
-    <button type="submit" onclick="location.href = '../../backend/user/reservation.php';"
+    <button class="start-button button-shape" onclick="location.href = 'user_table.php';">Previous</button>
+    <button type="submit" onclick="location.href = 'user_confirmation.php';"
       class="end-button button-shape">Next</button>
   </div>
 
