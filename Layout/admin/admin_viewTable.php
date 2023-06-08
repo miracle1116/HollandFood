@@ -10,6 +10,11 @@ include_once("../../config.php");
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Bootstrap CSS (hosted online)-->
     <link
@@ -257,9 +262,8 @@ include_once("../../config.php");
             $status = $row['status'];
             $userName = $row['userName'];
 
-            // Display the waitlist entry
             ?>
-              <section class="cover-section container">
+              <section class="cover-section container" data-reserveid ="<?php echo $reserveID; ?>">
                 <section class="section-title">
                   <div class="row">
                     <div class="col-sm">
@@ -280,15 +284,16 @@ include_once("../../config.php");
                     </ol>
                   </div>
                   <div class="details">
-                        <p class="view-details-link" data-reserveid="<?php echo $reserveID; ?>" id="viewAllDetails" a-toggle="tooltip" data-placement="bottom" title="More Details">view
+                        <p class="view-details-link"  id="viewAllDetails" a-toggle="tooltip" data-placement="bottom" title="More Details">view
                             details&nbsp;<i class="bi bi-chevron-right"></i></p>
                     </div>
                   <div class="row d-flex justify-content-center ms-5">
-                    <button class="Cancel button bg-danger text-white">Cancel</button>
-                    <button class="Arrived button bg-success text-white">Arrived</button>
+                    <button class="Cancel button bg-danger text-white" data-reserveid="<?php echo $reserveID; ?>" name = "cancel">Cancel</button>
+    
+
+                    <button class="Arrived button bg-success text-white" data-reserveid="<?php echo $reserveID; ?>" name = "arrive">Arrived</button>
                   </div>
                 </section>
-                <input type="hidden" name="reserveID" id="reserveIDInput" value="<?php echo $reserveID; ?>">
               </section>
           </form>
         <?php
@@ -305,6 +310,7 @@ include_once("../../config.php");
         // Fetch and display data from the database
         $query = "SELECT r.*, u.userName, u.userEmail, u.userPhoneNo, u.userProfile FROM reservation r JOIN users u ON r.userID = u.userID";
         $result = mysqli_query($conn, $query);
+        
 
         while ($row = mysqli_fetch_assoc($result)) {
             $reserveID = $row['reserveID'];
@@ -320,7 +326,7 @@ include_once("../../config.php");
 
             // Display the waitlist entry
             ?>
-            <section class="cover-section container">
+            <section class="cover-section container" data-waitlistid="<?php echo $userID; ?>">
                 <section class="section-title">
                     <div class="row">
                         <div class="col-sm">
@@ -342,8 +348,8 @@ include_once("../../config.php");
                             details&nbsp;<i class="bi bi-chevron-right"></i></p>
                     </div>
                     <div class="row d-flex justify-content-center ms-5">
-                        <button class="Decline button bg-danger text-white">Decline</button>
-                        <button class="Accept button bg-success text-white">Accept</button>
+                        <button class="Decline button bg-danger text-white" data-reserveid="<?php echo $reserveID; ?>" name = "decline">Decline</button>
+                        <button class="Accept button bg-success text-white" data-reserveid="<?php echo $reserveID; ?>" name = "accept">Accept</button>
                     </div>
                 </section>
             </section>
@@ -355,7 +361,7 @@ include_once("../../config.php");
 
 
   <!--View Details Modal-->
-<div class="modal" id="view-details-modal">
+<div class="modal" id="view-details-modal" data-reserveid="<?php echo $reserveID; ?>">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -363,6 +369,7 @@ include_once("../../config.php");
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body" id="view-details-modal-body">
+                <input type="hidden" name="reserveID" id="reserveID" />
 
                 <?php
                 // Check if the 'reserveID' key exists in the $_POST array
@@ -379,7 +386,7 @@ include_once("../../config.php");
                         // Check if any rows are returned
                         if ($result && mysqli_num_rows($result) > 0) {
                             // Retrieve and store data in variables
-                            $row = mysqli_fetch_assoc($result);
+                          while($row = mysqli_fetch_assoc($result)){
                             // Retrieve and store the reservation details in variables
                             $reserveID = $row['reserveID'];
                             $userID = $row['userID'];
@@ -392,11 +399,13 @@ include_once("../../config.php");
                             $status = $row['status'];
                             // Retrieve and store the user details in variables
                             $userName = $row['userName'];
-                            $phoneNumber = $row['userPhoneNo'];
-                            $email = $row['userEmail'];
+                            $userPhoneNo = $row['userPhoneNo'];
+                            $userEmail = $row['userEmail'];
 
-                            // Display the reservation and waitlist information in the modal
-                            ?>
+                            // Display the reservation and user information in the modal
+                          
+                            ?> 
+                            
                             <div class="text-center justify-content-center">
                                 <img src="/images/profile-icon-blue.png" width="120px">
                             </div>
@@ -475,6 +484,7 @@ include_once("../../config.php");
                                 </div>
                             </div>
                             <?php
+                          }
                         } else {
                             // No reservation found with the given reserveID
                             echo "No reservation found.";
@@ -487,6 +497,7 @@ include_once("../../config.php");
                     // Missing reserveID parameter
                     echo "Missing reserveID parameter.";
                 }
+                mysqli_close($conn);
                 ?>
             </div>
         </div>
@@ -504,6 +515,129 @@ include_once("../../config.php");
     <script src="../../script/adminViewTable.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+    //arrive button
+    $(document).ready(function() {
+
+          $('button[name="arrive"]').on('click', function() {
+            var reserveID = $(this).data('reserveid');
+            console.log(reserveID);
+
+            $.ajax({
+              url: '../../backend/admin/manageReservation.php',
+              method: 'POST',
+              data: { reserveID: reserveID },
+              success: function(response) {
+                // Handle the response from the server
+                if (response === 'success') {
+                  // alert('Item deleted successfully');
+                  location.reload();
+                } else {
+                  alert('Failed to delete item');
+                }
+              },
+              error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+                alert('An error occurred while deleting the item');
+              }
+            });
+          });
+        });
+
+
+    //cancel button
+    $(document).ready(function() {
+
+    $('button[name="cancel"]').on('click', function() {
+      var reserveID = $(this).data('reserveid');
+      console.log(reserveID);
+
+      $.ajax({
+        url: '../../backend/admin/manageReservation.php',
+        method: 'POST',
+        data: { reserveID: reserveID },
+        success: function(response) {
+          // Handle the response from the server
+          if (response === 'success') {
+            // alert('Item deleted successfully');
+            location.reload();
+          } else {
+            alert('Failed to delete item');
+          }
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          alert('An error occurred while deleting the item');
+        }
+      });
+    });
+    });
+
+    //decline button
+    $(document).ready(function() {
+
+    $('button[name="decline"]').on('click', function() {
+      var reserveID = $(this).data('reserveid');
+      console.log(reserveID);
+
+      $.ajax({
+        url: '../../backend/admin/manageReservation.php',
+        method: 'POST',
+        data: { reserveID: reserveID },
+        success: function(response) {
+          // Handle the response from the server
+          if (response === 'success') {
+            // alert('Item deleted successfully');
+            location.reload();
+          } else {
+            alert('Failed to delete item');
+          }
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          alert('An error occurred while deleting the item');
+        }
+      });
+    });
+    });
+
+
+    //accept button
+
+    $(document).ready(function() {
+    $('button[name="accept"]').on('click', function() {
+      var reserveID = $(this).data('reserveid');
+      console.log(reserveID);
+
+      $.ajax({
+        url: '../../backend/admin/manageReservation.php',
+        method: 'POST',
+        data: { reserveID: reserveID },
+        success: function(response) {
+          // Handle the response from the server
+          if (response === 'success') {
+            // Move the reservation to the reservation tab
+            $('#waitlist-tab .reservation-item[data-reserveid="' + reserveID + '"]').appendTo('#reservation-tab');
+            alert('Reservation approved and moved to the Reservation tab.');
+          } else {
+            alert('Failed to approve the reservation.');
+          }
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          alert('An error occurred while approving the reservation.');
+        }
+      });
+    });
+  });
+
+
+
+   
+
+    </script>
 
     
   </body>
