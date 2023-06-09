@@ -149,12 +149,12 @@ tableNo[2].textContent = "Checked-in: " + checkedInNum;
 const details = document.querySelectorAll("#viewAllDetails");
 const viewDetailsModal = new bootstrap.Modal("#view-details-modal");
 
-details.forEach((detail) => {
+// details.forEach((detail) => {
 
-  detail.addEventListener("click", () => {
-    viewDetailsModal.show();
-  });
-});
+//   detail.addEventListener("click", () => {
+//     viewDetailsModal.show();
+//   });
+// });
 
 
 const timeSelect = document.querySelector('#time');

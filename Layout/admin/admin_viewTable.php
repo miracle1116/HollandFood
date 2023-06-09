@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once("../../config.php");
 
 ?>
@@ -10,11 +10,6 @@ include_once("../../config.php");
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Bootstrap CSS (hosted online)-->
     <link
@@ -81,7 +76,7 @@ include_once("../../config.php");
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin_manageUserAcc.html" class="nav-link">
+                <a href="admin_manageUserAcc.php" class="nav-link">
                   <div class="navList">
                     <i
                       class="navIcon fs-4 bi-people text-center text-center"
@@ -242,268 +237,313 @@ include_once("../../config.php");
           </div>
 
 
-        <!--Reservation tab-->
-        <div id="reserve" class="reserveWaitTab">
-          <form method="POST" action="admin_viewTable.php">
+          <!-- DISPLAY RESERVATION (Status-> Approved) -->
           <?php
-        // Fetch and display data from the database
-        $query = "SELECT r.*, u.userName, u.userEmail, u.userPhoneNo, u.userProfile FROM reservation r JOIN users u ON r.userID = u.userID";
-        $result = mysqli_query($conn, $query);
+            // Fetch and display data from the database
+            $query = "SELECT r.*, u.userFirstName, u.userEmail, u.userContactNo, u.userProfilePic FROM reservation r JOIN users u ON r.userID = u.userID WHERE r.status='Approved'";
+            $result = mysqli_query($conn, $query);
 
-        while ($row = mysqli_fetch_assoc($result)) {
-            $reserveID = $row['reserveID'];
-            $userID = $row['userID'];
-            $reservedDate = $row['reservedDate'];
-            $reservedTime = $row['reservedTime'];
-            $tableNo = $row['tableNo'];
-            $paxNo = $row['paxNo'];
-            $reservedFood = $row['reservedFood'];
-            $reservedNote = $row['reservedNote'];
-            $status = $row['status'];
-            $userName = $row['userName'];
+            while ($row = mysqli_fetch_assoc($result)) {
+              $reserveID = $row['reserveID'];
+              $userID = $row['userID'];
+              $reservedDate = $row['reservedDate'];
+              $reservedTime = $row['reservedTime'];
+              $tableNo = $row['tableNo'];
+              $paxNo = $row['paxNo'];
+              $reservedFood = $row['reservedFood'];
+              $reservedNote = $row['reservedNote'];
+              $status = $row['status'];
+              $userName = $row['userFirstName'];
+              $userPhoneNo = $row['userContactNo'];
+              $userEmail = $row['userEmail'];
 
             ?>
-              <section class="cover-section container" data-reserveid ="<?php echo $reserveID; ?>">
-                <section class="section-title">
-                  <div class="row">
-                    <div class="col-sm">
-                      <h5>T<?php echo $tableNo; ?></h5>
-                    </div>
-                    <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
-                    <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
-                  </div>
-                </section>
-                <section class="section-content hide">
-                  <div class="row mt-1 ms-2">
-                    Pre-ordered Items : <br />
-                    <ol>
-                      <li><?php echo $reservedFood; ?></li>
-                      <!-- <li>Tiramisu</li>
-                            <li>Milk</li>
-                            <li>Chocolate Cake</li> -->
-                    </ol>
-                  </div>
-                  <div class="details">
-                        <p class="view-details-link"  id="viewAllDetails" a-toggle="tooltip" data-placement="bottom" title="More Details">view
-                            details&nbsp;<i class="bi bi-chevron-right"></i></p>
-                    </div>
-                  <div class="row d-flex justify-content-center ms-5">
-                    <button class="Cancel button bg-danger text-white" data-reserveid="<?php echo $reserveID; ?>" name = "cancel">Cancel</button>
-    
 
-                    <button class="Arrived button bg-success text-white" data-reserveid="<?php echo $reserveID; ?>" name = "arrive">Arrived</button>
+          <!--Reservation tab-->
+          <div id="reserve" class="reserveWaitTab">
+            <section class="cover-section container">
+              <section class="section-title">
+                <div class="row">
+                  <div class="col-sm">
+                    <h5>T<?php echo $tableNo; ?></h5>
                   </div>
-                </section>
+                  <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
+                  <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
+                </div>
               </section>
-          </form>
-        <?php
-            } // end while loop
-        ?>
-        </div>
+              <section class="section-content hide">
+                <div class="row mt-1 ms-2">
+                  Pre-ordered Items : <br />
+                  <ol>
+                    <li><?php echo $reservedFood; ?></li>
+                  </ol>
+                </div>
+                <div class="details">
+                  <p id="viewAllDetails" class="view-details" data-bs-toggle="modal" data-bs-target="#view-details-modal<?php echo $reserveID; ?>" name="viewdetails" data-reserveid="<?php echo $reserveID; ?>">view details&nbsp;<i class="bi bi-chevron-right"></i></p>
+                </div>
 
 
 
-         <!--Waitlist tab-->
-        <div id="waitList" class="reserveWaitTab" style="display: none">
+                
+                <!--View Details Modal Start-->
+                <div class="modal" id="view-details-modal<?php echo $reserveID; ?>">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title">Reservation Information</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                          </div>
+                          <div class="modal-body">
+                              <div class="text-center justify-content-center">
+                                  <img src="/images/profile-icon-blue.png" width="120px">
+                              </div>
+                              <div class="mt-3 d-flex align-items-center flex-column ms-10">
+                                  <p><strong>Name: </strong><?php echo $userName; ?><br>
+                                  <strong>Phone Number: </strong><?php echo $userPhoneNo; ?><br>
+                                  <strong>Email: </strong><?php echo $userEmail; ?></p>
+                              </div>
+                              <div class="row ms-3 mt-2">
+                                  <div class="col justify-content-center">
+                                      <div class="fs-4 ms-1" style="display: inline-block;">
+                                          <span><i class="bi bi-calendar-fill icon"></i></span>
+                                      </div>
+                                      <div class="ms-3" style="display: inline-block;">
+                                          <p class=""><strong>Date:</strong><br><small><?php echo $reservedDate; ?></small></p>
+                                      </div>
+                                  </div>
+                                  <div class="col justify-content-center">
+                                      <div class="fs-4" style="display: inline-block;">
+                                          <span><i class="ms-1 bi bi-clock-fill icon"></i></span>
+                                      </div>
+                                      <div class="ms-3" style="display: inline-block;">
+                                          <p class=""><strong>Time:</strong><br><small><?php echo $reservedTime; ?></small></p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ms-3 mt-2">
+                                  <div class="col mt-2 justify-content-center">
+                                      <div class="" style="display: inline-block;">
+                                          <span><i class="icon"><img src="/images/table_admin.png" width="31px"></i></span>
+                                      </div>
+                                      <div class="ms-2" style="display: inline-block;">
+                                          <p class="mt-1"><strong>Table No:</strong><small><?php echo $tableNo; ?></small></p>
+                                      </div>
+                                  </div>
+                                  <div class="col justify-content-center">
+                                      <div class="fs-2" style="display: inline-block;">
+                                          <span><i class="bi bi-person-fill icon"></i></span>
+                                      </div>
+                                      <div class="ms-2" style="display: inline-block;">
+                                          <p class=""><strong>No of Pax:</strong><small><?php echo $paxNo; ?></small></p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ms-3 mt-2">
+                                  <div class="col justify-content-center">
+                                      <div class="" style="display: inline-block;">
+                                          <span><i class="icon"><img src="/images/admin-food-icon.png" width="32px"></i></span>
+                                      </div>
+                                      <div class="ms-2" style="display: inline-block;">
+                                          <p class="strong"><strong>Ordered Food:</strong></p>
+                                      </div>
+                                      <div class="orderedFood-container rounded justify-content-center me-lg-2 me-md-2 me-sm-0">
+                                          <!-- ordered food -->
+                                          <div class="justify-content-center px-2 mt-2">
+                                              <div class="ms-3" style="display: inline-block;">
+                                                  <span><i class="icon"><img src="/images/spaghetti_icon.png" width="40px"></i></span>
+                                              </div>
+                                              <div class="ms-2 mt-1" style="display: inline-block;">
+                                                  <p class="h6 ordered-food"><strong><?php echo $reservedFood; ?></strong><br><small>x 1</small></p>
+                                              </div>
+                                              <hr class="line-break">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col justify-content-center">
+                                      <div class="ms-1" style="display: inline-block;">
+                                          <span><i class="icon"><img src="/images/admin-notes.png" width="26px"></i></span>
+                                      </div>
+                                      <div class="ms-2" style="display: inline-block;">
+                                          <p class=""><strong>Note: </strong></p>
+                                      </div>
+                                      <div class="note-container">
+                                          <p class="ms-2 mt-1"><?php echo $reservedNote; ?></p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            <!--View Details Modal End-->
 
-        <?php
-        // Fetch and display data from the database
-        $query = "SELECT r.*, u.userName, u.userEmail, u.userPhoneNo, u.userProfile FROM reservation r JOIN users u ON r.userID = u.userID";
-        $result = mysqli_query($conn, $query);
-        
 
-        while ($row = mysqli_fetch_assoc($result)) {
-            $reserveID = $row['reserveID'];
-            $userID = $row['userID'];
-            $reservedDate = $row['reservedDate'];
-            $reservedTime = $row['reservedTime'];
-            $tableNo = $row['tableNo'];
-            $paxNo = $row['paxNo'];
-            $reservedFood = $row['reservedFood'];
-            $reservedNote = $row['reservedNote'];
-            $status = $row['status'];
-            $userName = $row['userName'];
-
-            // Display the waitlist entry
-            ?>
-            <section class="cover-section container" data-waitlistid="<?php echo $userID; ?>">
-                <section class="section-title">
-                    <div class="row">
-                        <div class="col-sm">
-                            <h5>T<?php echo $tableNo; ?></h5>
-                        </div>
-                        <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
-                        <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
-                    </div>
-                </section>
-                <section class="section-content hide">
-                    <div class="row mt-1 ms-2">
-                        Pre-ordered Items:<br/>
-                        <ol>
-                            <li><?php echo $reservedFood; ?></li>
-                        </ol>
-                    </div>
-                    <div class="details">
-                    <p id="viewAllDetails" a-toggle="tooltip" data-placement="bottom" title="More Details">view
-                            details&nbsp;<i class="bi bi-chevron-right"></i></p>
-                    </div>
-                    <div class="row d-flex justify-content-center ms-5">
-                        <button class="Decline button bg-danger text-white" data-reserveid="<?php echo $reserveID; ?>" name = "decline">Decline</button>
-                        <button class="Accept button bg-success text-white" data-reserveid="<?php echo $reserveID; ?>" name = "accept">Accept</button>
-                    </div>
-                </section>
+                
+                <div class="row d-flex justify-content-center ms-5">
+                  <button class="button bg-danger text-white" data-reserveid="<?php echo $reserveID; ?>" name = "cancel">Cancel</button>
+                  <button class="button bg-success text-white" data-reserveid="<?php echo $reserveID; ?>" name = "arrive">Arrived</button>
+                </div>
+              </section>
             </section>
-            <?php
-        } // end while loop
-        ?>     
+          </div>
+          <?php
+            } // end while loop
+          ?>
+
+
+          <!-- DISPLAY WAITLIST (Status-> Pending) -->
+          <?php
+            // Fetch and display data from the database
+            $query = "SELECT r.*, u.userFirstName, u.userEmail, u.userContactNo, u.userProfilePic FROM reservation r JOIN users u ON r.userID = u.userID WHERE r.status='Pending'";
+            $result = mysqli_query($conn, $query);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+              $reserveID = $row['reserveID'];
+              $userID = $row['userID'];
+              $reservedDate = $row['reservedDate'];
+              $reservedTime = $row['reservedTime'];
+              $tableNo = $row['tableNo'];
+              $paxNo = $row['paxNo'];
+              $reservedFood = $row['reservedFood'];
+              $reservedNote = $row['reservedNote'];
+              $status = $row['status'];
+              $userName = $row['userFirstName'];
+              $userPhoneNo = $row['userContactNo'];
+              $userEmail = $row['userEmail'];
+
+            ?>
+
+          <!--Waitlist tab-->
+          <div id="waitList" class="reserveWaitTab" style="display: none">
+            <section class="cover-section container">
+            <section class="section-title">
+                <div class="row">
+                  <div class="col-sm">
+                    <h5>T<?php echo $tableNo; ?></h5>
+                  </div>
+                  <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
+                  <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
+                </div>
+              </section>
+              <section class="section-content hide">
+                <div class="row mt-1 ms-2">
+                  Pre-ordered Items : <br />
+                  <ol>
+                    <li><?php echo $reservedFood; ?></li>
+                  </ol>
+                </div>
+                <div class="details">
+                  <p id="viewAllDetails" class="view-details" data-bs-toggle="modal" data-bs-target="#view-details-modal<?php echo $reserveID; ?>" name="viewdetails" data-reserveid="<?php echo $reserveID; ?>">view details&nbsp;<i class="bi bi-chevron-right"></i></p>
+                </div>
+
+
+                <!--View Details Modal Start-->
+                <div class="modal" id="view-details-modal<?php echo $reserveID; ?>">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title">Reservation Information</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                          </div>
+                          <div class="modal-body">
+                              <div class="text-center justify-content-center">
+                                  <img src="/images/profile-icon-blue.png" width="120px">
+                              </div>
+                              <div class="mt-3 d-flex align-items-center flex-column ms-10">
+                                  <p><strong>Name: </strong><?php echo $userName; ?><br>
+                                  <strong>Phone Number: </strong><?php echo $userPhoneNo; ?><br>
+                                  <strong>Email: </strong><?php echo $userEmail; ?></p>
+                              </div>
+                              <div class="row ms-3 mt-2">
+                                  <div class="col justify-content-center">
+                                      <div class="fs-4 ms-1" style="display: inline-block;">
+                                          <span><i class="bi bi-calendar-fill icon"></i></span>
+                                      </div>
+                                      <div class="ms-3" style="display: inline-block;">
+                                          <p class=""><strong>Date:</strong><br><small><?php echo $reservedDate; ?></small></p>
+                                      </div>
+                                  </div>
+                                  <div class="col justify-content-center">
+                                      <div class="fs-4" style="display: inline-block;">
+                                          <span><i class="ms-1 bi bi-clock-fill icon"></i></span>
+                                      </div>
+                                      <div class="ms-3" style="display: inline-block;">
+                                          <p class=""><strong>Time:</strong><br><small><?php echo $reservedTime; ?></small></p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ms-3 mt-2">
+                                  <div class="col mt-2 justify-content-center">
+                                      <div class="" style="display: inline-block;">
+                                          <span><i class="icon"><img src="/images/table_admin.png" width="31px"></i></span>
+                                      </div>
+                                      <div class="ms-2" style="display: inline-block;">
+                                          <p class="mt-1"><strong>Table No:</strong><small><?php echo $tableNo; ?></small></p>
+                                      </div>
+                                  </div>
+                                  <div class="col justify-content-center">
+                                      <div class="fs-2" style="display: inline-block;">
+                                          <span><i class="bi bi-person-fill icon"></i></span>
+                                      </div>
+                                      <div class="ms-2" style="display: inline-block;">
+                                          <p class=""><strong>No of Pax:</strong><small><?php echo $paxNo; ?></small></p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ms-3 mt-2">
+                                  <div class="col justify-content-center">
+                                      <div class="" style="display: inline-block;">
+                                          <span><i class="icon"><img src="/images/admin-food-icon.png" width="32px"></i></span>
+                                      </div>
+                                      <div class="ms-2" style="display: inline-block;">
+                                          <p class="strong"><strong>Ordered Food:</strong></p>
+                                      </div>
+                                      <div class="orderedFood-container rounded justify-content-center me-lg-2 me-md-2 me-sm-0">
+                                          <!-- ordered food -->
+                                          <div class="justify-content-center px-2 mt-2">
+                                              <div class="ms-3" style="display: inline-block;">
+                                                  <span><i class="icon"><img src="/images/spaghetti_icon.png" width="40px"></i></span>
+                                              </div>
+                                              <div class="ms-2 mt-1" style="display: inline-block;">
+                                                  <p class="h6 ordered-food"><strong><?php echo $reservedFood; ?></strong><br><small>x 1</small></p>
+                                              </div>
+                                              <hr class="line-break">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col justify-content-center">
+                                      <div class="ms-1" style="display: inline-block;">
+                                          <span><i class="icon"><img src="/images/admin-notes.png" width="26px"></i></span>
+                                      </div>
+                                      <div class="ms-2" style="display: inline-block;">
+                                          <p class=""><strong>Note: </strong></p>
+                                      </div>
+                                      <div class="note-container">
+                                          <p class="ms-2 mt-1"><?php echo $reservedNote; ?></p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            <!--View Details Modal End-->
+
+
+                <div class="row d-flex justify-content-center ms-5">
+                  <button class="button bg-danger text-white" name = "decline" data-reserveid="<?php echo $reserveID; ?>">Decline</button>
+                  <button class="button bg-success text-white" value="<?php echo $reserveID; ?>" name = "accept" data-reserveid="<?php echo $reserveID; ?>">Accept</button>
+                </div>
+              </section>
+            </section>
+          </div>
+          <?php
+            } // end while loop
+          ?>
+
         </div>
-
-
-
-  <!--View Details Modal-->
-<div class="modal" id="view-details-modal" data-reserveid="<?php echo $reserveID; ?>">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Reservation Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body" id="view-details-modal-body">
-                <input type="hidden" name="reserveID" id="reserveID" />
-
-                <?php
-                // Check if the 'reserveID' key exists in the $_POST array
-                if (isset($_POST['reserveID'])) {
-                    // Retrieve the reserveID from the AJAX request
-                    $reserveID = $_POST['reserveID'];
-
-                    // Check if the reserveID is empty or not
-                    if (!empty($reserveID)) {
-                        // Retrieve the reservation details from the database
-                        $query = "SELECT r.*, u.userName, u.userPhoneNo, u.userEmail FROM reservation r LEFT JOIN users u ON r.userID = u.userID WHERE reserveID = $reserveID";
-                        $result = mysqli_query($conn, $query);
-
-                        // Check if any rows are returned
-                        if ($result && mysqli_num_rows($result) > 0) {
-                            // Retrieve and store data in variables
-                          while($row = mysqli_fetch_assoc($result)){
-                            // Retrieve and store the reservation details in variables
-                            $reserveID = $row['reserveID'];
-                            $userID = $row['userID'];
-                            $reservedDate = $row['reservedDate'];
-                            $reservedTime = $row['reservedTime'];
-                            $tableNo = $row['tableNo'];
-                            $paxNo = $row['paxNo'];
-                            $reservedFood = $row['reservedFood'];
-                            $reservedNote = $row['reservedNote'];
-                            $status = $row['status'];
-                            // Retrieve and store the user details in variables
-                            $userName = $row['userName'];
-                            $userPhoneNo = $row['userPhoneNo'];
-                            $userEmail = $row['userEmail'];
-
-                            // Display the reservation and user information in the modal
-                          
-                            ?> 
-                            
-                            <div class="text-center justify-content-center">
-                                <img src="/images/profile-icon-blue.png" width="120px">
-                            </div>
-                            <div class="mt-3 d-flex align-items-center flex-column ms-10">
-                                <p><strong>Name:</strong> <?php echo $userName; ?><br>
-                                    <strong>Phone Number:</strong> <?php echo $userPhoneNo; ?><br>
-                                    <strong>Email:</strong> <?php echo $userEmail; ?></p>
-                            </div>
-                            <div class="row ms-3 mt-2">
-                                <div class="col justify-content-center ">
-                                    <div class="fs-4 ms-1" style="display: inline-block;">
-                                        <span><i class="bi bi-calendar-fill icon"></i></span>
-                                    </div>
-                                    <div class="ms-3" style="display: inline-block;">
-                                        <p class=""><strong>Date:</strong><br><small><?php echo $reservedDate; ?></small></p>
-                                    </div>
-                                </div>
-                                <div class="col justify-content-center ">
-                                    <div class="fs-4" style="display: inline-block;">
-                                        <span><i class="ms-1 bi bi-clock-fill icon"></i></span>
-                                    </div>
-                                    <div class="ms-3" style="display: inline-block;">
-                                        <p class=""><strong>Time:</strong><br><small><?php echo $reservedTime; ?></small></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row ms-3 mt-2">
-                                <div class="col mt-2 justify-content-center ">
-                                    <div class="" style="display: inline-block;">
-                                        <span><i class="icon"><img src="/images/table_admin.png" width="31px"></i> </span>
-                                    </div>
-                                    <div class="ms-2" style="display: inline-block;">
-                                        <p class="mt-1"><strong>Table No:</strong><small><?php echo $tableNo; ?></small></p>
-                                    </div>
-                                </div>
-                                <div class="col justify-content-center ">
-                                    <div class="fs-2" style="display: inline-block;">
-                                        <span><i class="bi bi-person-fill icon"></i></span>
-                                    </div>
-                                    <div class="ms-2" style="display: inline-block;">
-                                        <p class=""><strong>No of Pax:</strong><small><?php echo $paxNo; ?></small></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row ms-3 mt-2">
-                                <div class="col justify-content-center ">
-                                    <div class="" style="display: inline-block;">
-                                        <span><i class="icon"><img src="/images/admin-food-icon.png" width="32px"></i> </span>
-                                    </div>
-                                    <div class="ms-2" style="display: inline-block;">
-                                        <p class="strong"><strong>Ordered Food:</strong></p>
-                                    </div>
-                                    <div class="orderedFood-container rounded justify-content-center me-lg-2 me-md-2 me-sm-0">
-                                        <!-- ordered food -->
-                                        <div class="justify-content-center px-2 mt-2">
-                                            <div class="ms-3" style="display: inline-block;">
-                                                <span><i class="icon"><img src="/images/spaghetti_icon.png" width="40 px"></i> </span>
-                                            </div>
-                                            <div class="ms-2 mt-1" style="display: inline-block;">
-                                                <p class="h6 ordered-food"><strong><?php echo $reservedFood; ?></strong><br><small></small></p>
-                                            </div>
-                                            <hr class="line-break">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col justify-content-center">
-                                    <div class="ms-1" style="display: inline-block;">
-                                        <span><i class="icon"><img src="/images/admin-notes.png" width="26px"></i></span>
-                                    </div>
-                                    <div class="ms-2" style="display: inline-block;">
-                                        <p class=""><strong>Note: </strong></p>
-                                    </div>
-                                    <div class="note-container">
-                                        <p class="ms-2 mt-1"><?php echo $reservedNote; ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                          }
-                        } else {
-                            // No reservation found with the given reserveID
-                            echo "No reservation found.";
-                        }
-                    } else {
-                        // Invalid reserveID parameter
-                        echo "Invalid reserveID parameter.";
-                    }
-                } else {
-                    // Missing reserveID parameter
-                    echo "Missing reserveID parameter.";
-                }
-                mysqli_close($conn);
-                ?>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
-
 
     <!-- Include Bootstrap JavaScript plugin -->
     <script
@@ -512,134 +552,121 @@ include_once("../../config.php");
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="../../script/adminViewTable.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
     <script>
+      //arrive button
+      $(document).ready(function() {
+        $('button[name="arrive"]').on('click', function() {
+          var reserveID = $(this).data('reserveid');
+          console.log(reserveID);
 
-    //arrive button
-    $(document).ready(function() {
-
-          $('button[name="arrive"]').on('click', function() {
-            var reserveID = $(this).data('reserveid');
-            console.log(reserveID);
-
-            $.ajax({
-              url: '../../backend/admin/manageReservation.php',
-              method: 'POST',
-              data: { reserveID: reserveID },
-              success: function(response) {
-                // Handle the response from the server
-                if (response === 'success') {
-                  // alert('Item deleted successfully');
-                  location.reload();
-                } else {
-                  alert('Failed to delete item');
-                }
-              },
-              error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-                alert('An error occurred while deleting the item');
+          $.ajax({
+            url: '../../backend/admin/deleteReservation.php',
+            method: 'POST',
+            data: { reserveID: reserveID },
+            success: function(response) {
+              // Handle the response from the server
+              if (response === 'success') {
+                // alert('Item deleted successfully');
+                location.reload();
+              } else {
+                alert('Failed to delete item');
               }
-            });
+            },
+            error: function(xhr, status, error) {
+              console.log(xhr.responseText);
+              alert('An error occurred while deleting the item');
+            }
           });
         });
+      });
 
 
-    //cancel button
-    $(document).ready(function() {
+        //cancel button
+        $(document).ready(function() {
 
-    $('button[name="cancel"]').on('click', function() {
-      var reserveID = $(this).data('reserveid');
-      console.log(reserveID);
+          $('button[name="cancel"]').on('click', function() {
+          var reserveID = $(this).data('reserveid');
+          console.log(reserveID);
 
-      $.ajax({
-        url: '../../backend/admin/manageReservation.php',
-        method: 'POST',
-        data: { reserveID: reserveID },
-        success: function(response) {
-          // Handle the response from the server
-          if (response === 'success') {
-            // alert('Item deleted successfully');
-            location.reload();
-          } else {
-            alert('Failed to delete item');
+          $.ajax({
+          url: '../../backend/admin/deleteReservation.php',
+          method: 'POST',
+          data: { reserveID: reserveID },
+          success: function(response) {
+            // Handle the response from the server
+            if (response === 'success') {
+              // alert('Item deleted successfully');
+              location.reload();
+            } else {
+              alert('Failed to delete item');
+            }
+          },
+          error: function(xhr, status, error) {
+            console.log(xhr.responseText);
+            alert('An error occurred while deleting the item');
           }
-        },
-        error: function(xhr, status, error) {
-          console.log(xhr.responseText);
-          alert('An error occurred while deleting the item');
-        }
+          });
+        });
+      });
+
+      //decline button
+    $(document).ready(function() {
+      $('button[name="decline"]').on('click', function() {
+        var reserveID = $(this).data('reserveid');
+        console.log(reserveID);
+
+        $.ajax({
+          url: '../../backend/admin/deleteReservation.php',
+          method: 'POST',
+          data: { reserveID: reserveID },
+          success: function(response) {
+            // Handle the response from the server
+            if (response === 'success') {
+              // alert('Item deleted successfully');
+              location.reload();
+            } else {
+              alert('Failed to delete item');
+            }
+          },
+          error: function(xhr, status, error) {
+            console.log(xhr.responseText);
+            alert('An error occurred while deleting the item');
+          }
+        });
       });
     });
-    });
 
-    //decline button
+    //Accept button - change status
     $(document).ready(function() {
+      $('button[name="accept"]').on('click', function() {
+        var reserveID = $(this).data('reserveid');
+        console.log(reserveID);
 
-    $('button[name="decline"]').on('click', function() {
-      var reserveID = $(this).data('reserveid');
-      console.log(reserveID);
-
-      $.ajax({
-        url: '../../backend/admin/manageReservation.php',
-        method: 'POST',
-        data: { reserveID: reserveID },
-        success: function(response) {
-          // Handle the response from the server
-          if (response === 'success') {
-            // alert('Item deleted successfully');
-            location.reload();
-          } else {
-            alert('Failed to delete item');
+        $.ajax({
+          url: '../../backend/admin/manageReservation.php',
+          method: 'POST',
+          data: { reserveID: reserveID },
+          success: function(response) {
+            // Handle the response from the server
+            if (response === 'success') {
+              alert('Reservation approved and moved to the Reservation tab.');
+              location.reload();
+            } else {
+              alert('Failed to approve the reservation.');
+            }
+          },
+          error: function(xhr, status, error) {
+            console.log(xhr.responseText);
+            alert('An error occurred while approving the reservation.');
           }
-        },
-        error: function(xhr, status, error) {
-          console.log(xhr.responseText);
-          alert('An error occurred while deleting the item');
-        }
+        });
       });
     });
-    });
-
-
-    //accept button
-
-    $(document).ready(function() {
-    $('button[name="accept"]').on('click', function() {
-      var reserveID = $(this).data('reserveid');
-      console.log(reserveID);
-
-      $.ajax({
-        url: '../../backend/admin/manageReservation.php',
-        method: 'POST',
-        data: { reserveID: reserveID },
-        success: function(response) {
-          // Handle the response from the server
-          if (response === 'success') {
-            // Move the reservation to the reservation tab
-            $('#waitlist-tab .reservation-item[data-reserveid="' + reserveID + '"]').appendTo('#reservation-tab');
-            alert('Reservation approved and moved to the Reservation tab.');
-          } else {
-            alert('Failed to approve the reservation.');
-          }
-        },
-        error: function(xhr, status, error) {
-          console.log(xhr.responseText);
-          alert('An error occurred while approving the reservation.');
-        }
-      });
-    });
-  });
-
-
-
-   
 
     </script>
 
-    
   </body>
 </html>
-      

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //Delete ITEM
 include_once("../../config.php");

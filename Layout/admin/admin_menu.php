@@ -66,7 +66,7 @@ session_start();
               </a>
             </li>
             <li class="nav-item">
-              <a href="admin_login.html" class="nav-link">
+              <a href="../../backend/admin/logout.php" class="nav-link">
                 <div class="navList">
                   <i class="navIcon fs-4 bi-box-arrow-left text-center"></i>
                   <span class="ms-1 d-none d-sm-inline">Sign out</span>
