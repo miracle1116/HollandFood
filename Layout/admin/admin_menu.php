@@ -104,7 +104,7 @@ session_start();
             <div class="menu_con col-2 justify-content-center" data-category="<?php echo $categoryName; ?>">
               <div class="container-fluid mt-3 p-1 pb-2">
                 <img src="../../images/<?php echo $categoryImage; ?>" id="categoryPhotoPreview"
-                  class="lign-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;" />
+                  class="align-items-center w-3 img-fluid rounded mx-auto d-block mb-4" style="height:65px; width: 65px;" />
                 <p class="category-name text-center fs-6 border-bottom border-3 fw-bold mb-4 pb-4">
                   <?php echo $categoryName; ?>
                 </p>
@@ -238,6 +238,7 @@ session_start();
                         name="itemImage"
                         class="form-control image-name"
                         />
+
                       </div>
                       <div class="mb-3">
                           <label class="form-label required">Ingredient</label>
@@ -441,6 +442,18 @@ session_start();
       </div>
     </div>
 
+    <?php
+    if(isset($_GET["error"])){
+        if($_GET["error"]=="emptyinput"){
+          echo "<script>alert('Update failed! Input field cannot be empty.');</script>";
+        }
+        else if($_GET["error"]=="filetypeerror"){
+            echo "<script>alert('Invalid file type. Only PNG, JPG, and JPEG images are allowed.');</script>";
+        }
+      }
+    
+    ?>
+
     <!-- Include Bootstrap JavaScript plugin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -492,7 +505,7 @@ session_start();
           var itemIngredient = $('#itemIngredient').val();
 
           // Enable "Add" button if both inputs are not empty
-          if (categoryName.trim() !== '' && itemName.trim() !== '' && itemPrice.trim() !== '' && itemImage.trim() !== '' && itemIngredient.trim() !== '' ) {
+          if (categoryName.trim() !== '-' && itemName.trim() !== '' && itemPrice.trim() !== '' && itemImage.trim() !== '' && itemIngredient.trim() !== '' ) {
               $('#add-item-modal .primary-btn').prop('disabled', false);
           } else {
               $('#add-item-modal .primary-btn').prop('disabled', true);
