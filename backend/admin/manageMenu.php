@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //INSERT CATEGORY
 include_once("../../config.php");

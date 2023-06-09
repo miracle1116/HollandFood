@@ -54,9 +54,9 @@ function loginUser($conn, $email, $password){
 
    if($password===$hashedPwd){
     session_start();
-    // $_SESSION["userID"]= $userExists["userID"];
-    // $_SESSION["userName"]= $userExists["userFirstName"];
-    header("location: ../../Layout/admin/admin_viewTable.html");
+    $_SESSION["adminEmail"]= $userExists["adminEmail"];
+    $_SESSION["adminPassword"]= $userExists["adminPassword"];
+    header("location: ../../Layout/admin/admin_viewTable.php");
     exit();
    }else{
     header("location: ../../Layout/admin/admin_login.php?error=wrongpassword");
