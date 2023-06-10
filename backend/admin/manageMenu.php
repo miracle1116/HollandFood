@@ -4,9 +4,7 @@ session_start();
 //INSERT CATEGORY
 include_once("../../config.php");
 if(isset($_POST['addcategory'])) {	
-  // Escape the values to prevent SQL injection
   $menuCategory = mysqli_real_escape_string($conn, $_POST['menuCategory']);
-	
   //print_r($_FILES['menuCategoryImage']);
 
   if(isset($_FILES['menuCategoryImage']['name'])){
@@ -36,14 +34,16 @@ if(isset($_POST['addcategory'])) {
   }else{
     $image_categoryname="";
   }
-  
-    $query = "INSERT INTO menucategory (`menuCategory`, `menuCategoryImage`) VALUES ('$menuCategory','$image_categoryname')";
-    $result = mysqli_query($conn, $query);
 
+    $query = "INSERT INTO menucategory (`menuCategory`, `menuCategoryImage`) VALUES (?, ?)";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, "ss", $menuCategory, $image_categoryname);
+    $result = mysqli_stmt_execute($stmt);
 
     header("location: ../../Layout/admin/admin_menu.php");  
     exit();  
 
+    mysqli_stmt_close($stmt);
     mysqli_close($conn);
 	
 }
@@ -57,6 +57,12 @@ if(isset($_POST['additem'])) {
   $itemPrice = mysqli_real_escape_string($conn, $_POST['itemPrice']);
   $itemIngredient = mysqli_real_escape_string($conn, $_POST['itemIngredient']);
 	
+  // Price validation
+  if (!is_numeric($itemPrice)) {
+    header("Location: ../../Layout/admin/admin_menu.php?error=invalidprice");
+    exit();
+  }
+  
   if(isset($_FILES['itemImage']['name'])){
     //Upload image, we need image name, source path and destination path
     $image_itemname=$_FILES['itemImage']['name'];
@@ -83,11 +89,15 @@ if(isset($_POST['additem'])) {
     $image_itemname="";
   }
 
-    $query = "INSERT INTO menu (`menuCategory`, `menuName`,`menuPrice`,`menuIngredient`,`menuImage`) VALUES ('$menuCategory','$itemName','$itemPrice','$itemIngredient','$image_itemname')";
-    $result = mysqli_query($conn,$query);
+    $query = "INSERT INTO menu (`menuCategory`, `menuName`, `menuPrice`, `menuIngredient`, `menuImage`) VALUES (?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, "ssdss", $menuCategory, $itemName, $itemPrice, $itemIngredient, $image_itemname);
+    $result = mysqli_stmt_execute($stmt);
 
     header("location: ../../Layout/admin/admin_menu.php");  
     exit();  
+
+    mysqli_stmt_close($stmt);
     mysqli_close($conn);
 	
 }
@@ -135,8 +145,6 @@ if(isset($_POST['editcategory'])) {
     exit();
   //Invalid file type
   }else if(!in_array($file_extension, $allowed_exs)){
-    // $_SESSION['imageType'] = "Invalid file type. Only PNG, JPG, and JPEG images are allowed.";
-    // header("Location: ../../Layout/admin/admin_menu.php");
     header("Location: ../../Layout/admin/admin_menu.php?error=filetypeerror");
     exit();
   }else{
@@ -166,6 +174,11 @@ if(isset($_POST['edititem'])) {
   $itemPrice = mysqli_real_escape_string($conn, $_POST['itemPrice']);
   $itemIngredient = mysqli_real_escape_string($conn, $_POST['itemIngredient']);
   
+  // Price validation
+  if (!is_numeric($itemPrice)) {
+    header("Location: ../../Layout/admin/admin_menu.php?error=invalidprice");
+    exit();
+  }
 
   if(isset($_FILES['itemImage']['name'])){
     $image_itemname=$_FILES['itemImage']['name'];
@@ -201,7 +214,7 @@ if(isset($_POST['edititem'])) {
   //Invalid file type
   }else if(!in_array($file_extension, $allowed_exs)){
     echo '<script> console.log(222); </script>';
-    header("Location: ../../Layout/admin/admin_menu.php?error=filetypeerror");
+    header("Location: ../../Layout/admin/admin_menu.php?error=deletefailed");
     exit();
   }else{
     $stmt = $conn->prepare("UPDATE menu SET menuCategory=?, menuName=?, menuPrice=?, menuIngredient=?, menuImage=? WHERE menuID=?");

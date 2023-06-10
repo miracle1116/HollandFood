@@ -197,6 +197,18 @@ session_start();
           ?>
 
 
+<?php
+  $query = "SELECT menuCategory FROM menucategory";
+  $result = mysqli_query($conn, $query);
+
+  if ($result) {
+    $menuCategories = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+      $menuCategories[] = $row['menuCategory'];
+    }
+  }
+?>
+
 <!--Edit Menu Item Modal-->
 <div class="container mt-5">
   <div class="modal" id="edit-item-modal">
@@ -214,12 +226,11 @@ session_start();
                         <label for="menu-category" class="form-label required">Menu Category</label>
                         <select name="menuCategory" id="menu-category" class="form-select">
                         <option value="-" selected>-</option>
-                        <option value="Salad">Salad</option>
-                        <option value="Dutch">Dutch</option>
-                        <option value="Pizza">Pizza</option>
-                        <option value="Spaghetti">Spaghetti</option>
-                        <option value="Snacks">Snacks</option>
-                        <option value="Drinks">Drink</option>
+                        <?php
+                          foreach ($menuCategories as $category) {
+                            echo '<option value="' . $category . '">' . $category . '</option>';
+                          }
+                        ?>
                         </select>
                       </div>
                       <div class="mb-3">
@@ -313,14 +324,13 @@ session_start();
                   <div class="mb-3">
                     <label for="menu-category" class="form-label required">Menu Category</label>
                     <select name="menuCategory" id="menuCategory" class="form-select">
-                      <option value="-" selected>-</option>
-                      <option value="Salad">Salad</option>
-                      <option value="Dutch">Dutch</option>
-                      <option value="Pizza">Pizza</option>
-                      <option value="Spaghetti">Spaghetti</option>
-                      <option value="Snacks">Snacks</option>
-                      <option value="Drinks">Drink</option>
-                    </select>
+                    <option value="-" selected>-</option>
+                      <?php
+                        foreach ($menuCategories as $category) {
+                          echo '<option value="' . $category . '">' . $category . '</option>';
+                        }
+                      ?>
+                      </select>
                   </div>
 
                     <div class="mb-3">
@@ -422,8 +432,7 @@ session_start();
                   <p>This category will be permanantly deleted.</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn sec
-                  ondary-btn" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">Close</button>
                   <button type="button" name="deletecategory" class="btn btn-danger" data-menucategoryid="<?php echo $menuCategoryID; ?>">Delete</button>
                 </div>
               </div>
@@ -450,6 +459,9 @@ session_start();
         else if($_GET["error"]=="filetypeerror"){
             echo "<script>alert('Invalid file type. Only PNG, JPG, and JPEG images are allowed.');</script>";
         }
+        else if($_GET["error"]=="invalidprice"){
+          echo "<script>alert('Invalid Price. Only numeric values can be accepted.');</script>";
+        }
       }
     
     ?>
@@ -469,22 +481,24 @@ session_start();
         $('#add-category-modal').modal('show');
       });
 
-        // Disable "Add" button initially
-        $('#add-category-modal .primary-btn').prop('disabled', true);
+      // Disable "Add" button initially
+      $('#add-category-modal .primary-btn').prop('disabled', true);
 
-        // Check input values on change
-        $('#menuCategory, #menuCategoryImage').on('change', function() {
-            var categoryName = $('#menuCategory').val();
-            var categoryImage = $('#menuCategoryImage').val();
+      // Check input values on change
+      $('#menuCategory, #menuCategoryImage').on('change', function() {
+          var categoryName = $('#menuCategory').val();
+          var categoryImage = $('#menuCategoryImage').val();
 
-            // Enable "Add" button if both inputs are not empty
-            if (categoryName.trim() !== '' && categoryImage.trim() !== '') {
-                $('#add-category-modal .primary-btn').prop('disabled', false);
-            } else {
-                $('#add-category-modal .primary-btn').prop('disabled', true);
-            }
-        });
-        $('#add-category-modal').modal('hide');
+          // Enable "Add" button if both inputs are not empty
+          if (categoryName.trim() !== '' && categoryImage.trim() !== '') {
+              $('#add-category-modal .primary-btn').prop('disabled', false);
+          } else {
+              $('#add-category-modal .primary-btn').prop('disabled', true);
+          }
+      });
+
+      
+
     });
 
 
@@ -536,8 +550,9 @@ session_start();
           success: function(response) {
             // Handle the response from the server
             if (response === 'success') {
-              // alert('Item deleted successfully');
               location.reload();
+            } else if (response === 'CategoryNotEmpty') {
+              alert('Cannot delete category. Category contains items.');
             } else {
               alert('Failed to delete category');
             }
