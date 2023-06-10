@@ -290,7 +290,7 @@ include_once '../../config.php';
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button class="btn btn-success btn-block" data-dismiss="modal"
-                        onclick="location.href = '/index2.html';">Return to home page</button>
+                        onclick="location.href = '../../index.php';">Return to home page</button>
                 </div>
             </div>
         </div>
