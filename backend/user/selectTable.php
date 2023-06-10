@@ -68,7 +68,8 @@
         }
         $_SESSIOM['data']=[$selectedValue1,$selectedValue2];
         $sessionData=$_SESSIOM['data'];
-        echo json_encode($sessionData);
+        $convertedData = array_map('intval', $sessionData);
+        echo json_encode($convertedData);
 
         // $query1 = "INSERT INTO table1 (date1, availability1) VALUES ('$date','$availability')";
         // $query2 = "INSERT INTO table2 (date2, availability2) VALUES ('$date','$availability')";
@@ -100,3 +101,4 @@
     }   
 
 ?>
+

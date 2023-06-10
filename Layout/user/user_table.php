@@ -321,8 +321,8 @@
 
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
-        var borderColors = JSON.parse(this.responseText);
+        console.log(Number(this.responseText));
+        var borderColors = JSON.parseInt(Number(this.responseText));
         tableDivs.forEach((div, index) => {
             if (borderColors[index] === 1) {
                 div.classList.add('unavailable', 'disabled');
@@ -372,6 +372,71 @@
 
     </script>
 
+    <!-- <script>
+        const searchBtn = document.getElementById("searchBtn");
+
+        searchBtn.addEventListener("click", function(event) {
+        //event.preventDefault(); // prevent page from reloading
+        // Your search code goes here
+        const tableDivs = document.querySelectorAll('.table-all');
+        const selectedTables = [];
+        // const selectedTable = document.getElementById('selectedTable');
+        // customize the array here
+        var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(Number(this.responseText));
+        var borderColors = JSON.parseInt(Number(this.responseText));
+        tableDivs.forEach((div, index) => {
+            if (borderColors[index] === 1) {
+                div.classList.add('unavailable', 'disabled');
+            } else if (borderColors[index] === 0) {
+                div.classList.add('available');
+            }
+            div.addEventListener('click', () => {
+                const strongElement = div.querySelector('strong');
+                const tableId = strongElement.textContent;
+                if (selectedTables.includes(tableId)) {
+                // If the table is already selected, remove it from the array and UI
+                    const index = selectedTables.indexOf(tableId);
+                    if (index > -1) {
+                    selectedTables.splice(index, 1);
+                    }
+                div.classList.remove('selected');
+                } else if (!div.classList.contains('unavailable')) {
+                // If the table is not selected and is not unavailable, add it to the array and UI
+                    selectedTables.push(tableId);
+                    div.classList.add('selected');
+                }
+                // Update the UI with the selected table IDs
+            const selectedTablesElement = document.getElementById('selectedTable');
+            selectedTable.textContent = `Selected Table IDs: ${selectedTables.join(',')}`;
+        
+
+            });
+        });
+      }
+    };
+
+    xhttp.open("GET", "../../backend/user/selectTable.php", true);
+    xhttp.send();
+        // const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
+
+        });
+       
+
+
+        var modalLogout = new bootstrap.Modal("#logout-modal");
+        var logoutButton = document.getElementById('logoutBtn');
+        logoutButton.addEventListener("click", function () {
+        console.log(1);
+        modalLogout.show();
+         });
+
+
+    </script> -->
+
 <!-- <script>
     const tableDivs = document.querySelectorAll('.table-all');
     const selectedTable = document.getElementById('selectedTable');
@@ -404,6 +469,58 @@
 
 
 </script> -->
+
+<!-- <script>
+        const searchBtn = document.getElementById("searchBtn");
+
+        searchBtn.addEventListener("click", function(event) {
+        event.preventDefault(); // prevent page from reloading
+        // Your search code goes here
+        });
+        const tableDivs = document.querySelectorAll('.table-all');
+        const selectedTables = [];
+        // const selectedTable = document.getElementById('selectedTable');
+        // customize the array here
+        const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
+
+        tableDivs.forEach((div, index) => {
+            if (borderColors[index] === 1) {
+                div.classList.add('unavailable', 'disabled');
+            } else if (borderColors[index] === 0) {
+                div.classList.add('available');
+            }
+            div.addEventListener('click', () => {
+                const strongElement = div.querySelector('strong');
+                const tableId = strongElement.textContent;
+                if (selectedTables.includes(tableId)) {
+                // If the table is already selected, remove it from the array and UI
+                    const index = selectedTables.indexOf(tableId);
+                    if (index > -1) {
+                    selectedTables.splice(index, 1);
+                    }
+                div.classList.remove('selected');
+                } else if (!div.classList.contains('unavailable')) {
+                // If the table is not selected and is not unavailable, add it to the array and UI
+                    selectedTables.push(tableId);
+                    div.classList.add('selected');
+                }
+                // Update the UI with the selected table IDs
+            const selectedTablesElement = document.getElementById('selectedTable');
+            selectedTable.textContent = `Selected Table IDs: ${selectedTables.join(',')}`;
+        
+
+            });
+        });
+
+        var modalLogout = new bootstrap.Modal("#logout-modal");
+        var logoutButton = document.getElementById('logoutBtn');
+        logoutButton.addEventListener("click", function () {
+        console.log(1);
+        modalLogout.show();
+         });
+
+
+    </script> -->
 
 </body>
 
