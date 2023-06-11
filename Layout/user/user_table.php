@@ -1,5 +1,8 @@
 <?php
 session_start();
+$timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00','13:00-14:00',
+'14:00-15:00','15:00-16:00','16:00-17:00','17:00-18:00','18:00-19:00','19:00-20:00','20:00-21:00',
+'21:00-22:00'];
 
 ?>
 
@@ -111,27 +114,27 @@ session_start();
                     <label class="fw-bold label" for="date">Select Date:</label>
                     <div class="input-group">
                         <input type="date" name="date" class="form-control input" id="date" aria-describedby="emailHelp"
-                            placeholder="Enter email">
+                            placeholder="Enter email" value='<?php if(isset($_SESSION['reservationDate'])){echo $_SESSION['reservationDate'];}?>'>
                     </div>
                 </div>
 
                 <div class="form-group col-lg-3 col-sm-3 col-md-3 col-3 ">
                     <label class="fw-bold label" for="time">Select Time:</label>
-                    <select id="time" name="slot" class="form-control form-select input">
-                        <option value="1">8:00-9:00</option>
-                        <option value="2">9:00-10:00</option>
-                        <option value="3">10:00-11:00</option>
-                        <option value="4">11:00-12:00</option>
-                        <option value="5">12:00-13:00</option>
-                        <option value="6">13:00-14:00</option>
-                        <option value="7">14:00-15:00</option>
-                        <option value="8">15:00-16:00</option>
-                        <option value="9">16:00-17:00</option>
-                        <option value="10">17:00-18:00</option>
-                        <option value="11">18:00-19:00</option>
-                        <option value="12">19:00-20:00</option>
-                        <option value="13">20:00-21:00</option>
-                        <option value="14">21:00-22:00</option>
+                    <select id="time" name="slot" class="form-control form-select input" value='<?php if(isset($_SESSION['slot'])){echo $timeSlot[intval($_SESSION['slot'])];}?>'>
+                        <option value="1" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='1') echo'selected';}?>>8:00-9:00</option>
+                        <option value="2" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='2') echo'selected';}?>>9:00-10:00</option>
+                        <option value="3" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='3') echo'selected';}?>>10:00-11:00</option>
+                        <option value="4" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='4') echo'selected';}?>>11:00-12:00</option>
+                        <option value="5" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='5') echo'selected';}?>>12:00-13:00</option>
+                        <option value="6" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='6') echo'selected';}?>>13:00-14:00</option>
+                        <option value="7" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='7') echo'selected';}?>>14:00-15:00</option>
+                        <option value="8" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='8') echo'selected';}?>>15:00-16:00</option>
+                        <option value="9" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='9') echo'selected';}?>>16:00-17:00</option>
+                        <option value="10" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='10') echo'selected';}?>>17:00-18:00</option>
+                        <option value="11" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='11') echo'selected';}?>>18:00-19:00</option>
+                        <option value="12" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='12') echo'selected';}?>>19:00-20:00</option>
+                        <option value="13" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='13') echo'selected';}?>>20:00-21:00</option>
+                        <option value="14" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='14') echo'selected';}?>>21:00-22:00</option>
                     </select>
                 </div>
 
@@ -141,7 +144,7 @@ session_start();
                 </div>
 
                 <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
-                    <button id="searchBtn" name="search"class="rounded-pill button-shape mt-4" type="button">Search</button>
+                    <button id="searchBtn" name="search"class="rounded-pill button-shape mt-4" type="submit">Search</button>
                 </div>
             </div>
         </form>
@@ -436,13 +439,13 @@ session_start();
         const selectedTables = [];
         // const selectedTable = document.getElementById('selectedTable');
         // customize the array here
-        console.log(<?php echo $_SESSION['allTableAvailability']?>);
-        const borderColors = <?php echo $_SESSION['allTableAvailability']?>;
+        console.log(<?php echo json_encode($_SESSION['allTableAvailability'])?>);
+        const borderColors = <?php echo json_encode($_SESSION['allTableAvailability'])?>;
 
         tableDivs.forEach((div, index) => {
-            if (borderColors[index] === 1) {
+            if (borderColors[index] === '1') {
                 div.classList.add('unavailable', 'disabled');
-            } else if (borderColors[index] === 0) {
+            } else if (borderColors[index] === '0') {
                 div.classList.add('available');
             }
             div.addEventListener('click', () => {
@@ -477,7 +480,6 @@ session_start();
 
 
     </script>
-    <!-- comment1 -->
 
 </body>
 
