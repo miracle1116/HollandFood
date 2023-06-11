@@ -26,6 +26,12 @@ include_once("../../config.php");
     <link rel="stylesheet" href="../../styles/admin_style.css" />
     <link rel="stylesheet" href="../../styles/adminViewTable_style.css" />
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Include Bootsrap JavaScript plugin -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
     <title>Admin Table</title>
   </head>
 
@@ -103,12 +109,13 @@ include_once("../../config.php");
         <!--2nd column Table-->
         <div class="container col-sm-7 col-md-7 col-7">
           <!-- search bar -->
-          <form>
+          <form action="../../backend/admin/viewTable.php" method="POST">
             <div class="search-dateTime row justify-content-center">
               <div class="col">
                 <label class="label" for="date">Select Date:</label>
                 <div class="input-group">
                   <input
+                    name= "date"
                     type="date"
                     class="form-control input"
                     id="date"
@@ -120,20 +127,27 @@ include_once("../../config.php");
 
               <div class="form-group col">
                 <label class="label" for="time">Select Time:</label>
-                <select id="time" class="form-control form-select input">
-                  <option value="">-</option>
-                  <option value="9:00-10:00">9:00-10:00</option>
-                  <option value="10:00-11:00">10:00-11:00</option>
-                  <option value="11:00-12:00">11:00-12:00</option>
-                  <option value="12:00-13:00">12:00-13:00</option>
-                  <option value="13:00-14:00">13:00-14:00</option>
-                  <option value="14:00-15:00">14:00-15:00</option>
-                </select>
+                  <select id="time" name="slot" class="form-control form-select input" value='<?php if(isset($_SESSION['slot'])){echo $timeSlot[intval($_SESSION['slot'])];}?>'>
+                        <option value="1" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='1') echo'selected';}?>>8:00-9:00</option>
+                        <option value="2" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='2') echo'selected';}?>>9:00-10:00</option>
+                        <option value="3" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='3') echo'selected';}?>>10:00-11:00</option>
+                        <option value="4" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='4') echo'selected';}?>>11:00-12:00</option>
+                        <option value="5" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='5') echo'selected';}?>>12:00-13:00</option>
+                        <option value="6" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='6') echo'selected';}?>>13:00-14:00</option>
+                        <option value="7" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='7') echo'selected';}?>>14:00-15:00</option>
+                        <option value="8" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='8') echo'selected';}?>>15:00-16:00</option>
+                        <option value="9" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='9') echo'selected';}?>>16:00-17:00</option>
+                        <option value="10" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='10') echo'selected';}?>>17:00-18:00</option>
+                        <option value="11" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='11') echo'selected';}?>>18:00-19:00</option>
+                        <option value="12" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='12') echo'selected';}?>>19:00-20:00</option>
+                        <option value="13" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='13') echo'selected';}?>>20:00-21:00</option>
+                        <option value="14" <?php if(isset($_SESSION['slot'])){if($_SESSION['slot']==='14') echo'selected';}?>>21:00-22:00</option>
+                  </select>
               </div>
 
-              <!-- <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
+              <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
                 <button id="searchBtn" class="rounded-pill button-shape mt-4" type="submit">Search</button>
-                </div>   -->
+                </div>  
             </div>
           </form>
 
@@ -156,13 +170,13 @@ include_once("../../config.php");
 -->
 
           <div class="table-container">
-            <div class="table checkedIn" id="t1">T1</div>
-            <div class="table reserved" id="t2">T2</div>
+            <div class="table" id="t1">T1</div>
+            <div class="table" id="t2">T2</div>
             <div class="table" id="t3">T3</div>
             <div class="table" id="t4">T4</div>
             <div class="table" id="t5">T5</div>
-            <div class="table checkedIn" id="t6">T6</div>
-            <div class="table reserved" id="t7">T7</div>
+            <div class="table" id="t6">T6</div>
+            <div class="table" id="t7">T7</div>
             <div class="table" id="t8">T8</div>
             <div class="table" id="t9">T9</div>
 
@@ -760,6 +774,21 @@ include_once("../../config.php");
         });
       });
     });
+
+    const tableDivs = document.querySelectorAll('.table');
+    const borderColors = <?php if(isset($_SESSION['allTableAvailabilityAdmin'])){echo json_encode($_SESSION['allTableAvailabilityAdmin']);}else echo json_encode(["1","0","0","0","0","0","0","0","0","0","0","0","0","0","0"])?>;
+    console.log(borderColors);
+    tableDivs.forEach((div, index) => {
+            if (borderColors[index] === '1') {
+                div.classList.add('reserved');
+            } else if (borderColors[index] === '-1') {
+                div.classList.add('checkedIn');
+            }
+    });
+
+
+
+    
 
     </script>
 
