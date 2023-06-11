@@ -110,6 +110,7 @@ function loginUser($conn, $email, $password){
     $_SESSION["userBirthDate"]= $userExists["userBirthDate"];
     $_SESSION["userGender"]= $userExists["userGender"];
     $_SESSION["userProfilePic"]= $userExists["userProfilePic"];
+    $_SESSION["allTableAvailability"]= ['1','1'];
     header("location: ../../index.php");
     exit();
    }

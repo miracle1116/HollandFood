@@ -274,7 +274,7 @@ session_start();
         var modalLogout = new bootstrap.Modal("#logout-modal");
         var logoutButton = document.getElementById('logoutBtn');
         logoutButton.addEventListener("click", function () {
-            console.log(1);
+            console.log(<?php echo $_SESSION['userID']?>);
             modalLogout.show();
         });
 
