@@ -120,7 +120,6 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
       var menuID = $(this).closest('.menu-in-cart').attr('id');
       $(this).siblings('.qt').text(quantity + 1);
 
-      // Make an AJAX request to remove the item from the cart
       $.ajax({
         url: '../../backend/user/addMenuQuantity.php',
         method: 'POST',

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$_SESSION["reservationDate"]= "06-06-2023";
-$_SESSION["reservationTime"]= "8:00am -9:00am";
+$_SESSION["reservationDate"]= "2023/06/21";
+$_SESSION["reservationTime"]= 0;
 $_SESSION["tableNo"]= "5";
 $_SESSION["noOfPax"]= "6";
 $_SESSION["orderedFood"]= "1,2,3,4,5";
@@ -37,6 +37,9 @@ include_once '../../config.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <!-- external font -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
@@ -222,6 +225,8 @@ include_once '../../config.php';
 
                          // Accessing cart items from session
                         $cart = $_SESSION['cart'];
+                        echo serialize($cart) . "<br>";
+                        var_dump (unserialize(serialize($cart)));
 
                         // Iterate over cart items
                         foreach ($cart as $itemCode => $quantity) {
@@ -322,8 +327,23 @@ include_once '../../config.php';
 
 
         confirmBtn.addEventListener("click", function () {
-            console.log(1);
-            confirmModal.show();
+            var textarea = document.getElementById("note");
+            var noteText = textarea.value;
+            console.log(noteText);
+            $.ajax({
+                url: '../../backend/user/reservation.php',
+                method: 'POST',
+                data: { note: noteText },
+                success: function(response) {
+                console.log("uhudfai");
+                confirmModal.show();
+                },
+                error: function(xhr, status, error) {
+                // Handle the error response
+                console.error(error);
+                alert('An error occurred while make the reservation. Please try again.');
+                }
+            });
         });
 
         var modalLogout = new bootstrap.Modal("#logout-modal");
