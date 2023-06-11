@@ -230,7 +230,7 @@ include_once '../../config.php';
 
                         // Iterate over cart items
                         foreach ($cart as $itemCode => $quantity) {
-                            $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                            $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?");
                             $stmt->bind_param("i", $itemCode);
                             $stmt->execute();
                             $result = $stmt->get_result();
