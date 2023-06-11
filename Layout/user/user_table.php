@@ -477,6 +477,7 @@ session_start();
 
 
     </script>
+    <!-- comment -->
 
 </body>
 
