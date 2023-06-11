@@ -121,6 +121,7 @@ include_once("../../config.php");
                     id="date"
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
+                    value='<?php if(isset($_SESSION['reservationDate'])){echo $_SESSION['reservationDate'];}?>'
                   />
                 </div>
               </div>

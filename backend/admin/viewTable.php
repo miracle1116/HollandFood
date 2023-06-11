@@ -2,7 +2,7 @@
 
     session_start();
     include_once("../../config.php");
-    if(isset($_POST['date']) ){
+    if(isset($_POST['date']) && isset($_POST['slot'])){ 
         $_SESSION['reservationDate']=date ('Y-m-d', strtotime($_POST['date']));
         $date =date ('Y-m-d', strtotime($_POST['date']));
         $_SESSION['slot']= $_POST['slot'];
@@ -70,6 +70,12 @@
             } else {
                 echo "Error: " . $sql2 . "<br>" . $conn->error;
             }
+            $sql2 = "SELECT * FROM table2 WHERE date2 = '$date'";
+            $result2 = $conn->query($sql2);
+            $row = $result2->fetch_assoc();
+            $availability2 = $row["availability2"];
+            $selectedValue2 = $availability2[$index-1];
+            echo "Selected value for table 2 slot $slot on $date is: $selectedValue2";
         }
 
         if ($result3->num_rows > 0) {
@@ -88,6 +94,12 @@
             } else {
                 echo "Error: " . $sql3 . "<br>" . $conn->error;
             }
+            $sql3 = "SELECT * FROM table3 WHERE date3 = '$date'";
+            $result3 = $conn->query($sql3);
+            $row = $result3->fetch_assoc();
+            $availability3 = $row["availability3"];
+            $selectedValue3 = $availability3[$index-1];
+            echo "Selected value for table 3 slot $slot on $date is: $selectedValue3";
         }
 
         if ($result4->num_rows > 0) {
@@ -106,6 +118,12 @@
             } else {
                 echo "Error: " . $sql4 . "<br>" . $conn->error;
             }
+            $sql4 = "SELECT * FROM table4 WHERE date4 = '$date'";
+            $result4 = $conn->query($sql4);
+            $row = $result4->fetch_assoc();
+            $availability4 = $row["availability4"];
+            $selectedValue4 = $availability4[$index-1];
+            echo "Selected value for table 4 slot $slot on $date is: $selectedValue4";
         }
 
         if ($result5->num_rows > 0) {
@@ -124,6 +142,12 @@
             } else {
                 echo "Error: " . $sql5 . "<br>" . $conn->error;
             }
+            $sql5 = "SELECT * FROM table5 WHERE date5 = '$date'";
+            $result5 = $conn->query($sql5);
+            $row = $result5->fetch_assoc();
+            $availability5 = $row["availability5"];
+            $selectedValue5 = $availability5[$index-1];
+            echo "Selected value for table 5 slot $slot on $date is: $selectedValue5";
         }
 
         if ($result6->num_rows > 0) {
@@ -142,6 +166,12 @@
             } else {
                 echo "Error: " . $sql6 . "<br>" . $conn->error;
             }
+            $sql6 = "SELECT * FROM table6 WHERE date6 = '$date'";
+            $result6 = $conn->query($sql6);
+            $row = $result6->fetch_assoc();
+            $availability6 = $row["availability6"];
+            $selectedValue6 = $availability6[$index-1];
+            echo "Selected value for table 6 slot $slot on $date is: $selectedValue6";
         }
 
         if ($result7->num_rows > 0) {
@@ -160,6 +190,12 @@
             } else {
                 echo "Error: " . $sql7 . "<br>" . $conn->error;
             }
+            $sql7 = "SELECT * FROM table7 WHERE date7 = '$date'";
+            $result7 = $conn->query($sql7);
+            $row = $result7->fetch_assoc();
+            $availability7 = $row["availability7"];
+            $selectedValue7 = $availability1[$index-1];
+            echo "Selected value for table 7 slot $slot on $date is: $selectedValue7";
         }
 
         if ($result8->num_rows > 0) {
@@ -178,6 +214,12 @@
             } else {
                 echo "Error: " . $sql8 . "<br>" . $conn->error;
             }
+            $sql8 = "SELECT * FROM table8 WHERE date8 = '$date'";
+            $result8 = $conn->query($sql8);
+            $row = $result8->fetch_assoc();
+            $availability8 = $row["availability8"];
+            $selectedValue8 = $availability8[$index-1];
+            echo "Selected value for table 8 slot $slot on $date is: $selectedValue8";
         }
 
         if ($result9->num_rows > 0) {
@@ -196,6 +238,12 @@
             } else {
                 echo "Error: " . $sql9 . "<br>" . $conn->error;
             }
+            $sql9 = "SELECT * FROM table9 WHERE date9 = '$date'";
+            $result9 = $conn->query($sql9);
+            $row = $result9->fetch_assoc();
+            $availability9 = $row["availability9"];
+            $selectedValue9 = $availability9[$index-1];
+            echo "Selected value for table 9 slot $slot on $date is: $selectedValue9";
         }
 
         $_SESSION['allTableAvailabilityAdmin']=[$selectedValue1,$selectedValue2,$selectedValue3,$selectedValue4,$selectedValue5,$selectedValue6,$selectedValue7,$selectedValue8,$selectedValue9];

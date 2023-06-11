@@ -2,7 +2,7 @@
 
     session_start();
     include_once("../../config.php");
-    if(isset($_POST['date']) ||($_POST['slot']) ){
+    if(isset($_POST['date']) && isset($_POST['slot']) ){
         $_SESSION['reservationDate']=date ('Y-m-d', strtotime($_POST['date']));
         $date =date ('Y-m-d', strtotime($_POST['date']));
         $_SESSION['slot']= $_POST['slot'];
@@ -72,7 +72,7 @@
             }
             $sql2 = "SELECT * FROM table2 WHERE date2 = '$date'";
             $result2 = $conn->query($sql2);
-            $row = $result1->fetch_assoc();
+            $row = $result2->fetch_assoc();
             $availability2 = $row["availability2"];
             $selectedValue2 = $availability2[$index-1];
             echo "Selected value for table 2 slot $slot on $date is: $selectedValue2";
@@ -120,7 +120,7 @@
             }
             $sql4 = "SELECT * FROM table4 WHERE date4 = '$date'";
             $result4 = $conn->query($sql4);
-            $row = $result1->fetch_assoc();
+            $row = $result4->fetch_assoc();
             $availability4 = $row["availability4"];
             $selectedValue4 = $availability4[$index-1];
             echo "Selected value for table 4 slot $slot on $date is: $selectedValue4";
