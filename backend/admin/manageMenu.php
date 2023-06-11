@@ -7,6 +7,18 @@ if(isset($_POST['addcategory'])) {
   $menuCategory = mysqli_real_escape_string($conn, $_POST['menuCategory']);
   //print_r($_FILES['menuCategoryImage']);
 
+  // Check if the category already exists
+  $checkQuery = "SELECT menuCategory FROM menucategory WHERE menuCategory = ?";
+  $checkStmt = mysqli_prepare($conn, $checkQuery);
+  mysqli_stmt_bind_param($checkStmt, "s", $menuCategory);
+  mysqli_stmt_execute($checkStmt);
+  mysqli_stmt_store_result($checkStmt);
+
+  if (mysqli_stmt_num_rows($checkStmt) > 0) {
+    header("Location: ../../Layout/admin/admin_menu.php?error=duplicatecategory");
+    exit();
+  }
+
   if(isset($_FILES['menuCategoryImage']['name'])){
     //Upload image, we need image name, source path and destination path
     $image_categoryname=$_FILES['menuCategoryImage']['name'];
@@ -57,6 +69,19 @@ if(isset($_POST['additem'])) {
   $itemPrice = mysqli_real_escape_string($conn, $_POST['itemPrice']);
   $itemIngredient = mysqli_real_escape_string($conn, $_POST['itemIngredient']);
 	
+  // Check if the item name already exists
+  $checkQuery = "SELECT menuName FROM menu WHERE menuName = ?";
+  $checkStmt = mysqli_prepare($conn, $checkQuery);
+  mysqli_stmt_bind_param($checkStmt, "s", $itemName);
+  mysqli_stmt_execute($checkStmt);
+  mysqli_stmt_store_result($checkStmt);
+
+  if (mysqli_stmt_num_rows($checkStmt) > 0) {
+    header("Location: ../../Layout/admin/admin_menu.php?error=duplicate");
+    exit();
+  }
+
+
   // Price validation
   if (!is_numeric($itemPrice)) {
     header("Location: ../../Layout/admin/admin_menu.php?error=invalidprice");
@@ -111,6 +136,18 @@ if(isset($_POST['editcategory'])) {
 
   $menuCategoryID = mysqli_real_escape_string($conn, $_POST['menuCategoryID']);
   $menuCategory = mysqli_real_escape_string($conn, $_POST['categoryName']);
+
+  // Check if the category already exists
+  $checkQuery = "SELECT menuCategory FROM menucategory WHERE menuCategory = ?";
+  $checkStmt = mysqli_prepare($conn, $checkQuery);
+  mysqli_stmt_bind_param($checkStmt, "s", $menuCategory);
+  mysqli_stmt_execute($checkStmt);
+  mysqli_stmt_store_result($checkStmt);
+
+  if (mysqli_stmt_num_rows($checkStmt) > 0) {
+    header("Location: ../../Layout/admin/admin_menu.php?error=duplicatecategory");
+    exit();
+  }
 
   if(isset($_FILES['menuCategoryImage']['name'])){
     $image_categoryname=$_FILES['menuCategoryImage']['name'];
@@ -174,6 +211,18 @@ if(isset($_POST['edititem'])) {
   $itemPrice = mysqli_real_escape_string($conn, $_POST['itemPrice']);
   $itemIngredient = mysqli_real_escape_string($conn, $_POST['itemIngredient']);
   
+  // Check if the item name already exists
+  $checkQuery = "SELECT menuName FROM menu WHERE menuName = ?";
+  $checkStmt = mysqli_prepare($conn, $checkQuery);
+  mysqli_stmt_bind_param($checkStmt, "s", $itemName);
+  mysqli_stmt_execute($checkStmt);
+  mysqli_stmt_store_result($checkStmt);
+
+  if (mysqli_stmt_num_rows($checkStmt) > 0) {
+    header("Location: ../../Layout/admin/admin_menu.php?error=duplicate");
+    exit();
+  }
+
   // Price validation
   if (!is_numeric($itemPrice)) {
     header("Location: ../../Layout/admin/admin_menu.php?error=invalidprice");
@@ -214,7 +263,7 @@ if(isset($_POST['edititem'])) {
   //Invalid file type
   }else if(!in_array($file_extension, $allowed_exs)){
     echo '<script> console.log(222); </script>';
-    header("Location: ../../Layout/admin/admin_menu.php?error=deletefailed");
+    header("Location: ../../Layout/admin/admin_menu.php?error=filetypeerror");
     exit();
   }else{
     $stmt = $conn->prepare("UPDATE menu SET menuCategory=?, menuName=?, menuPrice=?, menuIngredient=?, menuImage=? WHERE menuID=?");
