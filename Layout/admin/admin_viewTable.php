@@ -204,7 +204,7 @@ include_once("../../config.php");
               <span class="reserve-count"></span>
             </div>
 
-            <div class="col waitlist align-items-center">
+            <div class="col waitlist selectedWaitlist align-items-center">
               WAITLIST
               <span class="wait-count"></span>
             </div>
@@ -214,19 +214,20 @@ include_once("../../config.php");
 
           <div class="row mb-4">
             <div class="search-container">
-              <form action="/action_page.php">
+              <form action ="admin_viewTable.php" method = "POST">
                 <div class="search">
                   <input
-                    type="search"
+                    type="text"
                     class="form-control search-click input"
                     name="search"
                     placeholder="Search here..."
                   />
-                  <button class="searchIcon">
+                  <button class="searchIcon" name = "submit">
                     <i class="bi bi-search"></i>
                   </button>
                 </div>
               </form>
+              
             </div>
           </div>
 
@@ -239,8 +240,13 @@ include_once("../../config.php");
 
           <!-- DISPLAY RESERVATION (Status-> Approved) -->
           <?php
-            // Fetch and display data from the database
-            $query = "SELECT r.*, u.userFirstName, u.userEmail, u.userContactNo, u.userProfilePic FROM reservation r JOIN users u ON r.userID = u.userID WHERE r.status='Approved'";
+            if(isset($_POST['submit'])){
+              $search = $_POST['search'];
+              // Assuming you have already established a database connection
+              $query = "SELECT r.*, u.userFirstName, u.userEmail, u.userContactNo, u.userProfilePic FROM reservation r JOIN users u ON r.userID = u.userID WHERE userFirstName LIKE '%$search%' AND r.status='Approved'";
+            }else{
+              $query = "SELECT r.*, u.userFirstName, u.userEmail, u.userContactNo, u.userProfilePic FROM reservation r JOIN users u ON r.userID = u.userID WHERE r.status='Approved'";
+            }
             $result = mysqli_query($conn, $query);
 
             while ($row = mysqli_fetch_assoc($result)) {
@@ -272,15 +278,36 @@ include_once("../../config.php");
                 </div>
               </section>
               <section class="section-content hide">
+                <!-- Display reserved food items -->
                 <div class="row mt-1 ms-2">
-                  Pre-ordered Items : <br />
-                  <ol>
-                    <li><?php echo $reservedFood; ?></li>
+                          Pre-ordered Items : <br />
+                          <ol>
+                <?php
+                  // echo ($reservedFood) . "<br>";
+                  $reservedFoodArr = unserialize($reservedFood);
+                  // var_dump ($reservedFoodArr);
+                  
+                  foreach ($reservedFoodArr as $itemCode => $quantity) {
+                      $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                      $stmt->bind_param("i", $itemCode);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();
+                      $menuName = $row['menuName'];
+
+                ?>
+                  <li><?php echo  $menuName; ?></li>
+                    
+                  <!-- close the loop -->
+                  <?php
+                    }
+                  ?>
                   </ol>
                 </div>
-                <div class="details">
-                  <p id="viewAllDetails" class="view-details" data-bs-toggle="modal" data-bs-target="#view-details-modal<?php echo $reserveID; ?>" name="viewdetails" data-reserveid="<?php echo $reserveID; ?>">view details&nbsp;<i class="bi bi-chevron-right"></i></p>
-                </div>
+                      <div class="details">
+                        <p id="viewAllDetails" class="view-details" data-bs-toggle="modal" data-bs-target="#view-details-modal<?php echo $reserveID; ?>" name="viewdetails" data-reserveid="<?php echo $reserveID; ?>">view details&nbsp;<i class="bi bi-chevron-right"></i></p>
+                      </div>
+
 
 
 
@@ -338,28 +365,49 @@ include_once("../../config.php");
                                       </div>
                                   </div>
                               </div>
-                              <div class="row ms-3 mt-2">
-                                  <div class="col justify-content-center">
+                              <div class="row ms-3 mt-lg-3 mt-md-2 mt-sm-1">
+                                  <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center">
                                       <div class="" style="display: inline-block;">
                                           <span><i class="icon"><img src="/images/admin-food-icon.png" width="32px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class="strong"><strong>Ordered Food:</strong></p>
                                       </div>
-                                      <div class="orderedFood-container rounded justify-content-center me-lg-2 me-md-2 me-sm-0">
+                                      <div class="orderedFood-container rounded justify-content-center me-lg-2 me-md-2 me-sm-0 div-border">
                                           <!-- ordered food -->
-                                          <div class="justify-content-center px-2 mt-2">
-                                              <div class="ms-3" style="display: inline-block;">
-                                                  <span><i class="icon"><img src="/images/spaghetti_icon.png" width="40px"></i></span>
-                                              </div>
-                                              <div class="ms-2 mt-1" style="display: inline-block;">
-                                                  <p class="h6 ordered-food"><strong><?php echo $reservedFood; ?></strong><br><small>x 1</small></p>
-                                              </div>
-                                              <hr class="line-break">
+                                          
+                    
+                                                <!-- Display reserved food items -->
+                                                <?php
+                                                
+                                                  foreach ($reservedFoodArr as $itemCode => $quantity) {
+                                                      $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                                                      $stmt->bind_param("i", $itemCode);
+                                                      $stmt->execute();
+                                                      $result = $stmt->get_result();
+                                                      $row = $result->fetch_assoc();
+                                                      $menuName = $row['menuName'];
+                                                      $menuImage = $row['menuImage'];
+
+                                                ?>
+                                                  <div class="justify-content-center px-2 mt-2">
+                                                      <div class="ms-3" style="display: inline-block;">
+                                                          <span><i class="icon"><img src="/images/<?php echo $menuImage; ?>" width="40px"></i></span>
+                                                      </div>
+                                                      <div class="ms-2 mt-1" style="display: inline-block;">
+                                                          <p class="h6 ordered-food"><strong><?php echo $menuName; ?></strong><br><small>x 1</small></p>
+                                                      </div>
+                                                      <hr class="line-break">
+                                                  </div>
+                                                  <!-- close the loop -->
+                                                  <?php
+                                                  }
+                                                  ?>
                                           </div>
-                                      </div>
-                                  </div>
-                                  <div class="col justify-content-center">
+                                            
+                                        </div>
+                                  
+                                  <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center mt-2 mt-sm-2 mt-md-0 mt-lg-0">
                                       <div class="ms-1" style="display: inline-block;">
                                           <span><i class="icon"><img src="/images/admin-notes.png" width="26px"></i></span>
                                       </div>
@@ -371,11 +419,11 @@ include_once("../../config.php");
                                       </div>
                                   </div>
                               </div>
-                          </div>
-                      </div>
+                            </div>
+                        </div>
+                    </div>
                   </div>
-                </div>
-            <!--View Details Modal End-->
+              <!--View Details Modal End-->
 
 
                 
@@ -389,12 +437,18 @@ include_once("../../config.php");
           <?php
             } // end while loop
           ?>
+         
 
 
           <!-- DISPLAY WAITLIST (Status-> Pending) -->
           <?php
-            // Fetch and display data from the database
-            $query = "SELECT r.*, u.userFirstName, u.userEmail, u.userContactNo, u.userProfilePic FROM reservation r JOIN users u ON r.userID = u.userID WHERE r.status='Pending'";
+          if(isset($_POST['submit'])){
+              $search = $_POST['search'];
+              // Assuming you have already established a database connection
+              $query = "SELECT r.*, u.userFirstName, u.userEmail, u.userContactNo, u.userProfilePic FROM reservation r JOIN users u ON r.userID = u.userID WHERE userFirstName LIKE '%$search%' AND r.status='Pending'";
+            }else{
+              $query = "SELECT r.*, u.userFirstName, u.userEmail, u.userContactNo, u.userProfilePic FROM reservation r JOIN users u ON r.userID = u.userID WHERE r.status='Pending'";
+            }
             $result = mysqli_query($conn, $query);
 
             while ($row = mysqli_fetch_assoc($result)) {
@@ -426,10 +480,30 @@ include_once("../../config.php");
                 </div>
               </section>
               <section class="section-content hide">
+                <!-- Display reserved food items -->
                 <div class="row mt-1 ms-2">
-                  Pre-ordered Items : <br />
-                  <ol>
-                    <li><?php echo $reservedFood; ?></li>
+                          Pre-ordered Items : <br />
+                          <ol>
+                <?php
+                  // echo ($reservedFood) . "<br>";
+                  $reservedFoodArr = unserialize($reservedFood);
+                  // var_dump ($reservedFoodArr);
+                  
+                  foreach ($reservedFoodArr as $itemCode => $quantity) {
+                      $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                      $stmt->bind_param("i", $itemCode);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();
+                      $menuName = $row['menuName'];
+
+                ?>
+                  <li><?php echo  $menuName; ?></li>
+                    
+                  <!-- close the loop -->
+                  <?php
+                    }
+                  ?>
                   </ol>
                 </div>
                 <div class="details">
@@ -490,28 +564,49 @@ include_once("../../config.php");
                                       </div>
                                   </div>
                               </div>
-                              <div class="row ms-3 mt-2">
-                                  <div class="col justify-content-center">
+                              <div class="row ms-3 mt-lg-3 mt-md-2 mt-sm-1">
+                                  <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center">
                                       <div class="" style="display: inline-block;">
                                           <span><i class="icon"><img src="/images/admin-food-icon.png" width="32px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class="strong"><strong>Ordered Food:</strong></p>
                                       </div>
-                                      <div class="orderedFood-container rounded justify-content-center me-lg-2 me-md-2 me-sm-0">
+                                      <div class="orderedFood-container rounded justify-content-center me-lg-2 me-md-2 me-sm-0 div-border">
                                           <!-- ordered food -->
-                                          <div class="justify-content-center px-2 mt-2">
-                                              <div class="ms-3" style="display: inline-block;">
-                                                  <span><i class="icon"><img src="/images/spaghetti_icon.png" width="40px"></i></span>
-                                              </div>
-                                              <div class="ms-2 mt-1" style="display: inline-block;">
-                                                  <p class="h6 ordered-food"><strong><?php echo $reservedFood; ?></strong><br><small>x 1</small></p>
-                                              </div>
-                                              <hr class="line-break">
+                                          
+                    
+                                                <!-- Display reserved food items -->
+                                                <?php
+                                                
+                                                  foreach ($reservedFoodArr as $itemCode => $quantity) {
+                                                      $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                                                      $stmt->bind_param("i", $itemCode);
+                                                      $stmt->execute();
+                                                      $result = $stmt->get_result();
+                                                      $row = $result->fetch_assoc();
+                                                      $menuName = $row['menuName'];
+                                                      $menuImage = $row['menuImage'];
+
+                                                ?>
+                                                  <div class="justify-content-center px-2 mt-2">
+                                                      <div class="ms-3" style="display: inline-block;">
+                                                          <span><i class="icon"><img src="/images/<?php echo $menuImage; ?>" width="40px"></i></span>
+                                                      </div>
+                                                      <div class="ms-2 mt-1" style="display: inline-block;">
+                                                          <p class="h6 ordered-food"><strong><?php echo $menuName; ?></strong><br><small>x 1</small></p>
+                                                      </div>
+                                                      <hr class="line-break">
+                                                  </div>
+                                                  <!-- close the loop -->
+                                                  <?php
+                                                  }
+                                                  ?>
                                           </div>
-                                      </div>
-                                  </div>
-                                  <div class="col justify-content-center">
+                                            
+                                        </div>
+                                  
+                                  <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center mt-2 mt-sm-2 mt-md-0 mt-lg-0">
                                       <div class="ms-1" style="display: inline-block;">
                                           <span><i class="icon"><img src="/images/admin-notes.png" width="26px"></i></span>
                                       </div>
