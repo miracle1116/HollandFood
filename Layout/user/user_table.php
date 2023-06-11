@@ -477,7 +477,7 @@ session_start();
 
 
     </script>
-    <!-- comment -->
+    <!-- comment1 -->
 
 </body>
 
