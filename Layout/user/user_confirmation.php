@@ -1,12 +1,13 @@
 <?php
 session_start();
 
-$_SESSION["reservationDate"]= "2023/06/21";
-$_SESSION["reservationTime"]= 0;
+
 $_SESSION["tableNo"]= "5";
 $_SESSION["noOfPax"]= "6";
 $_SESSION["orderedFood"]= "1,2,3,4,5";
-
+$timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00','13:00-14:00',
+'14:00-15:00','15:00-16:00','16:00-17:00','17:00-18:00','18:00-19:00','19:00-20:00','20:00-21:00',
+'21:00-22:00'];
 
 
 include_once '../../config.php';
@@ -185,7 +186,7 @@ include_once '../../config.php';
                         <span><i class="bi bi-clock-fill icon"></i></span>
                     </div>
                     <div class="ms-3" style="display: inline-block;">
-                        <p class=""><strong>Time:</strong></br><small><?php echo $_SESSION['reservationTime']?></small></p>
+                        <p class=""><strong>Time:</strong></br><small><?php echo $timeSlot[$_SESSION['slot']]?></small></p>
                     </div>
                 </div>
 
@@ -197,7 +198,7 @@ include_once '../../config.php';
                         <span><i class="icon"><img src="../../images/coffee-table 1.png" width="35px"> </i></span>
                     </div>
                     <div class="ms-2" style="display: inline-block;">
-                        <p class=""><strong>Table No:</strong><small> <?php echo $_SESSION['tableNo']?></small></p>
+                        <p class=""><strong>Table No:</strong><small> <?php echo $_SESSION['selectedTable']?></small></p>
                     </div>
                 </div>
 
@@ -224,9 +225,8 @@ include_once '../../config.php';
                     <?php
 
                          // Accessing cart items from session
+                         if(isset($_SESSION['cart'])){
                         $cart = $_SESSION['cart'];
-                        echo serialize($cart) . "<br>";
-                        var_dump (unserialize(serialize($cart)));
 
                         // Iterate over cart items
                         foreach ($cart as $itemCode => $quantity) {
@@ -253,6 +253,7 @@ include_once '../../config.php';
                         <!-- close the loop -->
                         <?php
                         }
+                    }
                         ?>
 
                     </div>
