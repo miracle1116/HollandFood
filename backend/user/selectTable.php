@@ -1,20 +1,11 @@
 <?php
 
     session_start();
-    $host = "localhost";
-    $database = "holland-food";
-    $user = "root";
-    $pass = "";
-
-    $conn = mysqli_connect($host, $user, $pass, $database);
-    
-    // Check the connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    if(isset($_POST['search'])){
+    include_once("../../config.php");
+    if(isset($_POST['date']) ||($_POST['slot']) ){
+        $_SESSION['reservationDate']=date ('Y-m-d', strtotime($_POST['date']));
         $date =date ('Y-m-d', strtotime($_POST['date']));
+        $_SESSION['slot']= $_POST['slot'];
         $slot = $_POST['slot'];
         $index=$slot;
 
@@ -66,10 +57,7 @@
                 echo "Error: " . $sql2 . "<br>" . $conn->error;
             }
         }
-        $_SESSIOM['data']=[$selectedValue1,$selectedValue2];
-        $sessionData=$_SESSIOM['data'];
-        $convertedData = array_map('intval', $sessionData);
-        echo json_encode($convertedData);
+        $_SESSION['allTableAvailability']=[$selectedValue1,$selectedValue2];
 
         // $query1 = "INSERT INTO table1 (date1, availability1) VALUES ('$date','$availability')";
         // $query2 = "INSERT INTO table2 (date2, availability2) VALUES ('$date','$availability')";

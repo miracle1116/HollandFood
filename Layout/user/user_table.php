@@ -1,8 +1,6 @@
 <?php
-// session_start();
-// $_SESSION['data']=['0','1'];
-// $sessionData=$_SESSION['data'];
-// echo json_encode($sessionData);
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +31,8 @@
 
     <!-- external font -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
@@ -141,7 +141,7 @@
                 </div>
 
                 <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
-                    <button id="searchBtn" name="search"class="rounded-pill button-shape mt-4" type="submit">Search</button>
+                    <button id="searchBtn" name="search"class="rounded-pill button-shape mt-4" type="button">Search</button>
                 </div>
             </div>
         </form>
@@ -307,69 +307,6 @@
         </div>
     </div>
 
-    <script>
-        const searchBtn = document.getElementById("searchBtn");
-
-        searchBtn.addEventListener("click", function(event) {
-        //event.preventDefault(); // prevent page from reloading
-        // Your search code goes here
-        const tableDivs = document.querySelectorAll('.table-all');
-        const selectedTables = [];
-        // const selectedTable = document.getElementById('selectedTable');
-        // customize the array here
-        var xhttp = new XMLHttpRequest();
-
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(Number(this.responseText));
-        var borderColors = JSON.parseInt(Number(this.responseText));
-        tableDivs.forEach((div, index) => {
-            if (borderColors[index] === 1) {
-                div.classList.add('unavailable', 'disabled');
-            } else if (borderColors[index] === 0) {
-                div.classList.add('available');
-            }
-            div.addEventListener('click', () => {
-                const strongElement = div.querySelector('strong');
-                const tableId = strongElement.textContent;
-                if (selectedTables.includes(tableId)) {
-                // If the table is already selected, remove it from the array and UI
-                    const index = selectedTables.indexOf(tableId);
-                    if (index > -1) {
-                    selectedTables.splice(index, 1);
-                    }
-                div.classList.remove('selected');
-                } else if (!div.classList.contains('unavailable')) {
-                // If the table is not selected and is not unavailable, add it to the array and UI
-                    selectedTables.push(tableId);
-                    div.classList.add('selected');
-                }
-                // Update the UI with the selected table IDs
-            const selectedTablesElement = document.getElementById('selectedTable');
-            selectedTable.textContent = `Selected Table IDs: ${selectedTables.join(',')}`;
-        
-
-            });
-        });
-      }
-    };
-
-    xhttp.open("GET", "../../backend/user/selectTable.php", true);
-    xhttp.send();
-        // const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
-
-        });
-
-        var modalLogout = new bootstrap.Modal("#logout-modal");
-        var logoutButton = document.getElementById('logoutBtn');
-        logoutButton.addEventListener("click", function () {
-        console.log(1);
-        modalLogout.show();
-         });
-
-
-    </script>
-
     <!-- <script>
         const searchBtn = document.getElementById("searchBtn");
 
@@ -435,7 +372,7 @@
 
     </script> -->
 
-    <!-- comment -->
+
 <!-- <script>
     const tableDivs = document.querySelectorAll('.table-all');
     const selectedTable = document.getElementById('selectedTable');
@@ -469,18 +406,38 @@
 
 </script> -->
 
-<!-- <script>
+
+<script>
         const searchBtn = document.getElementById("searchBtn");
 
         searchBtn.addEventListener("click", function(event) {
-        event.preventDefault(); // prevent page from reloading
-        // Your search code goes here
+            var date = document.getElementById("date").value;
+            var slot =document.getElementById("time").value;
+        //event.preventDefault(); // prevent page from reloading
+        console.log(date);
+
+        $.ajax({
+                url: '../../backend/user/selectTable.php',
+                method: 'POST',
+                data: { date: date, slot : slot },
+                success: function(response) {
+                console.log("uhudfai");
+                confirmModal.show();
+                },
+                error: function(xhr, status, error) {
+                // Handle the error response
+                console.error(error);
+                alert('An error occurred while make the reservation. Please try again.');
+                }
+            });
+
         });
         const tableDivs = document.querySelectorAll('.table-all');
         const selectedTables = [];
         // const selectedTable = document.getElementById('selectedTable');
         // customize the array here
-        const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
+        console.log(<?php echo $_SESSION['allTableAvailability']?>);
+        const borderColors = <?php echo $_SESSION['allTableAvailability']?>;
 
         tableDivs.forEach((div, index) => {
             if (borderColors[index] === 1) {
@@ -519,7 +476,7 @@
          });
 
 
-    </script> -->
+    </script>
 
 </body>
 
