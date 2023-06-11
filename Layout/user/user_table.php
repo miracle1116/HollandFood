@@ -274,9 +274,10 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
             </div>
 
             <div class="col-11 col-lg-11 mt-5">
-                <p class="label mt-2" id="selectedTable" style="display: inline-block;">Selected Table ID:</p>
+                <p class="label mt-2"style="display: inline-block;">Selected Table ID:</p>
+                <p class="label " id="selectedTable"><?php if(isset($_SESSION['selectedTable'])){ echo $_SESSION['selectedTable'];}?></p>
                 <div class="button-container" style="display: inline-block; float: right; padding-left: 10px;">
-                    <button type="submit" onclick="location.href = 'user_menu.html';"
+                    <button type="button" id="nextToMenu"
                         class="end-button button-shape">Next</button>
                 </div>
             </div>
@@ -436,7 +437,11 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
 
         });
         const tableDivs = document.querySelectorAll('.table-all');
-        const selectedTables = [];
+        var selectedTables = [];
+        <?php if (isset($_SESSION['selectedTable'])) { ?>
+            var selectedTableString = <?php echo json_encode($_SESSION['selectedTable']); ?>;
+            selectedTables = selectedTableString.split(",");
+        <?php } ?>
         // const selectedTable = document.getElementById('selectedTable');
         // customize the array here
         console.log(<?php echo json_encode($_SESSION['allTableAvailability'])?>);
@@ -465,7 +470,7 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
                 }
                 // Update the UI with the selected table IDs
             const selectedTablesElement = document.getElementById('selectedTable');
-            selectedTable.textContent = `Selected Table IDs: ${selectedTables.join(',')}`;
+            selectedTable.textContent =  selectedTables.join(',');
         
 
             });
@@ -477,6 +482,45 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
         console.log(1);
         modalLogout.show();
          });
+
+
+        const nextToMenu = document.getElementById("nextToMenu");
+
+        nextToMenu.addEventListener("click", function(event) {
+            var table = document.getElementById("selectedTable").innerText;
+            console.log(table);
+
+        $.ajax({
+                url: '../../backend/user/parseTable.php',
+                method: 'POST',
+                data: {table: table },
+                success: function(response) {
+                    window.location.href = '../../Layout/user/user_menu.php';
+                },
+                error: function(xhr, status, error) {
+                // Handle the error response
+                console.error(error);
+                alert('An error occurred while make the reservation. Please try again.');
+                }
+            });
+
+        });
+
+        <?php if(isset($_SESSION['selectedTable'])){?>
+            const string = <?php echo json_encode($_SESSION['selectedTable']);?>;
+            var tableArray = string.split(',');
+
+            // Iterate over each table element
+            var tableElements = document.querySelectorAll('.table-all');
+            tableElements.forEach(function(element) {
+            var tableNumber = element.querySelector('strong').textContent;
+            
+            // Check if the table number is in the array
+            if (tableArray.includes(tableNumber)) {
+                element.classList.add('selected'); // Add the class to the table element
+            }
+            });
+        <?php }?>
 
 
     </script>
