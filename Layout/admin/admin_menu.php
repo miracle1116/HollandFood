@@ -207,6 +207,9 @@ session_start();
       $menuCategories[] = $row['menuCategory'];
     }
   }
+
+  // Remove All category
+  array_shift($menuCategories);
 ?>
 
 <!--Edit Menu Item Modal-->
@@ -462,6 +465,12 @@ session_start();
         else if($_GET["error"]=="invalidprice"){
           echo "<script>alert('Invalid Price. Only numeric values can be accepted.');</script>";
         }
+        else if($_GET["error"]=="duplicatecategory"){
+          echo "<script>alert('Category already exists.');</script>";
+        }
+        else if($_GET["error"]=="duplicate"){
+          echo "<script>alert('Menu Item already exists.');</script>";
+        }
       }
     
     ?>
@@ -547,13 +556,14 @@ session_start();
           url: '../../backend/admin/deleteMenu.php',
           method: 'POST',
           data: { menuCategoryID: menuCategoryID },
+          dataType: 'json', 
           success: function(response) {
             // Handle the response from the server
-            if (response === 'success') {
+            if (response.status === "success") {
               location.reload();
-            } else if (response === 'CategoryNotEmpty') {
+            } else if (response.status === "CategoryNotEmpty") {
               alert('Cannot delete category. Category contains items.');
-            } else {
+            } else if (response.status === "error") {
               alert('Failed to delete category');
             }
           },
@@ -562,7 +572,7 @@ session_start();
             alert('An error occurred while deleting the menucategory');
           }
         });
-        // Hide the delete confirmation modal
+
         $('#delete-category-modal').modal('hide');
       });
     });
@@ -587,10 +597,10 @@ session_start();
           url: '../../backend/admin/deleteMenu.php',
           method: 'POST',
           data: { menuID: menuID },
+          dataType: 'json', 
           success: function(response) {
             // Handle the response from the server
-            if (response === 'success') {
-              // alert('Item deleted successfully');
+            if (response.status === "success") {
               location.reload();
             } else {
               alert('Failed to delete item');
@@ -601,7 +611,7 @@ session_start();
             alert('An error occurred while deleting the item');
           }
         });
-        // Hide the delete confirmation modal
+
         $('#delete-item-modal').modal('hide');
       });
     });
