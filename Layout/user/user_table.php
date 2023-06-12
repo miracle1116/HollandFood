@@ -3,7 +3,6 @@ session_start();
 $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00','13:00-14:00',
 '14:00-15:00','15:00-16:00','16:00-17:00','17:00-18:00','18:00-19:00','19:00-20:00','20:00-21:00',
 '21:00-22:00'];
-
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +42,7 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
     <header>
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="/index2.html"><img src="/images/holland_food_icon.png"
+                <a class="navbar-brand fw-bold" href="../../index.php"><img src="../..//images/holland_food_icon.png"
                         width="35px" />
                     Holland Food</a>
                 <!-- hamburger icon when screen size become small -->
@@ -70,16 +69,24 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
                             <a class="nav-link active nav-link-underline" href="/index2.html#bookNow">Book Now</a>
                         </li>
 
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="/images/profile-icon.png" width="40" height="40" class="rounded-circle">
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="../../Layout/user/user_profile.php">Edit Profile</a>
-                                <a id="logoutBtn" class="dropdown-item" >Log Out</a>
-                              </div>
-                        </li>
+                        <?php
+                            if(isset($_SESSION["userID"])){
+                                echo"<li class='nav-item dropdown'>
+                                <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button'
+                                data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                <img src='". $_SESSION['userProfilePic']."' width='40' height='40' class='rounded-circle'>
+                                </a>
+                                <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
+                                <a class='dropdown-item' href='user_profile.php'>Edit Profile</a>
+                                <a id='logoutBtn' class='dropdown-item' >Log Out</a>
+                                </div>
+                            </li>";
+                            }else{
+                                echo"<li class='nav-item'>
+                                <a class='nav-link' href='user_sign_InOut.php'><button class='btn-sign-up'>LOGIN</button></a>
+                            </li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -140,7 +147,7 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
 
                 <div class="form-group col-lg-3 col-sm-3 col-md-3 col-3  ">
                     <label class="fw-bold label" for="noOfPax">No Of Pax:</label>
-                    <input type="number" class="form-control input input-border" id="noOfPax" placeholder="1" min="1">
+                    <input type="number" class="form-control input input-border" id="noOfPax"  min="1" value=<?php if(isset($_SESSION['noOfPax'])){echo $_SESSION['noOfPax'];}else echo 1;?>>
                 </div>
 
                 <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
@@ -304,8 +311,8 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
                     <p class="text-center">You are loging out your account!</p>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
-                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'user_table.html';">Cancel</button>
-                    <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = '/index.html';">Confirm</button>
+                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'user_table.php';">Cancel</button>
+                    <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = '../../backend/user/logout.php';">Confirm</button>
                 </div>
             </div>
         </div>
@@ -417,16 +424,15 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
         searchBtn.addEventListener("click", function(event) {
             var date = document.getElementById("date").value;
             var slot =document.getElementById("time").value;
-        //event.preventDefault(); // prevent page from reloading
-        console.log(date);
+            var pax =document.getElementById("noOfPax").value;
+            
 
         $.ajax({
                 url: '../../backend/user/selectTable.php',
                 method: 'POST',
-                data: { date: date, slot : slot },
+                data: { date: date, slot : slot  },
                 success: function(response) {
                 console.log("uhudfai");
-                confirmModal.show();
                 },
                 error: function(xhr, status, error) {
                 // Handle the error response
@@ -435,7 +441,24 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
                 }
             });
 
+            $.ajax({
+                url: '../../backend/user/setNoOfPax.php',
+                method: 'POST',
+                data: { pax:pax },
+                success: function(response) {
+                console.log("uhudfai");
+                },
+                error: function(xhr, status, error) {
+                // Handle the error response
+                console.error(error);
+                alert('An error occurred while make the reservation. Please try again.');
+                }
+            });            
+
+            console.log(pax);
+
         });
+        
         const tableDivs = document.querySelectorAll('.table-all');
         var selectedTables = [];
         <?php if (isset($_SESSION['selectedTable'])) { ?>

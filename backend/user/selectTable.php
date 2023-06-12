@@ -2,7 +2,11 @@
 
     session_start();
     include_once("../../config.php");
-    if(isset($_POST['date']) && isset($_POST['slot']) ){
+    if(isset($_POST['date']) && isset($_POST['slot'])){
+        unset($_SESSION['selectedTable']);
+        // $test =$_POST['slot1'];
+        // echo "hiashjdas";
+        // $_SESSION['noOfPax']= $test;
         $_SESSION['reservationDate']=date ('Y-m-d', strtotime($_POST['date']));
         $date =date ('Y-m-d', strtotime($_POST['date']));
         $_SESSION['slot']= $_POST['slot'];
@@ -254,6 +258,9 @@
         else{
         header("location: ../../Layout/user/user_table.php");
         }
+    }else{
+        echo "Please make sure input all the field";
     }   
+
 ?>
 
