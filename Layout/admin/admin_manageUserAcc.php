@@ -110,9 +110,7 @@
 
             <tbody>
               <tr class="userInfo">
-                <!-- <td>
-                  <img src="../../images/profilePic.png" width="50px" />
-                </td> -->
+
                 <?php
 
                 if ($result = $conn->query($sql)) {
@@ -127,17 +125,17 @@
                     $gender = $row["userGender"];
 
                     echo '<tr> 
-                <td> <img src = "../../images/'.$profilepic .'"width="50px" /> 
+                <td> <img src = "../../images/' . $profilepic . '"width="50px" /> 
                 <td>' . $userID . '</td> 
-                <td>' . $firstName . '</td> 
+                <td class = "first-name">' . $firstName . '</td> 
                 <td>' . $lastName . '</td> 
                 <td>' . $email . '</td> 
                 <td>' . $contactNo . '</td> 
                 <td>' . $birthDate . '</td> 
                 <td>' . $gender . '</td> 
                 <td>
-                <i class="editBtn fs-4 bi-pencil-square" width="20px"></i>&nbsp; <i
-                  class="deleteBtn fs-4 bi-trash"></i>
+                <i class="editBtn fs-4 bi-pencil-square" width="20px"></i>&nbsp; 
+                <i class="deleteBtn fs-4 bi-trash"></i>
               </td>';
                   }
                   $result->free();
@@ -225,12 +223,8 @@
       </div>
       <!--dataTable End-->
 
-      <?php
 
-
-      ?>
-
-      <!--Edit User Acc Modal-->
+      <!-- Edit User Acc Modal -->
       <div class="container mt-5">
         <div class="modal" id="edit-acc-modal">
           <div class="modal-dialog">
@@ -241,12 +235,13 @@
               </div>
 
               <div class="modal-body">
+
+                <input type="hidden" name="userID" id="userID" />
                 <form class="form">
                   <div class="row">
                     <div class="form-group col-lg-6 col-sm-12 mb-3">
                       <label class="form-label text-black" for="firstname">First Name</label>
-                      <input type="text" class="form-control input" id="firstname"
-                        value="<?php echo $result['userFirstName'] ?>" />
+                      <input type="text" class="first-name form-control input" id="firstname" />
                     </div>
 
                     <div class="form-group col-lg-6 col-sm-12 mb-3">
@@ -332,6 +327,29 @@
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
   <script src="../../script/adminManageUserAcc.js"></script>
+
+  <!-- <script>
+    //Edit User Profile
+    $(document).ready(function () {
+      $('.editBtn').on('click', function () {
+        var userID = $(this).data('userid');
+        $('#userID').val(userID);
+        $('#edit-acc-modal').modal('show');
+
+        const user = $(this).closest(".userInfo");
+
+        var firstName = $.trim(user.find(".first-name").text());
+        $("#edit-acc-modal .first-name").val(firstName);
+      });
+
+      $('#edit-acc-modal .primary-btn').on('click', function () {
+        var menuCategory = $("#edit-acc-modal .first-name").val();
+      });
+
+    });
+
+
+  </script> -->
 </body>
 
 </html>
