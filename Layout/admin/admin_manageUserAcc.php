@@ -41,7 +41,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="admin_menu.html" class="nav-link">
+              <a href="admin_menu.php" class="nav-link">
                 <div class="navList">
                   <i class="navIcon fs-4 bi-menu-button-wide"></i>
                   <span class="ms-1 d-none d-sm-inline">Menu</span>
@@ -100,7 +100,6 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Password</th>
                 <th scope="col">Contact No</th>
                 <th scope="col">Birth Date</th>
                 <th scope="col">Gender</th>
@@ -119,48 +118,36 @@
                 if ($result = $conn->query($sql)) {
                   while ($row = $result->fetch_assoc()) {
                     $profilepic = $row["userProfilePic"];
-                    $field1name = $row["userID"];
-                    $field2name = $row["userFirstName"];
-                    $field3name = $row["userLastName"];
-                    $field4name = $row["userEmail"];
-                    $field5name = $row["userPassword"];
-                    $field6name = $row["userContactNo"];
-                    $field7name = $row["userBirthDate"];
-                    $field8name = $row["userGender"];
+                    $userID = $row["userID"];
+                    $firstName = $row["userFirstName"];
+                    $lastName = $row["userLastName"];
+                    $email = $row["userEmail"];
+                    $contactNo = $row["userContactNo"];
+                    $birthDate = $row["userBirthDate"];
+                    $gender = $row["userGender"];
 
                     echo '<tr> 
-                <td> <img src = ' . "$profilepic" . 'width="50px" /> 
-                <td>' . $field1name . '</td> 
-                <td>' . $field2name . '</td> 
-                <td>' . $field3name . '</td> 
-                <td>' . $field4name . '</td> 
-                <td>' . $field5name . '</td> 
-                <td>' . $field6name . '</td> 
-                <td>' . $field7name . '</td> 
-                <td>' . $field8name . '</td> 
+                <td> <img src = "../../images/'.$profilepic .'"width="50px" /> 
+                <td>' . $userID . '</td> 
+                <td>' . $firstName . '</td> 
+                <td>' . $lastName . '</td> 
+                <td>' . $email . '</td> 
+                <td>' . $contactNo . '</td> 
+                <td>' . $birthDate . '</td> 
+                <td>' . $gender . '</td> 
                 <td>
                 <i class="editBtn fs-4 bi-pencil-square" width="20px"></i>&nbsp; <i
                   class="deleteBtn fs-4 bi-trash"></i>
-              </td>
-            </tr>';
+              </td>';
                   }
                   $result->free();
                 }
 
-
-
-                // <td>001</td>"
-                // <td class="firstname">Ewe</td>
-                // <td class="lastname">Yi Quan</td>
-                // <td class="email">Ewe@gmail.com</td>
-                // <td class="password">123456</td>
-                // <td class="contactnumber">011-11111111</td>
-                // <td class="date">2011-04-25</td>
-                // <td class="gender">Male</td>
                 ?>
-
               </tr>
-              <!-- <tr class="userInfo">
+            </tbody>
+
+            <!-- <tr class="userInfo">
                   <td>
                     <img src="../../images/profilePic.png" width="50px" />
                   </td>
@@ -232,13 +219,16 @@
                     >&nbsp; <i class="deleteBtn fs-4 bi-trash"></i>
                   </td>
                 </tr> -->
-            </tbody>
+
           </table>
         </div>
       </div>
       <!--dataTable End-->
 
+      <?php
 
+
+      ?>
 
       <!--Edit User Acc Modal-->
       <div class="container mt-5">
@@ -255,7 +245,8 @@
                   <div class="row">
                     <div class="form-group col-lg-6 col-sm-12 mb-3">
                       <label class="form-label text-black" for="firstname">First Name</label>
-                      <input type="text" class="form-control input" id="firstname" placeholder="John" />
+                      <input type="text" class="form-control input" id="firstname"
+                        value="<?php echo $result['userFirstName'] ?>" />
                     </div>
 
                     <div class="form-group col-lg-6 col-sm-12 mb-3">

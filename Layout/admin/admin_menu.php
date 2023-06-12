@@ -58,7 +58,7 @@ session_start();
               </a>
             </li>
             <li class="nav-item">
-              <a href="admin_manageUserAcc.html" class="nav-link">
+              <a href="admin_manageUserAcc.php" class="nav-link">
                 <div class="navList">
                   <i class="navIcon fs-4 bi-people text-center"></i>
                   <span class="ms-1 d-none d-sm-inline">Users</span>
