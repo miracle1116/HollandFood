@@ -172,7 +172,7 @@ include_once("../../config.php");
 
           <div class="table-container">
             <div class="table" id="t1">T1</div>
-            <div class="table" id="t2">T2</div>
+            <div class="table " id="t2">T2</div>
             <div class="table" id="t3">T3</div>
             <div class="table" id="t4">T4</div>
             <div class="table" id="t5">T5</div>
@@ -663,7 +663,7 @@ include_once("../../config.php");
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="../../script/adminViewTable.js"></script>
+
 
     <script>
       //arrive button
@@ -792,6 +792,7 @@ include_once("../../config.php");
     
 
     </script>
+    <script src="../../script/adminViewTable.js"></script>
 
   </body>
 </html>

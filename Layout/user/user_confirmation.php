@@ -2,9 +2,6 @@
 session_start();
 
 
-$_SESSION["tableNo"]= "5";
-$_SESSION["noOfPax"]= "6";
-$_SESSION["orderedFood"]= "1,2,3,4,5";
 $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00','13:00-14:00',
 '14:00-15:00','15:00-16:00','16:00-17:00','17:00-18:00','18:00-19:00','19:00-20:00','20:00-21:00',
 '21:00-22:00'];
@@ -186,7 +183,7 @@ include_once '../../config.php';
                         <span><i class="bi bi-clock-fill icon"></i></span>
                     </div>
                     <div class="ms-3" style="display: inline-block;">
-                        <p class=""><strong>Time:</strong></br><small><?php echo $timeSlot[$_SESSION['slot']]?></small></p>
+                        <p class=""><strong>Time:</strong></br><small><?php echo $timeSlot[$_SESSION['slot']-1]?></small></p>
                     </div>
                 </div>
 
