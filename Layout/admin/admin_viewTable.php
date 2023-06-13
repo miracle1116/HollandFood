@@ -2,6 +2,8 @@
 session_start();
 include_once("../../config.php");
 
+if(isset($_SESSION['adminEmail'])){
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +66,7 @@ include_once("../../config.php");
               id="menu"
             >
               <li class="nav-item">
-                <a href="admin_viewTable.html" class="nav-link">
+                <a href="admin_viewTable.php" class="nav-link">
                   <div class="navList">
                     <i class="navIcon fs-4 bi-table text-center text-black text-center"></i>
                     <span class="ms-1 d-none d-sm-inline text-black" style="font-weight: 500;">Tables</span>
@@ -72,7 +74,7 @@ include_once("../../config.php");
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin_menu.html" class="nav-link">
+                <a href="admin_menu.php" class="nav-link">
                   <div class="navList">
                     <i
                       class="navIcon fs-4 bi-menu-button-wide text-center text-center"
@@ -92,7 +94,7 @@ include_once("../../config.php");
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin_login.html" class="nav-link">
+                <a href="../../backend/admin/logout.php" class="nav-link">
                   <div class="navList">
                     <i
                       class="navIcon fs-4 bi-box-arrow-left text-center text-center"
@@ -796,3 +798,10 @@ include_once("../../config.php");
 
   </body>
 </html>
+<?php
+
+  }else{
+    header("location: ../../Layout/admin/admin_login.php?error=unauthorizedaccess");
+    exit();
+  }
+?>
