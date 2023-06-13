@@ -359,7 +359,7 @@ include_once '../../config.php';
         <div class=\"modal-dialog modal-confirm\">
             <div class=\"modal-content\">
             <div class=\"modal-header\">
-                <div class=\"icon-box\">
+                <div class=\"icon-box2\">
                 <i class=\"bi bi-x-lg\"></i>
                 </div>
                 <h4 class=\"modal-title w-100\">Unauthorized Access!</h4>

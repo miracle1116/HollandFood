@@ -548,6 +548,38 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
 
     </script>
 
+<?php
+        if(!isset($_SESSION["userID"])){
+        echo" <div id=\"authorized-modal\" class=\"modal fade\" data-backdrop=\"static\" data-keyboard=\"false\">
+        <div class=\"modal-dialog modal-confirm\">
+            <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <div class=\"icon-box2\">
+                <i class=\"bi bi-x-lg\"></i>
+                </div>
+                <h4 class=\"modal-title w-100\">Unauthorized Access!</h4>
+            </div>
+            <div class=\"modal-body\">
+                <p class=\"text-center\">Please Login</p>
+            </div>
+            <div class=\"modal-footer\">
+                <button id=\"okBtn\" class=\"btn2 btn-success btn-block p-2\" onclick=\"redirectToLogin()\">Confirm</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <script>
+        var modalAuthorized = new bootstrap.Modal(document.getElementById('authorized-modal'));
+        modalAuthorized.show();
+        
+        function redirectToLogin() {
+            location.href = 'user_sign_InOut.php';
+        }
+        </script>
+        ";}
+
+    ?>
+
 </body>
 
 </html>
