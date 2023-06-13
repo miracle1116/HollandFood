@@ -567,7 +567,7 @@ if(isset($_SESSION['adminEmail'])){
                               <div class="row ms-3 mt-2">
                                   <div class="col mt-2 justify-content-center">
                                       <div class="" style="display: inline-block;">
-                                          <span><i class="icon"><img src="/images/table_admin.png" width="31px"></i></span>
+                                          <span><i class="icon"><img src="../../images/table_admin.png" width="31px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class="mt-1"><strong>Table No:</strong><small><?php echo $tableNo; ?></small></p>
@@ -585,7 +585,7 @@ if(isset($_SESSION['adminEmail'])){
                               <div class="row ms-3 mt-lg-3 mt-md-2 mt-sm-1">
                                   <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center">
                                       <div class="" style="display: inline-block;">
-                                          <span><i class="icon"><img src="/images/admin-food-icon.png" width="32px"></i></span>
+                                          <span><i class="icon"><img src="../../images/admin-food-icon.png" width="32px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class="strong"><strong>Ordered Food:</strong></p>
@@ -609,7 +609,7 @@ if(isset($_SESSION['adminEmail'])){
                                                 ?>
                                                   <div class="justify-content-center px-2 mt-2">
                                                       <div class="ms-3" style="display: inline-block;">
-                                                          <span><i class="icon"><img src="/images/<?php echo $menuImage; ?>" width="40px"></i></span>
+                                                          <span><i class="icon"><img src="../../images/<?php echo $menuImage; ?>" width="40px"></i></span>
                                                       </div>
                                                       <div class="ms-2 mt-1" style="display: inline-block;">
                                                           <p class="h6 ordered-food"><strong><?php echo $menuName; ?></strong><br><small>x 1</small></p>
@@ -626,7 +626,7 @@ if(isset($_SESSION['adminEmail'])){
                                   
                                   <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center mt-2 mt-sm-2 mt-md-0 mt-lg-0">
                                       <div class="ms-1" style="display: inline-block;">
-                                          <span><i class="icon"><img src="/images/admin-notes.png" width="26px"></i></span>
+                                          <span><i class="icon"><img src="../../images/admin-notes.png" width="26px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class=""><strong>Note: </strong></p>
