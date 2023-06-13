@@ -512,6 +512,10 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
         nextToMenu.addEventListener("click", function(event) {
             var table = document.getElementById("selectedTable").innerText;
             console.log(table);
+            if(table.trim().length === 0){
+                alert("Please Select a table");
+                return;
+            }
 
         $.ajax({
                 url: '../../backend/user/parseTable.php',
