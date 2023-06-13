@@ -481,6 +481,7 @@ if(isset($_SESSION['adminEmail'])){
               $userName = $row['userFirstName'];
               $userPhoneNo = $row['userContactNo'];
               $userEmail = $row['userEmail'];
+              $userProfilePic =$row['userProfilePic'];
 
             ?>
 
@@ -538,7 +539,7 @@ if(isset($_SESSION['adminEmail'])){
                           </div>
                           <div class="modal-body">
                               <div class="text-center justify-content-center">
-                                  <img src="/images/profile-icon-blue.png" width="120px">
+                                  <img class='rounded-circle' height='100px' width='100px'src="<?php echo $userProfilePic?>" width="120px">
                               </div>
                               <div class="mt-3 d-flex align-items-center flex-column ms-10">
                                   <p><strong>Name: </strong><?php echo $userName; ?><br>
