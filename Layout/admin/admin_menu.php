@@ -2,6 +2,9 @@
 // including the database connection file
 include_once("../../config.php");
 session_start();
+
+if(isset($_SESSION['adminEmail'])){
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +45,7 @@ session_start();
           <ul class="nav nav-pills flex-column mb-sm-auto mx-auto mb-0 align-items-center align-items-sm-start"
             id="menu">
             <li class="nav-item">
-              <a href="admin_viewTable.html" class="nav-link">
+              <a href="admin_viewTable.php" class="nav-link">
                 <div class="navList">
                   <i class="navIcon fs-4 bi-table text-center"></i>
                   <span class="ms-1 d-none d-sm-inline">Tables</span>
@@ -50,7 +53,7 @@ session_start();
               </a>
             </li>
             <li class="nav-item">
-              <a href="admin_menu.html" class="nav-link">
+              <a href="admin_menu.php" class="nav-link">
                 <div class="navList">
                   <i class="navIcon fs-4 bi-menu-button-wide text-black text-center"></i>
                   <span class="ms-1 d-none d-sm-inline text-black" style="font-weight: 500;">Menu</span>
@@ -697,3 +700,10 @@ session_start();
 </body>
 
 </html>
+
+<?php
+  }else{
+    header("location: ../../Layout/admin/admin_login.php?error=unauthorizedaccess");
+    exit();
+  }
+?>

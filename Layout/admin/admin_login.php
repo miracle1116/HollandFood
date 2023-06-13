@@ -37,6 +37,9 @@
               else if($_GET["error"]=="wrongpassword"){
                 echo "<p style=\"color: red; font-size: small;\">Please re-enter your password!</p>";
               }
+              else if($_GET["error"]=="unauthorizedaccess"){
+                echo "<script>alert('Login Required.');</script>";
+              }
             }
             ?>
             <input type="submit" name="adminsubmit" value="Login" class="btn login-sub solid" onclick="validateForm(event)"/>
