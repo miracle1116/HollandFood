@@ -1,4 +1,11 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer; 
+use PHPMailer\PHPMailer\SMTP; 
+use PHPMailer\PHPMailer\Exception; 
+
+require '../../phpmailer/src/Exception.php';
+require '../../phpmailer/src/PHPMailer.php';
+require '../../phpmailer/src/SMTP.php';
 
 session_start();
 include_once("../../config.php");
@@ -28,6 +35,25 @@ $query = "INSERT INTO `reservation`(`userID`, `reservedDate`, `reservedTime`, `t
   ,?,?,?,?,?)";
 $stmt = $conn->prepare($query);
 $stmt->execute([$userID,$reservationDate,$timeSlot[$reservationTime-1],$tableNo,$noOfPax,$reservedFood,$note,"Pending"]);
+
+//send email
+$mail = new PHPMailer(true);
+$mail ->isSMTP();
+$mail ->Host='smtp.gmail.com';
+$mail ->SMTPAuth=true;
+$mail ->Username ='hollandfood13@gmail.com';
+$mail ->Password='rrmfynnwoanfskxt';
+$mail->Port=587;
+$mail->SMTPSecure ='tls';
+
+$mail->setFrom('hollandfood13@gmail.com');
+$mail->addAddress($_SESSION['userEmail']);
+$mail->isHTML(true);
+//Customized subject and body
+$mail->Subject = 'Reservation with Holland Food';
+$mail->Body = 'Reservation with Holland Food';
+
+$mail->send();
 
 //update table
 $stringTable = $_SESSION['selectedTable'];
