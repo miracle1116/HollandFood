@@ -111,7 +111,7 @@ session_start();
                             ?>
                             <tr class="userInfo">
                                 <td>
-                                    <img src="../../images/<?php echo $profilepic; ?>" width="50px" />
+                                    <img src="<?php echo $profilepic; ?>" class="rounded-circle" width="50px" height='50px'/>
                                 </td>
                                 <td><?php echo $userID; ?></td>
                                 <td class="firstname"><?php echo $firstName; ?></td>
