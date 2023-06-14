@@ -320,8 +320,22 @@ include_once '../../config.php';
         </div>
     </div>
 
+    <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-body text-center">
+                <strong>Creating reservaton...</strong>
+                <div class="spinner-border ml-auto" role="status">
+                <span class="sr-only"></span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const confirmModal = new bootstrap.Modal("#confirm-modal");
+        const loadingModal = new bootstrap.Modal("#loadingModal");
         const confirmBtn = document.querySelector(".confirm-button");
 
 
@@ -329,11 +343,13 @@ include_once '../../config.php';
             var textarea = document.getElementById("note");
             var noteText = textarea.value;
             console.log(noteText);
+            loadingModal.show();
             $.ajax({
                 url: '../../backend/user/reservation.php',
                 method: 'POST',
                 data: { note: noteText },
                 success: function(response) {
+                loadingModal.hide();
                 console.log("uhudfai");
                 confirmModal.show();
                 },
