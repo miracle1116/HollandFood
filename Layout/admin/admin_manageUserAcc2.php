@@ -111,7 +111,7 @@ session_start();
                             ?>
                             <tr class="userInfo">
                                 <td>
-                                    <img src="<?php echo $profilepic; ?>" class="rounded-circle" width="50px" height='50px'/>
+                                <img src="<?php echo $profilepic; ?>" class="rounded-circle" width="50px" height='50px'/>
                                 </td>
                                 <td><?php echo $userID; ?></td>
                                 <td class="firstname"><?php echo $firstName; ?></td>
@@ -126,11 +126,11 @@ session_start();
                                 </td>
                             </tr>
 
-                            <?php
-                                    }
+                                    <?php
                                 }
+                            }
                             ?>
-                                
+
                         </tbody>
                     </table>
                 </div>
@@ -149,18 +149,18 @@ session_start();
                             <form action="../../backend/admin/manageUserAcc.php" method="POST">
                                 <div class="modal-body">
 
-                                <input type="hidden" name="userID" id="userID" />
+                                    <input type="hidden" name="userID" id="userID" />
 
                                     <div class="row">
                                         <div class="form-group col-lg-6 col-sm-12 mb-3">
                                             <label class="form-label text-black" for="firstname">First Name</label>
-                                            <input type="text" class="form-control input" id="firstname"
-                                                placeholder="John" />
+                                            <input type="text" name="first-name" class="form-control input"
+                                                id="firstname" placeholder="John" />
                                         </div>
 
                                         <div class="form-group col-lg-6 col-sm-12 mb-3">
                                             <label class="form-label text-black" for="lastname">Last Name</label>
-                                            <input type="text" class="form-control input" id="lastname"
+                                            <input type="text" name="last-name" class="form-control input" id="lastname"
                                                 placeholder="Wick" />
                                         </div>
                                     </div>
@@ -169,14 +169,14 @@ session_start();
                                         <div class="col-lg-6 col-sm-12 mb-3">
                                             <label class="form-label text-black" for="date">Birth Date</label>
                                             <div class="input-group">
-                                                <input type="date" class="form-control input" id="date"
-                                                    aria-describedby="emailHelp" placeholder="Enter email" />
+                                                <input type="date" name="birth-date" class="form-control input"
+                                                    id="date" aria-describedby="emailHelp" placeholder="Enter email" />
                                             </div>
                                         </div>
 
                                         <div class="form-group col-lg-6 col-sm-12 mb-3">
                                             <label class="form-label text-black" for="gender">Gender</label>
-                                            <select id="gender" class="form-control form-select input">
+                                            <select id="gender" name="gender" class="form-control form-select input">
                                                 <option>Male</option>
                                                 <option>Female</option>
                                             </select>
@@ -187,13 +187,13 @@ session_start();
                                         <div class="form-group mb-3">
                                             <label class="form-label required text-black" for="contactnumber">Contact
                                                 Number</label>
-                                            <input type="text" class="form-control input" id="contactnumber"
-                                                placeholder="0123456789" />
+                                            <input type="text" name="contact-number" class="form-control input"
+                                                id="contactnumber" placeholder="0123456789" />
                                         </div>
 
                                         <div class="form-group mb-3">
                                             <label class="form-label required text-black" for="email">Email</label>
-                                            <input type="email" class="form-control input" id="email"
+                                            <input type="email" name="email" class="form-control input" id="email"
                                                 placeholder="example@gmail.com" />
                                         </div>
                                     </div>
@@ -203,7 +203,7 @@ session_start();
                                     <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">
                                         Close
                                     </button>
-                                    <button type="button" class="btn primary-btn">
+                                    <button type="submit" name="updateUser" class="btn primary-btn">
                                         Save changes
                                     </button>
                                 </div>
@@ -228,7 +228,8 @@ session_start();
                             <button type="button" class="btn secondary-btn" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button type="button" name="deleteUser" data-userid="<?php echo $userID; ?>"
+                                class="btn btn-danger">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -249,36 +250,82 @@ session_start();
     <script src="../../script/adminManageUserAcc.js"></script>
     <script>
 
-    //Edit USER ACC
-    $(document).ready(function() {
-      $('.editBtn').on('click', function() {
-        var userID = $(this).data('userid');
-        $('#userID').val(userID);
-        $('#edit-acc-modal').modal('show');
+        //Edit USER ACC
+        $(document).ready(function () {
+            $('.editBtn').on('click', function () {
+                var userID = $(this).data('userid');
+                $('#userID').val(userID);
+                $('#edit-acc-modal').modal('show');
 
-        const userAccount = $(this).closest(".userInfo");
+                const userAccount = $(this).closest(".userInfo");
 
-        const first_name = $("#edit-acc-modal #firstname");
-        first_name.val(userAccount.find(".firstname").text());
+                const first_name = $("#edit-acc-modal #firstname");
+                first_name.val(userAccount.find(".firstname").text());
 
-        const last_name = $("#edit-acc-modal #lastname");
-        last_name.val(userAccount.find(".lastname").text());
+                const last_name = $("#edit-acc-modal #lastname");
+                last_name.val(userAccount.find(".lastname").text());
 
-        const date = $("#edit-acc-modal #date");
-        date.val(userAccount.find(".date").text());
+                const date = $("#edit-acc-modal #date");
+                date.val(userAccount.find(".date").text());
 
-        const gender = $("#edit-acc-modal #gender");
-        gender.val(userAccount.find(".gender").text());
+                const gender = $("#edit-acc-modal #gender");
+                gender.val(userAccount.find(".gender").text());
 
-        const contactnumber = $("#edit-acc-modal #contactnumber");
-        contactnumber.val(userAccount.find(".contactnumber").text());
+                const contactnumber = $("#edit-acc-modal #contactnumber");
+                contactnumber.val(userAccount.find(".contactnumber").text());
 
-        const email = $("#edit-acc-modal #email");
-        email.val(userAccount.find(".email").text());
+                const email = $("#edit-acc-modal #email");
+                email.val(userAccount.find(".email").text());
+
+            });
+        });
+
+
+        //Delete USER ACCOUNT
+        $(document).ready(function () {
+            $('.deleteBtn').on('click', function () {
+                var userID = $(this).data('userid');
+                $('#delete-acc-modal .btn-danger').data('userid', userID);
+                $('#delete-acc-modal').modal('show');
+            });
+            $('button[name="deleteUser"]').on('click', function () {
+                var userID = $(this).data('userid');
+                console.log(userID);
+
+                $.ajax({
+                    url: '../../backend/admin/deleteUser.php',
+                    method: 'POST',
+                    data: { userID: userID },
+
+                    success: function (response) {
+                        console.log(response);
+                        if (response == "success") {
+                            // Refresh or update the user list after successful deletion
+                            $('#delete-acc-modal').modal('hide');
+                            location.reload();
+                        }
+                        else {
+                            // Display an error message
+                            alert("Error deleting user account.");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle error response
+                        console.log(xhr.responseText);
+                        console.log(status);
+                        console.log(error);
+
+                    },
+
+                });
+
+
+            });
 
         });
-    });
-    
+
+
+
     </script>
 </body>
 
