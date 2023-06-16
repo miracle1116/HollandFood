@@ -97,49 +97,34 @@ session_start();
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT * FROM users";
-                            if ($result = $conn->query($sql)) {
-                                while ($row = $result->fetch_assoc()) {
-                                    $profilepic = $row["userProfilePic"];
-                                    $userID = $row["userID"];
-                                    $firstName = $row["userFirstName"];
-                                    $lastName = $row["userLastName"];
-                                    $email = $row["userEmail"];
-                                    $contactNo = $row["userContactNo"];
-                                    $birthDate = $row["userBirthDate"];
-                                    $gender = $row["userGender"];
-                                    ?>
-                                    <tr class="userInfo">
-                                        <td>
-                                            <img src="../../images/<?php echo $profilepic; ?>" width="50px" />
-                                        </td>
-                                        <td>
-                                            <?php echo $userID; ?>
-                                        </td>
-                                        <td class="firstname">
-                                            <?php echo $firstName; ?>
-                                        </td>
-                                        <td class="lastname">
-                                            <?php echo $lastName; ?>
-                                        </td>
-                                        <td class="email">
-                                            <?php echo $email; ?>
-                                        </td>
-                                        <td class="contactnumber">
-                                            <?php echo $contactNo; ?>
-                                        </td>
-                                        <td class="date">
-                                            <?php echo $birthDate; ?>
-                                        </td>
-                                        <td class="gender">
-                                            <?php echo $gender; ?>
-                                        </td>
-                                        <td>
-                                            <i class="editBtn fs-4 bi-pencil-square" width="20px"
-                                                data-userid="<?php echo $userID; ?>"></i>&nbsp; <i
-                                                class="deleteBtn fs-4 bi-trash" data-userid="<?php echo $userID; ?>"></i>
-                                        </td>
-                                    </tr>
+                                $sql = "SELECT * FROM users";
+                                if ($result = $conn->query($sql)) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        $profilepic = $row["userProfilePic"];
+                                        $userID = $row["userID"];
+                                        $firstName = $row["userFirstName"];
+                                        $lastName = $row["userLastName"];
+                                        $email = $row["userEmail"];
+                                        $contactNo = $row["userContactNo"];
+                                        $birthDate = $row["userBirthDate"];
+                                        $gender = $row["userGender"];
+                            ?>
+                            <tr class="userInfo">
+                                <td>
+                                <img src="<?php echo $profilepic; ?>" class="rounded-circle" width="50px" height='50px'/>
+                                </td>
+                                <td><?php echo $userID; ?></td>
+                                <td class="firstname"><?php echo $firstName; ?></td>
+                                <td class="lastname"><?php echo $lastName; ?></td>
+                                <td class="email"><?php echo $email; ?></td>
+                                <td class="contactnumber"><?php echo $contactNo; ?></td>
+                                <td class="date"><?php echo $birthDate; ?></td>
+                                <td class="gender"><?php echo $gender; ?></td>
+                                <td>
+                                    <i class="editBtn fs-4 bi-pencil-square" width="20px" data-userid="<?php echo $userID; ?>"></i>&nbsp; <i
+                                        class="deleteBtn fs-4 bi-trash" data-userid="<?php echo $userID; ?>"></i>
+                                </td>
+                            </tr>
 
                                     <?php
                                 }

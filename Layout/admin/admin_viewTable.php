@@ -84,7 +84,7 @@ if(isset($_SESSION['adminEmail'])){
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin_manageUserAcc.php" class="nav-link">
+                <a href="admin_manageUserAcc2.php" class="nav-link">
                   <div class="navList">
                     <i
                       class="navIcon fs-4 bi-people text-center text-center"
@@ -457,7 +457,11 @@ if(isset($_SESSION['adminEmail'])){
          
 
 
-          <!-- DISPLAY WAITLIST (Status-> Pending) -->
+         
+
+
+          <!--Waitlist tab-->
+          <div id="waitList" class="reserveWaitTab" style="display: none"> <!-- DISPLAY WAITLIST (Status-> Pending) -->
           <?php
           if(isset($_POST['submit'])){
               $search = $_POST['search'];
@@ -481,54 +485,58 @@ if(isset($_SESSION['adminEmail'])){
               $userName = $row['userFirstName'];
               $userPhoneNo = $row['userContactNo'];
               $userEmail = $row['userEmail'];
+              $userProfilePic =$row['userProfilePic'];
 
             ?>
-
-          <!--Waitlist tab-->
-          <div id="waitList" class="reserveWaitTab" style="display: none">
             <section class="cover-section container">
-            <section class="section-title">
+              <section class="section-title">
                 <div class="row">
                   <div class="col-sm">
-                    <h5>T<?php echo $tableNo; ?></h5>
+                    <h5><?php echo $tableNo; ?></h5>
                   </div>
                   <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
                   <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
                 </div>
               </section>
+
               <section class="section-content hide">
-                <!-- Display reserved food items -->
                 <div class="row mt-1 ms-2">
                           Pre-ordered Items : <br />
-                          <ol>
-                <?php
-                  // echo ($reservedFood) . "<br>";
-                  $reservedFoodArr = unserialize($reservedFood);
-                  // var_dump ($reservedFoodArr);
-                  
-                  foreach ($reservedFoodArr as $itemCode => $quantity) {
-                      $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
-                      $stmt->bind_param("i", $itemCode);
-                      $stmt->execute();
-                      $result = $stmt->get_result();
-                      $row = $result->fetch_assoc();
-                      $menuName = $row['menuName'];
-
-                ?>
-                  <li><?php echo  $menuName; ?></li>
-                    
-                  <!-- close the loop -->
+                  <ol>
                   <?php
-                    }
+                    // echo ($reservedFood) . "<br>";
+                    $reservedFoodArr = unserialize($reservedFood);
+                    // var_dump ($reservedFoodArr);
+                    
+                    foreach ($reservedFoodArr as $itemCode => $quantity) {
+                        $stmt1 = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                        $stmt1->bind_param("i", $itemCode);
+                        $stmt1->execute();
+                        $result1 = $stmt1->get_result();
+                        $row1 = $result1->fetch_assoc();
+                        $menuName = $row1['menuName'];
+
                   ?>
+                    <li><?php echo  $menuName; ?></li>
+                      
+                    <!-- close the loop -->
+                    <?php
+                      }
+                    ?>
                   </ol>
                 </div>
+
                 <div class="details">
                   <p id="viewAllDetails" class="view-details" data-bs-toggle="modal" data-bs-target="#view-details-modal<?php echo $reserveID; ?>" name="viewdetails" data-reserveid="<?php echo $reserveID; ?>">view details&nbsp;<i class="bi bi-chevron-right"></i></p>
                 </div>
 
-
-                <!--View Details Modal Start-->
+                <div class="row d-flex justify-content-center ms-5">
+                  <button class="button bg-danger text-white" name = "decline" data-reserveid="<?php echo $reserveID; ?>">Decline</button>
+                  <button class="button bg-success text-white" value="<?php echo $reserveID; ?>" name = "accept" data-reserveid="<?php echo $reserveID; ?>">Accept</button>
+                </div>
+              </section>
+            </section>
+            <!-- View Details Modal Start-->
                 <div class="modal" id="view-details-modal<?php echo $reserveID; ?>">
                   <div class="modal-dialog">
                       <div class="modal-content">
@@ -538,7 +546,7 @@ if(isset($_SESSION['adminEmail'])){
                           </div>
                           <div class="modal-body">
                               <div class="text-center justify-content-center">
-                                  <img src="/images/profile-icon-blue.png" width="120px">
+                                  <img class='rounded-circle' height='100px' width='100px'src="<?php echo $userProfilePic?>" width="120px">
                               </div>
                               <div class="mt-3 d-flex align-items-center flex-column ms-10">
                                   <p><strong>Name: </strong><?php echo $userName; ?><br>
@@ -566,7 +574,7 @@ if(isset($_SESSION['adminEmail'])){
                               <div class="row ms-3 mt-2">
                                   <div class="col mt-2 justify-content-center">
                                       <div class="" style="display: inline-block;">
-                                          <span><i class="icon"><img src="/images/table_admin.png" width="31px"></i></span>
+                                          <span><i class="icon"><img src="../../images/table_admin.png" width="31px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class="mt-1"><strong>Table No:</strong><small><?php echo $tableNo; ?></small></p>
@@ -584,7 +592,7 @@ if(isset($_SESSION['adminEmail'])){
                               <div class="row ms-3 mt-lg-3 mt-md-2 mt-sm-1">
                                   <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center">
                                       <div class="" style="display: inline-block;">
-                                          <span><i class="icon"><img src="/images/admin-food-icon.png" width="32px"></i></span>
+                                          <span><i class="icon"><img src="../../images/admin-food-icon.png" width="32px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class="strong"><strong>Ordered Food:</strong></p>
@@ -597,18 +605,18 @@ if(isset($_SESSION['adminEmail'])){
                                                 <?php
                                                 
                                                   foreach ($reservedFoodArr as $itemCode => $quantity) {
-                                                      $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
-                                                      $stmt->bind_param("i", $itemCode);
-                                                      $stmt->execute();
-                                                      $result = $stmt->get_result();
-                                                      $row = $result->fetch_assoc();
-                                                      $menuName = $row['menuName'];
-                                                      $menuImage = $row['menuImage'];
+                                                      $stmt2 = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                                                      $stmt2->bind_param("i", $itemCode);
+                                                      $stmt2->execute();
+                                                      $result2 = $stmt2->get_result();
+                                                      $row2 = $result2->fetch_assoc();
+                                                      $menuName = $row2['menuName'];
+                                                      $menuImage = $row2['menuImage'];
 
                                                 ?>
                                                   <div class="justify-content-center px-2 mt-2">
                                                       <div class="ms-3" style="display: inline-block;">
-                                                          <span><i class="icon"><img src="/images/<?php echo $menuImage; ?>" width="40px"></i></span>
+                                                          <span><i class="icon"><img src="../../images/<?php echo $menuImage; ?>" width="40px"></i></span>
                                                       </div>
                                                       <div class="ms-2 mt-1" style="display: inline-block;">
                                                           <p class="h6 ordered-food"><strong><?php echo $menuName; ?></strong><br><small>x 1</small></p>
@@ -625,7 +633,7 @@ if(isset($_SESSION['adminEmail'])){
                                   
                                   <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center mt-2 mt-sm-2 mt-md-0 mt-lg-0">
                                       <div class="ms-1" style="display: inline-block;">
-                                          <span><i class="icon"><img src="/images/admin-notes.png" width="26px"></i></span>
+                                          <span><i class="icon"><img src="../../images/admin-notes.png" width="26px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class=""><strong>Note: </strong></p>
@@ -639,19 +647,14 @@ if(isset($_SESSION['adminEmail'])){
                       </div>
                   </div>
                 </div>
-            <!--View Details Modal End-->
-
-
-                <div class="row d-flex justify-content-center ms-5">
-                  <button class="button bg-danger text-white" name = "decline" data-reserveid="<?php echo $reserveID; ?>">Decline</button>
-                  <button class="button bg-success text-white" value="<?php echo $reserveID; ?>" name = "accept" data-reserveid="<?php echo $reserveID; ?>">Accept</button>
-                </div>
-              </section>
-            </section>
-          </div>
+            <!--View Details Modal End -->
           <?php
             } // end while loop
           ?>
+          </div>
+         
+          </div>
+         
 
         </div>
       </div>

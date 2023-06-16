@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$_SESSION['foodName']="";
 
 $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00','13:00-14:00',
 '14:00-15:00','15:00-16:00','16:00-17:00','17:00-18:00','18:00-19:00','19:00-20:00','20:00-21:00',
@@ -234,6 +234,7 @@ include_once '../../config.php';
                             $row = $result->fetch_assoc();
                             $menuName = $row['menuName'];
                             $menuImage = $row['menuImage'];
+                            $_SESSION['foodName']= $_SESSION['foodName']." ".$row['menuName'];
 
                     ?>
 
@@ -319,8 +320,22 @@ include_once '../../config.php';
         </div>
     </div>
 
+    <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-body text-center">
+                <strong>Creating reservaton...</strong>
+                <div class="spinner-border ml-auto" role="status">
+                <span class="sr-only"></span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const confirmModal = new bootstrap.Modal("#confirm-modal");
+        const loadingModal = new bootstrap.Modal("#loadingModal");
         const confirmBtn = document.querySelector(".confirm-button");
 
 
@@ -328,11 +343,13 @@ include_once '../../config.php';
             var textarea = document.getElementById("note");
             var noteText = textarea.value;
             console.log(noteText);
+            loadingModal.show();
             $.ajax({
                 url: '../../backend/user/reservation.php',
                 method: 'POST',
                 data: { note: noteText },
                 success: function(response) {
+                loadingModal.hide();
                 console.log("uhudfai");
                 confirmModal.show();
                 },
@@ -359,7 +376,7 @@ include_once '../../config.php';
         <div class=\"modal-dialog modal-confirm\">
             <div class=\"modal-content\">
             <div class=\"modal-header\">
-                <div class=\"icon-box\">
+                <div class=\"icon-box2\">
                 <i class=\"bi bi-x-lg\"></i>
                 </div>
                 <h4 class=\"modal-title w-100\">Unauthorized Access!</h4>

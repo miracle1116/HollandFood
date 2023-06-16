@@ -7,7 +7,7 @@
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/styles/adminLogin_style.css" />
+    <link rel="stylesheet" href="../../styles/adminLogin_style.css" />
 
     <title>Admin Login Form</title>
   </head>
