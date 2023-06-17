@@ -11,7 +11,8 @@ session_start();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Step 2: User Order Food</title>
+  <title>Browse Menu</title>
+  <link rel="shortcut icon" type="image/png" href="images/holland_food_icon.png">
 
   <!-- Bootstrap css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -82,7 +83,7 @@ session_start();
                             </li>";
                             }else{
                                 echo"<li class='nav-item'>
-                                <a class='nav-link' href='user_sign_InOut.php'><button class='btn-sign-up'>LOGIN</button></a>
+                                <a class='nav-link' href='Layout/user/user_sign_InOut.php'><button class='btn-sign-up'>LOGIN</button></a>
                             </li>";
                             }
                         ?>

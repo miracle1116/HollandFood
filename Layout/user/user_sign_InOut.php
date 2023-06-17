@@ -9,6 +9,7 @@
     ></script>
     <link rel="stylesheet"  href="../../styles/user_sign_InOut.css" />
     <title>Sign in s& Sign up Form</title>
+    <link rel="shortcut icon" type="image/png" href="../../images/holland_food_icon.png">
   </head>
   <body>
     <div class="container">
