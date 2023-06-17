@@ -97,34 +97,50 @@ session_start();
                         </thead>
                         <tbody>
                             <?php
-                                $sql = "SELECT * FROM users";
-                                if ($result = $conn->query($sql)) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        $profilepic = $row["userProfilePic"];
-                                        $userID = $row["userID"];
-                                        $firstName = $row["userFirstName"];
-                                        $lastName = $row["userLastName"];
-                                        $email = $row["userEmail"];
-                                        $contactNo = $row["userContactNo"];
-                                        $birthDate = $row["userBirthDate"];
-                                        $gender = $row["userGender"];
-                            ?>
-                            <tr class="userInfo">
-                                <td>
-                                <img src="<?php echo $profilepic; ?>" class="rounded-circle" width="50px" height='50px'/>
-                                </td>
-                                <td><?php echo $userID; ?></td>
-                                <td class="firstname"><?php echo $firstName; ?></td>
-                                <td class="lastname"><?php echo $lastName; ?></td>
-                                <td class="email"><?php echo $email; ?></td>
-                                <td class="contactnumber"><?php echo $contactNo; ?></td>
-                                <td class="date"><?php echo $birthDate; ?></td>
-                                <td class="gender"><?php echo $gender; ?></td>
-                                <td>
-                                    <i class="editBtn fs-4 bi-pencil-square" width="20px" data-userid="<?php echo $userID; ?>"></i>&nbsp; <i
-                                        class="deleteBtn fs-4 bi-trash" data-userid="<?php echo $userID; ?>"></i>
-                                </td>
-                            </tr>
+                            $sql = "SELECT * FROM users";
+                            if ($result = $conn->query($sql)) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $profilepic = $row["userProfilePic"];
+                                    $userID = $row["userID"];
+                                    $firstName = $row["userFirstName"];
+                                    $lastName = $row["userLastName"];
+                                    $email = $row["userEmail"];
+                                    $contactNo = $row["userContactNo"];
+                                    $birthDate = $row["userBirthDate"];
+                                    $gender = $row["userGender"];
+                                    ?>
+                                    <tr class="userInfo">
+                                        <td>
+                                            <img src="<?php echo $profilepic; ?>" class="rounded-circle" width="50px"
+                                                height='50px' />
+                                        </td>
+                                        <td>
+                                            <?php echo $userID; ?>
+                                        </td>
+                                        <td class="firstname">
+                                            <?php echo $firstName; ?>
+                                        </td>
+                                        <td class="lastname">
+                                            <?php echo $lastName; ?>
+                                        </td>
+                                        <td class="email">
+                                            <?php echo $email; ?>
+                                        </td>
+                                        <td class="contactnumber">
+                                            <?php echo $contactNo; ?>
+                                        </td>
+                                        <td class="date">
+                                            <?php echo $birthDate; ?>
+                                        </td>
+                                        <td class="gender">
+                                            <?php echo $gender; ?>
+                                        </td>
+                                        <td>
+                                            <i class="editBtn fs-4 bi-pencil-square" width="20px"
+                                                data-userid="<?php echo $userID; ?>"></i>&nbsp; <i
+                                                class="deleteBtn fs-4 bi-trash" data-userid="<?php echo $userID; ?>"></i>
+                                        </td>
+                                    </tr>
 
                                     <?php
                                 }
@@ -185,14 +201,14 @@ session_start();
                                     </div>
                                     <div class="row">
                                         <div class="form-group mb-3">
-                                            <label class="form-label required text-black" for="contactnumber">Contact
+                                            <label class="form-label text-black" for="contactnumber">Contact
                                                 Number</label>
                                             <input type="text" name="contact-number" class="form-control input"
                                                 id="contactnumber" placeholder="0123456789" />
                                         </div>
 
                                         <div class="form-group mb-3">
-                                            <label class="form-label required text-black" for="email">Email</label>
+                                            <label class="form-label text-black" for="email">Email</label>
                                             <input type="email" name="email" class="form-control input" id="email"
                                                 placeholder="example@gmail.com" />
                                         </div>
@@ -249,6 +265,36 @@ session_start();
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="../../script/adminManageUserAcc.js"></script>
     <script>
+
+        // Prevent empty fields
+        document.getElementById("edit-acc-modal").addEventListener("submit", function (event) {
+            // Prevent the form from submitting
+            event.preventDefault();
+
+            // Retrieve form fields
+            var firstName = document.getElementById("firstname").value;
+            var lastName = document.getElementById("lastname").value;
+            var date = document.getElementById("date").value;
+            var gender = document.getElementById("gender").value;
+            var contactNum = document.getElementById("contactnumber").value;
+            var email = document.getElementById("email").value;
+
+            // Check if any field is empty
+            if (firstName === "" || lastName === "" || date === "" || gender === "" || contactNum === "" || email === "") {
+                alert("Please fill in all fields!");
+                $('#edit-acc-modal').modal('show');
+                event.preventDefault();
+            }
+
+            // Validate contact number
+            if (isNaN(contactNum)) {
+                alert('Please enter a valid contact number.');
+                $('#edit-acc-modal').modal('show');
+                e.preventDefault();
+            }
+
+
+        });
 
         //Edit USER ACC
         $(document).ready(function () {
