@@ -78,7 +78,7 @@
                 echo "<p style=\"color: red;\">Something went wrong!</p>";
               }
               else if($_GET["error"]=="none"){
-                echo "<script>alert('Signup successful!');</script><p style=\"color: red;\">You have signed up!</p>";
+                echo "<script>alert('SignUp successful!');</script><p style=\"color: red;\">You have signed up!</p>";
               }
             }
             ?>
