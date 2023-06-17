@@ -163,7 +163,6 @@ session_start();
                         </div>
                                           
                     </div> 
-                    <!-- idk why this cannot put inside the form -->
                     <div class="container row justify-content-center  mt-5 pb-3">
                         <div class="col col-lg-4 col-md-5 col-sm-5 ">
                             <button type="button" id="deleteBtn" class="rounded-pill btn btn-md  btn-outline-danger">Delete Account</button>
@@ -262,6 +261,9 @@ session_start();
         }
         else if($_GET["error"]=="filetypeerror"){
             echo "<script>alert('You cannot upload this profile picture');</script>";
+        }
+        else if($_GET["error"]=="inputerror"){
+            echo "<script>alert('Make sure the phone number follow the format 01234567');</script>";
         }
       }
     
