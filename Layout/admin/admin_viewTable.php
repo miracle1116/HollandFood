@@ -84,7 +84,7 @@ if(isset($_SESSION['adminEmail'])){
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin_manageUserAcc.php" class="nav-link">
+                <a href="admin_manageUserAcc2.php" class="nav-link">
                   <div class="navList">
                     <i
                       class="navIcon fs-4 bi-people text-center text-center"
@@ -251,8 +251,6 @@ if(isset($_SESSION['adminEmail'])){
           <div class="row ms-1">
             <div>
               <h5><strong id="selected-time"></strong></h5>
-              <p id="noReserveFound"></p>
-              <p id="noWaitFound"></p>
             </div>
           </div>
 
@@ -355,7 +353,7 @@ if(isset($_SESSION['adminEmail'])){
                                           <span><i class="bi bi-calendar-fill icon"></i></span>
                                       </div>
                                       <div class="ms-3" style="display: inline-block;">
-                                          <p class=""><strong>Date: </strong><br><small><?php echo $reservedDate; ?></small></p>
+                                          <p class=""><strong>Date:</strong><br><small><?php echo $reservedDate; ?></small></p>
                                       </div>
                                   </div>
                                   <div class="col justify-content-center">
@@ -363,7 +361,7 @@ if(isset($_SESSION['adminEmail'])){
                                           <span><i class="ms-1 bi bi-clock-fill icon"></i></span>
                                       </div>
                                       <div class="ms-3" style="display: inline-block;">
-                                          <p class=""><strong>Time: </strong><br><small><?php echo $reservedTime; ?></small></p>
+                                          <p class=""><strong>Time:</strong><br><small><?php echo $reservedTime; ?></small></p>
                                       </div>
                                   </div>
                               </div>
@@ -391,7 +389,7 @@ if(isset($_SESSION['adminEmail'])){
                                           <span><i class="icon"><img src="../../images/admin-food-icon.png" width="32px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
-                                          <p class="strong"><strong>Ordered Food: </strong></p>
+                                          <p class="strong"><strong>Ordered Food:</strong></p>
                                       </div>
                                       <div class="orderedFood-container rounded justify-content-center me-lg-2 me-md-2 me-sm-0 div-border">
                                           <!-- ordered food -->
@@ -414,8 +412,8 @@ if(isset($_SESSION['adminEmail'])){
                                                       <div class="ms-3" style="display: inline-block;">
                                                           <span><i class="icon"><img src="../../images/<?php echo $menuImage; ?>" width="40px"></i></span>
                                                       </div>
-                                                      <div class="mt-1" style="display: inline-block;">
-                                                          <p class="ordered-food"><strong><small><?php echo $menuName; ?></small></strong><br><small>x <?php echo $quantity; ?></small></p>
+                                                      <div class="ms-2 mt-1" style="display: inline-block;">
+                                                          <p class="h6 ordered-food"><strong><?php echo $menuName; ?></strong><br><small>x 1</small></p>
                                                       </div>
                                                       <hr class="line-break">
                                                   </div>
@@ -453,14 +451,8 @@ if(isset($_SESSION['adminEmail'])){
                 </div>
               </section>
             </section>
-<<<<<<< HEAD
                       <?php
             } // end while loop
-=======
-          </div>
-          <?php
-            }
->>>>>>> adb0cebd4262f2bfec8706dba33f0d05bcf554d2
           ?>
          
           </div>
@@ -502,7 +494,7 @@ if(isset($_SESSION['adminEmail'])){
               <section class="section-title">
                 <div class="row">
                   <div class="col-sm">
-                    <h5>T<?php echo $tableNo; ?></h5>
+                    <h5><?php echo $tableNo; ?></h5>
                   </div>
                   <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
                   <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
@@ -569,7 +561,7 @@ if(isset($_SESSION['adminEmail'])){
                                           <span><i class="bi bi-calendar-fill icon"></i></span>
                                       </div>
                                       <div class="ms-3" style="display: inline-block;">
-                                          <p class=""><strong>Date: </strong><br><small><?php echo $reservedDate; ?></small></p>
+                                          <p class=""><strong>Date:</strong><br><small><?php echo $reservedDate; ?></small></p>
                                       </div>
                                   </div>
                                   <div class="col justify-content-center">
@@ -577,7 +569,7 @@ if(isset($_SESSION['adminEmail'])){
                                           <span><i class="ms-1 bi bi-clock-fill icon"></i></span>
                                       </div>
                                       <div class="ms-3" style="display: inline-block;">
-                                          <p class=""><strong>Time: </strong><br><small><?php echo $reservedTime; ?></small></p>
+                                          <p class=""><strong>Time:</strong><br><small><?php echo $reservedTime; ?></small></p>
                                       </div>
                                   </div>
                               </div>
@@ -587,7 +579,7 @@ if(isset($_SESSION['adminEmail'])){
                                           <span><i class="icon"><img src="../../images/table_admin.png" width="31px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
-                                          <p class="mt-1"><strong>Table No: </strong><small><?php echo $tableNo; ?></small></p>
+                                          <p class="mt-1"><strong>Table No:</strong><small><?php echo $tableNo; ?></small></p>
                                       </div>
                                   </div>
                                   <div class="col justify-content-center">
@@ -595,7 +587,7 @@ if(isset($_SESSION['adminEmail'])){
                                           <span><i class="bi bi-person-fill icon"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
-                                          <p class=""><strong>No of Pax: </strong><small><?php echo $paxNo; ?></small></p>
+                                          <p class=""><strong>No of Pax:</strong><small><?php echo $paxNo; ?></small></p>
                                       </div>
                                   </div>
                               </div>
@@ -605,7 +597,7 @@ if(isset($_SESSION['adminEmail'])){
                                           <span><i class="icon"><img src="../../images/admin-food-icon.png" width="32px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
-                                          <p class="strong"><strong>Ordered Food: </strong></p>
+                                          <p class="strong"><strong>Ordered Food:</strong></p>
                                       </div>
                                       <div class="orderedFood-container rounded justify-content-center me-lg-2 me-md-2 me-sm-0 div-border">
                                           <!-- ordered food -->
@@ -628,8 +620,8 @@ if(isset($_SESSION['adminEmail'])){
                                                       <div class="ms-3" style="display: inline-block;">
                                                           <span><i class="icon"><img src="../../images/<?php echo $menuImage; ?>" width="40px"></i></span>
                                                       </div>
-                                                      <div class="mt-1" style="display: inline-block;">
-                                                          <p class="ordered-food"><strong><small><?php echo $menuName; ?></small></strong><br><small>x <?php echo $quantity; ?></small></p>
+                                                      <div class="ms-2 mt-1" style="display: inline-block;">
+                                                          <p class="h6 ordered-food"><strong><?php echo $menuName; ?></strong><br><small>x 1</small></p>
                                                       </div>
                                                       <hr class="line-break">
                                                   </div>
