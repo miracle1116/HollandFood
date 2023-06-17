@@ -27,6 +27,7 @@ if(isset($_SESSION['adminEmail'])){
   <link rel="stylesheet" href="../../styles/admin_menu.css" />
 
   <title>Admin Menu</title>
+  <link rel="shortcut icon" type="image/png" href="../../images/holland_food_icon.png">
 </head>
 
 <body>

@@ -35,6 +35,7 @@ if(isset($_SESSION['adminEmail'])){
         crossorigin="anonymous"></script>
 
     <title>Admin Table</title>
+    <link rel="shortcut icon" type="image/png" href="../../images/holland_food_icon.png">
   </head>
 
   <body>
@@ -84,7 +85,7 @@ if(isset($_SESSION['adminEmail'])){
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin_manageUserAcc2.php" class="nav-link">
+                <a href="admin_manageUserAcc.php" class="nav-link">
                   <div class="navList">
                     <i
                       class="navIcon fs-4 bi-people text-center text-center"
@@ -497,7 +498,7 @@ if(isset($_SESSION['adminEmail'])){
                     <h5><?php echo $tableNo; ?></h5>
                   </div>
                   <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
-                  <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
+                  <div class="col-sm p-3"><?php echo $paxNo; ?> pax</div>
                 </div>
               </section>
 

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)) {
             echo "User details updated successfully.";
 
             // Redirect to the admin manage user page 
-            header("location:  ../../Layout/admin/admin_manageUserAcc2.php");
+            header("location:  ../../Layout/admin/admin_manageUserAcc.php");
             exit();
         } catch (Exception $e) {
             // Rollback the transaction if an error occurred

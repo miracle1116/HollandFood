@@ -41,7 +41,7 @@
             }
             ?>
             <input type="submit" name="submit" value="Login" class="btn login-sub solid"/>
-            <a><p class="forgot-password">Forgot Password</p></a>
+            
           </form>
 
           <!-- Sign up form -->

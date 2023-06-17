@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../styles/adminLogin_style.css" />
 
     <title>Admin Login Form</title>
+    <link rel="shortcut icon" type="image/png" href="../../images/holland_food_icon.png">
   </head>
   <body>
     <div class="container">

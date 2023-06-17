@@ -312,112 +312,12 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
                     <p class="text-center">You are loging out your account!</p>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
-                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'user_table.php';">Cancel</button>
+                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-bs-dismiss="modal">Cancel</button>
                     <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = '../../backend/user/logout.php';">Confirm</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- <script>
-        const searchBtn = document.getElementById("searchBtn");
-
-        searchBtn.addEventListener("click", function(event) {
-        //event.preventDefault(); // prevent page from reloading
-        // Your search code goes here
-        const tableDivs = document.querySelectorAll('.table-all');
-        const selectedTables = [];
-        // const selectedTable = document.getElementById('selectedTable');
-        // customize the array here
-        var xhttp = new XMLHttpRequest();
-
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(Number(this.responseText));
-        var borderColors = JSON.parseInt(Number(this.responseText));
-        tableDivs.forEach((div, index) => {
-            if (borderColors[index] === 1) {
-                div.classList.add('unavailable', 'disabled');
-            } else if (borderColors[index] === 0) {
-                div.classList.add('available');
-            }
-            div.addEventListener('click', () => {
-                const strongElement = div.querySelector('strong');
-                const tableId = strongElement.textContent;
-                if (selectedTables.includes(tableId)) {
-                // If the table is already selected, remove it from the array and UI
-                    const index = selectedTables.indexOf(tableId);
-                    if (index > -1) {
-                    selectedTables.splice(index, 1);
-                    }
-                div.classList.remove('selected');
-                } else if (!div.classList.contains('unavailable')) {
-                // If the table is not selected and is not unavailable, add it to the array and UI
-                    selectedTables.push(tableId);
-                    div.classList.add('selected');
-                }
-                // Update the UI with the selected table IDs
-            const selectedTablesElement = document.getElementById('selectedTable');
-            selectedTable.textContent = `Selected Table IDs: ${selectedTables.join(',')}`;
-        
-
-            });
-        });
-      }
-    };
-
-    xhttp.open("GET", "../../backend/user/selectTable.php", true);
-    xhttp.send();
-        // const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
-
-        });
-       
-
-
-        var modalLogout = new bootstrap.Modal("#logout-modal");
-        var logoutButton = document.getElementById('logoutBtn');
-        logoutButton.addEventListener("click", function () {
-        console.log(1);
-        modalLogout.show();
-         });
-
-
-    </script> -->
-
-
-<!-- <script>
-    const tableDivs = document.querySelectorAll('.table-all');
-    const selectedTable = document.getElementById('selectedTable');
-    // customize the array here
-    const borderColors = [1, 1, 0, 0, 1, 0, 0, 0, 1];
-
-    tableDivs.forEach((div, index) => {
-        if (borderColors[index] === 1) {
-            div.classList.add('unavailable', 'disabled');
-        } else if (borderColors[index] === 0) {
-            div.classList.add('available');
-        }
-        div.addEventListener('click', () => {
-            // Remove 'selected' class from all divs
-            tableDivs.forEach((div) => {
-                div.classList.remove('selected');
-            });
-            // Add 'selected' class to clicked div
-            div.classList.add('selected');
-            selectedTable.textContent = `Selected Table ID: ${div.textContent}`;
-        });
-    });
-
-    var modalLogout = new bootstrap.Modal("#logout-modal");
-    var logoutButton = document.getElementById('logoutBtn');
-    logoutButton.addEventListener("click", function () {
-    console.log(1);
-    modalLogout.show();
-     });
-
-
-</script> -->
-
 
 <script>
         const searchBtn = document.getElementById("searchBtn");
