@@ -326,7 +326,7 @@ include_once '../../config.php';
             <div class="modal-content">
             <div class="modal-body text-center">
                 <strong>Creating reservaton...</strong>
-                <div class="spinner-border ml-5 text-danger pt-5" role="status">
+                <div class="spinner-border ml-auto text-danger " role="status">
                 <span class="sr-only"></span>
                 </div>
             </div>

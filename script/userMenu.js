@@ -27,7 +27,7 @@ const menuItems = document.querySelectorAll('#menucard .col-4');
       var menuID = $(this).attr('id');
       console.log(menuID);
 
-      // Make an AJAX request to remove the item from the cart
+      // Make an AJAX request to add the item from the cart
       $.ajax({
         url: '../../backend/user/addToCart.php',
         method: 'POST',

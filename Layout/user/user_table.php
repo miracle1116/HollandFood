@@ -372,7 +372,7 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
         const borderColors = <?php echo json_encode($_SESSION['allTableAvailability'])?>;
 
         tableDivs.forEach((div, index) => {
-            if (borderColors[index] === '1') {
+            if (borderColors[index] === '1'||borderColors[index] === '2') {
                 div.classList.add('unavailable', 'disabled');
             } else if (borderColors[index] === '0') {
                 div.classList.add('available');
