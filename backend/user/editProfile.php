@@ -33,7 +33,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['userFirstName'])) {
 	    exit;
     }
     else {
-      if (!ctype_digit($contactno)) {
+      if (!ctype_digit($contactno)&& $contactno!=='-') {
          $em = "inputerror";
         header("Location: ../../Layout/user/user_profile.php?error=$em");
         exit;
