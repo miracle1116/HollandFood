@@ -5,14 +5,13 @@ include_once("../../config.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)) {
     // Retrieve the user ID and updated details from the form inputs
 
-
-        $userID = $_POST['userID'];
-        $firstname = $_POST['first-name'];
-        $lastname = $_POST['last-name'];
-        $birthdate = $_POST['birth-date'];
-        $gender = $_POST['gender'];
-        $contactnumber = $_POST['contact-number'];
-        $email = $_POST['email'];
+    $userID = $_POST['userID'];
+    $firstname = $_POST['first-name'];
+    $lastname = $_POST['last-name'];
+    $birthdate = $_POST['birth-date'];
+    $gender = $_POST['gender'];
+    $contactnumber = $_POST['contact-number'];
+    $email = $_POST['email'];
 
         try {
             // Start the transaction
@@ -38,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)) {
         }
         $conn->close();
 
-    
+
 }
 
 ?>
