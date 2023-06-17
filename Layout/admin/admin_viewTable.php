@@ -149,7 +149,7 @@ if(isset($_SESSION['adminEmail'])){
               </div>
 
               <div class="form-group col-lg-2 col-sm-2 col-md-2 col-2 text-center  ">
-                <button id="searchBtn" class="rounded-pill button-shape mt-4" type="submit">Search</button>
+                <button id="searchBtn" class="rounded-pill button-shape mt-4 searchBtn" type="submit">Search</button>
                 </div>  
             </div>
           </form>
@@ -255,6 +255,9 @@ if(isset($_SESSION['adminEmail'])){
           </div>
 
 
+
+          <!--Reservation tab-->
+          <div id="reserve" class="reserveWaitTab">
           <!-- DISPLAY RESERVATION (Status-> Approved) -->
           <?php
             if(isset($_POST['submit'])){
@@ -279,16 +282,14 @@ if(isset($_SESSION['adminEmail'])){
               $userName = $row['userFirstName'];
               $userPhoneNo = $row['userContactNo'];
               $userEmail = $row['userEmail'];
+              $userProfilePic = $row['userProfilePic'];
 
             ?>
-
-          <!--Reservation tab-->
-          <div id="reserve" class="reserveWaitTab">
             <section class="cover-section container">
               <section class="section-title">
                 <div class="row">
                   <div class="col-sm">
-                    <h5>T<?php echo $tableNo; ?></h5>
+                    <h5><?php echo $tableNo; ?></h5>
                   </div>
                   <div class="col-sm pt-3 ps-4 fw-bold"><?php echo $userName; ?></div>
                   <div class="col-sm p-3"><?php echo $paxNo; ?> persons</div>
@@ -305,12 +306,12 @@ if(isset($_SESSION['adminEmail'])){
                   // var_dump ($reservedFoodArr);
                   
                   foreach ($reservedFoodArr as $itemCode => $quantity) {
-                      $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
-                      $stmt->bind_param("i", $itemCode);
-                      $stmt->execute();
-                      $result = $stmt->get_result();
-                      $row = $result->fetch_assoc();
-                      $menuName = $row['menuName'];
+                      $stmt2 = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                      $stmt2->bind_param("i", $itemCode);
+                      $stmt2->execute();
+                      $result2 = $stmt2->get_result();
+                      $row2 = $result2->fetch_assoc();
+                      $menuName = $row2['menuName'];
 
                 ?>
                   <li><?php echo  $menuName; ?></li>
@@ -339,7 +340,7 @@ if(isset($_SESSION['adminEmail'])){
                           </div>
                           <div class="modal-body">
                               <div class="text-center justify-content-center">
-                                  <img src="/images/profile-icon-blue.png" width="120px">
+                                <img class='rounded-circle' height='100px' width='100px'src="<?php echo $userProfilePic?>" width="120px">
                               </div>
                               <div class="mt-3 d-flex align-items-center flex-column ms-10">
                                   <p><strong>Name: </strong><?php echo $userName; ?><br>
@@ -367,10 +368,10 @@ if(isset($_SESSION['adminEmail'])){
                               <div class="row ms-3 mt-2">
                                   <div class="col mt-2 justify-content-center">
                                       <div class="" style="display: inline-block;">
-                                          <span><i class="icon"><img src="/images/table_admin.png" width="31px"></i></span>
+                                          <span><i class="icon"><img src="../../images/table_admin.png" width="31px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
-                                          <p class="mt-1"><strong>Table No:</strong><small><?php echo $tableNo; ?></small></p>
+                                          <p class="mt-1"><strong>Table No: </strong><small><?php echo $tableNo; ?></small></p>
                                       </div>
                                   </div>
                                   <div class="col justify-content-center">
@@ -378,14 +379,14 @@ if(isset($_SESSION['adminEmail'])){
                                           <span><i class="bi bi-person-fill icon"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
-                                          <p class=""><strong>No of Pax:</strong><small><?php echo $paxNo; ?></small></p>
+                                          <p class=""><strong>No of Pax: </strong><small><?php echo $paxNo; ?></small></p>
                                       </div>
                                   </div>
                               </div>
                               <div class="row ms-3 mt-lg-3 mt-md-2 mt-sm-1">
                                   <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center">
                                       <div class="" style="display: inline-block;">
-                                          <span><i class="icon"><img src="/images/admin-food-icon.png" width="32px"></i></span>
+                                          <span><i class="icon"><img src="../../images/admin-food-icon.png" width="32px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class="strong"><strong>Ordered Food:</strong></p>
@@ -398,18 +399,18 @@ if(isset($_SESSION['adminEmail'])){
                                                 <?php
                                                 
                                                   foreach ($reservedFoodArr as $itemCode => $quantity) {
-                                                      $stmt = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
-                                                      $stmt->bind_param("i", $itemCode);
-                                                      $stmt->execute();
-                                                      $result = $stmt->get_result();
-                                                      $row = $result->fetch_assoc();
-                                                      $menuName = $row['menuName'];
-                                                      $menuImage = $row['menuImage'];
+                                                      $stmt3 = $conn->prepare("SELECT * FROM menu WHERE menuID=?;");
+                                                      $stmt3->bind_param("i", $itemCode);
+                                                      $stmt3->execute();
+                                                      $result3 = $stmt3->get_result();
+                                                      $row3 = $result3->fetch_assoc();
+                                                      $menuName = $row3['menuName'];
+                                                      $menuImage = $row3['menuImage'];
 
                                                 ?>
                                                   <div class="justify-content-center px-2 mt-2">
                                                       <div class="ms-3" style="display: inline-block;">
-                                                          <span><i class="icon"><img src="/images/<?php echo $menuImage; ?>" width="40px"></i></span>
+                                                          <span><i class="icon"><img src="../../images/<?php echo $menuImage; ?>" width="40px"></i></span>
                                                       </div>
                                                       <div class="ms-2 mt-1" style="display: inline-block;">
                                                           <p class="h6 ordered-food"><strong><?php echo $menuName; ?></strong><br><small>x 1</small></p>
@@ -426,7 +427,7 @@ if(isset($_SESSION['adminEmail'])){
                                   
                                   <div class="col-8 col-sm-8 col-md-6 col-lg-6 justify-content-center mt-2 mt-sm-2 mt-md-0 mt-lg-0">
                                       <div class="ms-1" style="display: inline-block;">
-                                          <span><i class="icon"><img src="/images/admin-notes.png" width="26px"></i></span>
+                                          <span><i class="icon"><img src="../../images/admin-notes.png" width="26px"></i></span>
                                       </div>
                                       <div class="ms-2" style="display: inline-block;">
                                           <p class=""><strong>Note: </strong></p>
@@ -450,11 +451,12 @@ if(isset($_SESSION['adminEmail'])){
                 </div>
               </section>
             </section>
-          </div>
-          <?php
+                      <?php
             } // end while loop
           ?>
          
+          </div>
+
 
 
          
@@ -678,17 +680,17 @@ if(isset($_SESSION['adminEmail'])){
           console.log(reserveID);
 
           $.ajax({
-            url: '../../backend/admin/deleteReservation.php',
+            url: '../../backend/admin/checkInReservation.php',
             method: 'POST',
             data: { reserveID: reserveID },
             success: function(response) {
               // Handle the response from the server
-              if (response === 'success') {
-                // alert('Item deleted successfully');
+              // if (response === 'success') {
+                alert('The table and reservation updated successfully');
                 location.reload();
-              } else {
-                alert('Failed to delete item');
-              }
+              // } else {
+              //   alert('Failed to update item');
+              // }
             },
             error: function(xhr, status, error) {
               console.log(xhr.responseText);
@@ -712,12 +714,12 @@ if(isset($_SESSION['adminEmail'])){
           data: { reserveID: reserveID },
           success: function(response) {
             // Handle the response from the server
-            if (response === 'success') {
-              // alert('Item deleted successfully');
+            // if (response === 'success') {
+              alert('Item deleted successfully');
               location.reload();
-            } else {
-              alert('Failed to delete item');
-            }
+            // } else {
+            //   alert('Failed to delete item');
+            // }
           },
           error: function(xhr, status, error) {
             console.log(xhr.responseText);
@@ -739,12 +741,12 @@ if(isset($_SESSION['adminEmail'])){
           data: { reserveID: reserveID },
           success: function(response) {
             // Handle the response from the server
-            if (response === 'success') {
-              // alert('Item deleted successfully');
+            // if (response === 'success') {
+              alert('Item deleted successfully');
               location.reload();
-            } else {
-              alert('Failed to delete item');
-            }
+            // } else {
+            //   alert('Failed to delete item');
+            // }
           },
           error: function(xhr, status, error) {
             console.log(xhr.responseText);
@@ -787,7 +789,7 @@ if(isset($_SESSION['adminEmail'])){
     tableDivs.forEach((div, index) => {
             if (borderColors[index] === '1') {
                 div.classList.add('reserved');
-            } else if (borderColors[index] === '-1') {
+            } else if (borderColors[index] === '2') {
                 div.classList.add('checkedIn');
             }
     });

@@ -345,7 +345,7 @@ color: rgba(0,0,0,1);
                                         <h4>Reservation Time: '. $reservationDate.'</h4>
                                         <h4>Table: '. $tableNo.'</h4>
                                         <h4>No of Pax: '. $noOfPax.'</h4>
-                                        <h4>Ordered Food: '. $_SESSION['foodName'].'</h4>
+                                        <h4>Ordered Food:</br> '. $_SESSION['foodName'].'</h4>
                                         <h4>Note: '. $note.'</h4>
                                     </div>
                                 </td>

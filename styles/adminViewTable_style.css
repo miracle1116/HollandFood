@@ -366,3 +366,9 @@
   color: #7994F5;
 }
 
+.searchBtn{
+  background-color: #7994F5;
+  color: #fff;
+  height: 40px;
+  width: 80px;
+}
