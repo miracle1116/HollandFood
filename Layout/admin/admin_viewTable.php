@@ -84,7 +84,7 @@ if(isset($_SESSION['adminEmail'])){
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin_manageUserAcc2.php" class="nav-link">
+                <a href="admin_manageUserAcc.php" class="nav-link">
                   <div class="navList">
                     <i
                       class="navIcon fs-4 bi-people text-center text-center"
@@ -251,6 +251,8 @@ if(isset($_SESSION['adminEmail'])){
           <div class="row ms-1">
             <div>
               <h5><strong id="selected-time"></strong></h5>
+              <p id="noReserveFound"></p>
+              <p id="noWaitFound"></p>
             </div>
           </div>
 
@@ -452,7 +454,7 @@ if(isset($_SESSION['adminEmail'])){
             </section>
           </div>
           <?php
-            } // end while loop
+            }
           ?>
          
 

@@ -43,7 +43,7 @@
             }
             ?>
             <input type="submit" name="adminsubmit" value="Login" class="btn login-sub solid" onclick="validateForm(event)"/>
-            <a><p class="forgot-password">Forgot Password</p></a>
+            <!-- <a><p class="forgot-password">Forgot Password</p></a> -->
           </form>
         </div>
       </div>
