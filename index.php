@@ -258,7 +258,7 @@
 
           </div>
           <div class="menu-more">
-            <a href="/menu" id="viewAllMenu">View All Menu</a>
+            <a href="menu.php" id="viewAllMenu">View All Menu</a>
             <img src="images/more-menu.png" alt="View More Menu" class="more-menu-icon">
           </div>
       </div>
