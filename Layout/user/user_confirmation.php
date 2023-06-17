@@ -314,7 +314,7 @@ include_once '../../config.php';
                     <p class="text-center">You are loging out your account!</p>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
-                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-dismiss="modal" onclick="location.href = 'user_confirmation.php';">Cancel</button>
+                    <button id="btn-cancel-logout" class="btn2 btn-success btn-block p-2 btn-cancel" data-bs-dismiss="modal">Cancel</button>
                     <button id="btn-confirm" class="btn2 btn-success btn-block p-2 btn-confirm" data-dismiss="modal" onclick="location.href = '../../backend/user/logout.php';">Confirm</button>
                 </div>
             </div>
