@@ -2,9 +2,6 @@
 // including the database connection file
 include_once("../../config.php");
 session_start();
-//get the cart item by session[cart][itemcode]=item quantity
-// $_SESSION['cart']['1']="6";
-// $_SESSION['cart']['3']="2";
 
 ?>
 
