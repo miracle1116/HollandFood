@@ -2,7 +2,6 @@
 // including the database connection file
 include_once("../../config.php");
 session_start();
-
 if(isset($_SESSION['adminEmail'])){
 
 ?>
@@ -24,6 +23,7 @@ if(isset($_SESSION['adminEmail'])){
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
     <title>Admin Users</title>
+    <link rel="shortcut icon" type="image/png" href="../../images/holland_food_icon.png">
 </head>
 
 <body>
@@ -68,7 +68,7 @@ if(isset($_SESSION['adminEmail'])){
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../../backend/admin/logout.php" class="nav-link">
+                            <a href="admin_login.php" class="nav-link">
                                 <div class="navList">
                                     <i class="navIcon fs-4 bi-box-arrow-left"></i>
                                     <span class="ms-1 d-none d-sm-inline">Sign out</span>
@@ -333,11 +333,9 @@ if(isset($_SESSION['adminEmail'])){
 </body>
 
 </html>
-
-
 <?php
-  }else{
+}else{
     header("location: ../../Layout/admin/admin_login.php?error=unauthorizedaccess");
     exit();
   }
-?>
+  ?>
