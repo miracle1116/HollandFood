@@ -3,7 +3,8 @@
 include_once("../../config.php");
 session_start();
 if (isset($_SESSION['adminEmail'])) {
-    ?>
+
+?>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -66,7 +67,7 @@ if (isset($_SESSION['adminEmail'])) {
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="admin_login.php" class="nav-link">
+                                <a href="../../backend/admin/logout.php" class="nav-link">
                                     <div class="navList">
                                         <i class="navIcon fs-4 bi-box-arrow-left"></i>
                                         <span class="ms-1 d-none d-sm-inline">Sign out</span>
@@ -378,7 +379,7 @@ if (isset($_SESSION['adminEmail'])) {
 
     </html>
 
-    <?php
+<?php
 } else {
     header("location: ../../Layout/admin/admin_login.php?error=unauthorizedaccess");
     exit();
