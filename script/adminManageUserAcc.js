@@ -7,47 +7,47 @@ const deleteAccountUserModal = new bootstrap.Modal("#delete-acc-modal");
 const editBtns = document.querySelectorAll(".editBtn");
 const deleteBtns = document.querySelectorAll(".deleteBtn");
 
-//EDIT BTN
-editBtns.forEach((editBtn) => {
-  editBtn.addEventListener("click", function () {
-    //selects the closest ancestor element with the class "userInfo"
-    //then assign it to 'userAccount'
-    const userAccount = editBtn.closest(".userInfo");
+// //EDIT BTN
+// editBtns.forEach((editBtn) => {
+//   editBtn.addEventListener("click", function () {
+//     //selects the closest ancestor element with the class "userInfo"
+//     //then assign it to 'userAccount'
+//     const userAccount = editBtn.closest(".userInfo");
 
-    //get the firstname variable from the edit modal (empty)
-    const first_name = document.querySelector("#edit-acc-modal #firstname");
-    //select the text content of old data and put it in the variable of edit modal (info get /)
-    first_name.value = userAccount.querySelector(".firstname").textContent;
+//     //get the firstname variable from the edit modal (empty)
+//     const first_name = document.querySelector("#edit-acc-modal #firstname");
+//     //select the text content of old data and put it in the variable of edit modal (info get /)
+//     first_name.value = userAccount.querySelector(".firstname").textContent;
 
-    //get the lastname variable from the edit modal (empty)
-    const last_name = document.querySelector("#edit-acc-modal #lastname");
-    //select the text content of old data and put it in the variable of edit modal (info get /)
-    last_name.value = userAccount.querySelector(".lastname").textContent;
+//     //get the lastname variable from the edit modal (empty)
+//     const last_name = document.querySelector("#edit-acc-modal #lastname");
+//     //select the text content of old data and put it in the variable of edit modal (info get /)
+//     last_name.value = userAccount.querySelector(".lastname").textContent;
 
-    //get the date variable from the edit modal (empty)
-    const date = document.querySelector("#edit-acc-modal #date");
-    //select the text content of old data and put it in the variable of edit modal (info get /)
-    date.value = userAccount.querySelector(".date").textContent;
+//     //get the date variable from the edit modal (empty)
+//     const date = document.querySelector("#edit-acc-modal #date");
+//     //select the text content of old data and put it in the variable of edit modal (info get /)
+//     date.value = userAccount.querySelector(".date").textContent;
 
-    //get the gender variable from the edit modal (empty)
-    const gender = document.querySelector("#edit-acc-modal #gender");
-    //select the text content of old data and put it in the variable of edit modal (info get /)
-    gender.value = userAccount.querySelector(".gender").textContent;
+//     //get the gender variable from the edit modal (empty)
+//     const gender = document.querySelector("#edit-acc-modal #gender");
+//     //select the text content of old data and put it in the variable of edit modal (info get /)
+//     gender.value = userAccount.querySelector(".gender").textContent;
 
-    //get the contact number variable from the edit modal (empty)
-    const contactnumber = document.querySelector(
-      "#edit-acc-modal #contactnumber"
-    );
-    //select the text content of old data and put it in the variable of edit modal (info get /)
-    contactnumber.value =
-      userAccount.querySelector(".contactnumber").textContent;
+//     //get the contact number variable from the edit modal (empty)
+//     const contactnumber = document.querySelector(
+//       "#edit-acc-modal #contactnumber"
+//     );
+//     //select the text content of old data and put it in the variable of edit modal (info get /)
+//     contactnumber.value =
+//       userAccount.querySelector(".contactnumber").textContent;
 
-    //get the email variable from the edit modal (empty)
-    const email = document.querySelector("#edit-acc-modal #email");
-    //select the text content of old data and put it in the variable of edit modal (info get /)
-    email.value = userAccount.querySelector(".email").textContent;
+//     //get the email variable from the edit modal (empty)
+//     const email = document.querySelector("#edit-acc-modal #email");
+//     //select the text content of old data and put it in the variable of edit modal (info get /)
+//     email.value = userAccount.querySelector(".email").textContent;
 
-    editUserAccountModal.show();
+//     editUserAccountModal.show();
 
 
     const saveBtn = document.querySelector("#edit-acc-modal .primary-btn");
