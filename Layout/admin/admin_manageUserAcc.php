@@ -269,8 +269,8 @@ if (isset($_SESSION['adminEmail'])) {
 
             // Prevent empty fields
             document.getElementById("edit-acc-modal").addEventListener("submit", function (event) {
-                // Prevent the form from submitting
-                event.preventDefault();
+                // // Prevent the form from submitting
+                // event.preventDefault();
 
                 // Retrieve form fields
                 var firstName = document.getElementById("firstname").value;
@@ -307,19 +307,19 @@ if (isset($_SESSION['adminEmail'])) {
                     const userAccount = $(this).closest(".userInfo");
 
                     const first_name = $("#edit-acc-modal #firstname");
-                    first_name.val(userAccount.find(".firstname").text());
+                    first_name.val(userAccount.find(".firstname").text().trim());   
 
                     const last_name = $("#edit-acc-modal #lastname");
-                    last_name.val(userAccount.find(".lastname").text());
+                    last_name.val(userAccount.find(".lastname").text().trim());
 
                     const date = $("#edit-acc-modal #date");
-                    date.val(userAccount.find(".date").text());
+                    date.val(userAccount.find(".date").text().trim());
 
                     const gender = $("#edit-acc-modal #gender");
-                    gender.val(userAccount.find(".gender").text());
+                    gender.val(userAccount.find(".gender").text().trim());
 
                     const contactnumber = $("#edit-acc-modal #contactnumber");
-                    contactnumber.val(userAccount.find(".contactnumber").text());
+                    contactnumber.val(userAccount.find(".contactnumber").text().trim());
 
                     const email = $("#edit-acc-modal #email");
                     email.val(userAccount.find(".email").text());
