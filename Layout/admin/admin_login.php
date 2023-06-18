@@ -32,8 +32,11 @@
               if($_GET["error"]=="emptylogininput"){
                 echo "<p style=\"color: red; font-size: small;\">Fill in all fields!</p>";
               }
-              else if($_GET["error"]=="userNotExists"){
-                echo "<p style=\"color: red; font-size: small;\">Email does not exist.</p>";
+              else if($_GET["error"]=="stmtfailed"){
+                echo "<p style=\"color: red;\">Something went wrong!</p>";
+              }
+              else if($_GET["error"]=="wrongadminemail"){
+                echo "<p style=\"color: red; font-size: small;\">Wrong Admin Email!</p>";
               }
               else if($_GET["error"]=="wrongpassword"){
                 echo "<p style=\"color: red; font-size: small;\">Please re-enter your password!</p>";

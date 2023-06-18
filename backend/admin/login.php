@@ -10,22 +10,7 @@ if(isset($_POST["adminsubmit"])){
         exit();
     }
 
-    // $sql = "SELECT * FROM admin WHERE adminEmail='$email' AND adminpassword='$password'";
-    // $result = mysqli_query($conn,$sql);
-
-    // $count = mysqli_num_rows($result);
-    // if($count==1){
-    //     $_SESSION['login']="<p class='success'>Login Successful.</p>";
-    //     header("location: ../../Layout/admin/admin_viewTable.html");
-        
-    // }else{
-    //     $_SESSION['login']="<p class='error'>Logindcdcdv.</p>";
-    //     header("location: ../../Layout/admin/admin_login.php");
-    // }
-
-
-    loginUser($conn, trim($email), trim($password));
-    echo"dfsd";
+    loginAdmin($conn, trim($email), trim($password));
 }
 else{
     header("location: ../../Layout/admin/admin_login.php");
@@ -42,20 +27,19 @@ function emptyInputLogin($email,$password){
     }
 }
 
-function loginUser($conn, $email, $password){
-   $userExists = userExists($conn, $email);
+function loginAdmin($conn, $email, $password){
+   $adminExists = adminExists($conn, $email);
 
-   if($userExists ===false){
-    header("location: ../../Layout/admin/admin_login.php?error=userNotExists");
+   if($adminExists ===false){
+    header("location: ../../Layout/admin/admin_login.php?error=wrongadminemail");
     exit();
    }
-   $hashedPwd = $userExists["adminPassword"];
-//    $checkPassword = password_verify($password,$hashedPwd);
+   $adminPassword = $adminExists["adminPassword"];
 
-   if($password===$hashedPwd){
+   if($password===$adminPassword){
     session_start();
-    $_SESSION["adminEmail"]= $userExists["adminEmail"];
-    $_SESSION["adminPassword"]= $userExists["adminPassword"];
+    $_SESSION["adminEmail"]= $adminExists["adminEmail"];
+    $_SESSION["adminPassword"]= $adminExists["adminPassword"];
     header("location: ../../Layout/admin/admin_viewTable.php");
     exit();
    }else{
@@ -64,7 +48,7 @@ function loginUser($conn, $email, $password){
    }
 }
 
-function userExists($conn, $email){
+function adminExists($conn, $email){
     $sql = "SELECT * FROM admin WHERE adminEmail=?;";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){

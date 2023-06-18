@@ -538,7 +538,7 @@ if(isset($_SESSION['adminEmail'])){
               $('#add-item-modal .primary-btn').prop('disabled', true);
           }
         });
-        $('#add-item-modal').modal('hide');
+        $('#add-item-modSal').modal('hide');
     });
 
     //Delete Menu Category
