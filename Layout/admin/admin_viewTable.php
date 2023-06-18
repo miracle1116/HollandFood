@@ -716,7 +716,7 @@ if(isset($_SESSION['adminEmail'])){
           success: function(response) {
             // Handle the response from the server
             // if (response === 'success') {
-              alert('Item deleted successfully');
+              alert('Reservation deleted successfully');
               location.reload();
             // } else {
             //   alert('Failed to delete item');
@@ -743,7 +743,7 @@ if(isset($_SESSION['adminEmail'])){
           success: function(response) {
             // Handle the response from the server
             // if (response === 'success') {
-              alert('Item deleted successfully');
+              alert('Reservation deleted successfully');
               location.reload();
             // } else {
             //   alert('Failed to delete item');
