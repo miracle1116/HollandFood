@@ -65,8 +65,7 @@ const deleteBtns = document.querySelectorAll(".deleteBtn");
       //Hide the edit user account modal
       editUserAccountModal.hide();
     });
-  });
-});
+
 
 //DELETE BTN
 deleteBtns.forEach((deleteBtn) => {

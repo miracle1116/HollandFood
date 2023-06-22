@@ -61,7 +61,7 @@
                 Life is dull without good food.
             </p>
           </div>
-          <img src="/images/admin_loginImg.png" class="image" alt="" />
+          <img src="../../images/admin_loginImg.png" class="image" alt="" />
           
         </div>
       </div>
