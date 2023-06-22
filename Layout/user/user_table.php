@@ -55,19 +55,19 @@ $timeSlot = ['8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','12:00-13:00',
                 <div class="collapse navbar-collapse " id="navbarText">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mt-3">
                         <li class="nav-item active">
-                            <a class="nav-link active nav-link-underline" aria-current="page" href="/index2.html#home">Home</a>
+                            <a class="nav-link active nav-link-underline" aria-current="page" href="/index.php#home">Home</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link nav-link-underline" href="/index2.html#aboutUs">About Us</a>
+                            <a class="nav-link nav-link-underline" href="/index.php#aboutUs">About Us</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link nav-link-underline" href="/index2.html#menu">Menu</a>
+                            <a class="nav-link nav-link-underline" href="/index.php#menu">Menu</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link active nav-link-underline" href="/index2.html#bookNow">Book Now</a>
+                            <a class="nav-link active nav-link-underline" href="/index.php#bookNow">Book Now</a>
                         </li>
 
                         <?php
